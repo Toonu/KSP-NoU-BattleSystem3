@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/MigLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Crafts.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Moderator Sheet - Database.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/MainWindow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/MainWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Iconian Air Force.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Iconian Army.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Imperial Navy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Imperial Seal x4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Imperial Seal.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractDefensiveSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractDefensiveSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractWeaponSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractWeaponSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/IDefensiveSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/IDefensiveSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/IWeaponSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/IWeaponSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,7 +56,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -87,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589895296415</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Start of the project.">
+      <created>1589897815857</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589897815857</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -99,6 +107,7 @@
     <MESSAGE value="Start of the project." />
     <option name="LAST_COMMIT_MESSAGE" value="Start of the project." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -107,6 +116,10 @@
     </state>
     <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589895498682" />
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1589890622484" />
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1589899231814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589899231814" />
     <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589894827505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -117,14 +130,14 @@
     </state>
     <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589893762056" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1589885160193" />
-    <state x="587" y="89" key="CommitChangelistDialog2" timestamp="1589895295056">
+    <state x="587" y="89" key="CommitChangelistDialog2" timestamp="1589897815035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589895295056" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1589893382313">
+    <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589898257358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589893382313" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589898257358" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589895300882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -133,6 +146,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1589893381808" />
+    <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1589899087782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589899087782" />
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1589896531266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

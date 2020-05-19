@@ -5,7 +5,13 @@ import com.NoU.Crafts.CClass;
 import com.NoU.Crafts.CSubclass;
 import com.NoU.Crafts.Craft;
 
+import java.util.SortedSet;
+
 public class Application {
+    public static int DEFAULT_YEAR;
+    public int GLOBAL_TIME = 0;
+    private SortedSet<Craft> leftSide;
+    private SortedSet<Craft> rightSide;
 
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package com.NoU.Systems;
 
+import com.NoU.Crafts.AbstractCraft;
+
 /**
  * @author Tomas Novotny
  */
