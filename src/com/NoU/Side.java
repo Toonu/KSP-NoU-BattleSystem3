@@ -1,8 +1,8 @@
-package com.NoU.Utils;
+package com.NoU;
 
 /**
  * @author Toonu
  */
 public enum Side {
-    LEFT, RIGHT;
+    LEFT, RIGHT
 }

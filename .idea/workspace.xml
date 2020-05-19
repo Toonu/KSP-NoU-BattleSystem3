@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pb162_codestyle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractDefensiveSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractWeaponSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/DefensiveSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/SystemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Buildable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/AirCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/GroundCraft.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/NavalCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/ElectronicSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/IDefensiveSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/GunSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/GunSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/WeaponSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/IWeaponSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Side.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,21 +41,37 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1c7Y3qEdO34C3O6C7h0eEsrunYk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -51,18 +98,34 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1589890622484">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1589890622484" />
-    <state x="319" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589886335920">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589894827505">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589894827505" />
     <state x="319" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1589886335920" />
-    <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589885160193">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589893762056">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589893762056" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1589885160193" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589893382313">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589893382313" />
+    <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1589893381808" />
   </component>
 </project>

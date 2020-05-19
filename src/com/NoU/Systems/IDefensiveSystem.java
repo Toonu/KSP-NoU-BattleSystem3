@@ -3,5 +3,5 @@ package com.NoU.Systems;
 /**
  * @author Toonu
  */
-public interface ElectronicSystem {
+public interface IDefensiveSystem {
 }
