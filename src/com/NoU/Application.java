@@ -1,9 +1,9 @@
 package com.NoU;
 
+import com.NoU.Crafts.AbstractCraft;
 import com.NoU.Crafts.CClass;
 import com.NoU.Crafts.CSubclass;
 import com.NoU.Crafts.Craft;
-import com.NoU.Crafts.Vehicle;
 
 public class Application {
 
@@ -11,7 +11,13 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        Craft craft = new Vehicle.Builder().setSide(Side.LEFT).setCraftProductionYear(1950).
+        Craft groundCraft = new AbstractCraft.Builder().setSide(Side.LEFT).setCraftProductionYear(1950).
                 setCClass(CClass.GROUND).setCSubclass(CSubclass.AFV).setHealth(10).buildGround();
+        Craft aircraft = new AbstractCraft.Builder().setCClass(CClass.AERIAL).setCSubclass(CSubclass.LIGHTMULTIROLE)
+                .setSide(Side.LEFT).setName("F-18").setCraftProductionYear(1990).setHealth(20).setSpeed(700)
+                .buildAerial();
+        Craft naval = new AbstractCraft.Builder().setCClass(CClass.NAVAL).setCSubclass(CSubclass.CARRIER)
+                .setSide(Side.LEFT).setName("F-18").setCraftProductionYear(1990).setHealth(200).setSpeed(20)
+                .buildAerial();
     }
 }
