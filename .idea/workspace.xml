@@ -146,19 +146,21 @@
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963912091" />
-    <state x="587" y="89" key="CommitChangelistDialog2" timestamp="1589897815035">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="418" y="23" key="CommitChangelistDialog2" timestamp="1589974783254">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
+    <state x="418" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1589974783254" />
     <state x="328" y="23" key="SettingsEditor" timestamp="1589963216822">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589898257358" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1589963216822" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589895300882">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="393" y="184" key="Vcs.Push.Dialog.v2" timestamp="1589974791067">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589895300882" />
+    <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
