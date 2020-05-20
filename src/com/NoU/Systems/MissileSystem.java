@@ -1,6 +1,6 @@
 package com.NoU.Systems;
 
-import com.NoU.Crafts.CClass;
+import com.NoU.Crafts.Theatre;
 
 import java.util.Set;
 
@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class MissileSystem extends AbstractWeaponSystem implements IWeaponSystem {
 
-    protected MissileSystem(int craftProductionYear, String name, Set<CClass> targets, double damage) {
+    protected MissileSystem(int craftProductionYear, String name, Set<Theatre> targets, double damage) {
         super(craftProductionYear, name, targets, damage);
     }
 }

@@ -1,6 +1,6 @@
 package com.NoU.Systems;
 
-import com.NoU.Crafts.CClass;
+import com.NoU.Crafts.Theatre;
 
 import java.util.Set;
 
@@ -10,7 +10,7 @@ import java.util.Set;
 public interface IWeaponSystem {
     double getDamage();
 
-    Set<CClass> getTargets();
+    Set<Theatre> getTargets();
 
     double getRange();
 }

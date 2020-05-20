@@ -1,6 +1,6 @@
 package com.NoU.Systems;
 
-import com.NoU.Crafts.CClass;
+import com.NoU.Crafts.Theatre;
 
 import java.util.Set;
 
@@ -8,10 +8,10 @@ import java.util.Set;
  * @author Tomas Novotny
  */
 public abstract class AbstractWeaponSystem extends AbstractSystem {
-    private final Set<CClass> targets;
+    private final Set<Theatre> targets;
     private final double damage;
 
-    protected AbstractWeaponSystem(int craftProductionYear, String name, Set<CClass> targets,
+    protected AbstractWeaponSystem(int craftProductionYear, String name, Set<Theatre> targets,
                                    double damage, double range) {
         super(craftProductionYear, name, range);
         this.targets = targets;
@@ -22,7 +22,7 @@ public abstract class AbstractWeaponSystem extends AbstractSystem {
         return damage;
     }
 
-    public Set<CClass> getTargets() {
+    public Set<Theatre> getTargets() {
         return targets;
     }
 }

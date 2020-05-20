@@ -11,9 +11,9 @@ import java.util.SortedMap;
  * @author Toonu
  */
 public class Vehicle extends AbstractCraft {
-    public Vehicle(CClass cClass, CSubclass cSubclass, SortedMap<Double, List<IWeaponSystem>> weapons,
-                   List<IDefensiveSystem> countermeasures, int craftProductionYear, String name, double health,
+    public Vehicle(Type type, SortedMap<Double, List<IWeaponSystem>> weapons,
+                   SortedMap<Double, List<IDefensiveSystem>> countermeasures, int craftProductionYear, String name,
                    Side side, double speed) {
-        super(cClass, cSubclass, weapons, countermeasures, craftProductionYear, name, health, side, speed);
+        super(type, weapons, countermeasures, craftProductionYear, name, side, speed);
     }
 }

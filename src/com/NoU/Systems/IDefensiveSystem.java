@@ -7,4 +7,6 @@ public interface IDefensiveSystem {
     double getProtection();
 
     SystemType getType();
+
+    double getRange();
 }

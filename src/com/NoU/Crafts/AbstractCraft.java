@@ -3,59 +3,112 @@ package com.NoU.Crafts;
 import com.NoU.Side;
 import com.NoU.Systems.IDefensiveSystem;
 import com.NoU.Systems.IWeaponSystem;
+import com.NoU.Vertex2D;
 
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.SortedMap;
 
 /**
  * @author Toonu
  */
 public abstract class AbstractCraft implements Craft {
-    private final CClass cClass;
-    private final CSubclass cSubclass;
-    private final SortedMap<Double, List<IWeaponSystem>> weapons;
-    private final List<IDefensiveSystem> countermeasures;
+    private final Type type;
+    private SortedMap<Double, List<IWeaponSystem>> weapons;
+    private SortedMap<Double, List<IDefensiveSystem>> countermeasures;
     private final int craftProductionYear;
     private final String name;
-    private final double health;
+    private double health;
     private final Side side;
     private final double speed;
 
-    private final double distanceFromMiddle = 5;
-    private final boolean isWithdrawing = false;
+    private Vertex2D position;
+    private boolean isWithdrawing = false;
     private int time;
+    private int delay = 30; // delay before firing another weapon
 
-    protected AbstractCraft(CClass cClass, CSubclass cSubclass, SortedMap<Double, List<IWeaponSystem>> weapons,
-                            List<IDefensiveSystem> countermeasures, int craftProductionYear, String name, double health,
-                            Side side, double speed) {
-        this.cClass = cClass;
-        this.cSubclass = cSubclass;
+    protected AbstractCraft(Type type, SortedMap<Double, List<IWeaponSystem>> weapons,
+                            SortedMap<Double, List<IDefensiveSystem>> countermeasures, int craftProductionYear,
+                            String name, Side side, double speed) {
+        this.type = type;
         this.weapons = weapons;
         this.countermeasures = countermeasures;
         this.craftProductionYear = craftProductionYear;
         this.name = name;
-        this.health = health;
+        this.health = type.getHealth();
         this.side = side;
         this.speed = speed;
+
+        if (side == Side.LEFT) {
+            this.position = new Vertex2D(-100, 0);
+        } else {
+            this.position = new Vertex2D(100, 0);
+        }
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s-%s %s: %s Pos: %s", type.getTheatre(), type,
+                name, health, position);
+    }
+
+    public String toShortString() {
+        return String.format("%s %s", type, name);
+    }
+
+    public String toWeaponList() {
+        return weapons.toString();
+    }
+
+    public String toCountermeasuresList() {
+        return countermeasures.toString();
+    }
+
+    public boolean removeWeapon(IWeaponSystem weaponSystem) {
+        if (weapons.get(weaponSystem.getRange()).contains(weaponSystem)) {
+            weapons.get(weaponSystem.getRange()).remove(weaponSystem);
+            //replace with removeif in the future
+
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeDefense(IDefensiveSystem defensiveSystem) {
+        if (countermeasures.get(defensiveSystem.getRange()).contains(defensiveSystem)) {
+            countermeasures.get(defensiveSystem.getRange()).remove(defensiveSystem);
+            //replace with removeif in the future
+
+            return true;
+        }
+        return false;
+    }
+
+    public boolean absorbDamage(double damage) {
+        if (health - damage > 0) {
+            health -= damage;
+            return true;
+        }
+        return false;
+    }
+
+    public void travelDistance(double distance) {
+        position.setX(position.getX() + distance);
+    }
+
+    //Getters
 
     public String getName() {
         return name;
     }
 
-    public CClass getcClass() {
-        return cClass;
+    public Theatre getCraftClassification() {
+        return type.getTheatre();
     }
 
-    public CSubclass getcSubclass() {
-        return cSubclass;
-    }
-
-    public double getDistanceFromMiddle() {
-        return distanceFromMiddle;
+    public Type getType() {
+        return type;
     }
 
     public double getHealth() {
@@ -78,42 +131,33 @@ public abstract class AbstractCraft implements Craft {
         return speed;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s-%s %s: %s %s", cClass, cSubclass, name, health, distanceFromMiddle);
+    public Vertex2D getPosition() {
+        return position;
     }
 
-    public List<IDefensiveSystem> getCountermeasures() {
-        return Collections.unmodifiableList(countermeasures);
+    public SortedMap<Double, List<IDefensiveSystem>> getCountermeasures() {
+        return Collections.unmodifiableSortedMap(countermeasures);
     }
 
-    public Map<Double, List<IWeaponSystem>> getWeapons() {
+    public SortedMap<Double, List<IWeaponSystem>> getWeapons() {
         return Collections.unmodifiableSortedMap(weapons);
     }
 
+    public boolean isWithdrawing() {
+        return isWithdrawing;
+    }
+
     public static class Builder {
-        private CClass cClass;
-        private CSubclass cSubclass;
+        private Type type;
         private SortedMap<Double, List<IWeaponSystem>> weapons;
-        private List<IDefensiveSystem> countermeasures;
+        private SortedMap<Double, List<IDefensiveSystem>> countermeasures;
         private int craftProductionYear;
         private String name;
-        private double health;
         private Side side;
         private double speed;
 
-        public Builder setCClass(CClass cClass) {
-            this.cClass = cClass;
-            return this;
-        }
-
-        public Builder setCSubclass(CSubclass cSubclass) {
-            this.cSubclass = cSubclass;
-            return this;
-        }
-
-        public Builder setHealth(double health) {
-            this.health = health;
+        public Builder setCSubclass(Type type) {
+            this.type = type;
             return this;
         }
 
@@ -137,7 +181,7 @@ public abstract class AbstractCraft implements Craft {
             return this;
         }
 
-        public Builder addCountermeasures(List<IDefensiveSystem> countermeasures) {
+        public Builder addCountermeasures(SortedMap<Double, List<IDefensiveSystem>> countermeasures) {
             this.countermeasures = countermeasures;
             return this;
         }
@@ -152,8 +196,8 @@ public abstract class AbstractCraft implements Craft {
             return this;
         }
 
-        public Builder addSystem(IDefensiveSystem system) {
-            countermeasures.add(system);
+        public Builder addCountermeasure(IDefensiveSystem system) {
+            countermeasures.get(system.getRange()).add(system);
             return this;
         }
 
@@ -171,8 +215,8 @@ public abstract class AbstractCraft implements Craft {
          * @return instance of {@link Vehicle}
          */
         public Craft buildGround() {
-            return new Vehicle(cClass, cSubclass, weapons, countermeasures, craftProductionYear, name,
-                    health, side, speed);
+            return new Vehicle(type, weapons, countermeasures, craftProductionYear, name,
+                    side, speed);
         }
 
         /**
@@ -181,8 +225,8 @@ public abstract class AbstractCraft implements Craft {
          * @return instance of {@link Vehicle}
          */
         public Craft buildAerial() {
-            return new Aircraft(cClass, cSubclass, weapons, countermeasures, craftProductionYear, name,
-                    health, side, speed);
+            return new Aircraft(type, weapons, countermeasures, craftProductionYear, name,
+                    side, speed);
         }
 
         /**
@@ -191,12 +235,11 @@ public abstract class AbstractCraft implements Craft {
          * @return instance of {@link Vehicle}
          */
         public Craft buildNaval() {
-            return new Vessel(cClass, cSubclass, weapons, countermeasures, craftProductionYear, name,
-                    health, side, speed);
+            return new Vessel(type, weapons, countermeasures, craftProductionYear, name,
+                    side, speed);
         }
     }
     public Builder newBuilder() {
         return new Builder();
     }
-
 }

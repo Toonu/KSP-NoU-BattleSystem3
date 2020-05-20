@@ -1,9 +1,8 @@
 package com.NoU.Systems;
 
-import com.NoU.Crafts.AbstractCraft;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public abstract class AbstractSystem {
     private final int craftProductionYear;
@@ -18,6 +17,10 @@ public abstract class AbstractSystem {
 
     public int getCraftProductionYear() {
         return craftProductionYear;
+    }
+
+    public double getRange() {
+        return range;
     }
 
     public String getName() {
