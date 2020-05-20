@@ -15,18 +15,18 @@ import java.util.SortedMap;
  */
 public abstract class AbstractCraft implements Craft {
     private final Type type;
-    private SortedMap<Double, List<IWeaponSystem>> weapons;
-    private SortedMap<Double, List<IDefensiveSystem>> countermeasures;
+    private final SortedMap<Double, List<IWeaponSystem>> weapons;
+    private final SortedMap<Double, List<IDefensiveSystem>> countermeasures;
     private final int craftProductionYear;
     private final String name;
     private double health;
     private final Side side;
     private final double speed;
 
-    private Vertex2D position;
-    private boolean isWithdrawing = false;
+    private final Vertex2D position;
+    private final boolean isWithdrawing = false;
     private int time;
-    private int delay = 30; // delay before firing another weapon
+    private final int delay = 30; // delay before firing another weapon
 
     protected AbstractCraft(Type type, SortedMap<Double, List<IWeaponSystem>> weapons,
                             SortedMap<Double, List<IDefensiveSystem>> countermeasures, int craftProductionYear,
@@ -68,8 +68,6 @@ public abstract class AbstractCraft implements Craft {
     public boolean removeWeapon(IWeaponSystem weaponSystem) {
         if (weapons.get(weaponSystem.getRange()).contains(weaponSystem)) {
             weapons.get(weaponSystem.getRange()).remove(weaponSystem);
-            //replace with removeif in the future
-
             return true;
         }
         return false;
@@ -78,8 +76,6 @@ public abstract class AbstractCraft implements Craft {
     public boolean removeDefense(IDefensiveSystem defensiveSystem) {
         if (countermeasures.get(defensiveSystem.getRange()).contains(defensiveSystem)) {
             countermeasures.get(defensiveSystem.getRange()).remove(defensiveSystem);
-            //replace with removeif in the future
-
             return true;
         }
         return false;

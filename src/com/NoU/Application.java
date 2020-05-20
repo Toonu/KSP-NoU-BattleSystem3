@@ -12,6 +12,8 @@ public class Application {
     private SortedSet<Craft> leftSide;
     private SortedSet<Craft> rightSide;
 
+    Battle b = new Battle();
+
 
     public static void main(String[] args) {
         System.out.println("Hello world!");
