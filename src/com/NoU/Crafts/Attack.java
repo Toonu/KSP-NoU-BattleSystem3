@@ -4,7 +4,7 @@ import com.NoU.Systems.MovableWeapon;
 import com.NoU.Vertex2D;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public class Attack {
     private final MovableWeapon weapon;

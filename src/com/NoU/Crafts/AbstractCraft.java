@@ -3,6 +3,7 @@ package com.NoU.Crafts;
 import com.NoU.Side;
 import com.NoU.Systems.IDefensiveSystem;
 import com.NoU.Systems.IWeaponSystem;
+import com.NoU.Systems.Years;
 import com.NoU.Vertex2D;
 
 import java.nio.file.Path;
@@ -17,7 +18,7 @@ public abstract class AbstractCraft implements Craft {
     private final Type type;
     private final SortedMap<Double, List<IWeaponSystem>> weapons;
     private final SortedMap<Double, List<IDefensiveSystem>> countermeasures;
-    private final int craftProductionYear;
+    private final Years craftProductionYear;
     private final String name;
     private double health;
     private final Side side;
@@ -29,7 +30,7 @@ public abstract class AbstractCraft implements Craft {
     private final int delay = 30; // delay before firing another weapon
 
     protected AbstractCraft(Type type, SortedMap<Double, List<IWeaponSystem>> weapons,
-                            SortedMap<Double, List<IDefensiveSystem>> countermeasures, int craftProductionYear,
+                            SortedMap<Double, List<IDefensiveSystem>> countermeasures, Years craftProductionYear,
                             String name, Side side, double speed) {
         this.type = type;
         this.weapons = weapons;
@@ -74,8 +75,8 @@ public abstract class AbstractCraft implements Craft {
     }
 
     public boolean removeDefense(IDefensiveSystem defensiveSystem) {
-        if (countermeasures.get(defensiveSystem.getRange()).contains(defensiveSystem)) {
-            countermeasures.get(defensiveSystem.getRange()).remove(defensiveSystem);
+        if (countermeasures.get(defensiveSystem.getMaxRange()).contains(defensiveSystem)) {
+            countermeasures.get(defensiveSystem.getMaxRange()).remove(defensiveSystem);
             return true;
         }
         return false;
@@ -111,7 +112,7 @@ public abstract class AbstractCraft implements Craft {
         return health;
     }
 
-    public int getCraftProductionYear() {
+    public Years getCraftProductionYear() {
         return craftProductionYear;
     }
 
@@ -147,7 +148,7 @@ public abstract class AbstractCraft implements Craft {
         private Type type;
         private SortedMap<Double, List<IWeaponSystem>> weapons;
         private SortedMap<Double, List<IDefensiveSystem>> countermeasures;
-        private int craftProductionYear;
+        private Years craftProductionYear;
         private String name;
         private Side side;
         private double speed;
@@ -172,7 +173,7 @@ public abstract class AbstractCraft implements Craft {
             return this;
         }
 
-        public Builder setCraftProductionYear(int craftProductionYear) {
+        public Builder setCraftProductionYear(Years craftProductionYear) {
             this.craftProductionYear = craftProductionYear;
             return this;
         }
@@ -193,7 +194,7 @@ public abstract class AbstractCraft implements Craft {
         }
 
         public Builder addCountermeasure(IDefensiveSystem system) {
-            countermeasures.get(system.getRange()).add(system);
+            countermeasures.get(system.getMaxRange()).add(system);
             return this;
         }
 

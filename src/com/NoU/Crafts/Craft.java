@@ -3,13 +3,14 @@ package com.NoU.Crafts;
 import com.NoU.Side;
 import com.NoU.Systems.IDefensiveSystem;
 import com.NoU.Systems.IWeaponSystem;
+import com.NoU.Systems.Years;
 import com.NoU.Vertex2D;
 
 import java.util.List;
 import java.util.SortedMap;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public interface Craft {
 
@@ -23,7 +24,7 @@ public interface Craft {
 
     double getHealth();
 
-    int getCraftProductionYear();
+    Years getCraftProductionYear();
 
     int getTime();
 
