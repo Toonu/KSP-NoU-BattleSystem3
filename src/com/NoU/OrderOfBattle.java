@@ -1,7 +1,7 @@
 package com.NoU;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public class OrderOfBattle {
 

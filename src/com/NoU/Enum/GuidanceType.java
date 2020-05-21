@@ -1,8 +1,8 @@
-package com.NoU.Systems;
+package com.NoU.Enum;
 
 /**
  * @author Tomas Novotny
  */
-public enum Guidance {
+public enum GuidanceType {
     IR, RADAR, LASER, GPS
 }

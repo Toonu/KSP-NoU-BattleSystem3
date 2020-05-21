@@ -4,7 +4,7 @@ package com.NoU;
 import java.util.Objects;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public class Vertex2D {
     private double x;

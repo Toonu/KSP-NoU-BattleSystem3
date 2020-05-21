@@ -1,18 +1,18 @@
-package com.NoU.Crafts;
+package com.NoU;
 
-import com.NoU.Systems.MovableWeapon;
-import com.NoU.Vertex2D;
+import com.NoU.Crafts.Craft;
+import com.NoU.Systems.Missile;
 
 /**
  * @author Toonu
  */
 public class Attack {
-    private final MovableWeapon weapon;
+    private final Missile weapon;
     private final Craft origin;
     private final Craft target;
     private Vertex2D position;
 
-    public Attack(MovableWeapon weapon, Craft origin, Craft target) {
+    public Attack(Missile weapon, Craft origin, Craft target) {
         this.weapon = weapon;
         this.origin = origin;
         this.position = origin.getPosition();
@@ -31,7 +31,7 @@ public class Attack {
         return target;
     }
 
-    public MovableWeapon getWeapon() {
+    public Missile getWeapon() {
         return weapon;
     }
 

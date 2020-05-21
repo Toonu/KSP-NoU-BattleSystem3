@@ -1,4 +1,4 @@
-package com.NoU.Crafts;
+package com.NoU.Enum;
 
 /**
  * @author Toonu
@@ -12,8 +12,8 @@ public enum Type {
     DESTROYER(1000, Theatre.NAVAL), CRUISER(1200, Theatre.NAVAL), BATTLECRUISER(1500, Theatre.NAVAL),
     BATTLESHIP(2000, Theatre.NAVAL), LIGHTCARRIER(1600, Theatre.NAVAL), CARRIER(2500, Theatre.NAVAL);
 
-    private double health;
-    private Theatre theatre;
+    private final double health;
+    private final Theatre theatre;
 
     Type(double health, Theatre classification) {
         this.health = health;

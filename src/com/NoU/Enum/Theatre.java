@@ -1,4 +1,4 @@
-package com.NoU.Crafts;
+package com.NoU.Enum;
 
 /**
  * @author Toonu

@@ -1,26 +1,30 @@
 package com.NoU.Systems;
 
+import com.NoU.Enum.Age;
 
 /**
  * @author Toonu
  */
-public abstract class AbstractSystem {
-    private final int craftProductionYear;
-    private final String name;
+public class AbstractSystem {
+    private final double strength;
     private final double maxRange;
     private final double minRange;
-    private Years years;
+    private final Age age;
 
-    protected AbstractSystem(int craftProductionYear, String name, double maxRange, double minRange, Years years) {
-        this.craftProductionYear = craftProductionYear;
-        this.name = name;
+
+    public AbstractSystem(double strength, double maxRange, double minRange, Age age) {
+        this.strength = strength;
         this.maxRange = maxRange;
         this.minRange = minRange;
-        this.years = years;
+        this.age = age;
     }
 
-    public int getCraftProductionYear() {
-        return craftProductionYear;
+    public double getStrength() {
+        return strength;
+    }
+
+    public Age getAge() {
+        return age;
     }
 
     public double getMaxRange() {
@@ -30,9 +34,4 @@ public abstract class AbstractSystem {
     public double getMinRange() {
         return minRange;
     }
-
-    public String getName() {
-        return name;
-    }
-
 }
