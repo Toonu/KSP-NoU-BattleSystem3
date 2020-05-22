@@ -5,6 +5,7 @@ package com.NoU.Enum;
  * <p>
  * Enum representing classes and subclasses of all crafts.
  */
+@SuppressWarnings("ALL")
 public enum Type {
     APC(100, Theatre.GROUND), IFV(125, Theatre.GROUND), AFV(160, Theatre.GROUND),
     MBT(200, Theatre.GROUND), SAM(100, Theatre.GROUND), SPAAG(80, Theatre.GROUND),

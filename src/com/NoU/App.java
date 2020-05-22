@@ -22,9 +22,9 @@ import java.util.Set;
  */
 public class App {
     public static boolean DEBUG = false;
-    public static Era DEFAULT_YEAR = Era.Era1950;
-    public static Vertex2D SPAWN_A = new Vertex2D(-100, 0);
-    public static Vertex2D SPAWN_B = new Vertex2D(100, 0);
+    public static final Era DEFAULT_YEAR = Era.Era1950;
+    public static final Vertex2D SPAWN_A = new Vertex2D(-100, 0);
+    public static final Vertex2D SPAWN_B = new Vertex2D(100, 0);
     public static int GLOBAL_TIME = 0;
 
     BattleSecond b = new BattleSecond();
@@ -71,6 +71,6 @@ public class App {
 
         System.out.println(newSet);
 
-        WriterReader.loadFile(Paths.get("Database.csv"));
+        newSet = WriterReader.loadFile(Paths.get("Database.csv"));
     }
 }

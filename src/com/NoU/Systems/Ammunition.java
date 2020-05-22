@@ -20,4 +20,8 @@ public class Ammunition implements Serializable {
     public Ammunition(double speed, double bulletMass, double calibre) {
         this.penetration = (16f * speed * Math.sqrt(bulletMass / 1000) / Math.sqrt(calibre));
     }
+
+    public double getPenetration() {
+        return penetration;
+    }
 }

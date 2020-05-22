@@ -44,6 +44,7 @@ public class WriterReader {
 
     public static Set<Craft> load() {
         Set<Craft> crafts = new HashSet<>();
+        //noinspection SpellCheckingInspection
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File("savefile.txt")))) {
             int counter = 0;
             try {
@@ -113,9 +114,6 @@ public class WriterReader {
                     Type type;
                     String subclass = lines[23] + lines[24] + lines[25];
                     switch (subclass) {
-                        case "APC":
-                            type = Type.APC;
-                            break;
                         case "IFV / LT":
                             type = Type.IFV;
                             break;
@@ -137,7 +135,7 @@ public class WriterReader {
                         case "Heavy Airframe":
                             type = Type.HEAVYMULTIROLE;
                             break;
-                        case "Large AIrframe":
+                        case "Large Airframe":
                             type = Type.LARGEAIRFRAME;
                             break;
                         case "Very Large Airframe":
@@ -186,6 +184,6 @@ public class WriterReader {
         } catch (IOException e) {
             System.out.println("X");
         }
-        return null;
+        return crafts;
     }
 }

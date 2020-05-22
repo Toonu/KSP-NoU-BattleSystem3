@@ -5,6 +5,7 @@ package com.NoU.Enum;
  * <p>
  * Enum representing area of operations for crafts.
  */
+@SuppressWarnings("SpellCheckingInspection")
 public enum Theatre {
     GROUND(" GRND"), AERIAL("  AIR"), NAVAL("NAVAL"), SPACE("SPACE");
 
