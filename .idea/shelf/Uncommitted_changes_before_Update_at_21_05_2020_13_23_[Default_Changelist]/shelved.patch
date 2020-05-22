@@ -1,0 +1,104 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/com/NoU/Crafts/Attack.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/com/NoU/Systems/ArmorSystem.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/com/NoU/Systems/MovableWeapon.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Battle Simulator 3.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Battle Simulator 3.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Application.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Application.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Battle.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Battle.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Systems/DefensiveSystem.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Systems/CountermeasureSystem.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1c7Y3qEdO34C3O6C7h0eEsrunYk\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\r\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"project.propVCSSupport.Mappings\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.NoU.Main\" />\r\n      <module name=\"Battle Simulator 3\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"file://$PROJECT_DIR$\" />\r\n      <RunnerSettings RunnerId=\"Run\" />\r\n      <ConfigurationWrapper RunnerId=\"Run\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1589880902064</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1589880902064</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Start of the project.\">\r\n      <created>1589895296415</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1589895296415</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Start of the project.\">\r\n      <created>1589897815857</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1589897815857</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$/KSP-NoU-BattleSystem3\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"Start of the project.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Start of the project.\" />\r\n    <option name=\"OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n    <option name=\"REFORMAT_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n    <option name=\"REARRANGE_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"442\" y=\"71\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1589972268822\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"621\" y=\"73\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589895498682\" />\r\n    <state x=\"442\" y=\"71\" key=\"#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681\" timestamp=\"1589972268822\" />\r\n    <state x=\"689\" y=\"310\" key=\"#com.intellij.ide.util.TreeFileChooserDialog\" timestamp=\"1589899231814\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"689\" y=\"310\" key=\"#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589899231814\" />\r\n    <state x=\"535\" y=\"259\" key=\"#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog\" timestamp=\"1589963245529\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"535\" y=\"259\" key=\"#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681\" timestamp=\"1589963245529\" />\r\n    <state x=\"170\" y=\"23\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1589973824626\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"448\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589894827505\" />\r\n    <state x=\"170\" y=\"23\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681\" timestamp=\"1589973824626\" />\r\n    <state x=\"592\" y=\"144\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog\" timestamp=\"1589893762056\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"592\" y=\"144\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589893762056\" />\r\n    <state x=\"421\" y=\"117\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681\" timestamp=\"1589885160193\" />\r\n    <state x=\"421\" y=\"117\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog\" timestamp=\"1589963912091\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"421\" y=\"117\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681\" timestamp=\"1589963912091\" />\r\n    <state x=\"418\" y=\"23\" key=\"CommitChangelistDialog2\" timestamp=\"1589974783254\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"587\" y=\"89\" key=\"CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589897815035\" />\r\n    <state x=\"418\" y=\"23\" key=\"CommitChangelistDialog2/0.23.1366.681@0.23.1366.681\" timestamp=\"1589974783254\" />\r\n    <state x=\"740\" y=\"275\" key=\"FileChooserDialogImpl\" timestamp=\"1589975176555\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"740\" y=\"275\" key=\"FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589975176555\" />\r\n    <state x=\"461\" y=\"165\" key=\"SettingsEditor\" timestamp=\"1589975210174\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"461\" y=\"165\" key=\"SettingsEditor/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589975210174\" />\r\n    <state x=\"328\" y=\"23\" key=\"SettingsEditor/0.23.1366.681@0.23.1366.681\" timestamp=\"1589963216822\" />\r\n    <state x=\"393\" y=\"184\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1589974791067\">\r\n      <screen x=\"0\" y=\"23\" width=\"1366\" height=\"681\" />\r\n    </state>\r\n    <state x=\"552\" y=\"253\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589895300882\" />\r\n    <state x=\"393\" y=\"184\" key=\"Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681\" timestamp=\"1589974791067\" />\r\n    <state x=\"685\" y=\"482\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD\" timestamp=\"1589893381808\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"685\" y=\"482\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589893381808\" />\r\n    <state x=\"730\" y=\"400\" key=\"com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog\" timestamp=\"1589899087782\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"730\" y=\"400\" key=\"com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589899087782\" />\r\n    <state x=\"755\" y=\"267\" key=\"refactoring.ChangeSignatureDialog\" timestamp=\"1589896531266\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"755\" y=\"267\" key=\"refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1589896531266\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 43ec8f36360ca18e59704ba68a4d09724b449c27)
++++ .idea/workspace.xml	(date 1590060207841)
+@@ -2,17 +2,7 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Attack.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/ArmorSystem.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/MovableWeapon.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Application.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Battle.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/DefensiveSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/CountermeasureSystem.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -52,7 +42,7 @@
+     <property name="project.structure.last.edited" value="Project" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.2" />
+-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
++    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+   </component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+@@ -91,7 +81,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1589897815857</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Progress.">
++      <created>1589982460334</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1589982460334</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -101,7 +98,8 @@
+       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
+     </ignored-roots>
+     <MESSAGE value="Start of the project." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Start of the project." />
++    <MESSAGE value="Progress." />
++    <option name="LAST_COMMIT_MESSAGE" value="Progress." />
+     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+@@ -134,29 +132,33 @@
+       <screen x="0" y="23" width="1366" height="681" />
+     </state>
+     <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963912091" />
+-    <state x="418" y="23" key="CommitChangelistDialog2" timestamp="1589974783254">
+-      <screen x="0" y="23" width="1366" height="681" />
++    <state x="587" y="89" key="CommitChangelistDialog2" timestamp="1590060046885">
++      <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
++    <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590060046885" />
+     <state x="418" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1589974783254" />
+     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589975176555">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589975176555" />
+-    <state x="461" y="165" key="SettingsEditor" timestamp="1589975210174">
++    <state x="461" y="165" key="SettingsEditor" timestamp="1590060031256">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589975210174" />
++    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590060031256" />
+     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1589963216822" />
+-    <state x="393" y="184" key="Vcs.Push.Dialog.v2" timestamp="1589974791067">
+-      <screen x="0" y="23" width="1366" height="681" />
++    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589982464670">
++      <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589895300882" />
++    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589982464670" />
+     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
+     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1589893381808" />
++    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590060207190">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590060207190" />
+     <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1589899087782">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
