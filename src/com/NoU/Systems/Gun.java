@@ -1,8 +1,9 @@
 package com.NoU.Systems;
 
-import com.NoU.Enum.Age;
+import com.NoU.Enum.Era;
 import com.NoU.Enum.Theatre;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Set;
  * <p>
  * Class representing gun and its properities.
  */
-public class Gun extends Weapon {
+public class Gun extends Weapon implements Serializable {
     private final Ammunition ammunition;
     private int ammoBox = 36;
 
@@ -21,13 +22,13 @@ public class Gun extends Weapon {
      * @param maxRange   double maximal range of system.
      * @param minRange   double minimal range of system.
      * @param name       String name of the system.
-     * @param age        Age enum of era of the system.
+     * @param era        Era enum of era of the system.
      * @param targets    Set of Theatre objects targetable by the system.
      * @param ammunition Ammunition object representing projectiles of this weapon.
      */
-    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age,
+    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                Ammunition ammunition) {
-        super(damage, minRange, maxRange, targets, name, age);
+        super(damage, minRange, maxRange, targets, name, era);
         this.ammunition = ammunition;
     }
 
@@ -38,14 +39,14 @@ public class Gun extends Weapon {
      * @param maxRange   double maximal range of system.
      * @param minRange   double minimal range of system.
      * @param name       String name of the system.
-     * @param age        Age enum of era of the system.
+     * @param era        Era enum of era of the system.
      * @param targets    Set of Theatre objects targetable by the system.
      * @param ammunition Ammunition object representing projectiles of this weapon.
      * @param ammo       int of amount of ammunition of the system.
      */
-    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age,
+    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                Ammunition ammunition, int ammo) {
-        this(damage, minRange, maxRange, targets, name, age, ammunition);
+        this(damage, minRange, maxRange, targets, name, era, ammunition);
         ammoBox = ammo;
     }
 

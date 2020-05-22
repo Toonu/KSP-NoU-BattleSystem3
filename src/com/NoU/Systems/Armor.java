@@ -2,6 +2,7 @@ package com.NoU.Systems;
 
 import com.NoU.Enum.ArmorSide;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
  * <p>
  * Armor is representing Armor layout of craft.
  */
-public class Armor {
+public class Armor implements Serializable {
     private final EnumMap<ArmorSide, Double> armor = new EnumMap<>(ArmorSide.class);
     private final EnumMap<ArmorSide, Integer> penetrated = new EnumMap<>(ArmorSide.class);
 

@@ -1,11 +1,13 @@
 package com.NoU.Systems;
 
+import java.io.Serializable;
+
 /**
  * @author Toonu
  * <p>
  * Class representing radar system and its atributes.
  */
-public class Radar {
+public class Radar implements Serializable {
     private final double radarRange;
     private boolean radarActive = true;
 

@@ -2,16 +2,16 @@ package com.NoU.Enum;
 
 /**
  * @author Toonu
- *
+ * <p>
  * Enum to represent Eras and their modifiers to the craft's effectivity.
  */
-public enum Age {
-    X1950(1), X1960(1.2), X1970(1.4), X1980(1.6), X1990(1.8), X2000(2),
-    X2010(2.2), X2020(2.5);
+public enum Era {
+    Era1950(1), Era1960(1.2), Era1970(1.4), Era1980(1.6), Era1990(1.8), Era2000(2),
+    Era2010(2.2), Era2020(2.5);
 
     private final double modifier;
 
-    Age(double modifier) {
+    Era(double modifier) {
         this.modifier = modifier;
     }
 

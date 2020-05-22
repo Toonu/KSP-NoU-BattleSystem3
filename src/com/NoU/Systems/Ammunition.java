@@ -1,11 +1,13 @@
 package com.NoU.Systems;
 
+import java.io.Serializable;
+
 /**
  * @author Toonu
  * <p>
  * Class representing ammunition type for gun objects and their penetration value.
  */
-public class Ammunition {
+public class Ammunition implements Serializable {
     private final double penetration;
 
     /**

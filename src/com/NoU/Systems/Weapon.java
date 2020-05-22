@@ -1,8 +1,9 @@
 package com.NoU.Systems;
 
-import com.NoU.Enum.Age;
+import com.NoU.Enum.Era;
 import com.NoU.Enum.Theatre;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
  * <p>
  * Class simulating Weapon and its targetable types.
  */
-public class Weapon extends AbstractSystem {
+public class Weapon extends AbstractSystem implements Serializable {
     private final Set<Theatre> targets;
 
     /**
@@ -21,11 +22,11 @@ public class Weapon extends AbstractSystem {
      * @param maxRange double maximal range of system.
      * @param minRange double minimal range of system.
      * @param name     String name of the system.
-     * @param age      Age enum of era of the system.
+     * @param era      Era enum of era of the system.
      * @param targets  Set of Theatre objects targetable by the system.
      */
-    protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age) {
-        super(damage, maxRange, minRange, name, age);
+    protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era) {
+        super(damage, maxRange, minRange, name, era);
         this.targets = targets;
     }
 
@@ -34,6 +35,6 @@ public class Weapon extends AbstractSystem {
     }
 
     public Weapon getWeapon() {
-        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getAge());
+        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getEra());
     }
 }

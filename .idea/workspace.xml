@@ -19,25 +19,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Progress">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Movable.java" afterDir="false" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Refactoring v2">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Moderator Sheet - Database.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savefile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savefile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/BattleSecond.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Age.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Age.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/ArmorSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/ArmorSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/GuidanceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Age.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Era.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Sides.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Sides.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/SystemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/SystemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" afterDir="false" />
@@ -47,7 +56,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Radar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +68,7 @@
       <list>
         <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit4 Test Class" />
         <option value="Interface" />
       </list>
     </option>
@@ -83,12 +93,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.NoU.Crafts" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -177,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590135769910</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring v2">
+      <created>1590154235355</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590154235355</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,17 +230,22 @@
     <MESSAGE value="Progress." />
     <MESSAGE value="Refractoring." />
     <MESSAGE value="Progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress" />
+    <MESSAGE value="Refactoring v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring v2" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590153569606">
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590170614470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590153569606" />
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590170614470" />
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590058059670" />
+    <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590154524951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154524951" />
     <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1589899231814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -221,20 +254,25 @@
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963245529" />
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590066474649">
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590164954817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590066474649" />
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590164954817" />
     <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1590054610850" />
-    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590152967037">
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590160117724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590152967037" />
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590160117724" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1589885160193" />
-    <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589963912091">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1590160419371">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590160419371" />
     <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963912091" />
+    <state x="715" y="223" key="#xdebugger.evaluate" timestamp="1590162148746">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="715" y="223" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590162148746" />
     <state x="418" y="23" key="CommitChangelistDialog2" timestamp="1589974783254">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
@@ -244,70 +282,91 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589975176555" />
-    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1590144488363">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="323" key="GridCell.Tab.0.bottom" timestamp="1590170842579">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="323" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590170842579" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590144488363" />
-    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1590144488362">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="323" key="GridCell.Tab.0.center" timestamp="1590170842579">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="323" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590170842579" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1590144488361">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="323" key="GridCell.Tab.0.left" timestamp="1590170842578">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="323" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590170842578" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590144488361" />
-    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1590144488362">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="323" key="GridCell.Tab.0.right" timestamp="1590170842579">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="323" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590170842579" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1324" height="207" key="GridCell.Tab.1.bottom" timestamp="1590143561496">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590170767365">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590170767365" />
     <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590143561496" />
-    <state width="1324" height="207" key="GridCell.Tab.1.center" timestamp="1590143561493">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1590170767365">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590170767365" />
     <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1324" height="207" key="GridCell.Tab.1.left" timestamp="1590143561493">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1590170767365">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590170767365" />
     <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1324" height="207" key="GridCell.Tab.1.right" timestamp="1590143561495">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1590170767365">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590170767365" />
     <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590143561495" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590060929323">
+    <state x="490" y="175" key="Maven.ArtifactSearchDialog" timestamp="1590154612270">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590060929323" />
+    <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154612270" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1590154698327">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590154698327" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590057691038" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590135771625">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590154238836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590135771625" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590154238836" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1589893381808" />
+    <state x="724" y="188" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590154570943">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="724" y="188" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154570943" />
     <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1589899087782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589899087782" />
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590065966454">
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590159519030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590065966454" />
+    <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590159519030" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/com/NoU/App.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$App.ic" NAME="App Coverage Results" MODIFIED="1590170387428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.NoU.*</FILTER>
+    </SUITE>
   </component>
 </project>

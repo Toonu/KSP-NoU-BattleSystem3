@@ -1,17 +1,19 @@
 package com.NoU.Systems;
 
-import com.NoU.Enum.Age;
+import com.NoU.Enum.Era;
+
+import java.io.Serializable;
 
 /**
  * @author Toonu
- *
+ * <p>
  * Class representing System basic values extended in subclasses.
  */
-public class AbstractSystem {
+public class AbstractSystem implements Serializable {
     private final double strength;
     private final double maxRange;
     private final double minRange;
-    private final Age age;
+    private final Era era;
     private final String name;
 
     /**
@@ -21,13 +23,13 @@ public class AbstractSystem {
      * @param maxRange double maximal range of system.
      * @param minRange double minimal range of system.
      * @param name     String name of the system.
-     * @param age      Age enum of era of the system.
+     * @param era      Era enum of era of the system.
      */
-    public AbstractSystem(double strength, double maxRange, double minRange, String name, Age age) {
+    public AbstractSystem(double strength, double maxRange, double minRange, String name, Era era) {
         this.strength = strength;
         this.maxRange = maxRange;
         this.minRange = minRange;
-        this.age = age;
+        this.era = era;
         this.name = name;
     }
 
@@ -35,8 +37,8 @@ public class AbstractSystem {
         return strength;
     }
 
-    public Age getAge() {
-        return age;
+    public Era getEra() {
+        return era;
     }
 
     public double getMaxRange() {

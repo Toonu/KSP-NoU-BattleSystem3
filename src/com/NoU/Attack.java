@@ -12,7 +12,7 @@ public class Attack implements Movable {
     private final Missile weapon;
     private final Craft origin;
     private final Craft target;
-    private Vertex2D position;
+    private Vertex2D weapPos;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ public class Attack implements Movable {
     public Attack(Missile weapon, Craft origin, Craft target) {
         this.weapon = weapon;
         this.origin = origin;
-        this.position = origin.getPosition();
+        this.weapPos = origin.getPosition();
         this.target = target;
     }
 
@@ -34,7 +34,7 @@ public class Attack implements Movable {
      * @return double distance.
      */
     public double distanceOfWeapon() {
-        return target.getPosition().distance(position);
+        return target.getPosition().distance(weapPos);
     }
 
     /**
@@ -44,11 +44,11 @@ public class Attack implements Movable {
      */
     @Override
     public Vertex2D move(Vertex2D vertex2D) {
-        return new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
+        return new Vertex2D(weapPos.getX() + vertex2D.getX(), weapPos.getY() + vertex2D.getY());
     }
 
-    public void setPosition(Vertex2D position) {
-        this.position = position;
+    public Vertex2D getWeapPos() {
+        return weapPos;
     }
 
     public Craft getOrigin() {
@@ -63,8 +63,8 @@ public class Attack implements Movable {
         return weapon;
     }
 
-    public Vertex2D getPosition() {
-        return position;
+    public void setWeapPos(Vertex2D weapPos) {
+        this.weapPos = weapPos;
     }
 
 

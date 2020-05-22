@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * @author Toonu
@@ -43,7 +42,8 @@ public class BattleSecond {
         if (attack.distanceOfWeapon() < 2) {
             Craft victim = attack.getTarget();
             Missile weaponSystem = attack.getWeapon();
-            SortedMap<Double, List<Countermeasure>> countermeasures = new TreeMap<>(victim.getCountermeasures());
+            SortedMap<Double, List<Countermeasure>> countermeasures = victim.getCountermeasures();
+
             GuidanceType type = weaponSystem.getGuidanceType();
 
             for (Double distance : countermeasures.keySet()) {
