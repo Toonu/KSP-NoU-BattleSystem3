@@ -8,6 +8,8 @@ import java.util.EnumSet;
 
 /**
  * @author Toonu
+ *
+ * Class representing Countermeasure and its properities.
  */
 public class Countermeasure extends AbstractSystem {
     private final boolean isSaturable;
@@ -15,6 +17,19 @@ public class Countermeasure extends AbstractSystem {
     private final EnumSet<GuidanceType> against;
     private boolean oversaturated = false;
 
+
+    /**
+     * Constructor.
+     *
+     * @param strength    double strength value of system for defense strength.
+     * @param maxRange    double maximal range of system.
+     * @param minRange    double minimal range of system.
+     * @param name        String name of the system.
+     * @param age         Age enum of era of the system.
+     * @param against     EnumSet of GuidanceTypes targetable by the system.
+     * @param type        SystemType enum representing countermeasure type.
+     * @param isSaturable boolean true if the system can be saturated.
+     */
     public Countermeasure(double strength, double minRange, double maxRange, String name, Age age,
                           boolean isSaturable, SystemType type, EnumSet<GuidanceType> against) {
         super(strength, maxRange, minRange, name, age);

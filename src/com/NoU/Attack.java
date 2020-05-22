@@ -5,13 +5,22 @@ import com.NoU.Systems.Missile;
 
 /**
  * @author Toonu
+ * <p>
+ * Class represents ongoing attack.
  */
-public class Attack {
+public class Attack implements Movable {
     private final Missile weapon;
     private final Craft origin;
     private final Craft target;
     private Vertex2D position;
 
+    /**
+     * Constructor.
+     *
+     * @param weapon Missile object weapon of the attack.
+     * @param origin Craft object aggressor.
+     * @param target Craft object target of weapon.
+     */
     public Attack(Missile weapon, Craft origin, Craft target) {
         this.weapon = weapon;
         this.origin = origin;
@@ -19,8 +28,27 @@ public class Attack {
         this.target = target;
     }
 
+    /**
+     * Method calculates distance between weapon position and its target.
+     *
+     * @return double distance.
+     */
     public double distanceOfWeapon() {
-        return target.getPosition().distance(weapon.getPosition());
+        return target.getPosition().distance(position);
+    }
+
+    /**
+     * Method representing moving the craft by vertex coordinates.
+     *
+     * @param vertex2D to move by this coordinates amount.
+     */
+    @Override
+    public Vertex2D move(Vertex2D vertex2D) {
+        return new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
+    }
+
+    public void setPosition(Vertex2D position) {
+        this.position = position;
     }
 
     public Craft getOrigin() {
@@ -39,7 +67,5 @@ public class Attack {
         return position;
     }
 
-    public void setPosition(Vertex2D position) {
-        this.position = position;
-    }
+
 }

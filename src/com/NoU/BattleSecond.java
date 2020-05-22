@@ -15,6 +15,8 @@ import java.util.TreeMap;
 
 /**
  * @author Toonu
+ *
+ * Class representing second of battle time.
  */
 public class BattleSecond {
     private final Set<Attack> attacks = new HashSet<>();
@@ -25,32 +27,52 @@ public class BattleSecond {
 
     //Maybe return each second the results of the second ?
 
+    /**
+     * Constructor.
+     */
     public BattleSecond() {
     }
 
+    /**
+     * Method to simulate defense against attack.
+     *
+     * @param attack Attack object to perform.
+     * @return true if the attack was finished.
+     */
     public static boolean counter(Attack attack) {
-        Craft victim = attack.getTarget();
-        Missile weaponSystem = attack.getWeapon();
-        SortedMap<Double, List<Countermeasure>> countermeasures = new TreeMap<>(victim.getCountermeasures());
-        GuidanceType type = weaponSystem.getGuidanceType();
+        if (attack.distanceOfWeapon() < 2) {
+            Craft victim = attack.getTarget();
+            Missile weaponSystem = attack.getWeapon();
+            SortedMap<Double, List<Countermeasure>> countermeasures = new TreeMap<>(victim.getCountermeasures());
+            GuidanceType type = weaponSystem.getGuidanceType();
 
-        for (Double distance : countermeasures.keySet()) {
-            if (attack.distanceOfWeapon() < distance) {
-                for (Countermeasure countermeasure : countermeasures.get(distance)) {
-                    if (countermeasure.getMinRange() < attack.distanceOfWeapon() &&
-                            countermeasure.getAgainst().contains(weaponSystem.getGuidanceType())) {
-                        //TODO Add
-                        System.out.println("x");
+            for (Double distance : countermeasures.keySet()) {
+                if (attack.distanceOfWeapon() < distance) {
+                    for (Countermeasure countermeasure : countermeasures.get(distance)) {
+                        if (countermeasure.getMinRange() < attack.distanceOfWeapon() &&
+                                countermeasure.getAgainst().contains(weaponSystem.getGuidanceType())) {
+                            //TODO Add
+                            System.out.println("x");
+                        }
                     }
                 }
             }
+            return false;
         }
-
-
         return false;
     }
 
+    /**
+     * Method representing firing weapon against aggressor from target.
+     *
+     * @param weaponSystem Weapon object to fire. If movable, it creates new Attack object.
+     * @param aggressor    Craft object to fire from.
+     * @param target       Craft object targetted.
+     * @return true if the weapon fired.
+     */
     public boolean fire(Weapon weaponSystem, Craft aggressor, Craft target) {
+        //TODO Add failure to launch missile here.
+
         if (weaponSystem instanceof Missile) {
             attacks.add(new Attack((Missile) weaponSystem, aggressor, target));
             aggressor.removeWeapon(weaponSystem);
@@ -63,6 +85,7 @@ public class BattleSecond {
     }
 
     public Weapon chooseWeapon() {
+        //TODO Add choosing weapon to fire here? Probably...
         return null;
     }
 

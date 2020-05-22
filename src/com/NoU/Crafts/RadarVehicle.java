@@ -4,6 +4,8 @@ import com.NoU.Systems.Radar;
 
 /**
  * @author Toonu
+ *
+ * Interface to group all radar equipped vehicles to be targetable by Anti-radiation weapons.
  */
 public interface RadarVehicle {
     /**

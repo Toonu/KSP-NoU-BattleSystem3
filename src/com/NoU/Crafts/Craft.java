@@ -5,6 +5,7 @@ import com.NoU.Enum.Age;
 import com.NoU.Enum.Sides;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
+import com.NoU.Movable;
 import com.NoU.Systems.Countermeasure;
 import com.NoU.Systems.Weapon;
 import com.NoU.Vertex2D;
@@ -18,8 +19,10 @@ import java.util.SortedMap;
 
 /**
  * @author Toonu
+ * <p>
+ * Craft class to simulate craft on battlefield.
  */
-public class Craft implements Serializable {
+public class Craft implements Serializable, Movable {
     public static final int DELAY = 30;
     private final double speed;
     private final String name;
@@ -35,6 +38,18 @@ public class Craft implements Serializable {
     private int time;
     private int tick;
 
+    /**
+     * Constructor.
+     *
+     * @param speed               double Speed in m/s of the craft.
+     * @param name                String name of the craft.
+     * @param weapons             SortedMap<Double, List<Weapon>> containing values list of weapons sorted by their double range.
+     * @param countermeasures     SortedMap<Double, List<Countermeasure>>
+     *                            containing values list of countermeasures sorted by their double range.
+     * @param type                Type enum of the craft.
+     * @param craftProductionYear Age enum of the Eras of crafts.
+     * @param side                Enum color of craft's side.
+     */
     protected Craft(double speed, String name, SortedMap<Double,
             List<Weapon>> weapons, SortedMap<Double, List<Countermeasure>> countermeasures,
                     Type type, Age craftProductionYear, Sides side) {
@@ -178,6 +193,34 @@ public class Craft implements Serializable {
         --tick;
     }
 
+    /**
+     * Method sets ticks to specified value. Done to renew countdown for launching weapons.
+     *
+     * @param tick maximal int value of countdown.
+     */
+    public void setTick(int tick) {
+        this.tick = tick;
+    }
+
+    /**
+     * Method to return new Builder to start building new craft.
+     *
+     * @return new empty Builder.
+     */
+    public Builder newBuilder() {
+        return new Builder();
+    }
+
+    /**
+     * Method representing moving the craft by vertex coordinates.
+     *
+     * @param vertex2D to move by this coordinates amount.
+     */
+    @Override
+    public Vertex2D move(Vertex2D vertex2D) {
+        return new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
+    }
+
     //Getters
 
     public Sides getSide() {
@@ -232,13 +275,7 @@ public class Craft implements Serializable {
         return isWithdrawing;
     }
 
-    public Builder newBuilder() {
-        return new Builder();
-    }
-
-    public void setTick(int tick) {
-        this.tick = tick;
-    }
+    //Builder
 
     /**
      * Builder class for building craft.
@@ -345,42 +382,72 @@ public class Craft implements Serializable {
             return this;
         }
 
+        /**
+         * Method adds Weapon object to the weapons list of craft.
+         *
+         * @param weapon Weapon Object to be added.
+         * @return Builder.
+         */
         public Builder addWeapon(Weapon weapon) {
             if (weapon != null) {
                 weapons.get(weapon.getMaxRange()).add(weapon);
                 if (App.DEBUG) {
-                    System.out.println(String.format("Weapon from %s: %s added. [MaxRng: %s MinRng: %s Strength: %s]" +
-                                    "\n[Trg: %s]", weapon.getAge(), weapon.getName(), weapon.getMaxRange(),
-                            weapon.getMinRange(), weapon.getStrength(), weapon.getTargets()));
+                    System.out.println(String.format("[LOG %s] Weapon from %s: %s added. [MaxRng: %s MinRng: " +
+                                    "%s Strength: %s]\n[Trg: %s]", LocalTime.now(), weapon.getAge(), weapon.getName(),
+                            weapon.getMaxRange(), weapon.getMinRange(), weapon.getStrength(), weapon.getTargets()));
                 }
             } else {
-                System.err.println("Weapon is null. Not added.");
+                System.err.println(String.format("[ERR %s] Weapon is null. Not added.", LocalTime.now()));
             }
             return this;
         }
 
+        /**
+         * Method adds CM object to the CM list of craft.
+         *
+         * @param system Countermeasure Object to be added.
+         * @return Builder.
+         */
         public Builder addCountermeasure(Countermeasure system) {
             if (system != null) {
                 countermeasures.get(system.getMaxRange()).add(system);
                 if (App.DEBUG) {
-                    System.out.println(String.format("CM type %s from %s: %s added. [MaxRng: %s MinRng: %s " +
-                                    "Strength: %s]\n[Trg: %s]", system.getType(), system.getAge(), system.getName(),
-                            system.getMaxRange(), system.getMinRange(), system.getStrength(), system.getAgainst()));
+                    System.out.println(String.format("[LOG %s] CM type %s from %s: %s added. [MaxRng: %s MinRng: %s " +
+                                    "Strength: %s]\n[Trg: %s]", LocalTime.now(), system.getType(), system.getAge(),
+                            system.getName(), system.getMaxRange(), system.getMinRange(), system.getStrength(),
+                            system.getAgainst()));
                 }
             } else {
-                System.err.println("CM is null. Not added.");
+                System.err.println(String.format("[ERR %s] CM is null. Not added.", LocalTime.now()));
             }
             return this;
         }
 
+        /**
+         * Method to read file and import weapons from it.
+         *
+         * @param path Path of file.
+         * @return Builder.
+         */
         public Builder readWeapons(Path path) {
             return this;
         }
 
+        /**
+         * Method to read file and import countermeasures from it.
+         *
+         * @param path Path of file.
+         * @return Builder.
+         */
         public Builder readCountermeasures(Path path) {
             return this;
         }
 
+        /**
+         * Builds the final Craft object.
+         *
+         * @return Craft object of theatre type.
+         */
         public Craft build() {
             try {
                 switch (type.getTheatre()) {
@@ -391,12 +458,14 @@ public class Craft implements Serializable {
                     case NAVAL:
                         return new Vessel(speed, name, weapons, countermeasures, type, craftProductionYear, side);
                     default:
-                        throw new IllegalArgumentException("Wrong vehicle type.");
+                        throw new IllegalArgumentException(
+                                String.format("[ERR %s] Wrong vehicle type.", LocalTime.now()));
                 }
             } catch (IllegalArgumentException e) {
-                System.err.println("Vehicle couldn't have been created." + e);
+                System.err.println(String.format("[ERR %s] Vehicle couldn't have been created." +
+                        "\n%s", LocalTime.now(), e));
                 if (App.DEBUG) {
-                    System.err.println("Current state of Builder: \n" + this);
+                    System.err.println(String.format("[LOG %s] Current state of Builder:\n%s", LocalTime.now(), this));
                 }
                 return null;
             }

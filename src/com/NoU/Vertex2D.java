@@ -5,13 +5,15 @@ import java.util.Objects;
 
 /**
  * @author Toonu
+ *
+ * Class representing 2D coordinate system.
  */
 public class Vertex2D implements Serializable {
     private double x;
     private double y;
 
     /**
-     * Initiator
+     * Constructor.
      *
      * @param x double x coordinate
      * @param y double y coordinate
@@ -22,7 +24,7 @@ public class Vertex2D implements Serializable {
     }
 
     /**
-     * Creates middle point
+     * Method creates middle point between two vertices.
      *
      * @param secondVertex Vertex2D set of coordinates
      * @return Vertex2D middle point between this Vertex and otherVertex
@@ -32,7 +34,7 @@ public class Vertex2D implements Serializable {
     }
 
     /**
-     * Function to return distance between two sets of coordinates.
+     * Method returns distance between two sets of coordinates.
      *
      * @param vertex Vertex2D second set of coordinates
      * @return double distance
@@ -45,7 +47,7 @@ public class Vertex2D implements Serializable {
     }
 
     /**
-     * Equals
+     * Method to check if two objects equals.
      *
      * @param o Object to compare.
      * @return boolean result.
@@ -64,7 +66,7 @@ public class Vertex2D implements Serializable {
     }
 
     /**
-     * Support method for equals.
+     * hashCode method for equals.
      *
      * @return int result.
      */
@@ -73,9 +75,6 @@ public class Vertex2D implements Serializable {
         return Objects.hash(x, y);
     }
 
-    /**
-     * @return double x coordinate
-     */
     public double getX() {
         return x;
     }
@@ -84,9 +83,6 @@ public class Vertex2D implements Serializable {
         this.x = x;
     }
 
-    /**
-     * @return double y coordinate
-     */
     public double getY() {
         return y;
     }
@@ -96,6 +92,8 @@ public class Vertex2D implements Serializable {
     }
 
     /**
+     * Method returns String representing the object.
+     *
      * @return String of formatted x and y coordinates
      */
     @Override

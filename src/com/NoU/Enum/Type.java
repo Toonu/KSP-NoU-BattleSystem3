@@ -2,6 +2,8 @@ package com.NoU.Enum;
 
 /**
  * @author Toonu
+ *
+ * Enum representing classes and subclasses of all crafts.
  */
 public enum Type {
     APC(100, Theatre.GROUND), IFV(125, Theatre.GROUND), AFV(160, Theatre.GROUND),
