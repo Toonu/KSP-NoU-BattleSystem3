@@ -1,8 +1,0 @@
-Mk.1	Aerial vehicle							10	1	2	2000	20	10						00s
-Commie	Ground vehicle	25	2	1	20/10/10	0/0/0	2												50s
-Retard Magnet	Aerial vehicle							6013443566	69	21	8814	404	1						00s
-Ground	Ground vehicle	10	10	10	10/10/10	0/1/0	10												50s
-Air	Aerial vehicle							10	10	10	1000	10	10						10s
-Naval	Naval vehicle													10	10	10	10	10	90s
-Test	Aerial vehicle							350	3	1	2000	20	8						80s
-Mk.2	Aerial vehicle							100	2	2	2000	20	12						00s

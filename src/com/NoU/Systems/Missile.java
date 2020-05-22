@@ -14,9 +14,9 @@ public class Missile extends Weapon {
     private final Vertex2D position;
     private final GuidanceType guidanceType;
 
-    public Missile(double damage, double minRange, double maxRange, Set<Theatre> targets, Age age,
+    public Missile(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age,
                    Vertex2D position, GuidanceType guidanceType) {
-        super(damage, minRange, maxRange, targets, age);
+        super(damage, minRange, maxRange, targets, name, age);
         this.position = position;
         this.guidanceType = guidanceType;
     }

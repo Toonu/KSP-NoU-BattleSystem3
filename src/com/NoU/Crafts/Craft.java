@@ -11,6 +11,7 @@ import com.NoU.Vertex2D;
 
 import java.io.Serializable;
 import java.nio.file.Path;
+import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
@@ -27,7 +28,8 @@ public class Craft implements Serializable {
     private final Type type;
     private final Age craftProductionYear;
     private final Sides side;
-    private final Vertex2D position;
+
+    private Vertex2D position;
     private double HP;
     private boolean isWithdrawing = false;
     private int time;
@@ -51,55 +53,85 @@ public class Craft implements Serializable {
             case GROUND:
                 switch (side) {
                     case WHITE:
-                        position = new Vertex2D(App.SPAWN_A.getX() + 90, App.SPAWN_A.getY());
+                        this.position = new Vertex2D(App.SPAWN_A.getX() + 90, App.SPAWN_A.getY());
                     case BLACK:
-                        position = new Vertex2D(App.SPAWN_B.getX() - 90, App.SPAWN_B.getY());
+                        this.position = new Vertex2D(App.SPAWN_B.getX() - 90, App.SPAWN_B.getY());
                 }
             case AERIAL:
                 switch (side) {
                     case WHITE:
-                        position = App.SPAWN_A;
+                        this.position = App.SPAWN_A;
                     case BLACK:
-                        position = App.SPAWN_B;
+                        this.position = App.SPAWN_B;
                 }
             case NAVAL:
                 switch (side) {
                     case WHITE:
-                        position = new Vertex2D(App.SPAWN_A.getX() + 75, App.SPAWN_A.getY());
+                        this.position = new Vertex2D(App.SPAWN_A.getX() + 75, App.SPAWN_A.getY());
                     case BLACK:
-                        position = new Vertex2D(App.SPAWN_B.getX() - 75, App.SPAWN_B.getY());
-                    default:
-                        position = new Vertex2D(0, 0);
+                        this.position = new Vertex2D(App.SPAWN_B.getX() - 75, App.SPAWN_B.getY());
                 }
         }
     }
 
+    /**
+     * Method returns String interpretation of the Craft object.
+     *
+     * @return String with type, subtype, name, HP and current position.
+     */
     @Override
     public String toString() {
         return String.format("%s-%s %s: %s Pos: %s", type.getTheatre(), type,
                 name, HP, position);
     }
 
+    /**
+     * Method returns String interpretation of the Craft object.
+     *
+     * @return String with type and name of the craft.
+     */
     public String toShortString() {
         return String.format("%s %s", type, name);
     }
 
+    /**
+     * Method returns list of weapons of the craft.
+     *
+     * @return String with all weapon Objects.
+     */
     public String toWeaponList() {
         return weapons.toString();
     }
 
+    /**
+     * Method returns list of countermeasures of the craft.
+     *
+     * @return String with all countermeasure Objects.
+     */
     public String toCountermeasuresList() {
         return countermeasures.toString();
     }
 
-    public boolean removeWeapon(Weapon weaponSystem) {
-        if (weapons.get(weaponSystem.getMaxRange()).contains(weaponSystem)) {
-            weapons.get(weaponSystem.getMaxRange()).remove(weaponSystem);
+    /**
+     * Method removes weapon from list of all weapons of the craft.
+     *
+     * @param weapon Weapon to be added to the list of weapons.
+     * @return returns true if the Weapon object is added to the craft. False otherwise.
+     */
+    public boolean removeWeapon(Weapon weapon) {
+        if (weapons.get(weapon.getMaxRange()).contains(weapon)) {
+            weapons.get(weapon.getMaxRange()).remove(weapon);
             return true;
         }
         return false;
     }
 
+    /**
+     * Method removes weapon from list of all countermeasure of the craft.
+     *
+     * @param cm Weapon to be added to the list of weapons.
+     * @return returns true if the Countermeasure object is added to the craft. False otherwise.
+     */
     public boolean removeDefense(Countermeasure cm) {
         if (countermeasures.get(cm.getMaxRange()).contains(cm)) {
             countermeasures.get(cm.getMaxRange()).remove(cm);
@@ -108,6 +140,13 @@ public class Craft implements Serializable {
         return false;
     }
 
+
+    /**
+     * Method deduct damage from the craft's HP.
+     *
+     * @param damage double to be applied.
+     * @return false if the HP gets bellow 0 resulting in death. True otherwise.
+     */
     public boolean absorbDamage(double damage) {
         if (HP - damage > 0) {
             HP -= damage;
@@ -116,23 +155,34 @@ public class Craft implements Serializable {
         return false;
     }
 
+    /**
+     * Method travels distance.
+     *
+     * @param distance double distance to be traveled.
+     */
     public void travelDistance(double distance) {
         position.setX(position.getX() + distance);
     }
 
+    /**
+     * Method change status of withdrawal.
+     */
     public void withdraw() {
         isWithdrawing = !isWithdrawing;
     }
 
+    /**
+     * Method removes tick from cooldown counter.
+     */
     public void tick() {
         --tick;
     }
 
+    //Getters
+
     public Sides getSide() {
         return side;
     }
-
-    //Getters
 
     public String getName() {
         return name;
@@ -191,7 +241,7 @@ public class Craft implements Serializable {
     }
 
     /**
-     *
+     * Builder class for building craft.
      */
     public static class Builder {
         private double HP;
@@ -207,11 +257,11 @@ public class Craft implements Serializable {
 
         private Vertex2D position;
 
-        public Builder setCSubclass(Type type) {
-            this.type = type;
-            return this;
-        }
-
+        /**
+         * Method returns String representation of the Builder object.
+         *
+         * @return String with all values of Builder.
+         */
         @Override
         public String toString() {
             return "Builder{" +
@@ -227,11 +277,17 @@ public class Craft implements Serializable {
                     '}';
         }
 
+        public Builder setType(Type type) {
+            this.type = type;
+            return this;
+        }
+
         public Builder setName(String name) {
             if (name != null) {
                 this.name = name;
             } else {
-                System.err.println("Name is null, replacing with default name value.");
+                System.err.println(
+                        String.format("[ERR %s] Name is null, replacing with default name value.", LocalTime.now()));
             }
 
             return this;
@@ -246,7 +302,8 @@ public class Craft implements Serializable {
             if (speed > 0) {
                 this.speed = speed;
             } else {
-                System.err.println("Speed must be positive. Applying default speed of 10m/s.");
+                System.err.println(String.format(
+                        "[ERR %s] Speed must be positive. Applying default speed of 10m/s.", LocalTime.now()));
             }
             return this;
         }
@@ -260,18 +317,30 @@ public class Craft implements Serializable {
             this.position = position;
         }
 
+        /**
+         * Method assign SortedMap to the builder.
+         *
+         * @param countermeasures SortedMap to be implemented.
+         * @return Builder back.
+         */
         public Builder addCountermeasures(SortedMap<Double, List<Countermeasure>> countermeasures) {
             this.countermeasures = countermeasures;
             if (App.DEBUG) {
-                System.out.println(countermeasures);
+                System.out.println(String.format("[LOG %s] Added:\n%s", LocalTime.now(), countermeasures));
             }
             return this;
         }
 
+        /**
+         * Method assign SortedMap to the builder.
+         *
+         * @param weapons SortedMap to be implemented.
+         * @return Builder back.
+         */
         public Builder addWeapons(SortedMap<Double, List<Weapon>> weapons) {
             this.weapons = weapons;
             if (App.DEBUG) {
-                System.out.println(weapons);
+                System.out.println(String.format("[LOG %s] Added:\n%s", LocalTime.now(), weapons));
             }
             return this;
         }
@@ -313,77 +382,24 @@ public class Craft implements Serializable {
         }
 
         public Craft build() {
-            switch (type.getTheatre()) {
-                case GROUND:
-
+            try {
+                switch (type.getTheatre()) {
+                    case GROUND:
+                        return new Vehicle(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                    case AERIAL:
+                        return new Aircraft(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                    case NAVAL:
+                        return new Vessel(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                    default:
+                        throw new IllegalArgumentException("Wrong vehicle type.");
+                }
+            } catch (IllegalArgumentException e) {
+                System.err.println("Vehicle couldn't have been created." + e);
+                if (App.DEBUG) {
+                    System.err.println("Current state of Builder: \n" + this);
+                }
+                return null;
             }
-        }
-
-        /**
-         * Build an instance of {@link Vehicle}
-         *
-         * @return instance of {@link Vehicle}
-         */
-        public Vehicle buildGround() {
-            if (side == Sides.WHITE && position == null) {
-                position = new Vertex2D(-10, 0);
-            } else if (position == null) {
-                position = new Vertex2D(10, 0);
-            }
-
-            if (type.getTheatre() == Theatre.GROUND) {
-                return new Vehicle(speed, name, weapons, countermeasures, type, craftProductionYear, side);
-            }
-            System.err.println("Vehicle couldn't have been created.");
-            if (App.DEBUG) {
-                System.err.println(this);
-            }
-            return null;
-        }
-
-        /**
-         * Build an instance of {@link Vehicle}
-         *
-         * @return instance of {@link Vehicle}
-         */
-        public Aircraft buildAerial() {
-            if (side == Sides.WHITE && position == null) {
-                position = new Vertex2D(-100, 0);
-            } else if (position == null) {
-                position = new Vertex2D(100, 0);
-            }
-
-            if (type.getTheatre() == Theatre.AERIAL) {
-                return new Aircraft(speed, name, weapons, countermeasures, type, craftProductionYear, side);
-            }
-            System.err.println("Vehicle couldn't have been created.");
-            if (App.DEBUG) {
-                System.err.println(this);
-            }
-            return null;
-
-        }
-
-        /**
-         * Build an instance of {@link Vehicle}
-         *
-         * @return instance of {@link Vehicle}
-         */
-        public Vessel buildNaval() {
-            if (side == Sides.WHITE && position == null) {
-                position = new Vertex2D(-25, 0);
-            } else if (position == null) {
-                position = new Vertex2D(25, 0);
-            }
-
-            if (type.getTheatre() == Theatre.AERIAL) {
-                return new Vessel(speed, name, weapons, countermeasures, type, craftProductionYear, side);
-            }
-            System.err.println("Vehicle couldn't have been created.");
-            if (App.DEBUG) {
-                System.err.println(this);
-            }
-            return null;
         }
     }
 }

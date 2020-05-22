@@ -33,6 +33,11 @@ public class Vehicle extends Craft implements RadarVehicle {
         return radar;
     }
 
+    /**
+     * Method returns armor layout of the vehicle.
+     *
+     * @return Armor object.
+     */
     public Armor getArmor() {
         return armor;
     }

@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Set;
 
 /**
- * @author Tomas Novotny
+ * @author Toonu
  */
 public class Weapon extends AbstractSystem {
     private final Set<Theatre> targets;

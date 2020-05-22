@@ -12,15 +12,15 @@ public class Gun extends Weapon {
     private final Ammunition ammunition;
     private int ammoBox = 36;
 
-    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, Age age,
+    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age,
                Ammunition ammunition) {
-        super(damage, minRange, maxRange, targets, age);
+        super(damage, minRange, maxRange, targets, name, age);
         this.ammunition = ammunition;
     }
 
-    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, Age age,
+    public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Age age,
                Ammunition ammunition, int ammo) {
-        this(damage, minRange, maxRange, targets, age, ammunition);
+        this(damage, minRange, maxRange, targets, name, age, ammunition);
         ammoBox = ammo;
     }
 

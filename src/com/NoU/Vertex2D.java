@@ -1,12 +1,12 @@
 package com.NoU;
 
-
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * @author Toonu
  */
-public class Vertex2D {
+public class Vertex2D implements Serializable {
     private double x;
     private double y;
 

@@ -19,7 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Progress" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Progress">
+      <change afterPath="$PROJECT_DIR$/savefile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crafts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Sides.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Sides.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/MainWindow.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/MainWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,9 +44,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -58,9 +74,23 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.NoU.App" />
+      <module name="Battle Simulator 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.NoU.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.NoU.Main" />
       <module name="Battle Simulator 3" />
@@ -71,6 +101,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WriterReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.NoU.Utils.WriterReader" />
+      <module name="Battle Simulator 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.NoU.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.WriterReader" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
@@ -122,12 +172,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -181,6 +232,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589975176555" />
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1590144488363">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590144488363" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1590144488362">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1590144488361">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590144488361" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1590144488362">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom" timestamp="1590143561496">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590143561496" />
+    <state width="1324" height="207" key="GridCell.Tab.1.center" timestamp="1590143561493">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
+    <state width="1324" height="207" key="GridCell.Tab.1.left" timestamp="1590143561493">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
+    <state width="1324" height="207" key="GridCell.Tab.1.right" timestamp="1590143561495">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590143561495" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1590060929323">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -203,5 +286,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590065966454" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/NoU/App.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
