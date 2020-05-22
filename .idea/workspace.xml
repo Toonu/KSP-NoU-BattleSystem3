@@ -20,44 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Refractoring.">
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Enum/ArmorSide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Countermeasure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Radar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/BattleSecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/AbstractCraft.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/OrderOfBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/OrderOfBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Colors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractDefensiveSystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Sides.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractWeaponSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/ArmorSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/CountermeasureSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Guidance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/GuidanceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/GunSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/IDefensiveSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/IWeaponSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/MissileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/MovableWeapon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/RadarSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/SystemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/SystemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Years.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Age.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Countermeasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +41,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -139,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589897815857</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refractoring.">
+      <created>1590082599237</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590082599237</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,10 +149,10 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590069989377">
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590135017041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590069989377" />
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590135017041" />
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590058059670" />
     <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1589899231814">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -210,10 +190,10 @@
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590060929323" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590057691038" />
-    <state x="393" y="184" key="Vcs.Push.Dialog.v2" timestamp="1589974791067">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590082602056">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589895300882" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590082602056" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
       <screen x="0" y="0" width="1920" height="1040" />

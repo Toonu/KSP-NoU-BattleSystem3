@@ -3,10 +3,8 @@ package com.NoU.Systems;
 import com.NoU.Enum.Age;
 import com.NoU.Enum.GuidanceType;
 import com.NoU.Enum.SystemType;
-import com.NoU.Enum.Theatre;
 
 import java.util.EnumSet;
-import java.util.Set;
 
 /**
  * @author Toonu
@@ -17,9 +15,9 @@ public class Countermeasure extends AbstractSystem {
     private final EnumSet<GuidanceType> against;
     private boolean oversaturated = false;
 
-    public Countermeasure(double strength, double minRange, double maxRange, Set<Theatre> targets, Age age,
+    public Countermeasure(double strength, double minRange, double maxRange, String name, Age age,
                           boolean isSaturable, SystemType type, EnumSet<GuidanceType> against) {
-        super(strength, maxRange, minRange, age);
+        super(strength, maxRange, minRange, name, age);
         this.isSaturable = isSaturable;
         this.type = type;
         this.against = against;
@@ -43,5 +41,10 @@ public class Countermeasure extends AbstractSystem {
 
     public void saturate() {
         oversaturated = !oversaturated;
+    }
+
+    public Countermeasure getCountermeasure() {
+        return new Countermeasure(getStrength(), getMinRange(), getMaxRange(), getName(), getAge(),
+                isSaturable, type, against);
     }
 }

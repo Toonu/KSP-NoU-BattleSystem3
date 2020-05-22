@@ -10,13 +10,15 @@ public class AbstractSystem {
     private final double maxRange;
     private final double minRange;
     private final Age age;
+    private final String name;
 
 
-    public AbstractSystem(double strength, double maxRange, double minRange, Age age) {
+    public AbstractSystem(double strength, double maxRange, double minRange, String name, Age age) {
         this.strength = strength;
         this.maxRange = maxRange;
         this.minRange = minRange;
         this.age = age;
+        this.name = name;
     }
 
     public double getStrength() {
@@ -33,5 +35,9 @@ public class AbstractSystem {
 
     public double getMinRange() {
         return minRange;
+    }
+
+    public String getName() {
+        return name;
     }
 }
