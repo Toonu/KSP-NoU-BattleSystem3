@@ -1,21 +1,21 @@
 package com.NoU;
 
 import com.NoU.Crafts.Craft;
+import com.NoU.Crafts.Parts.Gun;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.GuidanceType;
 import com.NoU.Enum.Sides;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
 import com.NoU.Systems.Ammunition;
-import com.NoU.Systems.Gun;
 import com.NoU.Systems.Missile;
 import com.NoU.Systems.Weapon;
 import com.NoU.Utils.WriterReader;
 
 import java.nio.file.Paths;
 import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Main Application Class.
@@ -31,8 +31,8 @@ public class App {
 
 
     public static void main(String[] args) {
-        Set<Craft> leftSide = new HashSet<>();
-        Set<Craft> rightSide = new HashSet<>();
+        SortedSet<Craft> leftSide = new TreeSet<>();
+        SortedSet<Craft> rightSide = new TreeSet<>();
 
         EnumSet<Theatre> gunSet, airGunSet, missileAA;
 
@@ -63,14 +63,16 @@ public class App {
                 .setName("Test")
                 .setSpeed(25)
                 .build());
-        Set<Craft> newSet = new HashSet<>();
+        SortedSet<Craft> templates = new TreeSet<>();
         if (WriterReader.save(leftSide)) {
-            newSet = WriterReader.load();
+            templates = WriterReader.load();
         }
 
 
-        System.out.println(newSet);
+        System.out.println(templates);
 
-        newSet = WriterReader.loadFile(Paths.get("Database.csv"));
+        WriterReader.loadFile(Paths.get("Database.csv"), templates);
+
+        System.out.println(templates);
     }
 }

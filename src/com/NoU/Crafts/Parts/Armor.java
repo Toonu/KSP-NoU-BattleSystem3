@@ -1,4 +1,4 @@
-package com.NoU.Systems;
+package com.NoU.Crafts.Parts;
 
 import com.NoU.Enum.ArmorSide;
 

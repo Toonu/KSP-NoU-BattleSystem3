@@ -5,6 +5,7 @@ import com.NoU.Crafts.Craft;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.Sides;
 import com.NoU.Enum.Type;
+import com.NoU.Systems.Weapon;
 
 import java.io.BufferedReader;
 import java.io.EOFException;
@@ -27,7 +28,7 @@ import java.util.TreeSet;
  * @author Toonu
  */
 public class WriterReader {
-    public static boolean save(Set<Craft> crafts) {
+    public static boolean save(SortedSet<Craft> crafts) {
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File("savefile.txt")))) {
             for (Craft craft : crafts) {
                 o.writeObject(craft);
@@ -42,8 +43,8 @@ public class WriterReader {
         }
     }
 
-    public static Set<Craft> load() {
-        Set<Craft> crafts = new HashSet<>();
+    public static SortedSet<Craft> load() {
+        SortedSet<Craft> crafts = new TreeSet<>();
         //noinspection SpellCheckingInspection
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File("savefile.txt")))) {
             int counter = 0;
@@ -66,7 +67,17 @@ public class WriterReader {
         }
     }
 
-    public static Set<Craft> loadFile(Path path) {
+    public static SortedSet<Craft> loadFile(Path path, SortedSet<Craft> set) {
+        if (set != null) {
+            set.addAll(loadFile(path));
+            return set;
+        } else {
+            System.err.println(String.format("[ERR %s] Error reading the file. Exception: %s", LocalTime.now()));
+            return null;
+        }
+    }
+
+    public static SortedSet<Craft> loadFile(Path path) {
         SortedSet<Craft> crafts = new TreeSet<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
@@ -186,4 +197,36 @@ public class WriterReader {
         }
         return crafts;
     }
+
+    public Set<Weapon> readWeaponFile(Path path) {
+        Set<Craft> weapons = new HashSet<>();
+
+        try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] lines = line.split(" ");
+
+                if (lines[0].equals("Gun")) {
+
+                } else if (lines[0].equals("Missile")) {
+                }
+                //TODO Add Weapons and Countermeasure files loading.
+
+
+                weapons.add(new Craft.Builder().setName(name).setSpeed(speed).
+                        setType(type).setCraftProductionYear(era).setSide(Sides.NEUTRAL).build());
+
+                if (App.DEBUG) {
+                    System.out.println(String.format("[LOG %s] %s Loaded: %s", LocalTime.now(), lines[0]));
+                }
+                line = br.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("X");
+        }
+        return weapons;
+    }
+
+
 }

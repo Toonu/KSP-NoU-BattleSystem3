@@ -1,6 +1,6 @@
 package com.NoU.Crafts;
 
-import com.NoU.Systems.Armor;
+import com.NoU.Crafts.Parts.Armor;
 
 /**
  * @author Toonu

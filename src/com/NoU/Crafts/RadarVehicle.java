@@ -1,6 +1,6 @@
 package com.NoU.Crafts;
 
-import com.NoU.Systems.Radar;
+import com.NoU.Crafts.Parts.Radar;
 
 /**
  * @author Toonu

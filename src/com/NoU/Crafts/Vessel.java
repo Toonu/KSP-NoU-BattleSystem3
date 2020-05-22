@@ -1,10 +1,10 @@
 package com.NoU.Crafts;
 
+import com.NoU.Crafts.Parts.Radar;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.Sides;
 import com.NoU.Enum.Type;
 import com.NoU.Systems.Countermeasure;
-import com.NoU.Systems.Radar;
 import com.NoU.Systems.Weapon;
 
 import java.io.Serializable;

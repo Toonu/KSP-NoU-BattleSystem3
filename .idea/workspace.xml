@@ -20,16 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="IO Work">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0_M1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pb162_codestyle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pb162_codestyle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savefile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savefile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Gun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Radar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +54,7 @@
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -60,6 +71,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -76,7 +88,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -92,7 +104,7 @@
       <module name="Battle Simulator 3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.NoU.*" />
+          <option name="PATTERN" value="com.NoU.Utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,7 +199,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590171412594</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="IO Work">
+      <created>1590172016162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590172016162</updated>
+    </task>
+    <task id="LOCAL-00008" summary="IO Work">
+      <created>1590172040071</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590172040071</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,38 +286,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="715" y="223" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590162148746" />
-    <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590171436892">
+    <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590182526081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590171436892" />
+    <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590182526081" />
     <state x="418" y="23" key="CommitChangelistDialog2" timestamp="1589974783254">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
     <state x="418" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1589974783254" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589975176555">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590181218324">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589975176555" />
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom" timestamp="1590171418315">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590181218324" />
+    <state width="1877" height="263" key="GridCell.Tab.0.bottom" timestamp="1590183012385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590171418315" />
+    <state width="1877" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590183012385" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590144488363" />
-    <state width="1877" height="263" key="GridCell.Tab.0.center" timestamp="1590171418315">
+    <state width="1877" height="263" key="GridCell.Tab.0.center" timestamp="1590183012385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590171418315" />
+    <state width="1877" height="263" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590183012385" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1877" height="263" key="GridCell.Tab.0.left" timestamp="1590171418315">
+    <state width="1877" height="263" key="GridCell.Tab.0.left" timestamp="1590183012385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590171418315" />
+    <state width="1877" height="263" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590183012385" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590144488361" />
-    <state width="1877" height="263" key="GridCell.Tab.0.right" timestamp="1590171418315">
+    <state width="1877" height="263" key="GridCell.Tab.0.right" timestamp="1590183012385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590171418315" />
+    <state width="1877" height="263" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590183012385" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590170767365">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -317,15 +343,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154612270" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590154698327">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1590182682780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590154698327" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590182682780" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590057691038" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590171414096">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590172041550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590171414096" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590172041550" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -339,25 +365,73 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589899087782" />
+    <state x="0" y="0" width="136" height="100" key="net.trustx.simpleuml.components.BirdViewFrame" timestamp="1590181375468">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" width="136" height="100" key="net.trustx.simpleuml.components.BirdViewFrame/0.0.1920.1040@0.0.1920.1040" timestamp="1590181375468" />
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590159519030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590159519030" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/NoU/App.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590182463836">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590182463836" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$App.ic" NAME="App Coverage Results" MODIFIED="1590170387428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.*</FILTER>
     </SUITE>
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="knownFile0" value="file://$PROJECT_DIR$/../UML.suml" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>

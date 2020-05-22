@@ -1,7 +1,9 @@
-package com.NoU.Systems;
+package com.NoU.Crafts.Parts;
 
 import com.NoU.Enum.Era;
 import com.NoU.Enum.Theatre;
+import com.NoU.Systems.Ammunition;
+import com.NoU.Systems.Weapon;
 
 import java.io.Serializable;
 import java.util.Set;
