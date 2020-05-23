@@ -28,11 +28,19 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 /**
  * @author Toonu
  */
 public class WriterReader {
+
+    /**
+     * Method saves crafts to savefile.
+     *
+     * @param crafts SortedSet of craft to save.
+     * @return true if everything went correctly.
+     */
     public static boolean save(SortedSet<Craft> crafts) {
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File("savefile.txt")))) {
             for (Craft craft : crafts) {
@@ -48,6 +56,11 @@ public class WriterReader {
         }
     }
 
+    /**
+     * Method loads saved objects from savefile.
+     *
+     * @return Craft set.
+     */
     public static SortedSet<Craft> load() {
         SortedSet<Craft> crafts = new TreeSet<>();
         //noinspection SpellCheckingInspection
@@ -72,50 +85,26 @@ public class WriterReader {
         }
     }
 
+    /**
+     * Method reads formatted craft csv file.
+     *
+     * @param path path to the file to import.
+     * @return set containing all weapon templates from the file.
+     */
     public static SortedSet<Craft> loadFile(Path path) {
         SortedSet<Craft> crafts = new TreeSet<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
-            br.readLine();
+            br.readLine(); //Skips first line with headline values.
             String line = br.readLine();
-
             while (line != null) {
                 String[] lines = line.split(",");
 
                 if (!lines[1].equals("")) {
                     String name = lines[2];
                     String classification = lines[3];
-
-                    Era era;
-                    String software = lines[21];
-                    switch (software) {
-                        case "50s":
-                            era = Era.Era1950;
-                            break;
-                        case "60s":
-                            era = Era.Era1960;
-                            break;
-                        case "70s":
-                            era = Era.Era1970;
-                            break;
-                        case "80s":
-                            era = Era.Era1980;
-                            break;
-                        case "90s":
-                            era = Era.Era1990;
-                            break;
-                        case "00s":
-                            era = Era.Era2000;
-                            break;
-                        case "10s":
-                            era = Era.Era2010;
-                            break;
-                        case "20s":
-                            era = Era.Era2020;
-                            break;
-                        default:
-                            era = App.DEFAULT_YEAR;
-                    }
+                    Era era = Era.valueOf(
+                            new StringBuilder().append("Era19").append(lines[21]).deleteCharAt(7).toString());
 
                     Type type;
                     String subclass = lines[23] + lines[24] + lines[25];
@@ -177,18 +166,18 @@ public class WriterReader {
                         speed = Double.parseDouble(lines[10]);
                     }
 
-
-                    crafts.add(new Craft.Builder().setName(name).setSpeed(speed).
-                            setType(type).setCraftProductionYear(era).setSide(Sides.NEUTRAL).build());
+                    Craft newCraft = new Craft.Builder().setName(name).setSpeed(speed).
+                            setType(type).setCraftProductionYear(era).setSide(Sides.NEUTRAL).build();
+                    crafts.add(newCraft);
 
                     if (App.DEBUG) {
-                        System.out.println(String.format("[LOG %s] Craft Loaded: %s", LocalTime.now(), crafts.first()));
+                        System.out.println(String.format("[LOG %s] Craft Loaded: %s", LocalTime.now(), newCraft));
                     }
                 }
                 line = br.readLine();
             }
-        } catch (IOException e) {
-            System.out.println("X");
+        } catch (IOException | IllegalArgumentException e) {
+            System.out.println(e);
         }
         return crafts;
     }
@@ -207,76 +196,76 @@ public class WriterReader {
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             String line = br.readLine();
-
             while (line != null) {
-                String[] lines = line.split(" ");
-
                 try {
+                    String[] lines = line.split(" ");
+
                     String name = lines[1];
                     double damage = Double.parseDouble(lines[2]);
                     double minRange = Double.parseDouble(lines[3]);
                     double maxRange = Double.parseDouble(lines[4]);
+                    if (damage < 1 || minRange < 0 || maxRange < 1) {
+                        throw new IllegalArgumentException(String.format("Error reading the weapon's %s values. " +
+                                "One of them is negative or null.", name));
+                    }
 
-                    Era era = Era.valueOf(lines[5]);
+                    Era era;
+                    if (Pattern.matches("[0-9]{4}", lines[5])) {
+                        era = Era.valueOf(new StringBuilder().append("Era").append(lines[5]).toString());
+                    } else {
+                        era = Era.valueOf(lines[5]);
+                    }
+
                     Set<Theatre> targets = new HashSet<>();
-
                     for (String target : lines[6].split(":")) {
                         try {
-                            targets.add(Theatre.valueOf(target));
+                            targets.add(Theatre.valueOf(target.toUpperCase()));
                         } catch (IllegalArgumentException e) {
-                            System.err.println(String.format("[ERR %s] Error reading the weapon's %s targets. " +
-                                    "Change them to UPPER CASE values. Exception: %s", LocalTime.now(), name, e));
+                            throw new IllegalArgumentException(String.format("Error reading %s targets. %s",
+                                    name, e.getMessage()));
                         }
                     }
 
-                    if (damage > 0 && minRange >= 0 && maxRange > 0) {
-                        if (lines[0].equals("Gun")) {
-                            String[] ammo = lines[7].split(":");
-                            Ammunition ammunition = null;
-                            try {
-                                ammunition = new Ammunition(Double.parseDouble(ammo[0]),
-                                        Double.parseDouble(ammo[1]), Double.parseDouble(ammo[2]));
-                            } catch (IndexOutOfBoundsException e) {
-                                System.err.println(String.format(
-                                        "[ERR %s] Error reading the weapon's %s ammunition values. Too few values." +
-                                                "(Expected 3): Present <%s> Exception: %s",
-                                        LocalTime.now(), name, ammo.length, e));
-                            }
-                            Weapon newWeapon = new Gun(damage, minRange, maxRange, targets, name, era, ammunition);
-                            weapons.add(newWeapon);
-                            if (App.DEBUG) {
-                                System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(),
-                                        newWeapon));
-                            }
-                        } else if (lines[0].equals("Missile")) {
-                            GuidanceType guidanceType = null;
-                            try {
-                                guidanceType = GuidanceType.valueOf(lines[7]);
-                            } catch (IllegalArgumentException e) {
-                                System.err.println(String.format("[ERR %s] Error reading the weapon's %s " +
-                                        "guidance type. Wrong value. Exception: %s", LocalTime.now(), name, e));
-                            }
-                            Weapon newWeapon =
-                                    new Missile(damage, minRange, maxRange, targets, name, era, guidanceType);
-                            weapons.add(newWeapon);
-                            if (App.DEBUG) {
-                                System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(),
-                                        newWeapon));
-                            }
+                    Weapon newWeapon;
+                    if (lines[0].equals("Gun")) {
+                        String[] ammo = lines[7].split(":");
+                        Ammunition ammunition;
+                        try {
+                            ammunition = new Ammunition(Double.parseDouble(ammo[0]),
+                                    Double.parseDouble(ammo[1]), Double.parseDouble(ammo[2]));
+                        } catch (IndexOutOfBoundsException e) {
+                            throw new IllegalArgumentException(String.format("Error reading %s ammunition " +
+                                    "values. Expected 3: Present <%s>", name, ammo.length));
                         }
+                        newWeapon = new Gun(damage, minRange, maxRange, targets, name, era, ammunition);
+
                     } else {
-                        System.err.println(String.format("[ERR %s] Error reading the weapon's %s " +
-                                "values. One of them is negative or null.", LocalTime.now(), name));
+                        GuidanceType guidanceType;
+                        try {
+                            guidanceType = GuidanceType.valueOf(lines[7].toUpperCase());
+                        } catch (IllegalArgumentException e) {
+                            throw new IllegalArgumentException(
+                                    String.format("Error reading %s guidance type. %s", name, e.getMessage()));
+                        }
+                        newWeapon = new Missile(damage, minRange, maxRange, targets, name, era, guidanceType);
+
                     }
+                    weapons.add(newWeapon);
+
+                    if (App.DEBUG) {
+                        System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(), newWeapon));
+                    }
+                } catch (NumberFormatException e) {
+                    System.err.println(String.format("[ERR %s] %s Numbers expected here.",
+                            LocalTime.now(), e));
                 } catch (IllegalArgumentException e) {
-                    String name = lines[1];
-                    System.err.println(String.format("[ERR %s] Error reading the weapon's %s values. " +
-                            "One of them is negative, null or not number. Exception: %s", LocalTime.now(), name, e));
+                    System.err.println(String.format("[ERR %s] %s", LocalTime.now(), e));
+                } finally {
+                    line = br.readLine();
                 }
-                line = br.readLine();
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.err.println(String.format("[ERR %s] %s", LocalTime.now(), e));
         }
         return weapons;
     }

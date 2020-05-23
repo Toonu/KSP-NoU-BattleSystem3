@@ -17,8 +17,12 @@ public class Ammunition implements Serializable {
      * @param bulletMass double mass of the projectile.
      * @param calibre    double calibre of the projectile.
      */
-    public Ammunition(double speed, double bulletMass, double calibre) {
-        this.penetration = (16f * speed * Math.sqrt(bulletMass / 1000) / Math.sqrt(calibre));
+    public Ammunition(double speed, double bulletMass, double calibre) throws IllegalArgumentException {
+        if (speed > 0 && bulletMass > 0 && calibre > 0) {
+            this.penetration = (16f * speed * Math.sqrt(bulletMass / 1000) / Math.sqrt(calibre));
+        } else {
+            throw new IllegalArgumentException("Ammo speed, mass or calibre cannot be negative.");
+        }
     }
 
     public double getPenetration() {

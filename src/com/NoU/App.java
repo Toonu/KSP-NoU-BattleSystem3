@@ -82,5 +82,7 @@ public class App {
         System.out.println(templates);
 
         weapons.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
+
+        System.out.println(weapons);
     }
 }

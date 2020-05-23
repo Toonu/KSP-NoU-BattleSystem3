@@ -18,4 +18,9 @@ public enum Era {
     public double getModifier() {
         return modifier;
     }
+
+    @Override
+    public String toString() {
+        return name().substring(3);
+    }
 }
