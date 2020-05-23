@@ -24,5 +24,7 @@ public class App {
         SortedSet<Craft> leftSide = new TreeSet<>();
         SortedSet<Craft> rightSide = new TreeSet<>();
         DEBUG = true;
+
+        OrderOfBattle.main(null);
     }
 }

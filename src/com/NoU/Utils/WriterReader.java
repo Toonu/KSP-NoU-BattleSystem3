@@ -25,9 +25,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 /**
@@ -40,7 +39,7 @@ public class WriterReader {
      * @param crafts SortedSet of craft to save.
      * @return true if everything went correctly.
      */
-    public static boolean save(SortedSet<Craft> crafts, String pathname) {
+    public static boolean save(LinkedList<Craft> crafts, String pathname) {
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File(pathname)))) {
             for (Craft craft : crafts) {
                 o.writeObject(craft);
@@ -60,8 +59,8 @@ public class WriterReader {
      *
      * @return Craft set.
      */
-    public static SortedSet<Craft> load(String pathname) {
-        SortedSet<Craft> crafts = new TreeSet<>();
+    public static LinkedList<Craft> load(String pathname) {
+        LinkedList<Craft> crafts = new LinkedList<>();
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File(pathname)))) {
             int counter = 0;
             try {
@@ -89,8 +88,8 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static SortedSet<Craft> loadFile(Path path) {
-        SortedSet<Craft> crafts = new TreeSet<>();
+    public static LinkedList<Craft> loadFile(Path path) {
+        LinkedList<Craft> crafts = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             br.readLine(); //Skips first line with headline values.
@@ -189,8 +188,8 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static SortedSet<Weapon> readWeaponFile(Path path) {
-        SortedSet<Weapon> weapons = new TreeSet<>();
+    public static LinkedList<Weapon> readWeaponFile(Path path) {
+        LinkedList<Weapon> weapons = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             String line = br.readLine();

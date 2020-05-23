@@ -12,15 +12,11 @@ import com.NoU.Systems.Weapon;
 import com.NoU.Vertex2D;
 
 import java.io.Serializable;
-import java.nio.file.Path;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.LinkedList;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.SortedSet;
 
 /**
  * @author Toonu
@@ -31,8 +27,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     public static final int DELAY = 30;
     private final double speed;
     private final String name;
-    private final SortedMap<Double, List<Weapon>> weapons;
-    private final SortedMap<Double, List<Countermeasure>> countermeasures;
+    private final LinkedList<Weapon> weapons = new LinkedList<>();
+    private final LinkedList<Countermeasure> countermeasures = new LinkedList<>();
     private final Type type;
     private final Era craftProductionYear;
     private final Side side;
@@ -49,21 +45,13 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      *
      * @param speed               double Speed in m/s of the craft.
      * @param name                String name of the craft.
-     * @param weapons             SortedMap<Double, List<Weapon>> containing values list of weapons sorted by their double range.
-     * @param countermeasures     SortedMap<Double, List<Countermeasure>>
-     *                            containing values list of countermeasures sorted by their double range.
      * @param type                Type enum of the craft.
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                Enum color of craft's side.
      */
-    protected Craft(double speed, String name, SortedMap<Double,
-            List<Weapon>> weapons, SortedMap<Double, List<Countermeasure>> countermeasures,
-                    Type type, Era craftProductionYear, Side side) {
+    protected Craft(double speed, String name, Type type, Era craftProductionYear, Side side) {
         this.speed = speed;
         this.name = name;
-
-        this.weapons = weapons;
-        this.countermeasures = countermeasures;
 
         this.type = type;
         this.craftProductionYear = craftProductionYear;
@@ -152,26 +140,82 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     }
 
     /**
-     * Method removes weapon from list of all weapons of the craft.
+     * Method assign Sortedset to the craft.
      *
-     * @param weapon Weapon to be added to the list of weapons.
+     * @param systems SortedSet to be implemented.
      */
-    public void removeWeapon(Weapon weapon) {
-        weapons.get(weapon.getMaxRange()).remove(weapon);
+    public <T extends AbstractSystem> void addSystemSet(SortedSet<T> systems) {
+        boolean test = true;
+        try {
+            Weapon testItem = (Weapon) systems.first();
+
+        } catch (ClassCastException e) {
+            Countermeasure testItem = (Countermeasure) systems.first();
+            test = false;
+        }
+        try {
+            for (T system : systems) {
+                if (system == null) {
+                    throw new NullPointerException("System is null.");
+                } else if (test) {
+                    weapons.add((Weapon) system);
+                } else {
+                    countermeasures.add((Countermeasure) system);
+                }
+                if (App.DEBUG) {
+                    System.out.println(String.format("[LOG %s] Added: %s", LocalTime.now(), system));
+                }
+            }
+        } catch (NullPointerException e) {
+            System.err.println(String.format(
+                    "[ERR %s] %s Some values are null. Cannot add to database.", LocalTime.now(), e));
+        }
     }
 
     /**
-     * Method removes weapon from list of all countermeasure of the craft.
+     * Method adds system to craft.
      *
-     * @param cm Weapon to be added to the list of weapons.
-     * @return returns true if the Countermeasure object is added to the craft. False otherwise.
+     * @param system Object to be added.
      */
-    public boolean removeDefense(Countermeasure cm) {
-        if (countermeasures.get(cm.getMaxRange()).contains(cm)) {
-            countermeasures.get(cm.getMaxRange()).remove(cm);
-            return true;
+    public <T extends AbstractSystem> void addSystem(T system) {
+        try {
+            if (system == null) {
+                throw new IllegalArgumentException("Cannot add null system.");
+            }
+            Double rng = system.getMaxRange();
+            Set<?> trg = null;
+            if (system.getMaxRange() > 0) {
+                try {
+                    weapons.add((Weapon) system);
+                    trg = ((Weapon) system).getTargets();
+                } catch (NullPointerException e) {
+                    countermeasures.add((Countermeasure) system);
+                    trg = ((Countermeasure) system).getAgainst();
+                    //TODO Try add CM
+                }
+            }
+
+            if (App.DEBUG) {
+                System.out.println(String.format("[LOG %s] Weapon from %s: %s added. [MaxRng: %s MinRng: " +
+                                "%s Strength: %s] [Trg: %s]", LocalTime.now(), system.getEra(), system.getName(),
+                        system.getMaxRange(), system.getMinRange(), system.getStrength(), trg));
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println(String.format("[ERR %s] Weapon is null. Not added.", LocalTime.now()));
         }
-        return false;
+    }
+
+    /**
+     * Method removes CM or weapon system from the craft.
+     *
+     * @param sys System to be removed.
+     */
+    public void removeSystem(AbstractSystem sys) {
+        if (sys instanceof Weapon) {
+            weapons.remove(sys);
+        } else {
+            countermeasures.remove(sys);
+        }
     }
 
     /**
@@ -281,12 +325,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         return position;
     }
 
-    public SortedMap<Double, List<Countermeasure>> getCountermeasures() {
-        return Collections.unmodifiableSortedMap(countermeasures);
+    public LinkedList<Countermeasure> getCountermeasures() {
+        return (LinkedList<Countermeasure>) Collections.unmodifiableList(countermeasures);
     }
 
-    public SortedMap<Double, List<Weapon>> getWeapons() {
-        return Collections.unmodifiableSortedMap(weapons);
+    public LinkedList<Weapon> getWeapons() {
+        return (LinkedList<Weapon>) Collections.unmodifiableList(weapons);
     }
 
     public boolean isWithdrawing() {
@@ -314,9 +358,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         private double speed = 10;
         private String name = "Craft";
 
-        private final SortedMap<Double, List<Weapon>> weapons = new TreeMap<>();
-        private final SortedMap<Double, List<Countermeasure>> countermeasures = new TreeMap<>();
-
         private Type type;
         private Era craftProductionYear = App.DEFAULT_YEAR;
         private Side side = Side.WHITE;
@@ -334,8 +375,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                     "HP=" + HP +
                     ", speed=" + speed +
                     ", name='" + name + '\'' +
-                    ", weapons=" + weapons +
-                    ", countermeasures=" + countermeasures +
                     ", type=" + type +
                     ", craftProductionYear=" + craftProductionYear +
                     ", side=" + side +
@@ -384,118 +423,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         }
 
         /**
-         * Method assign SortedMap to the builder.
-         *
-         * @param systems SortedMap to be implemented.
-         * @return Builder back.
-         */
-        @SuppressWarnings("unchecked")
-        public <T extends AbstractSystem> Builder readMap(SortedMap<Double, List<T>> systems) {
-            boolean test = true;
-            try {
-                Weapon testItem = (Weapon) systems.get(systems.firstKey()).get(0);
-
-            } catch (ClassCastException e) {
-                Countermeasure testItem = (Countermeasure) systems.get(systems.firstKey()).get(0);
-                test = false;
-            }
-            try {
-                for (List<T> list : systems.values()) {
-                    for (T sys : list) {
-                        if (sys == null) {
-                            throw new NullPointerException("System is null.");
-                        }
-                    }
-                }
-                for (Double value : systems.keySet()) {
-                    if (value < 0) {
-                        throw new NullPointerException("Key value cannot be negative.");
-                    }
-                }
-            } catch (NullPointerException e) {
-                System.err.println(String.format("[ERR %s] Some values are null. Cannot add to database. Exception:" +
-                        "\n%s", LocalTime.now(), e));
-                return this;
-            }
-
-            {
-                for (Map.Entry<Double, List<T>> entry : systems.entrySet()) {
-                    if (test) {
-                        weapons.put(systems.firstKey(), (List<Weapon>) systems.get(systems.firstKey()));
-                    } else {
-                        countermeasures.put(systems.firstKey(), (List<Countermeasure>) systems.get(systems.firstKey()));
-                    }
-                }
-            }
-
-            if (App.DEBUG) {
-                System.out.println(String.format("[LOG %s] Added:\n%s", LocalTime.now(), systems));
-            }
-            return this;
-        }
-
-        /**
-         * Method adds object to the list of craft.
-         *
-         * @param system Object to be added.
-         * @return Builder.
-         */
-        public <T extends AbstractSystem> Builder addSystem(T system) {
-            Double rng = system.getMaxRange();
-            Set<?> trg;
-            if (system.getMaxRange() > 0) {
-                try {
-                    if (weapons.containsKey(rng)) {
-                        weapons.get(rng).add((Weapon) system);
-                    } else {
-                        List<Weapon> newSystems = new ArrayList<>();
-                        newSystems.add((Weapon) system);
-                        weapons.put(rng, newSystems);
-                    }
-                    trg = ((Weapon) system).getTargets();
-                } catch (NullPointerException e) {
-                    if (countermeasures.containsKey(rng)) {
-                        countermeasures.get(rng).add((Countermeasure) system);
-                    } else {
-                        List<Countermeasure> newSystems = new ArrayList<>();
-                        newSystems.add((Countermeasure) system);
-                        countermeasures.put(rng, newSystems);
-                    }
-                    trg = ((Countermeasure) system).getAgainst();
-                }
-
-                if (App.DEBUG) {
-                    System.out.println(String.format("[LOG %s] Weapon from %s: %s added. [MaxRng: %s MinRng: " +
-                                    "%s Strength: %s] [Trg: %s]", LocalTime.now(), system.getEra(), system.getName(),
-                            system.getMaxRange(), system.getMinRange(), system.getStrength(), trg));
-                }
-            } else {
-                System.err.println(String.format("[ERR %s] Weapon is null. Not added.", LocalTime.now()));
-            }
-            return this;
-        }
-
-        /**
-         * Method to read file and import weapons from it.
-         *
-         * @param path Path of file.
-         * @return Builder.
-         */
-        public Builder readWeapons(Path path) {
-            return this;
-        }
-
-        /**
-         * Method to read file and import countermeasures from it.
-         *
-         * @param path Path of file.
-         * @return Builder.
-         */
-        public Builder readCountermeasures(Path path) {
-            return this;
-        }
-
-        /**
          * Builds the final Craft object.
          *
          * @return Craft object of theatre type.
@@ -504,11 +431,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             try {
                 switch (type.getTheatre()) {
                     case GROUND:
-                        return new Vehicle(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                        return new Vehicle(speed, name, type, craftProductionYear, side);
                     case AERIAL:
-                        return new Aircraft(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                        return new Aircraft(speed, name, type, craftProductionYear, side);
                     case NAVAL:
-                        return new Vessel(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+                        return new Vessel(speed, name, type, craftProductionYear, side);
                     default:
                         throw new IllegalArgumentException(
                                 String.format("[ERR %s] Wrong vehicle type.", LocalTime.now()));

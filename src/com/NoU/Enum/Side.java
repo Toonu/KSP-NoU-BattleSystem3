@@ -3,9 +3,7 @@ package com.NoU.Enum;
 import com.NoU.Crafts.Craft;
 import com.NoU.Vertex2D;
 
-import java.util.Collections;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.LinkedList;
 
 /**
  * @author Toonu
@@ -16,7 +14,7 @@ public enum Side {
     WHITE(new Vertex2D(-100, 0)), BLACK(new Vertex2D(100, 0)), NEUTRAL(new Vertex2D(5000, 5000));
 
     private final Vertex2D spawn;
-    private SortedSet<Craft> crafts = new TreeSet<>();
+    private LinkedList<Craft> crafts = new LinkedList<>();
 
     Side(Vertex2D spawn) {
         this.spawn = spawn;
@@ -26,11 +24,11 @@ public enum Side {
         return spawn;
     }
 
-    public SortedSet<Craft> getCrafts() {
-        return Collections.unmodifiableSortedSet(crafts);
+    public LinkedList<Craft> getCrafts() {
+        return new LinkedList<>(crafts);
     }
 
-    public void setCrafts(SortedSet<Craft> crafts) {
+    public void setCrafts(LinkedList<Craft> crafts) {
         this.crafts = crafts;
     }
 

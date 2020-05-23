@@ -14,6 +14,7 @@ import com.NoU.Utils.WriterReader;
 
 import java.nio.file.Paths;
 import java.util.EnumSet;
+import java.util.LinkedList;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -45,7 +46,6 @@ public class OrderOfBattle {
                 .setType(Type.AFV)
                 .setName("Test")
                 .setSpeed(25)
-                .addSystem(testGun).addSystem(airGun).addSystem(testMissile)
                 .build());
         App.BLACK.addCrafts(new Craft.Builder()
                 .setCraftProductionYear(Era.Era1960)
@@ -55,7 +55,7 @@ public class OrderOfBattle {
                 .setSpeed(25)
                 .build());
 
-        SortedSet<Craft> templates = new TreeSet<>();
+        LinkedList<Craft> templates = new LinkedList<>();
         if (WriterReader.save(App.WHITE.getCrafts(), "save.txt")) {
             App.WHITE.setCrafts(WriterReader.load("save.txt"));
             System.out.println(templates);
@@ -66,5 +66,10 @@ public class OrderOfBattle {
 
         weapons.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
         System.out.println(weapons);
+
+        App.WHITE.getCrafts().peekFirst().addSystem(airGun);
+        App.WHITE.getCrafts().peekFirst().addSystem(airGun);
+
+        System.out.println(App.WHITE.getCrafts().peekFirst().toWeaponList());
     }
 }

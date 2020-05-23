@@ -8,9 +8,8 @@ import com.NoU.Systems.Weapon;
 
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Set;
-import java.util.SortedMap;
 
 /**
  * @author Toonu
@@ -42,18 +41,17 @@ public class BattleSecond {
         if (attack.distanceOfWeapon() < 2) {
             Craft victim = attack.getTarget();
             Missile weaponSystem = attack.getWeapon();
-            SortedMap<Double, List<Countermeasure>> countermeasures = victim.getCountermeasures();
+            LinkedList<Countermeasure> countermeasures = victim.getCountermeasures();
 
             GuidanceType type = weaponSystem.getGuidanceType();
 
-            for (Double distance : countermeasures.keySet()) {
-                if (attack.distanceOfWeapon() < distance) {
-                    for (Countermeasure countermeasure : countermeasures.get(distance)) {
-                        if (countermeasure.getMinRange() < attack.distanceOfWeapon() &&
-                                countermeasure.getAgainst().contains(weaponSystem.getGuidanceType())) {
-                            //TODO Add
-                            System.out.println("x");
-                        }
+            double distance = countermeasures.peekFirst().getMaxRange();
+            if (attack.distanceOfWeapon() < distance) {
+                for (Countermeasure countermeasure : countermeasures) {
+                    if (countermeasure.getMinRange() < attack.distanceOfWeapon() &&
+                            countermeasure.getAgainst().contains(weaponSystem.getGuidanceType())) {
+                        //TODO Add
+                        System.out.println("x");
                     }
                 }
             }
@@ -75,10 +73,10 @@ public class BattleSecond {
 
         if (weaponSystem instanceof Missile) {
             attacks.add(new Attack((Missile) weaponSystem, aggressor, target));
-            aggressor.removeWeapon(weaponSystem);
+            aggressor.removeSystem(weaponSystem);
             return true;
         } else if (weaponSystem != null) {
-            aggressor.removeWeapon(weaponSystem);
+            aggressor.removeSystem(weaponSystem);
             return true;
         }
         return false;

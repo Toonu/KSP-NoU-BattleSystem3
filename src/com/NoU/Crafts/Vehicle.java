@@ -5,12 +5,8 @@ import com.NoU.Crafts.Parts.Radar;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.Side;
 import com.NoU.Enum.Type;
-import com.NoU.Systems.Countermeasure;
-import com.NoU.Systems.Weapon;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.SortedMap;
 
 /**
  * @author Toonu
@@ -26,19 +22,13 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
      *
      * @param speed               double Speed in m/s of the craft.
      * @param name                String name of the craft.
-     * @param weapons             SortedMap<Double, List<Weapon>> containing values list of weapons sorted by their double range.
-     * @param countermeasures     SortedMap<Double, List<Countermeasure>>
-     *                            containing values list of countermeasures sorted by their double range.
      * @param type                Type enum of the craft.
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                Enum color of craft's side.
      */
-    protected Vehicle(double speed, String name, SortedMap<Double,
-            List<Weapon>> weapons, SortedMap<Double, List<Countermeasure>> countermeasures,
-                      Type type, Era craftProductionYear, Side side) {
-        super(speed, name, weapons, countermeasures, type, craftProductionYear, side);
+    protected Vehicle(double speed, String name, Type type, Era craftProductionYear, Side side) {
+        super(speed, name, type, craftProductionYear, side);
     }
-
 
     /**
      * Method returns armor layout Object from the vehicle.

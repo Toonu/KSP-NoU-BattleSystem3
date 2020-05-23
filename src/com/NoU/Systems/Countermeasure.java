@@ -12,7 +12,7 @@ import java.util.EnumSet;
  * <p>
  * Class representing Countermeasure and its properities.
  */
-public class Countermeasure extends AbstractSystem implements Serializable {
+public class Countermeasure extends AbstractSystem implements Serializable, Comparable<Countermeasure> {
     private final boolean isSaturable;
     private final SystemType type;
     private final EnumSet<GuidanceType> against;
@@ -62,5 +62,22 @@ public class Countermeasure extends AbstractSystem implements Serializable {
     public Countermeasure getCountermeasure() {
         return new Countermeasure(getStrength(), getMinRange(), getMaxRange(), getName(), getEra(),
                 isSaturable, type, against);
+    }
+
+    /**
+     * Compares this object with the specified object for order.  Returns a
+     * negative integer, zero, or a positive integer as this object is less
+     * than, equal to, or greater than the specified object.
+     *
+     * @param o the object to be compared.
+     * @return a negative integer, zero, or a positive integer as this object
+     * is less than, equal to, or greater than the specified object.
+     * @throws NullPointerException if the specified object is null
+     * @throws ClassCastException   if the specified object's type prevents it
+     *                              from being compared to this object.
+     */
+    @Override
+    public int compareTo(Countermeasure o) {
+        return Double.compare(getMaxRange(), o.getMaxRange());
     }
 }

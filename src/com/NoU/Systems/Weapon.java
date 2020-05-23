@@ -54,4 +54,14 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
     public int compareTo(Weapon o) {
         return Double.compare(getMaxRange(), o.getMaxRange());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return this == o;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }
