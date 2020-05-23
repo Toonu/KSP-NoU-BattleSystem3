@@ -4,7 +4,7 @@ import com.NoU.App;
 import com.NoU.Crafts.Craft;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.GuidanceType;
-import com.NoU.Enum.Sides;
+import com.NoU.Enum.Side;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
 import com.NoU.Systems.Ammunition;
@@ -34,15 +34,14 @@ import java.util.regex.Pattern;
  * @author Toonu
  */
 public class WriterReader {
-
     /**
-     * Method saves crafts to savefile.
+     * Method saves crafts to save file.
      *
      * @param crafts SortedSet of craft to save.
      * @return true if everything went correctly.
      */
-    public static boolean save(SortedSet<Craft> crafts) {
-        try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File("savefile.txt")))) {
+    public static boolean save(SortedSet<Craft> crafts, String pathname) {
+        try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File(pathname)))) {
             for (Craft craft : crafts) {
                 o.writeObject(craft);
                 if (App.DEBUG) {
@@ -57,14 +56,13 @@ public class WriterReader {
     }
 
     /**
-     * Method loads saved objects from savefile.
+     * Method loads saved objects from save file.
      *
      * @return Craft set.
      */
-    public static SortedSet<Craft> load() {
+    public static SortedSet<Craft> load(String pathname) {
         SortedSet<Craft> crafts = new TreeSet<>();
-        //noinspection SpellCheckingInspection
-        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File("savefile.txt")))) {
+        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File(pathname)))) {
             int counter = 0;
             try {
                 //noinspection InfiniteLoopStatement
@@ -167,7 +165,7 @@ public class WriterReader {
                     }
 
                     Craft newCraft = new Craft.Builder().setName(name).setSpeed(speed).
-                            setType(type).setCraftProductionYear(era).setSide(Sides.NEUTRAL).build();
+                            setType(type).setCraftProductionYear(era).setSide(Side.NEUTRAL).build();
                     crafts.add(newCraft);
 
                     if (App.DEBUG) {
@@ -211,7 +209,7 @@ public class WriterReader {
 
                     Era era;
                     if (Pattern.matches("[0-9]{4}", lines[5])) {
-                        era = Era.valueOf(new StringBuilder().append("Era").append(lines[5]).toString());
+                        era = Era.valueOf("Era" + lines[5]);
                     } else {
                         era = Era.valueOf(lines[5]);
                     }

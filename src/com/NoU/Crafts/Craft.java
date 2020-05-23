@@ -2,7 +2,7 @@ package com.NoU.Crafts;
 
 import com.NoU.App;
 import com.NoU.Enum.Era;
-import com.NoU.Enum.Sides;
+import com.NoU.Enum.Side;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
 import com.NoU.Movable;
@@ -35,7 +35,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private final SortedMap<Double, List<Countermeasure>> countermeasures;
     private final Type type;
     private final Era craftProductionYear;
-    private final Sides side;
+    private final Side side;
 
     private Vertex2D position;
     private double HP;
@@ -58,7 +58,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      */
     protected Craft(double speed, String name, SortedMap<Double,
             List<Weapon>> weapons, SortedMap<Double, List<Countermeasure>> countermeasures,
-                    Type type, Era craftProductionYear, Sides side) {
+                    Type type, Era craftProductionYear, Side side) {
         this.speed = speed;
         this.name = name;
 
@@ -241,7 +241,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     //Getters
 
-    public Sides getSide() {
+    public Side getSide() {
         return side;
     }
 
@@ -319,7 +319,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
         private Type type;
         private Era craftProductionYear = App.DEFAULT_YEAR;
-        private Sides side = Sides.WHITE;
+        private Side side = Side.WHITE;
 
         private Vertex2D position;
 
@@ -369,7 +369,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             return this;
         }
 
-        public Builder setSide(Sides side) {
+        public Builder setSide(Side side) {
             this.side = side;
             return this;
         }

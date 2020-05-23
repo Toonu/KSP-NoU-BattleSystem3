@@ -29,7 +29,7 @@ public class BattleSecond {
     /**
      * Constructor.
      */
-    public BattleSecond() {
+    public BattleSecond(int Time) {
     }
 
     /**

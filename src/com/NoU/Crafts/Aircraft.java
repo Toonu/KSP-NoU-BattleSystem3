@@ -1,7 +1,7 @@
 package com.NoU.Crafts;
 
 import com.NoU.Enum.Era;
-import com.NoU.Enum.Sides;
+import com.NoU.Enum.Side;
 import com.NoU.Enum.Type;
 import com.NoU.Systems.Countermeasure;
 import com.NoU.Systems.Weapon;
@@ -29,7 +29,7 @@ public class Aircraft extends Craft implements Serializable {
      * @param side                Enum color of craft's side.
      */
     protected Aircraft(double speed, String name, SortedMap<Double, List<Weapon>> weapons, SortedMap<Double,
-            List<Countermeasure>> countermeasures, Type type, Era craftProductionYear, Sides side) {
+            List<Countermeasure>> countermeasures, Type type, Era craftProductionYear, Side side) {
         super(speed, name, weapons, countermeasures, type, craftProductionYear, side);
     }
 }
