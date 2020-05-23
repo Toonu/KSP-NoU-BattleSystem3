@@ -35,4 +35,9 @@ public class Missile extends Weapon implements Serializable {
     public GuidanceType getGuidanceType() {
         return guidanceType;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%10s %s", "[Missile]", super.toString());
+    }
 }

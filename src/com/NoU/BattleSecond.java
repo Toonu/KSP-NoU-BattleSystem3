@@ -49,7 +49,7 @@ public class BattleSecond {
             if (attack.distanceOfWeapon() < distance) {
                 for (Countermeasure countermeasure : countermeasures) {
                     if (countermeasure.getMinRange() < attack.distanceOfWeapon() &&
-                            countermeasure.getAgainst().contains(weaponSystem.getGuidanceType())) {
+                            countermeasure.getTargets().contains(weaponSystem.getGuidanceType())) {
                         //TODO Add
                         System.out.println("x");
                     }
@@ -58,6 +58,16 @@ public class BattleSecond {
             return false;
         }
         return false;
+    }
+
+    public double hitAngle(Craft agrressor, Craft target) {
+        double angle = (Math.toDegrees(Math.atan2(agrressor.getPosition().getY() - target.getPosition().getY(),
+                agrressor.getPosition().getX() - target.getPosition().getX())));
+        angle -= target.getAngle();
+        if (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
 
     /**

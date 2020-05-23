@@ -7,7 +7,7 @@ package com.NoU.Enum;
  */
 @SuppressWarnings("SpellCheckingInspection")
 public enum Theatre {
-    GROUND(" GRND"), AERIAL("  AIR"), NAVAL("NAVAL"), SPACE("SPACE");
+    GROUND("GRND"), AERIAL("AIR"), NAVAL("NAVAL"), SPACE("SPACE");
 
     private final String nickname;
 
@@ -17,6 +17,6 @@ public enum Theatre {
 
     @Override
     public String toString() {
-        return nickname;
+        return String.format("%-5s |", nickname);
     }
 }

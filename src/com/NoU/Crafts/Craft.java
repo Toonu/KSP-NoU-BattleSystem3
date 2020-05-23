@@ -13,10 +13,9 @@ import com.NoU.Vertex2D;
 
 import java.io.Serializable;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.SortedSet;
 
 /**
  * @author Toonu
@@ -33,6 +32,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private final Era craftProductionYear;
     private final Side side;
 
+    private double angle;
     private Vertex2D position;
     private double HP;
 
@@ -108,8 +108,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      */
     @Override
     public String toString() {
-        return String.format("%s-%s %s: %s Pos: %s", type.getTheatre(), type,
-                name, HP, position);
+        return String.format("%s %s %-12s: %4s Pos: %s", type.getTheatre(), type, name, HP, position);
     }
 
     /**
@@ -122,21 +121,37 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     }
 
     /**
-     * Method returns list of weapons of the craft.
+     * Method makes formatted lined String from list.
      *
-     * @return String with all weapon Objects.
+     * @param list List to convert.
+     * @param <T>  List type.
+     * @return String of all items in the list separated by new lines.
      */
-    public String toWeaponList() {
-        return weapons.toString();
+    public <T> String printList(LinkedList<T> list) {
+        StringBuilder result = new StringBuilder();
+        for (T weapon : list) {
+            result.append("\n").append(weapon);
+        }
+        return result.toString();
     }
 
     /**
-     * Method returns list of countermeasures of the craft.
+     * Method returns String of weapons of the craft.
+     *
+     * @return String with all weapon Objects.
+     */
+    public String toWeaponsList() {
+        return new StringBuilder().append(printList(weapons)).insert(0, "[Weapons]").toString();
+    }
+
+    /**
+     * Method returns String of countermeasures of the craft.
      *
      * @return String with all countermeasure Objects.
      */
     public String toCountermeasuresList() {
-        return countermeasures.toString();
+        return new StringBuilder().append(printList(countermeasures)).insert(0, "[Countermeasures]")
+                .toString();
     }
 
     /**
@@ -144,13 +159,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      *
      * @param systems SortedSet to be implemented.
      */
-    public <T extends AbstractSystem> void addSystemSet(SortedSet<T> systems) {
+    public <T extends AbstractSystem> void addSystemSet(LinkedList<T> systems) {
         boolean test = true;
         try {
-            Weapon testItem = (Weapon) systems.first();
-
+            Weapon testItem = (Weapon) systems.peekFirst();
         } catch (ClassCastException e) {
-            Countermeasure testItem = (Countermeasure) systems.first();
+            Countermeasure testItem = (Countermeasure) systems.peekFirst();
             test = false;
         }
         try {
@@ -163,12 +177,14 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                     countermeasures.add((Countermeasure) system);
                 }
                 if (App.DEBUG) {
-                    System.out.println(String.format("[LOG %s] Added: %s", LocalTime.now(), system));
+                    System.out.println(String.format("[LOG %s] %-17s %s",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Added to Craft:", system));
                 }
             }
         } catch (NullPointerException e) {
             System.err.println(String.format(
-                    "[ERR %s] %s Some values are null. Cannot add to database.", LocalTime.now(), e));
+                    "[ERR %s] %s Some values are null. Cannot add to database.",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
         }
     }
 
@@ -183,25 +199,22 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                 throw new IllegalArgumentException("Cannot add null system.");
             }
             Double rng = system.getMaxRange();
-            Set<?> trg = null;
             if (system.getMaxRange() > 0) {
                 try {
                     weapons.add((Weapon) system);
-                    trg = ((Weapon) system).getTargets();
-                } catch (NullPointerException e) {
+                } catch (ClassCastException e) {
+                    //noinspection ConstantConditions
                     countermeasures.add((Countermeasure) system);
-                    trg = ((Countermeasure) system).getAgainst();
-                    //TODO Try add CM
                 }
             }
 
             if (App.DEBUG) {
-                System.out.println(String.format("[LOG %s] Weapon from %s: %s added. [MaxRng: %s MinRng: " +
-                                "%s Strength: %s] [Trg: %s]", LocalTime.now(), system.getEra(), system.getName(),
-                        system.getMaxRange(), system.getMinRange(), system.getStrength(), trg));
+                System.out.println(String.format("[LOG %s] %-17s %s",
+                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Added to craft:", system));
             }
         } catch (IllegalArgumentException e) {
-            System.err.println(String.format("[ERR %s] Weapon is null. Not added.", LocalTime.now()));
+            System.err.println(String.format("[ERR %s] Weapon is null. Not added.",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
         }
     }
 
@@ -213,7 +226,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     public void removeSystem(AbstractSystem sys) {
         if (sys instanceof Weapon) {
             weapons.remove(sys);
-        } else {
+        } else if (sys instanceof Countermeasure) {
             countermeasures.remove(sys);
         }
     }
@@ -279,11 +292,38 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @param vertex2D to move by this coordinates amount.
      */
     @Override
-    public Vertex2D move(Vertex2D vertex2D) {
-        return new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
+    public void move(Vertex2D vertex2D) {
+        position = new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
+    }
+
+    /**
+     * Method moves towards center point.
+     */
+    public void moveTowardCenter() {
+        moveTowardVertex(new Vertex2D(0, 0));
+    }
+
+    /**
+     * Method moves towards trg point.
+     *
+     * @param trg Vertex2D as target.
+     */
+    @Override
+    public void moveTowardVertex(Vertex2D trg) {
+        Vertex2D delta = new Vertex2D(trg.getX() - getPosition().getX(), trg.getY() - getPosition().getY());
+        double angle = Math.atan2(delta.getY(), delta.getX());
+        position = new Vertex2D(
+                position.getX() + (Math.cos(angle) * speed),
+                position.getY() + (Math.sin(angle) * speed));
+        this.angle = Math.toDegrees(Math.atan2(trg.getY() - position.getY(),
+                trg.getX() - position.getX()));
     }
 
     //Getters
+
+    public double getAngle() {
+        return angle;
+    }
 
     public Side getSide() {
         return side;
@@ -325,6 +365,20 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         return position;
     }
 
+    public void setAngle(double angle) {
+        this.angle = angle;
+    }
+
+    /**
+     * Method sets new position.
+     *
+     * @param vertex2D Vertex2D position.
+     */
+    @Override
+    public void setPosition(Vertex2D vertex2D) {
+        position = vertex2D;
+    }
+
     public LinkedList<Countermeasure> getCountermeasures() {
         return (LinkedList<Countermeasure>) Collections.unmodifiableList(countermeasures);
     }
@@ -355,7 +409,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      */
     public static class Builder {
         private double HP;
-        private double speed = 10;
+        private double speed = 0.01;
         private String name = "Craft";
 
         private Type type;
@@ -387,7 +441,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                 this.name = name;
             } else {
                 System.err.println(
-                        String.format("[ERR %s] Name is null, replacing with default name value.", LocalTime.now()));
+                        String.format("[ERR %s] Name is null, replacing with default name value.",
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
             }
 
             return this;
@@ -395,10 +450,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
         public Builder setSpeed(double speed) {
             if (speed > 0) {
-                this.speed = speed;
+                this.speed = speed / 1000;
             } else {
                 System.err.println(String.format(
-                        "[ERR %s] Speed must be positive. Applying default speed of 10m/s.", LocalTime.now()));
+                        "[ERR %s] Speed must be positive. Applying default speed of 10m/s.",
+                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
             }
             return this;
         }
@@ -416,10 +472,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         public Builder setCraftProductionYear(Era craftProductionYear) {
             this.craftProductionYear = craftProductionYear;
             return this;
-        }
-
-        public void setPosition(Vertex2D position) {
-            this.position = position;
         }
 
         /**

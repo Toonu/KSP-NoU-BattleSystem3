@@ -9,11 +9,11 @@ package com.NoU.Enum;
 public enum Type {
     APC(100, Theatre.GROUND), IFV(125, Theatre.GROUND), AFV(160, Theatre.GROUND),
     MBT(200, Theatre.GROUND), SAM(100, Theatre.GROUND), SPAAG(80, Theatre.GROUND),
-    LIGHTMULTIROLE(100, Theatre.AERIAL, "LM Plane"), MEDIUMMULTIROLE(120, Theatre.AERIAL, "MM Plane"),
-    HEAVYMULTIROLE(160, Theatre.AERIAL, "HM Plane"), LARGEAIRFRAME(200, Theatre.AERIAL, "LH Plane"),
-    VERYLARGEAIRFRAME(250, Theatre.AERIAL, "VL Plane"), CORVETTE(600, Theatre.NAVAL, "FS "), FRIGATE(800, Theatre.NAVAL, "FF "),
-    DESTROYER(1000, Theatre.NAVAL, "DD "), CRUISER(1200, Theatre.NAVAL, "CC "), BATTLECRUISER(1500, Theatre.NAVAL, "BC "),
-    BATTLESHIP(2000, Theatre.NAVAL, "BB "), LIGHTCARRIER(1600, Theatre.NAVAL, "LHD"), CARRIER(2500, Theatre.NAVAL, "CV ");
+    LIGHTMULTIROLE(100, Theatre.AERIAL, "LM"), MEDIUMMULTIROLE(120, Theatre.AERIAL, "MM"),
+    HEAVYMULTIROLE(160, Theatre.AERIAL, "HM"), LARGEAIRFRAME(200, Theatre.AERIAL, "LH"),
+    VERYLARGEAIRFRAME(250, Theatre.AERIAL, "VLH"), CORVETTE(600, Theatre.NAVAL, "FS"), FRIGATE(800, Theatre.NAVAL, "FF"),
+    DESTROYER(1000, Theatre.NAVAL, "DD"), CRUISER(1200, Theatre.NAVAL, "CC"), BATTLECRUISER(1500, Theatre.NAVAL, "BC"),
+    BATTLESHIP(2000, Theatre.NAVAL, "BB"), LIGHTCARRIER(1600, Theatre.NAVAL, "LHD"), CARRIER(2500, Theatre.NAVAL, "CV");
 
     private final double health;
     private final Theatre theatre;
@@ -39,6 +39,6 @@ public enum Type {
     }
 
     public String toString() {
-        return nickname;
+        return String.format("%-4s", nickname);
     }
 }

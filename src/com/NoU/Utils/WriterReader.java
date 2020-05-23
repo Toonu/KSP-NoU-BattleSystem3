@@ -2,12 +2,15 @@ package com.NoU.Utils;
 
 import com.NoU.App;
 import com.NoU.Crafts.Craft;
+import com.NoU.Enum.CMType;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.GuidanceType;
 import com.NoU.Enum.Side;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
+import com.NoU.Systems.AbstractSystem;
 import com.NoU.Systems.Ammunition;
+import com.NoU.Systems.Countermeasure;
 import com.NoU.Systems.Gun;
 import com.NoU.Systems.Missile;
 import com.NoU.Systems.Weapon;
@@ -24,6 +27,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -40,16 +44,22 @@ public class WriterReader {
      * @return true if everything went correctly.
      */
     public static boolean save(LinkedList<Craft> crafts, String pathname) {
+        int counter = 0;
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File(pathname)))) {
             for (Craft craft : crafts) {
                 o.writeObject(craft);
                 if (App.DEBUG) {
-                    System.out.println(String.format("[LOG %s] Wrote object to file:%s", LocalTime.now(), craft));
+                    System.out.println(String.format("[LOG %s] %-18s %s",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft));
                 }
+                ++counter;
             }
+            System.out.println(String.format("[LOG %s] %-18s [%s]",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts saved:", counter));
             return true;
         } catch (IOException e) {
-            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s", LocalTime.now(), e));
+            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
             return false;
         }
     }
@@ -71,13 +81,14 @@ public class WriterReader {
                 }
             } catch (EOFException e) {
                 if (App.DEBUG) {
-                    System.out.println(String.format("[LOG %s] End of file. %s Crafts loaded.",
-                            LocalTime.now(), counter));
+                    System.out.println(String.format("[LOG %s] %-18s [%s]",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:", counter));
                 }
             }
             return crafts;
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s", LocalTime.now(), e));
+            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
             return null;
         }
     }
@@ -88,7 +99,7 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Craft> loadFile(Path path) {
+    public static LinkedList<Craft> loadCraftFile(Path path) {
         LinkedList<Craft> crafts = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
@@ -164,11 +175,12 @@ public class WriterReader {
                     }
 
                     Craft newCraft = new Craft.Builder().setName(name).setSpeed(speed).
-                            setType(type).setCraftProductionYear(era).setSide(Side.NEUTRAL).build();
+                            setType(type).setCraftProductionYear(era).setSide(Side.TEMPLATE).build();
                     crafts.add(newCraft);
 
                     if (App.DEBUG) {
-                        System.out.println(String.format("[LOG %s] Craft Loaded: %s", LocalTime.now(), newCraft));
+                        System.out.println(String.format("[LOG %s] %-18s %s",
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:", newCraft));
                     }
                 }
                 line = br.readLine();
@@ -180,90 +192,136 @@ public class WriterReader {
     }
 
     /**
-     * Method reads weapons file formatted in style:
+     * Method returns new LinkedList of weapons from file.
+     *
+     * @param path Path to file.
+     * @return LinkedList<Weapon> containing all weapons.
+     */
+    public static LinkedList<Weapon> readWeaponFile(Path path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadFile(path));
+        LinkedList<Weapon> weapons = new LinkedList<>();
+        for (AbstractSystem sys : list) {
+            if (sys instanceof Weapon) {
+                weapons.add((Weapon) sys);
+            }
+        }
+        return weapons;
+    }
+
+    /**
+     * Method returns new LinkedList of countermeasures from file.
+     *
+     * @param path Path to file.
+     * @return LinkedList<Countermeasure> containing all countermeasures.
+     */
+    public static LinkedList<Countermeasure> readCMFile(Path path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadFile(path));
+        LinkedList<Countermeasure> cm = new LinkedList<>();
+        for (AbstractSystem sys : list) {
+            if (sys instanceof Countermeasure) {
+                cm.add((Countermeasure) sys);
+            }
+        }
+        return cm;
+    }
+
+    /**
+     * Method reads systems file formatted in style:
      * <p>
      * Weapon_type name damage min_range max_range EraYYYY target:target:target
      * ammo_speed:ammo_mass:ammo_calibre/guidance_type
+     * OR
+     * Enum_CM_Type name strength min_range max_range EraYYYY
      *
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Weapon> readWeaponFile(Path path) {
-        LinkedList<Weapon> weapons = new LinkedList<>();
+    private static LinkedList<AbstractSystem> loadFile(Path path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             String line = br.readLine();
             while (line != null) {
                 try {
-                    String[] lines = line.split(" ");
+                    String[] word = line.split(" ");
 
-                    String name = lines[1];
-                    double damage = Double.parseDouble(lines[2]);
-                    double minRange = Double.parseDouble(lines[3]);
-                    double maxRange = Double.parseDouble(lines[4]);
-                    if (damage < 1 || minRange < 0 || maxRange < 1) {
+                    String name = word[1];
+                    double strength = Double.parseDouble(word[2]);
+                    double minRange = Double.parseDouble(word[3]);
+                    double maxRange = Double.parseDouble(word[4]);
+
+                    if (strength < 1 || minRange < 0 || maxRange <= 0) {
                         throw new IllegalArgumentException(String.format("Error reading the weapon's %s values. " +
                                 "One of them is negative or null.", name));
                     }
 
                     Era era;
-                    if (Pattern.matches("[0-9]{4}", lines[5])) {
-                        era = Era.valueOf("Era" + lines[5]);
+                    if (Pattern.matches("[0-9]{4}", word[5])) {
+                        era = Era.valueOf("Era" + word[5]);
                     } else {
-                        era = Era.valueOf(lines[5]);
+                        era = Era.valueOf(word[5]);
                     }
 
-                    Set<Theatre> targets = new HashSet<>();
-                    for (String target : lines[6].split(":")) {
-                        try {
-                            targets.add(Theatre.valueOf(target.toUpperCase()));
-                        } catch (IllegalArgumentException e) {
-                            throw new IllegalArgumentException(String.format("Error reading %s targets. %s",
-                                    name, e.getMessage()));
+                    AbstractSystem system;
+
+                    try {
+                        CMType type = CMType.valueOf(word[0].toUpperCase());
+
+                        Countermeasure countermeasure = new Countermeasure(strength, minRange, maxRange, name, era, type);
+                        system = countermeasure;
+                        list.add(countermeasure);
+                    } catch (IllegalArgumentException e) {
+                        Set<Theatre> targets = new HashSet<>();
+                        for (String target : word[6].split(":")) {
+                            try {
+                                targets.add(Theatre.valueOf(target.toUpperCase()));
+                            } catch (IllegalArgumentException ex) {
+                                throw new IllegalArgumentException(String.format("Error reading %s targets. %s",
+                                        name, ex.getMessage()));
+                            }
                         }
+
+                        Weapon newWeapon;
+                        if (word[0].equals("Gun")) {
+                            String[] ammo = word[7].split(":");
+                            Ammunition ammunition;
+                            try {
+                                ammunition = new Ammunition(Double.parseDouble(ammo[0]),
+                                        Double.parseDouble(ammo[1]), Double.parseDouble(ammo[2]));
+                            } catch (IndexOutOfBoundsException ex) {
+                                throw new IllegalArgumentException(String.format("Error reading %s ammunition " +
+                                        "values. Expected 3: Present <%s>", name, ammo.length));
+                            }
+                            newWeapon = new Gun(strength, minRange, maxRange, targets, name, era, ammunition);
+
+                        } else {
+                            GuidanceType guidanceType;
+                            try {
+                                guidanceType = GuidanceType.valueOf(word[7].toUpperCase());
+                            } catch (IllegalArgumentException ex) {
+                                throw new IllegalArgumentException(
+                                        String.format("Error reading %s guidance type. %s", name, ex.getMessage()));
+                            }
+                            newWeapon = new Missile(strength, minRange, maxRange, targets, name, era, guidanceType);
+
+                        }
+                        list.add(newWeapon);
+                        system = newWeapon;
                     }
-
-                    Weapon newWeapon;
-                    if (lines[0].equals("Gun")) {
-                        String[] ammo = lines[7].split(":");
-                        Ammunition ammunition;
-                        try {
-                            ammunition = new Ammunition(Double.parseDouble(ammo[0]),
-                                    Double.parseDouble(ammo[1]), Double.parseDouble(ammo[2]));
-                        } catch (IndexOutOfBoundsException e) {
-                            throw new IllegalArgumentException(String.format("Error reading %s ammunition " +
-                                    "values. Expected 3: Present <%s>", name, ammo.length));
-                        }
-                        newWeapon = new Gun(damage, minRange, maxRange, targets, name, era, ammunition);
-
-                    } else {
-                        GuidanceType guidanceType;
-                        try {
-                            guidanceType = GuidanceType.valueOf(lines[7].toUpperCase());
-                        } catch (IllegalArgumentException e) {
-                            throw new IllegalArgumentException(
-                                    String.format("Error reading %s guidance type. %s", name, e.getMessage()));
-                        }
-                        newWeapon = new Missile(damage, minRange, maxRange, targets, name, era, guidanceType);
-
-                    }
-                    weapons.add(newWeapon);
-
                     if (App.DEBUG) {
-                        System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(), newWeapon));
+                        System.out.println(String.format("[LOG %s] %-16s %s",
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Loaded from file:", system));
                     }
-                } catch (NumberFormatException e) {
-                    System.err.println(String.format("[ERR %s] %s Numbers expected here.",
-                            LocalTime.now(), e));
                 } catch (IllegalArgumentException e) {
-                    System.err.println(String.format("[ERR %s] %s", LocalTime.now(), e));
+                    System.err.println(String.format("[ERR %s] %s",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
                 } finally {
                     line = br.readLine();
                 }
             }
         } catch (IOException e) {
-            System.err.println(String.format("[ERR %s] %s", LocalTime.now(), e));
+            System.err.println(String.format("[ERR %s] %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
         }
-        return weapons;
+        return list;
     }
 }

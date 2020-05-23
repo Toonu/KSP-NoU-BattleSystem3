@@ -60,4 +60,9 @@ public class Gun extends Weapon implements Serializable {
     public Ammunition getAmmunition() {
         return ammunition;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%10s %s", "[Gun]", super.toString());
+    }
 }

@@ -41,7 +41,6 @@ public class Armor implements Serializable {
         if (hitAngle == 0) {
             hitAngle = 90;
         }
-
         if (penetrated.get(side) / Math.cos(Math.PI * hitAngle / 180.0) > 4) {
             return true;
         } else if (armor.get(side) - penetration < 0) {

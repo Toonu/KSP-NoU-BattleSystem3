@@ -43,12 +43,46 @@ public class Attack implements Movable {
      * @param vertex2D to move by this coordinates amount.
      */
     @Override
-    public Vertex2D move(Vertex2D vertex2D) {
-        return new Vertex2D(weapPos.getX() + vertex2D.getX(), weapPos.getY() + vertex2D.getY());
+    public void move(Vertex2D vertex2D) {
+        weapPos = new Vertex2D(weapPos.getX() + vertex2D.getX(), weapPos.getY() + vertex2D.getY());
     }
 
-    public Vertex2D getWeapPos() {
+    @Override
+    public Vertex2D getPosition() {
         return weapPos;
+    }
+
+    /**
+     * Method sets new position.
+     *
+     * @param vertex2D Vertex2D position.
+     */
+    @Override
+    public void setPosition(Vertex2D vertex2D) {
+        weapPos = vertex2D;
+    }
+
+    /**
+     * Method moves towards center point.
+     */
+    @Override
+    public void moveTowardCenter() {
+        moveTowardVertex(new Vertex2D(0, 0));
+    }
+
+    /**
+     * Method moves towards trg point.
+     *
+     * @param trg Vertex2D as target.
+     */
+    @Override
+    public void moveTowardVertex(Vertex2D trg) {
+        Vertex2D delta = new Vertex2D(trg.getX() - getPosition().getX(), trg.getY() - getPosition().getY());
+        double angle = Math.atan2(delta.getY(), delta.getX());
+        int speedX = 1;
+        weapPos = new Vertex2D(
+                getPosition().getX() + (Math.cos(angle) * speedX),
+                getPosition().getY() + (Math.sin(angle) * speedX));
     }
 
     public Craft getOrigin() {

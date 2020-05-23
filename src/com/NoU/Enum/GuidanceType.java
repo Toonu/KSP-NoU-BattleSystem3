@@ -6,5 +6,10 @@ package com.NoU.Enum;
  * GuidanceType Enum represents missile guidance type.
  */
 public enum GuidanceType {
-    IR, RADAR, LASER, GPS
+    IR, RADAR, GPS, BEAM;
+
+    @Override
+    public String toString() {
+        return String.format("%6s", name());
+    }
 }

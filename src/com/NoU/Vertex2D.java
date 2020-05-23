@@ -98,6 +98,6 @@ public class Vertex2D implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("[%s, %s]", x, y);
+        return String.format("[%.5f, %.5f]", x, y);
     }
 }

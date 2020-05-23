@@ -34,8 +34,13 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
         return Collections.unmodifiableSet(targets);
     }
 
-    public Weapon getWeapon() {
+    public Weapon copyWeapon() {
         return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getEra());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", super.toString());
     }
 
     /**
