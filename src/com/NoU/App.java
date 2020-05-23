@@ -1,13 +1,13 @@
 package com.NoU;
 
 import com.NoU.Crafts.Craft;
-import com.NoU.Crafts.Parts.Gun;
 import com.NoU.Enum.Era;
 import com.NoU.Enum.GuidanceType;
 import com.NoU.Enum.Sides;
 import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
 import com.NoU.Systems.Ammunition;
+import com.NoU.Systems.Gun;
 import com.NoU.Systems.Missile;
 import com.NoU.Systems.Weapon;
 import com.NoU.Utils.WriterReader;
@@ -46,6 +46,11 @@ public class App {
         Weapon airGun = new Gun(20, 0, 2, airGunSet, "AircraftGun", Era.Era1950, new Ammunition(600, 0.02, 10));
         Weapon testMissile = new Missile(40, 0.2, 80, missileAA, "TestMissile", Era.Era1960, GuidanceType.RADAR);
 
+        SortedSet<Weapon> weapons = new TreeSet<>();
+        weapons.add(testMissile);
+        weapons.add(airGun);
+        weapons.add(testGun);
+
         DEBUG = true;
 
         leftSide.add(new Craft.Builder()
@@ -71,8 +76,11 @@ public class App {
 
         System.out.println(templates);
 
-        WriterReader.loadFile(Paths.get("Database.csv"), templates);
+        assert templates != null;
+        templates.addAll(WriterReader.loadFile(Paths.get("Database.csv")));
 
         System.out.println(templates);
+
+        weapons.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
     }
 }

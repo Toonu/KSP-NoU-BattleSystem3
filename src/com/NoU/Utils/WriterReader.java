@@ -3,8 +3,13 @@ package com.NoU.Utils;
 import com.NoU.App;
 import com.NoU.Crafts.Craft;
 import com.NoU.Enum.Era;
+import com.NoU.Enum.GuidanceType;
 import com.NoU.Enum.Sides;
+import com.NoU.Enum.Theatre;
 import com.NoU.Enum.Type;
+import com.NoU.Systems.Ammunition;
+import com.NoU.Systems.Gun;
+import com.NoU.Systems.Missile;
 import com.NoU.Systems.Weapon;
 
 import java.io.BufferedReader;
@@ -63,16 +68,6 @@ public class WriterReader {
             return crafts;
         } catch (IOException | ClassNotFoundException e) {
             System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s", LocalTime.now(), e));
-            return null;
-        }
-    }
-
-    public static SortedSet<Craft> loadFile(Path path, SortedSet<Craft> set) {
-        if (set != null) {
-            set.addAll(loadFile(path));
-            return set;
-        } else {
-            System.err.println(String.format("[ERR %s] Error reading the file. Exception: %s", LocalTime.now()));
             return null;
         }
     }
@@ -198,8 +193,17 @@ public class WriterReader {
         return crafts;
     }
 
-    public Set<Weapon> readWeaponFile(Path path) {
-        Set<Craft> weapons = new HashSet<>();
+    /**
+     * Method reads weapons file formatted in style:
+     * <p>
+     * Weapon_type name damage min_range max_range EraYYYY target:target:target
+     * ammo_speed:ammo_mass:ammo_calibre/guidance_type
+     *
+     * @param path path to the file to import.
+     * @return set containing all weapon templates from the file.
+     */
+    public static SortedSet<Weapon> readWeaponFile(Path path) {
+        SortedSet<Weapon> weapons = new TreeSet<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             String line = br.readLine();
@@ -207,26 +211,73 @@ public class WriterReader {
             while (line != null) {
                 String[] lines = line.split(" ");
 
-                if (lines[0].equals("Gun")) {
+                try {
+                    String name = lines[1];
+                    double damage = Double.parseDouble(lines[2]);
+                    double minRange = Double.parseDouble(lines[3]);
+                    double maxRange = Double.parseDouble(lines[4]);
 
-                } else if (lines[0].equals("Missile")) {
-                }
-                //TODO Add Weapons and Countermeasure files loading.
+                    Era era = Era.valueOf(lines[5]);
+                    Set<Theatre> targets = new HashSet<>();
 
+                    for (String target : lines[6].split(":")) {
+                        try {
+                            targets.add(Theatre.valueOf(target));
+                        } catch (IllegalArgumentException e) {
+                            System.err.println(String.format("[ERR %s] Error reading the weapon's %s targets. " +
+                                    "Change them to UPPER CASE values. Exception: %s", LocalTime.now(), name, e));
+                        }
+                    }
 
-                weapons.add(new Craft.Builder().setName(name).setSpeed(speed).
-                        setType(type).setCraftProductionYear(era).setSide(Sides.NEUTRAL).build());
-
-                if (App.DEBUG) {
-                    System.out.println(String.format("[LOG %s] %s Loaded: %s", LocalTime.now(), lines[0]));
+                    if (damage > 0 && minRange >= 0 && maxRange > 0) {
+                        if (lines[0].equals("Gun")) {
+                            String[] ammo = lines[7].split(":");
+                            Ammunition ammunition = null;
+                            try {
+                                ammunition = new Ammunition(Double.parseDouble(ammo[0]),
+                                        Double.parseDouble(ammo[1]), Double.parseDouble(ammo[2]));
+                            } catch (IndexOutOfBoundsException e) {
+                                System.err.println(String.format(
+                                        "[ERR %s] Error reading the weapon's %s ammunition values. Too few values." +
+                                                "(Expected 3): Present <%s> Exception: %s",
+                                        LocalTime.now(), name, ammo.length, e));
+                            }
+                            Weapon newWeapon = new Gun(damage, minRange, maxRange, targets, name, era, ammunition);
+                            weapons.add(newWeapon);
+                            if (App.DEBUG) {
+                                System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(),
+                                        newWeapon));
+                            }
+                        } else if (lines[0].equals("Missile")) {
+                            GuidanceType guidanceType = null;
+                            try {
+                                guidanceType = GuidanceType.valueOf(lines[7]);
+                            } catch (IllegalArgumentException e) {
+                                System.err.println(String.format("[ERR %s] Error reading the weapon's %s " +
+                                        "guidance type. Wrong value. Exception: %s", LocalTime.now(), name, e));
+                            }
+                            Weapon newWeapon =
+                                    new Missile(damage, minRange, maxRange, targets, name, era, guidanceType);
+                            weapons.add(newWeapon);
+                            if (App.DEBUG) {
+                                System.out.println(String.format("[LOG %s] Loaded: %s", LocalTime.now(),
+                                        newWeapon));
+                            }
+                        }
+                    } else {
+                        System.err.println(String.format("[ERR %s] Error reading the weapon's %s " +
+                                "values. One of them is negative or null.", LocalTime.now(), name));
+                    }
+                } catch (IllegalArgumentException e) {
+                    String name = lines[1];
+                    System.err.println(String.format("[ERR %s] Error reading the weapon's %s values. " +
+                            "One of them is negative, null or not number. Exception: %s", LocalTime.now(), name, e));
                 }
                 line = br.readLine();
             }
         } catch (IOException e) {
-            System.out.println("X");
+            System.out.println(e.getMessage());
         }
         return weapons;
     }
-
-
 }

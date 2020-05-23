@@ -3,6 +3,7 @@ package com.NoU.Systems;
 import com.NoU.Enum.Era;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 /**
  * @author Toonu
@@ -26,11 +27,23 @@ public class AbstractSystem implements Serializable {
      * @param era      Era enum of era of the system.
      */
     public AbstractSystem(double strength, double maxRange, double minRange, String name, Era era) {
-        this.strength = strength;
-        this.maxRange = maxRange;
-        this.minRange = minRange;
+        if (strength > 0 && maxRange > 0 && minRange >= 0) {
+            this.strength = strength;
+            this.maxRange = maxRange;
+            this.minRange = minRange;
+        } else {
+            System.err.println(
+                    String.format("[ERR %s] Error in creating the system. Values must be positive", LocalTime.now()));
+            throw new IllegalArgumentException("Invalid Arguments for creation of AbstractSystem.");
+        }
+        if (name.equals("")) {
+            this.name = "DefaultName";
+            System.err.println(String.format("[LOG %s] Error in creating the system. " +
+                    "No name present > Name changed to default.", LocalTime.now()));
+        } else {
+            this.name = name;
+        }
         this.era = era;
-        this.name = name;
     }
 
     public double getStrength() {
@@ -51,5 +64,10 @@ public class AbstractSystem implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("System %s [S: %s, Min: %s, Max: %s] : %s.", name, strength, minRange, maxRange, era);
     }
 }
