@@ -7,7 +7,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
- * Main Application Class.
+ * MainUI Application Class.
  */
 public class App {
     public static boolean DEBUG = false;

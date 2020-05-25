@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started OOB">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_63_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/UI/Welcome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/UI/MainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/NoU/UI/MainUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/WelcomeWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/UI/WelcomeWindow.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/WelcomeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/UI/WelcomeWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/Welcome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -88,7 +88,7 @@
       <recent name="D:\GitProjects\KSP-NoU-BattleSystem3\src\com\NoU" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Welcome">
+  <component name="RunManager" selected="Application.MainUI">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.NoU.App" />
       <module name="Battle Simulator 3" />
@@ -102,18 +102,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.Main" />
-      <module name="Battle Simulator 3" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Welcome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.Welcome" />
+    <configuration name="MainUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.MainUI" />
       <module name="Battle Simulator 3" />
       <extension name="coverage">
         <pattern>
@@ -125,8 +115,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WelcomeWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.WelcomeWindow" />
+    <configuration name="WelcomeW" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.WelcomeW" />
+      <module name="Battle Simulator 3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.NoU.UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WelcomeWindowOld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.WelcomeWindowOld" />
       <module name="Battle Simulator 3" />
       <extension name="coverage">
         <pattern>
@@ -153,16 +156,16 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Welcome" />
-        <item itemvalue="Application.WelcomeWindow" />
+        <item itemvalue="Application.MainUI" />
+        <item itemvalue="Application.WelcomeWindowOld" />
+        <item itemvalue="Application.WelcomeW" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.WriterReader" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES,SHOW_INTERFACES" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -330,19 +333,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1590171611694" />
+    <state x="669" y="139" key="#MainUI" timestamp="1590402306322">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="139" key="#MainUI/0.0.1920.1040@0.0.1920.1040" timestamp="1590402306322" />
     <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction" timestamp="1590244059633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction/0.0.1920.1040@0.0.1920.1040" timestamp="1590244059633" />
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590270655673">
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590409218471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590270655673" />
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590409218471" />
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590058059670" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590154524951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154524951" />
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590401496654">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590401496654" />
     <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1590270258051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -351,10 +362,10 @@
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963245529" />
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590164954817">
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590396216429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590164954817" />
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590396216429" />
     <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1590054610850" />
     <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590160117724">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -366,6 +377,10 @@
     </state>
     <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590230673377" />
     <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963912091" />
+    <state x="834" y="404" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1590395334634">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="834" y="404" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040@0.0.1920.1040" timestamp="1590395334634" />
     <state x="731" y="402" key="#xdebugger.evaluate" timestamp="1590268696660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -379,49 +394,49 @@
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
     <state x="418" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1589974783254" />
-    <state x="486" y="374" key="FileChooserDialogImpl" timestamp="1590353244588">
+    <state x="181" y="249" key="FileChooserDialogImpl" timestamp="1590396299550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="486" y="374" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590353244588" />
-    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1590354765450">
+    <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590396299550" />
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1590414005125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590354765450" />
+    <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590144488363" />
-    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1590354765450">
+    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1590414005125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590354765450" />
+    <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1590354765450">
+    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1590414005125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590354765450" />
+    <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590144488361" />
-    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1590354765450">
+    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1590414005125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590354765450" />
+    <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1877" height="245" key="GridCell.Tab.1.bottom" timestamp="1590270904980">
+    <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590414005123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590270904980" />
+    <state width="1877" height="421" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
     <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590143561496" />
-    <state width="1877" height="245" key="GridCell.Tab.1.center" timestamp="1590270904980">
+    <state width="1877" height="421" key="GridCell.Tab.1.center" timestamp="1590414005123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590270904980" />
+    <state width="1877" height="421" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
     <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1877" height="245" key="GridCell.Tab.1.left" timestamp="1590270904980">
+    <state width="1877" height="421" key="GridCell.Tab.1.left" timestamp="1590414005123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590270904980" />
+    <state width="1877" height="421" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
     <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1877" height="245" key="GridCell.Tab.1.right" timestamp="1590270904980">
+    <state width="1877" height="421" key="GridCell.Tab.1.right" timestamp="1590414005123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590270904980" />
+    <state width="1877" height="421" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
     <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590143561495" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -431,15 +446,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590266477933" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590353246916">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1590396300502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590353246916" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590396300502" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590057691038" />
-    <state x="839" y="314" key="UIDesigner.ListEditorDialog" timestamp="1590262793571">
+    <state x="839" y="314" key="UIDesigner.ListEditorDialog" timestamp="1590395396586">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590262793571" />
+    <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590270896655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -453,6 +468,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1589893381808" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590396485555">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590396485555" />
     <state x="724" y="188" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590154570943">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -461,14 +480,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="400" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590266963349" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1590410566629">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590410566629" />
     <state x="0" y="0" width="136" height="100" key="net.trustx.simpleuml.components.BirdViewFrame" timestamp="1590181375468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="136" height="100" key="net.trustx.simpleuml.components.BirdViewFrame/0.0.1920.1040@0.0.1920.1040" timestamp="1590181375468" />
-    <state x="342" y="181" key="new project wizard" timestamp="1590256123837">
+    <state x="342" y="181" key="new project wizard" timestamp="1590414004861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="342" y="181" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1590256123837" />
+    <state x="342" y="181" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1590414004861" />
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590228638416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

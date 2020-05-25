@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -26,6 +27,7 @@ import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
@@ -64,14 +66,9 @@ public class WriterReader {
         }
     }
 
-    /**
-     * Method loads saved objects from save file.
-     *
-     * @return Craft set.
-     */
-    public static LinkedList<Craft> load(String pathname) {
+    public static LinkedList<Craft> loadFromFile(File file) {
         LinkedList<Craft> crafts = new LinkedList<>();
-        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(new File(pathname)))) {
+        try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
             int counter = 0;
             try {
                 //noinspection InfiniteLoopStatement
@@ -91,6 +88,15 @@ public class WriterReader {
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
             return null;
         }
+    }
+
+    /**
+     * Method loads saved objects from save file.
+     *
+     * @return Craft set.
+     */
+    public static LinkedList<Craft> load(String pathname) {
+        return loadFromFile(new File(pathname));
     }
 
     /**
