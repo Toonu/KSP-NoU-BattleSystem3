@@ -24,19 +24,20 @@ public class MainUI {
             int width = gd.getDisplayMode().getWidth();
             int height = gd.getDisplayMode().getHeight();
 
-            frame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
-            frame.setSize(WIDTH, HEIGHT);
-
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-
             /**
+             frame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
+             frame.setSize(WIDTH, HEIGHT);
+
+             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             frame.setVisible(true);
+             **/
+
              templates.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
              templates.setSize(WIDTH, HEIGHT);
 
              templates.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
              templates.setVisible(true);
-             **/
+
         });
     }
 

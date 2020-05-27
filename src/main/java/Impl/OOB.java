@@ -6,6 +6,7 @@ import Enum.Side;
 import Enum.Type;
 import Systems.Countermeasure;
 import Systems.Weapon;
+import UI.MainUI;
 import Utils.Vertex2D;
 import Utils.WriterReader;
 
@@ -25,6 +26,11 @@ public class OOB {
     public static LinkedList<Countermeasure> TEMPLATE_COUNTERMEASURES;
 
     public static void main(String[] args) {
+        TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
+        MainUI.main(args);
+    }
+
+    public static void oldMain(String[] args) {
         Craft testCraft = new Craft.Builder()
                 .setCraftProductionYear(Era.Era1960)
                 .setSide(Side.WHITE)
@@ -43,11 +49,11 @@ public class OOB {
         OOB.WHITE.addCraft(testCraft);
         OOB.WHITE.addCraft(test2Craft);
 
-        if (WriterReader.save(OOB.WHITE.getCrafts(), "save.txt")) {
-            OOB.WHITE.setCrafts(WriterReader.load("save.txt"));
+        if (WriterReader.saveSituation(OOB.WHITE.getCrafts(), "save.txt")) {
+            OOB.WHITE.setCrafts(WriterReader.loadSituation("save.txt"));
         }
 
-        OOB.TEMPLATE.setCrafts(WriterReader.loadCraftFile(Paths.get("Database.csv")));
+        OOB.TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("Database.csv")));
         TEMPLATE_COUNTERMEASURES = WriterReader.readCMFile(Paths.get("weapons.txt"));
         TEMPLATE_WEAPONS = WriterReader.readWeaponFile(Paths.get("weapons.txt"));
 

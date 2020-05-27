@@ -453,7 +453,7 @@ public class MainFrame extends JFrame {
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file1 = jfc.getSelectedFile();
-                    LinkedList<Craft> read = WriterReader.loadFromFile(file1);
+                    LinkedList<Craft> read = WriterReader.loadSituationFile(file1);
                     if (read == null) {
                         System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
                                 LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));

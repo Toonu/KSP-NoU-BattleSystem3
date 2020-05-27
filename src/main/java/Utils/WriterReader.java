@@ -43,7 +43,7 @@ public class WriterReader {
      * @param crafts SortedSet of craft to save.
      * @return true if everything went correctly.
      */
-    public static boolean save(LinkedList<Craft> crafts, String pathname) {
+    public static boolean saveSituation(LinkedList<Craft> crafts, String pathname) {
         int counter = 0;
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File(pathname)))) {
             for (Craft craft : crafts) {
@@ -64,7 +64,10 @@ public class WriterReader {
         }
     }
 
-    public static LinkedList<Craft> loadFromFile(File file) {
+    //TODO Add reading from online sheet maybe if possible integration with
+    // google sheets is viable and easy enough to implement it?
+
+    public static LinkedList<Craft> loadSituationFile(File file) {
         LinkedList<Craft> crafts = new LinkedList<>();
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
             int counter = 0;
@@ -93,8 +96,8 @@ public class WriterReader {
      *
      * @return Craft set.
      */
-    public static LinkedList<Craft> load(String pathname) {
-        return loadFromFile(new File(pathname));
+    public static LinkedList<Craft> loadSituation(String pathname) {
+        return loadSituationFile(new File(pathname));
     }
 
     /**
@@ -103,7 +106,7 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Craft> loadCraftFile(Path path) {
+    public static LinkedList<Craft> loadCSVFile(Path path) {
         LinkedList<Craft> crafts = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
@@ -202,7 +205,7 @@ public class WriterReader {
      * @return LinkedList<Weapon> containing all weapons.
      */
     public static LinkedList<Weapon> readWeaponFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadFile(path));
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
         LinkedList<Weapon> weapons = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Weapon) {
@@ -219,7 +222,7 @@ public class WriterReader {
      * @return LinkedList<Countermeasure> containing all countermeasures.
      */
     public static LinkedList<Countermeasure> readCMFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadFile(path));
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
         LinkedList<Countermeasure> cm = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Countermeasure) {
@@ -240,7 +243,7 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    private static LinkedList<AbstractSystem> loadFile(Path path) {
+    private static LinkedList<AbstractSystem> loadCMWeaponFile(Path path) {
         LinkedList<AbstractSystem> list = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {

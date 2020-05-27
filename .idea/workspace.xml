@@ -19,71 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started OOB">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CraftAnalyzer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/E42.craft" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing jet Double.craft" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestingBig.craft" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/AnalyzedCraft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/CraftAnalyzer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_63_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_8_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pb162_codestyle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/codestyle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Attack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/BattleSecond.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/ArmoredVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/RadarVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/ArmorSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/ArmorSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/CMType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/CMType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Era.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Era.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/GuidanceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Movable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/OOB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Ammunition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Countermeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Gun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Iconian Air Force.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Iconian Air Force.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Iconian Army.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Iconian Army.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Navy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Navy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Seal x4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Seal x4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Seal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Seal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/Iconian Air Force.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/Iconian Army.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Navy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Seal x4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Seal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Impl/OOB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +87,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -164,7 +106,7 @@
       <recent name="D:\GitProjects\KSP-NoU-BattleSystem3\src\com\NoU" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainUI">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Impl.App" />
       <module name="CraftAnalyzer" />
@@ -316,7 +258,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590270894976</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Maven refractor to basic folder layout.">
+      <created>1590585290795</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590585290796</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Maven refractor to basic folder layout.">
+      <created>1590585341514</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1590585341514</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +307,8 @@
     <MESSAGE value="IO Tweaks" />
     <MESSAGE value="Tweaks to IO and Positioning system." />
     <MESSAGE value="Started OOB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started OOB" />
+    <MESSAGE value="Maven refractor to basic folder layout." />
+    <option name="LAST_COMMIT_MESSAGE" value="Maven refractor to basic folder layout." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -429,55 +386,55 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590226703252" />
-    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590585318762">
+    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590585341296">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
-    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590585318762" />
+    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590585341296" />
     <state x="181" y="249" key="FileChooserDialogImpl" timestamp="1590396299550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590396299550" />
-    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1590585292186">
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1590587229940">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590585292186" />
-    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1590585292185">
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590587229940" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1590587229931">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590585292185" />
-    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1590585292185">
+    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590587229931" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1590587229929">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590585292185" />
-    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1590585292186">
+    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590587229929" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1590587229937">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590585292186" />
-    <state width="1324" height="207" key="GridCell.Tab.1.bottom" timestamp="1590584508829">
+    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590587229937" />
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom" timestamp="1590587037391">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590584508829" />
-    <state width="1324" height="207" key="GridCell.Tab.1.center" timestamp="1590584508827">
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590587037391" />
+    <state width="1324" height="207" key="GridCell.Tab.1.center" timestamp="1590587037389">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590584508827" />
-    <state width="1324" height="207" key="GridCell.Tab.1.left" timestamp="1590584508827">
+    <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590587037389" />
+    <state width="1324" height="207" key="GridCell.Tab.1.left" timestamp="1590587037388">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590584508827" />
-    <state width="1324" height="207" key="GridCell.Tab.1.right" timestamp="1590584508828">
+    <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590587037388" />
+    <state width="1324" height="207" key="GridCell.Tab.1.right" timestamp="1590587037390">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590584508828" />
+    <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590587037390" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -486,11 +443,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590266477933" />
-    <state x="328" y="23" key="SettingsEditor" timestamp="1590584533716">
+    <state x="328" y="23" key="SettingsEditor" timestamp="1590585869014">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590396300502" />
-    <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590584533716" />
+    <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590585869014" />
     <state x="839" y="314" key="UIDesigner.ListEditorDialog" timestamp="1590395396586">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -547,6 +504,17 @@
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590182463836" />
     <state x="443" y="170" width="670" height="444" key="search.everywhere.popup/0.23.1366.681@0.23.1366.681" timestamp="1590571386686" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$WelcomeWindow.ic" NAME="WelcomeWindow Coverage Results" MODIFIED="1590262320406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
