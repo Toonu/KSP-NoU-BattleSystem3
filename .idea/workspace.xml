@@ -20,12 +20,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started OOB">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CraftAnalyzer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/E42.craft" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing jet Double.craft" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestingBig.craft" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/AnalyzedCraft.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/CraftAnalyzer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_63_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battle Simulator 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Battle Simulator 3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pb162_codestyle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/codestyle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Attack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/BattleSecond.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/ArmoredVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/ArmoredVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Parts/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/RadarVehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Crafts/Vessel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/ArmorSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/ArmorSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/CMType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/CMType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Era.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Era.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/GuidanceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Theatre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Enum/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enum/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Movable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/OOB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/AbstractSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Ammunition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Ammunition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Countermeasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Gun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Missile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Systems/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/NoU/Vertex2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Iconian Air Force.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Iconian Air Force.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Iconian Army.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Iconian Army.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Navy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Navy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Seal x4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Seal x4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Imperial Seal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Imperial Seal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/Iconian Air Force.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/Iconian Army.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Navy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Seal x4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/Imperial Seal.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,6 +106,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1c7Y3qEdO34C3O6C7h0eEsrunYk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -61,103 +135,60 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="154" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.NoU.Crafts" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="D:\GitProjects\KSP-NoU-BattleSystem3\src\com\NoU" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainUI">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.App" />
-      <module name="Battle Simulator 3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.NoU.Utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Impl.App" />
+      <module name="CraftAnalyzer" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.MainUI" />
-      <module name="Battle Simulator 3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.NoU.UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="MainUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI.MainUI" />
+      <module name="CraftAnalyzer" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WelcomeW" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.WelcomeW" />
-      <module name="Battle Simulator 3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.NoU.UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.java.UI.MainUI" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WelcomeWindowOld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.UI.WelcomeWindowOld" />
-      <module name="Battle Simulator 3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.NoU.UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WriterReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.NoU.Utils.WriterReader" />
-      <module name="Battle Simulator 3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.NoU.Utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainUI" />
-        <item itemvalue="Application.WelcomeWindowOld" />
-        <item itemvalue="Application.WelcomeW" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="Application.WriterReader" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.MainUI" />
+    </list>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES,SHOW_INTERFACES" />
@@ -293,18 +324,20 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
+      <path value="$PROJECT_DIR$/KSP-NoU-CraftAnalyzer" />
     </ignored-roots>
     <MESSAGE value="Start of the project." />
     <MESSAGE value="Progress." />
@@ -328,35 +361,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1590171611694" />
-    <state x="669" y="139" key="#MainUI" timestamp="1590402306322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="476" y="34" key="#MainUI" timestamp="1590579550946">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="669" y="139" key="#MainUI/0.0.1920.1040@0.0.1920.1040" timestamp="1590402306322" />
+    <state x="476" y="34" key="#MainUI/0.23.1366.681@0.23.1366.681" timestamp="1590579550946" />
     <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction" timestamp="1590244059633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction/0.0.1920.1040@0.0.1920.1040" timestamp="1590244059633" />
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1590409218471">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="147" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590579638130">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state x="147" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.681@0.23.1366.681" timestamp="1590579638130" />
+    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1590572791666">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590409218471" />
-    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590058059670" />
+    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590572791666" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590154524951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590154524951" />
-    <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590401496654">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="490" y="226" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590579515258">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="689" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590401496654" />
-    <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1590270258051">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="490" y="226" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1366.681@0.23.1366.681" timestamp="1590579515258" />
+    <state x="490" y="226" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1590577197882">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="689" y="310" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590270258051" />
+    <state x="490" y="226" key="#com.intellij.ide.util.TreeFileChooserDialog/0.23.1366.681@0.23.1366.681" timestamp="1590577197882" />
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589963245529">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963245529" />
+    <state x="471" y="255" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590583700146">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state x="471" y="255" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1366.681@0.23.1366.681" timestamp="1590583700146" />
     <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590396216429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -376,63 +420,64 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="834" y="404" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040@0.0.1920.1040" timestamp="1590395334634" />
-    <state x="731" y="402" key="#xdebugger.evaluate" timestamp="1590268696660">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="164" y="298" width="474" height="361" key="#xdebugger.evaluate" timestamp="1590578771866">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="731" y="402" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590268696660" />
+    <state x="164" y="298" width="474" height="361" key="#xdebugger.evaluate/0.23.1366.681@0.23.1366.681" timestamp="1590578771866" />
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590226703252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590226703252" />
-    <state x="418" y="23" key="CommitChangelistDialog2" timestamp="1589974783254">
+    <state x="293" y="23" key="CommitChangelistDialog2" timestamp="1590579426173">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
-    <state x="418" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1589974783254" />
+    <state x="293" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590579426173" />
     <state x="181" y="249" key="FileChooserDialogImpl" timestamp="1590396299550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590396299550" />
-    <state width="1877" height="218" key="GridCell.Tab.0.bottom" timestamp="1590414005125">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1590585220841">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590144488363" />
-    <state width="1877" height="218" key="GridCell.Tab.0.center" timestamp="1590414005125">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590585220841" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1590585220839">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1877" height="218" key="GridCell.Tab.0.left" timestamp="1590414005125">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590585220839" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1590585220838">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590144488361" />
-    <state width="1877" height="218" key="GridCell.Tab.0.right" timestamp="1590414005125">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590585220838" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1590585220840">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005125" />
-    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590144488362" />
-    <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590414005123">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590585220840" />
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom" timestamp="1590584508829">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590143561496" />
-    <state width="1877" height="421" key="GridCell.Tab.1.center" timestamp="1590414005123">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590584508829" />
+    <state width="1324" height="207" key="GridCell.Tab.1.center" timestamp="1590584508827">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1877" height="421" key="GridCell.Tab.1.left" timestamp="1590414005123">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590584508827" />
+    <state width="1324" height="207" key="GridCell.Tab.1.left" timestamp="1590584508827">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590143561493" />
-    <state width="1877" height="421" key="GridCell.Tab.1.right" timestamp="1590414005123">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590584508827" />
+    <state width="1324" height="207" key="GridCell.Tab.1.right" timestamp="1590584508828">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="421" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590414005123" />
-    <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590143561495" />
+    <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590584508828" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -441,11 +486,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590266477933" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590396300502">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="328" y="23" key="SettingsEditor" timestamp="1590584533716">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590396300502" />
-    <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590057691038" />
+    <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590584533716" />
     <state x="839" y="314" key="UIDesigner.ListEditorDialog" timestamp="1590395396586">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -455,10 +500,11 @@
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590270896655" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590267668150">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="689" height="346" key="XDebugger.FullValuePopup" timestamp="1590578727248">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1590267668150" />
+    <state width="689" height="346" key="XDebugger.FullValuePopup/0.23.1366.681@0.23.1366.681" timestamp="1590578727248" />
     <state x="685" y="482" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589893381808">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -487,18 +533,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="181" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1590414004861" />
-    <state x="755" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1590228638416">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="537" y="23" key="refactoring.ChangeSignatureDialog" timestamp="1590572793997">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="755" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590228638416" />
+    <state x="537" y="23" key="refactoring.ChangeSignatureDialog/0.23.1366.681@0.23.1366.681" timestamp="1590572793997" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1590223248592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590223248592" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590182463836">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup" timestamp="1590571386686">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590182463836" />
+    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup/0.23.1366.681@0.23.1366.681" timestamp="1590571386686" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$WelcomeWindow.ic" NAME="WelcomeWindow Coverage Results" MODIFIED="1590262320406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
