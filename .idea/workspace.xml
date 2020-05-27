@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="">
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started Template window.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590585341514</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Started Template window.">
+      <created>1590587270296</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590587270296</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,7 +310,8 @@
     <MESSAGE value="Tweaks to IO and Positioning system." />
     <MESSAGE value="Started OOB" />
     <MESSAGE value="Maven refractor to basic folder layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Maven refractor to basic folder layout." />
+    <MESSAGE value="Started Template window." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Template window." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -386,11 +389,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590226703252" />
-    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590585341296">
+    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590587278585">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
-    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590585341296" />
+    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590587278585" />
     <state x="181" y="249" key="FileChooserDialogImpl" timestamp="1590396299550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
