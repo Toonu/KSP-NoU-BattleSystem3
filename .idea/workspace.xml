@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started OOB">
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/UI/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/NoU/UI/MainUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/UI/Welcome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/NoU/Utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/lib/forms_rt.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
