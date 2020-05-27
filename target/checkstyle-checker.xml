@@ -27,7 +27,7 @@
         </module>
         <module name="WriteTag">
             <property name="tag" value="@author"/>
-            <property name="tagFormat" value="..* ..*"/>
+            <property name="tagFormat" value="..*"/>
             <!-- What to do if the tag does not exists? -->
             <property name="severity" value="error"/>
             <!-- What to do if the tag exists? -->
@@ -58,11 +58,6 @@
         <module name="LineLength">
             <property name="max" value="120"/>
         </module>
-        <module name="MethodLength">
-            <property name="max" value="30"/>
-            <property name="countEmpty" value="false"/>
-        </module>
-        <module name="ParameterNumber"/>
 
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifier.html -->

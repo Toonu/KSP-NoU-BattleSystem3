@@ -1,3 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.5">
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\Aircraft.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\ArmoredVehicle.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\Craft.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\parts\Armor.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\parts\Radar.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\RadarVehicle.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\Vehicle.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\Vessel.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\ArmorSide.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\CMType.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\Era.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\GuidanceType.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\Side.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\Theatre.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\enums\Type.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\impl\App.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\impl\Attack.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\impl\BattleSecond.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\impl\OOB.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\AbstractSystem.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Ammunition.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Countermeasure.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Gun.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Missile.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Weapon.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\MainFrame.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\TemplateFrame.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\craftAnalyzer\AnalyzedCraft.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\craftAnalyzer\CraftAnalyzer.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\MainUI.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\utils\Movable.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\utils\Vertex2D.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\utils\WriterReader.java">
+</file>
 </checkstyle>

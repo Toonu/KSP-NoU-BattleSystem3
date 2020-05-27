@@ -5,7 +5,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>src.main.java</groupId>
-    <artifactId>Battle Simulator 3.0</artifactId>
+    <artifactId>Battle_Simulator_3.0</artifactId>
     <version>1.0.0.0</version>
     <packaging>jar</packaging>
 
@@ -71,7 +71,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>Loader</mainClass>
+                                    <mainClass>impl.App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -81,6 +81,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -99,7 +100,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                             <addClasspath>true</addClasspath>
                             <!-- Specifies that all dependencies of our application are found -->
                             <!-- Configures the main class of the application -->
-                            <mainClass>src.main.java.UI.MainUI</mainClass>
+                            <mainClass>impl.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
