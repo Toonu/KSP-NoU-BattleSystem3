@@ -19,55 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Started Template window.">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Imperial_Seal_x4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CraftAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CraftAnalyzer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codestyle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/codestyle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/ArmoredVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/ArmoredVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Parts/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/RadarVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/RadarVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/ArmorSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/ArmorSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/CMType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/CMType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/Era.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Era.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/GuidanceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Enum/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/Ammunition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Ammunition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Gun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/AnalyzedCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/CraftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TemplateForTeplates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TemplateFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/TemplateFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Movable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Vertex2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Vertex2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Imperial Seal x4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/checkstyle-checker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-checker.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/checkstyle-result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-result.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-    </list>
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Implementation of CraftAnalyzer." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -319,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590587270296</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implementation of CraftAnalyzer.">
+      <created>1590597382742</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590597382742</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,7 +314,8 @@
     <MESSAGE value="Started OOB" />
     <MESSAGE value="Maven refractor to basic folder layout." />
     <MESSAGE value="Started Template window." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Template window." />
+    <MESSAGE value="Implementation of CraftAnalyzer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of CraftAnalyzer." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -447,25 +407,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590591435399" />
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom" timestamp="1590596738561">
+    <state width="1877" height="396" key="GridCell.Tab.0.bottom" timestamp="1590597304315">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590596738561" />
+    <state width="1877" height="396" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590597304315" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590587229940" />
-    <state width="1877" height="396" key="GridCell.Tab.0.center" timestamp="1590596738561">
+    <state width="1877" height="396" key="GridCell.Tab.0.center" timestamp="1590597304315">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590596738561" />
+    <state width="1877" height="396" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590597304315" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590587229931" />
-    <state width="1877" height="396" key="GridCell.Tab.0.left" timestamp="1590596738561">
+    <state width="1877" height="396" key="GridCell.Tab.0.left" timestamp="1590597304315">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590596738561" />
+    <state width="1877" height="396" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590597304315" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590587229929" />
-    <state width="1877" height="396" key="GridCell.Tab.0.right" timestamp="1590596738561">
+    <state width="1877" height="396" key="GridCell.Tab.0.right" timestamp="1590597304315">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590596738561" />
+    <state width="1877" height="396" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590597304315" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590587229937" />
     <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590592474128">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -504,10 +464,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590270896655">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590597395318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590270896655" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590597395318" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1589974791067" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
