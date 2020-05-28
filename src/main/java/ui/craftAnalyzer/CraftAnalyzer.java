@@ -1,12 +1,19 @@
 package ui.craftAnalyzer;
 
+<<<<<<< HEAD
 import ui.Gui;
 
+=======
+>>>>>>> master
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
+<<<<<<< HEAD
+=======
+import java.awt.Color;
+>>>>>>> master
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.WindowEvent;
@@ -27,7 +34,15 @@ import java.util.regex.Pattern;
  * Class for simple analyse of .craft files for all parts.
  */
 public class CraftAnalyzer {
+<<<<<<< HEAD
     private static String path = null;
+=======
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
+    public static final Color BACKGROUND = new Color(-16505734);
+    public static final Color FOREGROUND = new Color(-14336);
+    private static File path = null;
+>>>>>>> master
 
     /**
      * Main method.
@@ -37,6 +52,7 @@ public class CraftAnalyzer {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Craft Analyser");
+<<<<<<< HEAD
             JFileChooser jfc;
 
             try(BufferedReader br = new BufferedReader(new FileReader(new File("config.cfg")))) {
@@ -54,13 +70,39 @@ public class CraftAnalyzer {
             jfc.setApproveButtonText("Analyse Craft");
             jfc.addChoosableFileFilter(new FileNameExtensionFilter("Craft Files", "craft"));
             jfc.setAcceptAllFileFilterUsed(false);
+=======
+
+            JFileChooser jfc = new JFileChooser();
+            jfc.setBackground(BACKGROUND);
+            jfc.setForeground(FOREGROUND);
+            jfc.setApproveButtonText("Analyse Craft");
+
+            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Craft Files", "craft"));
+            jfc.setAcceptAllFileFilterUsed(false);
+
+            if (path == null) {
+                jfc.setCurrentDirectory(new File(("")));
+            } else {
+                jfc.setCurrentDirectory(path);
+            }
+
+            try (BufferedReader br = new BufferedReader(new FileReader("config.cfg"))) {
+                path = new File(br.readLine());
+            } catch (IOException | NullPointerException e) {
+                path = null;
+            }
+>>>>>>> master
 
             jfc.addActionListener(e1 -> {
                 if (e1.getActionCommand().equals("CancelSelection")) {
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file = jfc.getSelectedFile();
+<<<<<<< HEAD
                     setPath(jfc.getSelectedFile().getPath());
+=======
+                    setPath(jfc.getSelectedFile());
+>>>>>>> master
                     try {
                         FileWriter fileWriter = new FileWriter("config.cfg");
                         fileWriter.write(String.valueOf(path));
@@ -85,8 +127,13 @@ public class CraftAnalyzer {
             int width = gd.getDisplayMode().getWidth();
             int height = gd.getDisplayMode().getHeight();
 
+<<<<<<< HEAD
             frame.setLocation(Gui.getHalfPosition());
             frame.setSize(Gui.SIZE);
+=======
+            frame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
+            frame.setSize(WIDTH, HEIGHT);
+>>>>>>> master
 
             frame.add(jfc);
 
@@ -158,11 +205,19 @@ public class CraftAnalyzer {
         return new AnalyzedCraft(parts, missiles, weapons, systems, hardpoints, craftName);
     }
 
+<<<<<<< HEAD
     public static String getPath() {
         return path;
     }
 
     public static void setPath(String path) {
+=======
+    public static File getPath() {
+        return path;
+    }
+
+    public static void setPath(File path) {
+>>>>>>> master
         CraftAnalyzer.path = path;
     }
 }

@@ -6,9 +6,15 @@ import enums.Side;
 import enums.Type;
 import systems.Countermeasure;
 import systems.Weapon;
+<<<<<<< HEAD
 import utils.Vertex2D;
 import utils.WriterReader;
 import ui.Gui;
+=======
+import ui.MainUI;
+import utils.Vertex2D;
+import utils.WriterReader;
+>>>>>>> master
 
 import java.nio.file.Paths;
 import java.util.LinkedList;
@@ -34,7 +40,11 @@ public class OOB {
         TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
         TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(Paths.get("countermeasures.txt")));
         TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
+<<<<<<< HEAD
         Gui.main(args);
+=======
+        MainUI.main(args);
+>>>>>>> master
     }
 
     /**
