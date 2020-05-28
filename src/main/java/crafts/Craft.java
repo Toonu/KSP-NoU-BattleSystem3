@@ -108,7 +108,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      */
     @Override
     public String toString() {
-        return String.format("%s %s %-12s: %4s Pos: %s", type.getTheatre(), type, name, hp, position);
+        return String.format("%s %s %-12s", type.getTheatre(), type, name);
     }
 
     /**
@@ -116,8 +116,9 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      *
      * @return String with type and name of the craft.
      */
-    public String toShortString() {
-        return String.format("%s %s", type, name);
+    public String toLongString() {
+
+        return String.format("%s %s %-12s: %4s Pos: %s", type.getTheatre(), type, name, hp, position);
     }
 
     /**

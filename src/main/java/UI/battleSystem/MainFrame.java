@@ -1,29 +1,19 @@
 package ui.battleSystem;
 
-import crafts.Craft;
 import enums.Era;
 import impl.App;
+import ui.BSMenu;
 import ui.MainUI;
-import ui.craftAnalyzer.CraftAnalyzer;
-import utils.WriterReader;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JTextField;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.DocumentFilter;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -31,11 +21,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.io.File;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.LinkedList;
 import java.util.Objects;
 
 
@@ -43,16 +30,19 @@ import java.util.Objects;
  * @author Toonu
  */
 public class MainFrame extends JFrame {
+    private final Container c = getContentPane();
+    private final JLabel welcomeText = new JLabel(MainUI.convertToMultiline("Welcome to the Battle System 3.0!\n\n" +
+            "Made by Toonu with support of the Nations of Unity Project Team."));
+
     /**
      * Main method to launch frame.
      *
      * @param title title of the frame.
      */
-    public MainFrame(String title) {
+    public MainFrame(String title, TemplateFrame tf) {
         super(title);
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-        Container c = getContentPane();
 
         gc.gridwidth = 3;
         gc.anchor = GridBagConstraints.CENTER;
@@ -63,13 +53,10 @@ public class MainFrame extends JFrame {
         pic.setIcon(new ImageIcon(Objects.requireNonNull(
                 getClass().getClassLoader().getResource("Imperial_Seal_x4.png"))));
 
-
         gc.gridy = 1;
         gc.weighty = 4;
         c.add(pic, gc);
 
-        JLabel welcomeText = new JLabel(MainUI.convertToMultiline("Welcome to the Battle System 3.0!\n\n" +
-                "Made by Toonu with support of the Nations of Unity Project Team."));
         gc.gridy = 2;
         gc.weighty = 2;
         c.add(welcomeText, gc);
@@ -141,8 +128,12 @@ public class MainFrame extends JFrame {
         infoYears.setForeground(MainUI.FOREGROUND);
         infoTeamI.setForeground(MainUI.FOREGROUND);
         infoTeamII.setForeground(MainUI.FOREGROUND);
-
-        nextWindow.addActionListener(e -> System.out.println("Clicked me."));
+        
+        nextWindow.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            tf.setVisible(true);
+        });
         coordXI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -437,7 +428,6 @@ public class MainFrame extends JFrame {
             }
         });
 
-        JMenuBar menu = new JMenuBar();
         gc.insets = new Insets(0, 0,0,0);
         gc.anchor = GridBagConstraints.NORTH;
         gc.fill = GridBagConstraints.BOTH;
@@ -445,64 +435,7 @@ public class MainFrame extends JFrame {
         gc.gridx = 0;
         gc.gridwidth = 3;
         gc.weighty = 0.5;
-        c.add(menu, gc);
-
-        JMenu file = new JMenu("File");
-        JMenuItem load = new JMenuItem("Load File");
-        JMenuItem craftAnalyzer = new JMenuItem("Craft Analyzer");
-
-        menu.add(file);
-        file.add(craftAnalyzer);
-
-        file.add(load);
-
-        load.addActionListener(e -> {
-            JDialog frameLoad = new JDialog();
-            JFileChooser jfc = new JFileChooser();
-
-
-            //Monitor size
-            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-            int width = gd.getDisplayMode().getWidth();
-            int height = gd.getDisplayMode().getHeight();
-
-            frameLoad.setLocation((width / 2) - (MainUI.WIDTH / 2), (height / 2) - (MainUI.HEIGHT / 2));
-            frameLoad.add(jfc);
-            frameLoad.setSize(MainUI.WIDTH, MainUI.HEIGHT);
-            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
-            jfc.setAcceptAllFileFilterUsed(false);
-            jfc.setCurrentDirectory(new File(""));
-
-
-            jfc.addActionListener(e1 -> {
-                if (e1.getActionCommand().equals("CancelSelection")) {
-                    frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
-                } else if (e1.getActionCommand().equals("ApproveSelection")) {
-                    File file1 = jfc.getSelectedFile();
-                    LinkedList<Craft> read = WriterReader.loadSituationFile(file1);
-                    if (read == null) {
-                        System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
-                    }
-                    frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
-                    //TODO Add teleport here to battle directly.
-                    //TODO Add setup for save to catch if the saved file is from battle or setup.
-                }
-            });
-
-
-            frameLoad.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-            frameLoad.setVisible(true);
-        });
-        craftAnalyzer.addActionListener(e -> {
-            String[] str = new String[1];
-            str[0] = "";
-            CraftAnalyzer.main(str);
-        });
-
-
+        c.add(new BSMenu(), gc);
     }
-
 }
 

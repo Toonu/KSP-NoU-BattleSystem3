@@ -51,7 +51,7 @@ public class WriterReader {
                 o.writeObject(craft);
                 if (App.isDebug()) {
                     System.out.println(String.format("[LOG %s] %-18s %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft));
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
                 }
                 ++counter;
             }
@@ -195,7 +195,8 @@ public class WriterReader {
 
                     if (App.isDebug()) {
                         System.out.println(String.format("[LOG %s] %-18s %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:", newCraft));
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS),
+                                "Crafts loaded:", newCraft.toLongString()));
                     }
                 }
                 line = br.readLine();
