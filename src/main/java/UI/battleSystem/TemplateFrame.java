@@ -40,12 +40,13 @@ public class TemplateFrame extends JFrame {
         super(title);
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+
+        Container c = getContentPane();
         c.setBackground(MainUI.BACKGROUND);
         c.setSize(MainUI.WIDTH, MainUI.HEIGHT);
 
         gc.gridy = 0;
-        gc.anchor = GridBagConstraints.NORTH;
-        gc.fill = GridBagConstraints.HORIZONTAL;
+        gc.fill = GridBagConstraints.BOTH;
         gc.gridwidth = 5;
         c.add(new BSMenu(), gc);
 
@@ -62,8 +63,9 @@ public class TemplateFrame extends JFrame {
         textBlack.setLineWrap(true);
         textBlack.setWrapStyleWord(true);
 
-        //gc.gridheight = OOB.TEMPLATE.getCrafts().size();
-        //gc.weightx = 2;
+        gc.gridheight = OOB.TEMPLATE.getCrafts().size();
+        gc.weighty = 2;
+        gc.weightx = 2;
         gc.gridx = 0;
         gc.gridy = 1;
         c.add(scrollerWhite, gc);
@@ -71,10 +73,10 @@ public class TemplateFrame extends JFrame {
         gc.gridx = 4;
         c.add(scrollerBlack, gc);
 
-        //gc.gridheight = 1;
+        gc.gridheight = 1;
         gc.gridy = 0;
         gc.gridx = 1;
-        //gc.weightx = 0.5;
+        gc.weightx = 0.5;
 
         for (Craft craft : OOB.TEMPLATE.getCrafts()) {
             ++gc.gridy;
@@ -84,7 +86,7 @@ public class TemplateFrame extends JFrame {
 
             c.add(templateButtons.get(craft).get(0), gc);
             ++gc.gridx;
-            //gc.weightx = 8;
+            gc.weightx = 8;
 
             JLabel newLabel = new JLabel(craft.getName());
             newLabel.setForeground(MainUI.FOREGROUND);
@@ -92,7 +94,7 @@ public class TemplateFrame extends JFrame {
 
             //TODO Functionality of removing template crafts from loaded file in the program.
 
-            //gc.weightx = 0.5;
+            gc.weightx = 0.5;
             ++gc.gridx;
             c.add(templateButtons.get(craft).get(1), gc);
             gc.gridx -= 2;
@@ -109,7 +111,7 @@ public class TemplateFrame extends JFrame {
 
         ++gc.gridy;
         gc.gridx = 0;
-        //gc.gridwidth = 5;
+        gc.gridwidth = 5;
         gc.anchor = GridBagConstraints.SOUTH;
         gc.fill = GridBagConstraints.BOTH;
         c.add(nextScreen, gc);
@@ -123,7 +125,6 @@ public class TemplateFrame extends JFrame {
             for (Craft craft:OOB.BLACK.getCrafts()) {
                 eq.getListBlack().addElement(craft);
             }
-
             eq.setVisible(true);
         });
     }
@@ -152,4 +153,7 @@ public class TemplateFrame extends JFrame {
         return templateButtons;
     }
 
+    public JButton getNextScreen() {
+        return nextScreen;
+    }
 }

@@ -1,6 +1,7 @@
 package ui.battleSystem;
 
 import crafts.Craft;
+import ui.BSMenu;
 import ui.MainUI;
 
 import javax.swing.DefaultListModel;
@@ -86,6 +87,10 @@ public class EquipingFrame extends JFrame {
                 // Button working to add new weapons and systems. Optionally configure crafts in different way.
             }
         });
+
+        gc = new GridBagConstraints();
+        gc.anchor = GridBagConstraints.NORTH;
+        c.add(new BSMenu(), gc);
     }
 
     public DefaultListModel<Craft> getListBlack() {

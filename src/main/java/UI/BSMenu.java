@@ -23,11 +23,12 @@ import java.util.LinkedList;
  * @author Tomas Novotny
  */
 public class BSMenu extends JMenuBar {
-    public BSMenu() {
-        JMenu file = new JMenu("File");
-        JMenuItem load = new JMenuItem("Load File");
-        JMenuItem craftAnalyzer = new JMenuItem("Craft Analyzer");
+    private final JMenu file = new JMenu("File");
+    private final JMenuItem load = new JMenuItem("Load File");
+    private final JMenuItem craftAnalyzer = new JMenuItem("Craft Analyzer");
 
+
+    public BSMenu() {
         this.add(file);
         file.add(craftAnalyzer);
         file.add(load);
@@ -76,5 +77,22 @@ public class BSMenu extends JMenuBar {
             str[0] = "";
             CraftAnalyzer.main(str);
         });
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    public JMenu getFile() {
+        return file;
+    }
+
+    public JMenuItem getCraftAnalyzer() {
+        return craftAnalyzer;
+    }
+
+    public JMenuItem getLoad() {
+        return load;
     }
 }

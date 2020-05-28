@@ -428,7 +428,7 @@ public class MainFrame extends JFrame {
             }
         });
 
-        gc.insets = new Insets(0, 0,0,0);
+        gc.insets = new Insets(0, 0, 0, 0);
         gc.anchor = GridBagConstraints.NORTH;
         gc.fill = GridBagConstraints.BOTH;
         gc.gridy = 0;
@@ -436,6 +436,19 @@ public class MainFrame extends JFrame {
         gc.gridwidth = 3;
         gc.weighty = 0.5;
         c.add(new BSMenu(), gc);
+    }
+
+    public Container getC() {
+        return c;
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    public JLabel getWelcomeText() {
+        return welcomeText;
     }
 }
 
