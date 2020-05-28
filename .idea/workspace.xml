@@ -20,15 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Template Screen WIP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/BSMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/battleSystem/EquipingFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/battleSystem/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/battleSystem/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/battleSystem/TemplateFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/battleSystem/TemplateFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +81,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -432,45 +424,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590651403626" />
-    <state width="1877" height="421" key="GridCell.Tab.0.bottom" timestamp="1590618054312">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1590653320620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590653320620" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590587229940" />
-    <state width="1877" height="421" key="GridCell.Tab.0.center" timestamp="1590618054312">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1590653320620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590653320620" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590587229931" />
-    <state width="1877" height="421" key="GridCell.Tab.0.left" timestamp="1590618054312">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1590653320620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590653320620" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590587229929" />
-    <state width="1877" height="421" key="GridCell.Tab.0.right" timestamp="1590618054312">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1590653320620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590653320620" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590587229937" />
-    <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590618054312">
+    <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590653224634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="421" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590653224634" />
     <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590587037391" />
-    <state width="1877" height="421" key="GridCell.Tab.1.center" timestamp="1590618054312">
+    <state width="1877" height="421" key="GridCell.Tab.1.center" timestamp="1590653224634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="421" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590653224634" />
     <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590587037389" />
-    <state width="1877" height="421" key="GridCell.Tab.1.left" timestamp="1590618054312">
+    <state width="1877" height="421" key="GridCell.Tab.1.left" timestamp="1590653224634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="421" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590653224634" />
     <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590587037388" />
-    <state width="1877" height="421" key="GridCell.Tab.1.right" timestamp="1590618054312">
+    <state width="1877" height="421" key="GridCell.Tab.1.right" timestamp="1590653224634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="421" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590618054312" />
+    <state width="1877" height="421" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590653224634" />
     <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590587037390" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -480,10 +472,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590266477933" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590592884493">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1590653123829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590592884493" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590653123829" />
     <state x="328" y="23" key="SettingsEditor/0.23.1366.681@0.23.1366.681" timestamp="1590585869014" />
     <state x="839" y="314" key="UIDesigner.ListEditorDialog" timestamp="1590395396586">
       <screen x="0" y="0" width="1920" height="1040" />
