@@ -1,19 +1,11 @@
 package ui.battleSystem;
 
 import crafts.Craft;
-import ui.BSMenu;
+import ui.BSSMenu;
 import ui.MainUI;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -71,7 +63,7 @@ public class EquipingFrame extends JFrame {
         gc.weighty = 1;
         gc.gridx = 0;
         gc.gridy = 2;
-        gc.gridwidth = 6;
+        gc.gridwidth = 5;
         c.add(confirm, gc);
 
         gc.gridwidth = 1;
@@ -90,7 +82,9 @@ public class EquipingFrame extends JFrame {
 
         gc = new GridBagConstraints();
         gc.anchor = GridBagConstraints.NORTH;
-        c.add(new BSMenu(), gc);
+        gc.fill = GridBagConstraints.HORIZONTAL;
+        gc.gridwidth = 5;
+        c.add(new BSSMenu(), gc);
     }
 
     public DefaultListModel<Craft> getListBlack() {

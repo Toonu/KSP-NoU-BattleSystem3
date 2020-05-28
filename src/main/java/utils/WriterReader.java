@@ -8,6 +8,7 @@ import enums.Side;
 import enums.Theatre;
 import enums.Type;
 import impl.App;
+import impl.OOB;
 import systems.AbstractSystem;
 import systems.Ammunition;
 import systems.Countermeasure;
@@ -38,16 +39,25 @@ import java.util.regex.Pattern;
  */
 public class WriterReader {
     /**
+     * Method saves crafts to file from pathname.
+     *
+     * @param path path to save to.
+     * @return true if the save went successfully.
+     */
+    public static boolean saveSituation(String path) {
+        return saveSituationFile(new File(path));
+    }
+
+    /**
      * Method saves crafts to save file.
      *
-     * @param crafts   SortedSet of craft to save.
-     * @param pathname path to file to load.
+     * @param file file to load.
      * @return true if everything went correctly.
      */
-    public static boolean saveSituation(LinkedList<Craft> crafts, String pathname) {
+    public static boolean saveSituationFile(File file) {
         int counter = 0;
-        try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(new File(pathname)))) {
-            for (Craft craft : crafts) {
+        try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(file))) {
+            for (Craft craft : OOB.WHITE.getCrafts()) {
                 o.writeObject(craft);
                 if (App.isDebug()) {
                     System.out.println(String.format("[LOG %s] %-18s %s",
@@ -55,6 +65,16 @@ public class WriterReader {
                 }
                 ++counter;
             }
+            //TODO eliminate duplicite code
+            for (Craft craft : OOB.BLACK.getCrafts()) {
+                o.writeObject(craft);
+                if (App.isDebug()) {
+                    System.out.println(String.format("[LOG %s] %-18s %s",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
+                }
+                ++counter;
+            }
+
             System.out.println(String.format("[LOG %s] %-18s [%s]",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts saved:", counter));
             return true;
@@ -74,14 +94,20 @@ public class WriterReader {
      * @param file file to load.
      * @return crafts loaded.
      */
-    public static LinkedList<Craft> loadSituationFile(File file) {
-        LinkedList<Craft> crafts = new LinkedList<>();
+    public static boolean loadSituationFile(File file) {
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
             int counter = 0;
             try {
                 //noinspection InfiniteLoopStatement
                 while (true) {
-                    crafts.add((Craft) oi.readObject());
+                    Craft newCraft = (Craft) oi.readObject();
+                    if (newCraft.getSide() == Side.WHITE) {
+                        OOB.WHITE.addCraft(newCraft);
+                    } else if (newCraft.getSide() == Side.BLACK) {
+                        OOB.BLACK.addCraft(newCraft);
+                    } else {
+                        OOB.TEMPLATE.addCraft(newCraft);
+                    }
                     ++counter;
                 }
             } catch (EOFException e) {
@@ -90,11 +116,14 @@ public class WriterReader {
                             LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:", counter));
                 }
             }
-            return crafts;
+            if (counter > 0) {
+                return true;
+            }
+            throw new IOException("No craft has been loaded from file.");
         } catch (IOException | ClassNotFoundException e) {
             System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
-            return null;
+            return false;
         }
     }
 
@@ -102,9 +131,9 @@ public class WriterReader {
      * Method loads saved objects from save file.
      *
      * @param pathname path to target file.
-     * @return Craft set.
+     * @return true if file was loaded successfully.
      */
-    public static LinkedList<Craft> loadSituation(String pathname) {
+    public static boolean loadSituation(String pathname) {
         return loadSituationFile(new File(pathname));
     }
 
@@ -116,7 +145,6 @@ public class WriterReader {
      */
     public static LinkedList<Craft> loadCSVFile(Path path) {
         LinkedList<Craft> crafts = new LinkedList<>();
-
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             br.readLine(); //Skips first line with headline values.
             String line = br.readLine();

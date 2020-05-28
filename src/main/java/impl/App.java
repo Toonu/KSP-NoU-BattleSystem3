@@ -17,7 +17,7 @@ public class App {
     public static final Vertex2D SPAWN_B = new Vertex2D(100, 0);
     public static final Era DEFAULT_YEAR = Era.Era1950;
 
-    private static boolean debug = false;
+    private static boolean debug = true;
     private static int globalTime = 0;
 
     /**

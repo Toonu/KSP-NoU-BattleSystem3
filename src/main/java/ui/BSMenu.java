@@ -1,23 +1,15 @@
 package ui;
 
-import crafts.Craft;
 import ui.craftAnalyzer.CraftAnalyzer;
 import utils.WriterReader;
 
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.LinkedList;
 
 /**
  * @author Tomas Novotny
@@ -56,8 +48,7 @@ public class BSMenu extends JMenuBar {
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file1 = jfc.getSelectedFile();
-                    LinkedList<Craft> read = WriterReader.loadSituationFile(file1);
-                    if (read == null) {
+                    if (!WriterReader.loadSituationFile(file1)) {
                         System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
                                 LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
                     }

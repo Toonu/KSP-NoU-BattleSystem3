@@ -59,8 +59,8 @@ public class OOB {
         OOB.WHITE.addCraft(testCraft);
         OOB.WHITE.addCraft(test2Craft);
 
-        if (WriterReader.saveSituation(OOB.WHITE.getCrafts(), "save.txt")) {
-            OOB.WHITE.setCrafts(WriterReader.loadSituation("save.txt"));
+        if (WriterReader.saveSituation("save.txt")) {
+            WriterReader.loadSituation("save.txt");
         }
 
         OOB.TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("Database.csv")));
