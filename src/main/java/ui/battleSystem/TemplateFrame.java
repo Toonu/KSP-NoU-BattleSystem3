@@ -5,8 +5,15 @@ import impl.OOB;
 import ui.BSMenu;
 import ui.MainUI;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -22,7 +29,7 @@ public class TemplateFrame extends JFrame {
     private final JScrollPane scrollerBlack = new JScrollPane(textBlack);
     private final SortedMap<Craft, ArrayList<JButton>> templateButtons = new TreeMap<>();
     private final JButton nextScreen = new JButton("Finish");
-
+    private final JButton editing = new JButton("Edit selected");
 
     /**
      * Constructor.
@@ -31,6 +38,7 @@ public class TemplateFrame extends JFrame {
      */
     public TemplateFrame(String title, EquipingFrame eq) {
         super(title);
+
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
@@ -46,13 +54,13 @@ public class TemplateFrame extends JFrame {
         gc = new GridBagConstraints();
         gc.fill = GridBagConstraints.BOTH;
 
-        textWhite.setBackground(new Color(0x1F2E7B));
-        textWhite.setForeground(MainUI.FOREGROUND);
+        textWhite.setBackground(MainUI.BACKGROUND);
+        textWhite.setForeground(Color.WHITE);
         textWhite.setLineWrap(true);
         textWhite.setWrapStyleWord(true);
 
-        textBlack.setBackground(new Color(0x1F2E7B));
-        textBlack.setForeground(MainUI.FOREGROUND);
+        textBlack.setBackground(MainUI.BACKGROUND);
+        textBlack.setForeground(Color.WHITE);
         textBlack.setLineWrap(true);
         textBlack.setWrapStyleWord(true);
 
@@ -104,18 +112,22 @@ public class TemplateFrame extends JFrame {
 
         ++gc.gridy;
         gc.gridx = 0;
-        gc.gridwidth = 5;
+        gc.weightx = 5;
         gc.anchor = GridBagConstraints.SOUTH;
         gc.fill = GridBagConstraints.BOTH;
         c.add(nextScreen, gc);
 
+        gc.gridx = 2;
+        c.add(editing, gc);
+
+
         nextScreen.addActionListener(e -> {
             setVisible(false);
             dispose();
-            for (Craft craft: OOB.WHITE.getCrafts()) {
+            for (Craft craft : OOB.WHITE.getCrafts()) {
                 eq.getListWhite().addElement(craft);
             }
-            for (Craft craft:OOB.BLACK.getCrafts()) {
+            for (Craft craft : OOB.BLACK.getCrafts()) {
                 eq.getListBlack().addElement(craft);
             }
             eq.setVisible(true);

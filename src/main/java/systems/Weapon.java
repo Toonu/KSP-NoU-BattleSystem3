@@ -48,6 +48,7 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
         return String.format("%s", super.toString());
     }
 
+
     /**
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less

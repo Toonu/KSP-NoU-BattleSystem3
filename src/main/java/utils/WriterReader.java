@@ -38,6 +38,9 @@ import java.util.regex.Pattern;
  * @author Toonu
  */
 public class WriterReader {
+    //TODO Add reading from online sheet maybe if possible integration with
+    // google sheets is viable and easy enough to implement it?
+
     /**
      * Method saves crafts to file from pathname.
      *
@@ -84,9 +87,6 @@ public class WriterReader {
             return false;
         }
     }
-
-    //TODO Add reading from online sheet maybe if possible integration with
-    // google sheets is viable and easy enough to implement it?
 
     /**
      * Method loads saved file.

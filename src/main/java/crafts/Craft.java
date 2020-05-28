@@ -407,7 +407,59 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @return comparing int.
      */
     public int compareTo(Craft o) {
+        if (type.compareTo(o.getType()) == 0) {
+            if (name.compareTo(o.getName()) == 0) {
+                return Integer.compare(System.identityHashCode(this), System.identityHashCode(o));
+            }
+            return name.compareTo(o.getName());
+        }
         return type.compareTo(o.getType());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Craft craft = (Craft) o;
+
+        if (Double.compare(craft.speed, speed) != 0) return false;
+        if (Double.compare(craft.angle, angle) != 0) return false;
+        if (Double.compare(craft.hp, hp) != 0) return false;
+        if (isWithdrawing != craft.isWithdrawing) return false;
+        if (time != craft.time) return false;
+        if (tick != craft.tick) return false;
+        if (name != null ? !name.equals(craft.name) : craft.name != null) return false;
+        if (weapons != null ? !weapons.equals(craft.weapons) : craft.weapons != null) return false;
+        if (countermeasures != null ? !countermeasures.equals(craft.countermeasures) : craft.countermeasures != null)
+            return false;
+        if (type != craft.type) return false;
+        if (craftProductionYear != craft.craftProductionYear) return false;
+        if (side != craft.side) return false;
+        return position != null ? position.equals(craft.position) : craft.position == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(speed);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (weapons != null ? weapons.hashCode() : 0);
+        result = 31 * result + (countermeasures != null ? countermeasures.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (craftProductionYear != null ? craftProductionYear.hashCode() : 0);
+        result = 31 * result + (side != null ? side.hashCode() : 0);
+        temp = Double.doubleToLongBits(angle);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        temp = Double.doubleToLongBits(hp);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (isWithdrawing ? 1 : 0);
+        result = 31 * result + time;
+        result = 31 * result + tick;
+        return result;
     }
 
     //Builder

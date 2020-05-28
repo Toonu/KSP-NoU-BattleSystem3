@@ -65,4 +65,8 @@ public class Gun extends Weapon implements Serializable {
     public String toString() {
         return String.format("%10s %s", "[Gun]", super.toString());
     }
+
+    public String toShortString() {
+        return String.format("%10s %s", "[Gun]", this.getName());
+    }
 }

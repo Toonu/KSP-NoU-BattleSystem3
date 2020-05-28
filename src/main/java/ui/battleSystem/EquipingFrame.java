@@ -4,10 +4,19 @@ import crafts.Craft;
 import ui.BSSMenu;
 import ui.MainUI;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+import java.awt.Container;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
 /**
  * @author Tomas Novotny
@@ -31,10 +40,10 @@ public class EquipingFrame extends JFrame {
         JList<Craft> teamWhite = new JList<>(listWhite);
         JList<Craft> teamBlack = new JList<>(listBlack);
 
-        teamWhite.setBackground(new Color(0x1F2E7B));
+        teamWhite.setBackground(MainUI.BACKGROUND);
         teamWhite.setForeground(MainUI.FOREGROUND);
 
-        teamBlack.setBackground(new Color(0x1F2E7B));
+        teamBlack.setBackground(MainUI.BACKGROUND);
         teamBlack.setForeground(MainUI.FOREGROUND);
 
         JScrollPane spW = new JScrollPane(teamWhite);
@@ -72,12 +81,27 @@ public class EquipingFrame extends JFrame {
         JButton edit = new JButton("Edit");
         c.add(edit, gc);
 
-        edit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO Check if edited crafts are of same type.
-                // Button working to add new weapons and systems. Optionally configure crafts in different way.
+        edit.addActionListener(e -> {
+            ArrayList<Craft> crafts = new ArrayList<>(teamWhite.getSelectedValuesList());
+            for (Craft craft : crafts) {
+                if (craft.getType() != crafts.get(0).getType()) {
+                    JOptionPane.showMessageDialog(edit.getParent(), "Select crafts of same type!", "Warning",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
             }
+            SystemsFrame systemsFrame = new SystemsFrame(MainUI.TITLE, crafts);
+
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            int width = gd.getDisplayMode().getWidth();
+            int height = gd.getDisplayMode().getHeight();
+
+            systemsFrame.setLocation((width / 2) - (MainUI.WIDTH / 2), (height / 2) - (MainUI.HEIGHT / 2));
+            systemsFrame.setSize(MainUI.WIDTH, MainUI.HEIGHT);
+            systemsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            systemsFrame.setBackground(MainUI.BACKGROUND);
+            systemsFrame.setVisible(true);
+            //TODO Systems editation frame, but first add weapons to it
         });
 
         gc = new GridBagConstraints();

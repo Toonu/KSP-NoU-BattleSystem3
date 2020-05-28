@@ -70,4 +70,8 @@ public class AbstractSystem implements Serializable {
     public String toString() {
         return String.format("System %s %-14s [S: %5s, Min: %5s, Max: %5s]", era, name, strength, minRange, maxRange);
     }
+
+    public String toShortString() {
+        return null;
+    }
 }

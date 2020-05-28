@@ -21,6 +21,7 @@ public class MainUI {
     public static final Color BACKGROUND = new Color(-16505734);
     public static final Color FOREGROUND = new Color(-14336);
     public static final BSMenu MENU = new BSMenu();
+    public static final String PATH = System.getProperty("user.dir");
 
     /**
      * Main class for User Interface of the whole application.
@@ -34,21 +35,23 @@ public class MainUI {
             int width = gd.getDisplayMode().getWidth();
             int height = gd.getDisplayMode().getHeight();
 
-
             EquipingFrame equipingFrame = new EquipingFrame(TITLE);
             TemplateFrame templates = new TemplateFrame(TITLE, equipingFrame);
-            MainFrame frame = new MainFrame(TITLE, templates);
+            MainFrame mainFrame = new MainFrame(TITLE, templates);
 
-            frame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
-            frame.setSize(WIDTH, HEIGHT);
+            mainFrame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
+            mainFrame.setSize(WIDTH, HEIGHT);
             templates.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
+            templates.setExtendedState(JFrame.MAXIMIZED_BOTH);
             templates.setSize(WIDTH, HEIGHT);
             equipingFrame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
             equipingFrame.setSize(WIDTH, HEIGHT);
 
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setVisible(true);
+
+            mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            mainFrame.setVisible(true);
             templates.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
             templates.setVisible(false);
             equipingFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             equipingFrame.setVisible(false);

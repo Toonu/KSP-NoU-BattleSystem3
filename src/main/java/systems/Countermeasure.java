@@ -80,4 +80,8 @@ public class Countermeasure extends AbstractSystem implements Serializable, Comp
     public String toString() {
         return String.format("%10s %s", type, super.toString());
     }
+
+    public String toShortString() {
+        return String.format("%10s %s", type, this.getName());
+    }
 }

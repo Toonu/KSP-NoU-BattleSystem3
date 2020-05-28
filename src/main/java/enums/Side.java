@@ -27,6 +27,7 @@ public enum Side {
      */
     public void addCraft(Craft craft) {
         crafts.add(craft);
+        crafts.sort(Craft::compareTo);
     }
 
     // Setters & Getters.

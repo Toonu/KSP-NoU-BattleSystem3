@@ -40,4 +40,8 @@ public class Missile extends Weapon implements Serializable {
     public String toString() {
         return String.format("%10s %s", "[Missile]", super.toString());
     }
+
+    public String toShortString() {
+        return String.format("%10s %s", "[Missile]", this.getName());
+    }
 }

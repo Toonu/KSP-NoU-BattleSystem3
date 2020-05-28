@@ -32,6 +32,8 @@ public class OOB {
      */
     public static void main(String[] args) {
         TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
+        TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(Paths.get("countermeasures.txt")));
+        TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
         MainUI.main(args);
     }
 
