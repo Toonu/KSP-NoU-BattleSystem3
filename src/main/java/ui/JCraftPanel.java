@@ -18,6 +18,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -46,7 +47,6 @@ public class JCraftPanel extends JPanel {
                 "Craft Details", SwingConstants.TOP, SwingConstants.CENTER, super.getFont(), Color.WHITE));
         setOpaque(true);
         setBackground(Gui.BACKGROUND);
-        setPreferredSize(new Dimension(400, 200));
         setLayout(new GridBagLayout());
 
         craft.setForeground(Gui.FOREGROUND);
@@ -75,7 +75,7 @@ public class JCraftPanel extends JPanel {
         JScrollPane systemsPanelScroll = new JScrollPane(systemsPanel);
         systemsPanelScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         systemsPanelScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        systemsPanel.setMinimumSize(systemsPanelScroll.getMinimumSize());
+        systemsPanelScroll.setPreferredSize(new Dimension(180, 300));
         systemsPanel.setBackground(Gui.BACKGROUND);
         GridBagConstraints gc = new GridBagConstraints();
         gc.fill = GridBagConstraints.BOTH;
@@ -111,33 +111,48 @@ public class JCraftPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.NORTH;
-        gbc.weighty = 1;
-        gbc.weightx = 1;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 6;
+        gbc.gridwidth = 3;
+        gbc.insets = new Insets(1, 2, 8, 2);
         add(craft, gbc);
 
         gbc = new GridBagConstraints();
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        gbc.weighty = 1;
-        gbc.weightx = 1;
-
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.gridx = 1;
-        add(countermeasures, gbc);
-        gbc.gridx = 2;
-        add(new JSeparator(JSeparator.VERTICAL), gbc);
-        gbc.gridx = 3;
+        gbc.weightx = 0.3;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         add(weapons, gbc);
-        gbc.gridx = 4;
 
+        gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.weightx = 0.1;
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        add(new JSeparator(JSeparator.VERTICAL), gbc);
+
+        gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.weightx = 0.3;
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        add(countermeasures, gbc);
+
+
+        gbc = new GridBagConstraints();
+        gbc.weightx = 0.3;
+        gbc.gridx = 3;
+        gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(1, 10, 1, 1);
         if (!simple) {
             add(equip, gbc);
         }
 
+        setVisible(true);
     }
 
     /**
@@ -148,8 +163,8 @@ public class JCraftPanel extends JPanel {
     public void updateUI(JList<Craft> list) {
         selectedCrafts = (ArrayList<Craft>) list.getSelectedValuesList();
         craft.setText(list.getSelectedValue().toLongString());
-        countermeasures.setText(Gui.convertToMultiline(list.getSelectedValue().toWeaponsList()));
-        weapons.setText(Gui.convertToMultiline(list.getSelectedValue().toCountermeasuresList()));
+        countermeasures.setText(Gui.convertToMultiline(list.getSelectedValue().toCountermeasuresList()));
+        weapons.setText(Gui.convertToMultiline(list.getSelectedValue().toWeaponsList()));
     }
 
     public ArrayList<Craft> getSelectedCrafts() {

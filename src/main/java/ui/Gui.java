@@ -4,6 +4,7 @@ package ui;
 import ui.battleSystem.OOBFrame;
 import ui.battleSystem.WelcomeFrame;
 
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,6 +26,7 @@ public class Gui {
     public static final String PATH = System.getProperty("user.dir");
     private static OOBFrame oob;
     private static WelcomeFrame welcomeFrame;
+    private static JFrame currentWindow;
 
     /**
      * Main class for User Interface of the whole application.
@@ -35,6 +37,7 @@ public class Gui {
         SwingUtilities.invokeLater(() -> {
             oob = new OOBFrame(TITLE);
             welcomeFrame = new WelcomeFrame(TITLE, oob);
+            setCurrentWindow(welcomeFrame);
         });
     }
 
@@ -87,6 +90,14 @@ public class Gui {
 
     public static WelcomeFrame getWelcomeFrame() {
         return welcomeFrame;
+    }
+
+    public static JFrame getCurrentWindow() {
+        return currentWindow;
+    }
+
+    public static void setCurrentWindow(JFrame currentWindow) {
+        Gui.currentWindow = currentWindow;
     }
 }
 

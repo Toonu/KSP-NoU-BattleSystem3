@@ -1,16 +1,14 @@
 package impl;
 
-import crafts.Craft;
-import enums.Era;
 import enums.Side;
-import enums.Type;
 import systems.Countermeasure;
 import systems.Weapon;
 import ui.Gui;
-import utils.Vertex2D;
 import utils.WriterReader;
 
 import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
@@ -32,56 +30,24 @@ public class OOB {
      * @param args args.
      */
     public static void main(String[] args) {
-        TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
-        TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(Paths.get("countermeasures.txt")));
-        TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
+
+
+        TEMPLATE.setCrafts(WriterReader.loadCSVFile(importResource("database.csv").getPath()));
+        TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(importResource("countermeasures.txt").getPath()));
+        TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(importResource("weapons.txt").getPath()));
         WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
     }
 
-    /**
-     * Old main method for tests.
-     *
-     * @param args args.
-     */
-    public static void oldMain(String[] args) {
-        Craft testCraft = new Craft.Builder()
-                .setCraftProductionYear(Era.Era1960)
-                .setSide(Side.WHITE)
-                .setType(Type.AFV)
-                .setName("Test")
-                .setSpeed(1000)
-                .build();
-        Craft test2Craft = new Craft.Builder()
-                .setCraftProductionYear(Era.Era1960)
-                .setSide(Side.WHITE)
-                .setType(Type.LIGHTMULTIROLE)
-                .setName("Test")
-                .setSpeed(25)
-                .build();
-
-        OOB.WHITE.addCraft(testCraft);
-        OOB.WHITE.addCraft(test2Craft);
-
-        if (WriterReader.saveSetup("save.txt", false)) {
-            WriterReader.loadSetup("save.txt");
+    public static File importResource(String name) {
+        URL res = OOB.class.getClassLoader().getResource(name);
+        File file = null;
+        try {
+            file = Paths.get(res.toURI()).toFile();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
-
-        OOB.TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("Database.csv")));
-        OOB.setCountermeasures(WriterReader.readCMFile(Paths.get("weapons.txt")));
-        OOB.setWeapons(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
-
-        testCraft.setPosition(new Vertex2D(10, 10));
-        test2Craft.setPosition(new Vertex2D(10, 0));
-        System.out.println(testCraft.getPosition());
-        testCraft.setAngle(225);
-        BattleSecond battleSecond = new BattleSecond(0);
-        System.out.println(battleSecond.hitAngle(test2Craft, testCraft));
-        while (testCraft.getPosition().getX() > 0) {
-            testCraft.moveTowardCenter();
-            System.out.println(testCraft.getPosition());
-            System.out.println(battleSecond.hitAngle(test2Craft, testCraft));
-        }
+        return file;
     }
 
     /**

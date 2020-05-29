@@ -135,6 +135,8 @@ public class WelcomeFrame extends JFrame {
         nextWindow.addActionListener(e -> {
             setVisible(false);
             dispose();
+            Gui.setCurrentWindow(tf);
+            tf.pack();
             tf.setVisible(true);
         });
         coordXI.addMouseListener(new MouseListener() {

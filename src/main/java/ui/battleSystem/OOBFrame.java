@@ -53,19 +53,19 @@ public class OOBFrame extends JFrame {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-        setLocation(Gui.getCenterPosition());
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         c.setBackground(Gui.BACKGROUND);
-        c.setSize(Gui.WIDTH, Gui.HEIGHT);
-        setMinimumSize(Gui.SIZE);
+        c.setLayout(new GridBagLayout());
+        c.setPreferredSize(Gui.getMonitorSize());
+        c.setMinimumSize(Gui.SIZE);
 
+        gc.weighty = 0.05;
         gc.gridx = 0;
         gc.gridy = 0;
         gc.fill = GridBagConstraints.HORIZONTAL;
         gc.anchor = GridBagConstraints.NORTH;
         gc.gridwidth = 6;
-        c.add(new JMenuExt(1), gc);
+        add(new JMenuExt(1), gc);
 
         whiteListedCrafts.setBackground(Gui.BACKGROUND);
         whiteListedCrafts.setForeground(Color.WHITE);
@@ -75,16 +75,17 @@ public class OOBFrame extends JFrame {
 
         gc = new GridBagConstraints();
         gc.gridheight = OOB.TEMPLATE.getCrafts().size();
+        gc.weighty = 0.7;
         gc.fill = GridBagConstraints.BOTH;
         gc.weighty = 4;
         gc.weightx = 1;
         gc.gridx = 0;
         gc.gridy = 1;
-        c.add(scrollerWhite, gc);
+        add(scrollerWhite, gc);
 
         gc.gridx = 4;
         gc.gridwidth = 2;
-        c.add(scrollerBlack, gc);
+        add(scrollerBlack, gc);
 
 
         gc.fill = GridBagConstraints.HORIZONTAL;
@@ -107,6 +108,7 @@ public class OOBFrame extends JFrame {
             JLabel newLabel = new JLabel(craft.getName());
             newLabel.setForeground(Gui.FOREGROUND);
             newLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            newLabel.setPreferredSize(new Dimension(200, 20));
             c.add(newLabel, gc);
 
             gc.weightx = 0.1;
@@ -131,9 +133,10 @@ public class OOBFrame extends JFrame {
         gc.anchor = GridBagConstraints.SOUTH;
         ++gc.gridy;
         ++gc.gridy;
+        gc.weighty = 0.15;
         gc.gridx = 5;
-        nextScreen.setPreferredSize(new Dimension(200, 100));
-        c.add(nextScreen, gc);
+        gc.fill = GridBagConstraints.BOTH;
+        add(nextScreen, gc);
 
         whiteListedCrafts.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
@@ -166,12 +169,14 @@ public class OOBFrame extends JFrame {
         gcDetails.gridx = 0;
         gcDetails.gridy = gc.gridy;
         gcDetails.gridwidth = 4;
-        gcDetails.gridheight = 2;
-        gcDetails.weighty = 2;
+        gcDetails.weighty = 0.15;
         gcDetails.fill = GridBagConstraints.BOTH;
         add(details, gcDetails);
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        validate();
+        pack();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(false);
     }
 

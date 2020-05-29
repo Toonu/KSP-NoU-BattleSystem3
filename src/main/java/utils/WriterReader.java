@@ -15,7 +15,9 @@ import systems.Countermeasure;
 import systems.Gun;
 import systems.Missile;
 import systems.Weapon;
+import ui.Gui;
 
+import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -27,6 +29,7 @@ import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -108,6 +111,8 @@ public class WriterReader {
         } catch (IOException e) {
             System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
+            JOptionPane.showMessageDialog(Gui.getCurrentWindow(), "Program couldn't have been saved.",
+                    "Save failed", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
@@ -158,6 +163,8 @@ public class WriterReader {
         } catch (IOException | ClassNotFoundException e) {
             System.err.println(String.format("[ERR %s] Error initializing stream.",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
+            JOptionPane.showMessageDialog(Gui.getCurrentWindow(), "Program couldn't have been loaded.",
+                    "Loading failed", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
             return false;
         }
@@ -179,9 +186,9 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Craft> loadCSVFile(Path path) {
+    public static LinkedList<Craft> loadCSVFile(String path) {
         LinkedList<Craft> crafts = new LinkedList<>();
-        try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(path), StandardCharsets.UTF_8)) {
             br.readLine(); //Skips first line with headline values.
             String line = br.readLine();
             while (line != null) {
@@ -277,8 +284,8 @@ public class WriterReader {
      * @param path Path to file.
      * @return LinkedList<Weapon> containing all weapons.
      */
-    public static LinkedList<Weapon> readWeaponFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
+    public static LinkedList<Weapon> readWeaponFile(String path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(Paths.get(path)));
         LinkedList<Weapon> weapons = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Weapon) {
@@ -294,8 +301,8 @@ public class WriterReader {
      * @param path Path to file.
      * @return LinkedList<Countermeasure> containing all countermeasures.
      */
-    public static LinkedList<Countermeasure> readCMFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
+    public static LinkedList<Countermeasure> readCMFile(String path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(Paths.get(path)));
         LinkedList<Countermeasure> cm = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Countermeasure) {

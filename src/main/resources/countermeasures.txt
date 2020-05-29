@@ -13,3 +13,10 @@ chaff Name 20 0 20 1990
 smoke smoke 20 0 0.5 1950
 ciws ciws 40 0 2 1990
 dew dew 100 0 10 2020
+dew laser 100 0 10 2020
+dew test 100 0 10 2020
+dew overflow 100 0 10 2020
+dew xa 100 0 10 2020
+dew xax 100 0 10 2020
+dew x 100 0 10 2020
+dew v 100 0 10 2020
