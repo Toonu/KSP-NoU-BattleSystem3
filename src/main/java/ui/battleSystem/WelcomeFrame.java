@@ -2,8 +2,8 @@ package ui.battleSystem;
 
 import enums.Era;
 import impl.App;
-import ui.BSMenu;
-import ui.MainUI;
+import ui.Gui;
+import ui.JMenuExt;
 
 import javax.swing.*;
 import javax.swing.text.DocumentFilter;
@@ -20,9 +20,9 @@ import java.util.Objects;
 /**
  * @author Toonu
  */
-public class MainFrame extends JFrame {
+public class WelcomeFrame extends JFrame {
     private final Container c = getContentPane();
-    private final JLabel welcomeText = new JLabel(MainUI.convertToMultiline("Welcome to the Battle System 3.0!\n\n" +
+    private final JLabel welcomeText = new JLabel(Gui.convertToMultiline("Welcome to the Battle System 3.0!\n\n" +
             "Made by Toonu with support of the Nations of Unity Project Team."));
 
     /**
@@ -30,10 +30,12 @@ public class MainFrame extends JFrame {
      *
      * @param title title of the frame.
      */
-    public MainFrame(String title, TemplateFrame tf) {
+    public WelcomeFrame(String title, OOBFrame tf) {
         super(title);
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setLocation(Gui.getCenterPosition());
+        setSize(Gui.WIDTH, Gui.HEIGHT);
 
         gc.gridwidth = 3;
         gc.anchor = GridBagConstraints.CENTER;
@@ -114,11 +116,11 @@ public class MainFrame extends JFrame {
         gc.gridx = 2;
         c.add(coordYII, gc);
 
-        c.setBackground(MainUI.BACKGROUND);
-        welcomeText.setForeground(MainUI.FOREGROUND);
-        infoYears.setForeground(MainUI.FOREGROUND);
-        infoTeamI.setForeground(MainUI.FOREGROUND);
-        infoTeamII.setForeground(MainUI.FOREGROUND);
+        c.setBackground(Gui.BACKGROUND);
+        welcomeText.setForeground(Gui.FOREGROUND);
+        infoYears.setForeground(Gui.FOREGROUND);
+        infoTeamI.setForeground(Gui.FOREGROUND);
+        infoTeamII.setForeground(Gui.FOREGROUND);
         
         nextWindow.addActionListener(e -> {
             setVisible(false);
@@ -180,9 +182,9 @@ public class MainFrame extends JFrame {
                 try {
                     Double.parseDouble(coordXI.getText());
                     coordXI.setBackground(Color.WHITE);
-                    if (coordXI.getBackground() == coordXII.getBackground() &&
-                            coordYI.getBackground() == coordYII.getBackground() &&
-                            coordYII.getBackground() == Color.WHITE) {
+                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
+                            coordYI.getBackground().equals(Color.WHITE) &&
+                            coordYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
@@ -246,9 +248,9 @@ public class MainFrame extends JFrame {
                 try {
                     Double.parseDouble(coordYI.getText());
                     coordYI.setBackground(Color.WHITE);
-                    if (coordXI.getBackground() == coordXII.getBackground() &&
-                            coordYI.getBackground() == coordYII.getBackground() &&
-                            coordYII.getBackground() == Color.WHITE) {
+                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
+                            coordYI.getBackground().equals(Color.WHITE) &&
+                            coordYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
@@ -312,9 +314,9 @@ public class MainFrame extends JFrame {
                 try {
                     Double.parseDouble(coordXII.getText());
                     coordXII.setBackground(Color.WHITE);
-                    if (coordXI.getBackground() == coordXII.getBackground() &&
-                            coordYI.getBackground() == coordYII.getBackground() &&
-                            coordYII.getBackground() == Color.WHITE) {
+                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
+                            coordYI.getBackground().equals(Color.WHITE) &&
+                            coordYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
@@ -378,9 +380,9 @@ public class MainFrame extends JFrame {
                 try {
                     Double.parseDouble(coordYII.getText());
                     coordYII.setBackground(Color.WHITE);
-                    if (coordXI.getBackground() == coordXII.getBackground() &&
-                            coordYI.getBackground() == coordYII.getBackground() &&
-                            coordYII.getBackground() == Color.WHITE) {
+                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
+                            coordYI.getBackground().equals(Color.WHITE) &&
+                            coordYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
@@ -426,7 +428,10 @@ public class MainFrame extends JFrame {
         gc.gridx = 0;
         gc.gridwidth = 3;
         gc.weighty = 0.5;
-        c.add(new BSMenu(), gc);
+        c.add(new JMenuExt(0), gc);
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 
     public Container getC() {

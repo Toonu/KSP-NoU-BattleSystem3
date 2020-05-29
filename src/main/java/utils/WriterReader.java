@@ -29,17 +29,26 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * @author Toonu
  */
 public class WriterReader {
+    private static int counter = 0;
+
     //TODO Add reading from online sheet maybe if possible integration with
     // google sheets is viable and easy enough to implement it?
+
+    public static boolean saveSituationFile(File file) {
+        return false;
+        //TODO Add Battle Second Saving and Loading methods.
+    }
 
     /**
      * Method saves crafts to file from pathname.
@@ -47,8 +56,8 @@ public class WriterReader {
      * @param path path to save to.
      * @return true if the save went successfully.
      */
-    public static boolean saveSituation(String path) {
-        return saveSituationFile(new File(path));
+    public static boolean saveSetup(String path, boolean template) {
+        return saveSetupFile(new File(path), template);
     }
 
     /**
@@ -57,27 +66,32 @@ public class WriterReader {
      * @param file file to load.
      * @return true if everything went correctly.
      */
-    public static boolean saveSituationFile(File file) {
-        int counter = 0;
+    public static boolean saveSetupFile(File file, boolean template) {
+        counter = 0;
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(file))) {
-            for (Craft craft : OOB.WHITE.getCrafts()) {
-                o.writeObject(craft);
+            Stream.of(OOB.WHITE.getCrafts().stream(), OOB.BLACK.getCrafts().stream()).flatMap(s -> s).forEach(s1 -> {
+                try {
+                    o.writeObject(s1);
+                } catch (IOException e) {
+                    System.err.println(String.format("[ERR %s] Error writing craft: %s",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), s1));
+                }
+                ++WriterReader.counter;
                 if (App.isDebug()) {
                     System.out.println(String.format("[LOG %s] %-18s %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", s1.toLongString()));
                 }
-                ++counter;
-            }
-            //TODO eliminate duplicite code
-            for (Craft craft : OOB.BLACK.getCrafts()) {
-                o.writeObject(craft);
-                if (App.isDebug()) {
-                    System.out.println(String.format("[LOG %s] %-18s %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
+            });
+            if (template) {
+                for (Craft craft : OOB.TEMPLATE.getCrafts()) {
+                    o.writeObject(craft);
+                    ++counter;
+                    if (App.isDebug()) {
+                        System.out.println(String.format("[LOG %s] %-18s %s",
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
+                    }
                 }
-                ++counter;
             }
-
             System.out.println(String.format("[LOG %s] %-18s [%s]",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts saved:", counter));
             return true;
@@ -94,35 +108,47 @@ public class WriterReader {
      * @param file file to load.
      * @return crafts loaded.
      */
-    public static boolean loadSituationFile(File file) {
+    public static boolean loadSetupFile(File file) {
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
+            ArrayList<Craft> whites = new ArrayList<>();
+            ArrayList<Craft> blacks = new ArrayList<>();
+            ArrayList<Craft> templ = new ArrayList<>();
             int counter = 0;
             try {
                 //noinspection InfiniteLoopStatement
                 while (true) {
                     Craft newCraft = (Craft) oi.readObject();
                     if (newCraft.getSide() == Side.WHITE) {
-                        OOB.WHITE.addCraft(newCraft);
+                        whites.add(newCraft);
                     } else if (newCraft.getSide() == Side.BLACK) {
-                        OOB.BLACK.addCraft(newCraft);
+                        blacks.add(newCraft);
                     } else {
-                        OOB.TEMPLATE.addCraft(newCraft);
+                        templ.add(newCraft);
                     }
                     ++counter;
                 }
             } catch (EOFException e) {
                 if (App.isDebug()) {
-                    System.out.println(String.format("[LOG %s] %-18s [%s]",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:", counter));
+                    System.out.println(String.format("[LOG %s] %-18s [W: %s B: %s T: %s]",
+                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:",
+                            whites.size(), blacks.size(), templ.size()));
                 }
             }
             if (counter > 0) {
+                OOB.WHITE.getCrafts().clear();
+                OOB.BLACK.getCrafts().clear();
+                OOB.TEMPLATE.getCrafts().clear();
+
+                whites.forEach(OOB.WHITE::addCraft);
+                blacks.forEach(OOB.BLACK::addCraft);
+                templ.forEach(OOB.TEMPLATE::addCraft);
                 return true;
             }
             throw new IOException("No craft has been loaded from file.");
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
+            System.err.println(String.format("[ERR %s] Error initializing stream.",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
+            e.printStackTrace();
             return false;
         }
     }
@@ -133,8 +159,8 @@ public class WriterReader {
      * @param pathname path to target file.
      * @return true if file was loaded successfully.
      */
-    public static boolean loadSituation(String pathname) {
-        return loadSituationFile(new File(pathname));
+    public static boolean loadSetup(String pathname) {
+        return loadSetupFile(new File(pathname));
     }
 
     /**

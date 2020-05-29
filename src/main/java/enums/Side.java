@@ -45,6 +45,6 @@ public enum Side {
     }
 
     public LinkedList<Craft> getCrafts() {
-        return new LinkedList<>(crafts);
+        return crafts;
     }
 }

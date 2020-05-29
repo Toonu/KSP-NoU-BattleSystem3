@@ -1,0 +1,139 @@
+package ui;
+
+import impl.OOB;
+import ui.craftAnalyzer.CraftAnalyzer;
+import utils.WriterReader;
+
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.WindowConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+/**
+ * @author Tomas Novotny
+ */
+public class JMenuExt extends JMenuBar {
+    private final JMenu file = new JMenu("File");
+    private final JMenuItem load = new JMenuItem("Load File");
+    private final JMenuItem craftAnalyzer = new JMenuItem("Craft Analyzer");
+    private final JMenuItem save = new JMenuItem("Save File");
+
+    public JMenuExt(int level) {
+        this.add(file);
+        file.add(craftAnalyzer);
+        if (level == 1) {
+            file.add(save);
+        }
+        file.add(load);
+
+        load.addActionListener(e -> {
+            //Monitor size
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            int width = gd.getDisplayMode().getWidth();
+            int height = gd.getDisplayMode().getHeight();
+
+
+            JDialog frameLoad = new JDialog();
+            JFileChooser jfc = new JFileChooser();
+
+            frameLoad.setLocation((width / 2) - (Gui.WIDTH / 2), (height / 2) - (Gui.HEIGHT / 2));
+            frameLoad.add(jfc);
+            frameLoad.setSize(Gui.WIDTH, Gui.HEIGHT);
+            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
+            jfc.setAcceptAllFileFilterUsed(false);
+            jfc.setCurrentDirectory(new File("."));
+
+
+            jfc.addActionListener(e1 -> {
+                if (e1.getActionCommand().equals("CancelSelection")) {
+                    frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
+                } else if (e1.getActionCommand().equals("ApproveSelection")) {
+                    File file = jfc.getSelectedFile();
+                    if (!WriterReader.loadSetupFile(file)) {
+                        System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
+                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
+                    }
+
+
+                    frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
+
+                    if (Gui.welcomeFrame.isVisible()) {
+                        Gui.welcomeFrame.dispatchEvent(new WindowEvent(Gui.welcomeFrame, WindowEvent.WINDOW_CLOSING));
+                        Gui.oob.setVisible(true);
+                    }
+                    Gui.oob.getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
+                    Gui.oob.getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
+                }
+            });
+
+            frameLoad.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frameLoad.setVisible(true);
+        });
+        save.addActionListener(e -> {
+            //Monitor size
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            int width = gd.getDisplayMode().getWidth();
+            int height = gd.getDisplayMode().getHeight();
+
+
+            JDialog frameSave = new JDialog();
+            JFileChooser jfc = new JFileChooser();
+
+            frameSave.setLocation((width / 2) - (Gui.WIDTH / 2), (height / 2) - (Gui.HEIGHT / 2));
+            frameSave.add(jfc);
+            frameSave.setSize(Gui.WIDTH, Gui.HEIGHT);
+            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
+            jfc.setAcceptAllFileFilterUsed(false);
+            jfc.setCurrentDirectory(new File("."));
+            jfc.setApproveButtonText("Save");
+
+            jfc.addActionListener(e1 -> {
+                if (e1.getActionCommand().equals("CancelSelection")) {
+                    frameSave.dispatchEvent(new WindowEvent(frameSave, WindowEvent.WINDOW_CLOSING));
+                } else if (e1.getActionCommand().equals("ApproveSelection")) {
+                    File file1 = jfc.getSelectedFile();
+
+                    if (!WriterReader.saveSetupFile(file1, true)) {
+                        System.err.println(String.format(
+                                "[ERR %s] Error initializing stream and saving the crafts. " +
+                                        "Exception: %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
+                    }
+                    frameSave.dispatchEvent(new WindowEvent(frameSave, WindowEvent.WINDOW_CLOSING));
+                }
+            });
+
+            frameSave.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            frameSave.setVisible(true);
+        });
+        craftAnalyzer.addActionListener(ex -> {
+            CraftAnalyzer.main();
+        });
+    }
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    public JMenu getFile() {
+        return file;
+    }
+
+    public JMenuItem getCraftAnalyzer() {
+        return craftAnalyzer;
+    }
+
+    public JMenuItem getLoad() {
+        return load;
+    }
+}

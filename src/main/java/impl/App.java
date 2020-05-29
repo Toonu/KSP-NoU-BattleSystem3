@@ -8,7 +8,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
- * MainUI Application Class.
+ * Gui Application Class.
  *
  * @author Toonu
  */
