@@ -31,10 +31,11 @@ public class EquipmentFrame extends JFrame {
     private final LinkedList<JButton> systemButtons = new LinkedList<>();
     private final ArrayList<Weapon> templateWeapons = new ArrayList<>();
     private final ArrayList<Countermeasure> templateSystems = new ArrayList<>();
-    private final JCraftPanel details = new JCraftPanel("Info");
+    private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
+    private final JCraftPanel details = new JCraftPanel("Info", selectedCraftsFromList, true);
     private final ArrayList<Craft> craftsPresent;
     private final DefaultListModel<Craft> craftsPresentJList = new DefaultListModel<>();
-    private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
+
 
     public EquipmentFrame(String title, ArrayList<Craft> selectedCrafts) {
         super();

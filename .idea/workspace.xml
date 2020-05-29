@@ -19,25 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Fixed TemplateWindow small container bug.">
-      <change afterPath="$PROJECT_DIR$/saveExtra.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftEquip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftList.java" afterDir="false" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="OOBWindow Work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Comparators/CraftComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comparators/CraftComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Gui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftEquip.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/EquipmentFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/EquipmentFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/OOBFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/OOBFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +93,9 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ui" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -318,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590653785305</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="OOBWindow Work">
+      <created>1590753392619</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1590753392619</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +354,8 @@
     <MESSAGE value="Implementation of CraftAnalyzer." />
     <MESSAGE value="Template Screen WIP" />
     <MESSAGE value="Fixed TemplateWindow small container bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed TemplateWindow small container bug." />
+    <MESSAGE value="OOBWindow Work" />
+    <option name="LAST_COMMIT_MESSAGE" value="OOBWindow Work" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -413,10 +411,10 @@
     </state>
     <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590699128831" />
     <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1590740707842" />
-    <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590740577185">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590753789058">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590699290702" />
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590753789058" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1590740577185" />
     <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1590684815636">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -431,10 +429,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="711" y="345" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590591430805" />
-    <state x="884" y="411" width="938" height="594" key="#xdebugger.evaluate" timestamp="1590753204994">
+    <state x="884" y="411" width="938" height="594" key="#xdebugger.evaluate" timestamp="1590756298015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="884" y="411" width="938" height="594" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590753204994" />
+    <state x="884" y="411" width="938" height="594" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590756298015" />
     <state x="164" y="298" width="474" height="361" key="#xdebugger.evaluate/0.23.1366.681@0.23.1366.681" timestamp="1590736349674" />
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590226703252">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -449,45 +447,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590667228676" />
-    <state width="1877" height="314" key="GridCell.Tab.0.bottom" timestamp="1590753090715">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1590757434673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590753090715" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590757434673" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590740771123" />
-    <state width="1877" height="314" key="GridCell.Tab.0.center" timestamp="1590753090715">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1590757434673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590753090715" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590757434673" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590740771122" />
-    <state width="1877" height="314" key="GridCell.Tab.0.left" timestamp="1590753090715">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1590757434673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590753090715" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590757434673" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590740771121" />
-    <state width="1877" height="314" key="GridCell.Tab.0.right" timestamp="1590753090715">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1590757434673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590753090715" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590757434673" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590740771122" />
-    <state width="1877" height="314" key="GridCell.Tab.1.bottom" timestamp="1590753091218">
+    <state width="1877" height="159" key="GridCell.Tab.1.bottom" timestamp="1590756404645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590753091218" />
+    <state width="1877" height="159" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590756404645" />
     <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590737885609" />
-    <state width="1877" height="314" key="GridCell.Tab.1.center" timestamp="1590753091218">
+    <state width="1877" height="159" key="GridCell.Tab.1.center" timestamp="1590756404645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590753091218" />
+    <state width="1877" height="159" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590756404645" />
     <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590737885605" />
-    <state width="1877" height="314" key="GridCell.Tab.1.left" timestamp="1590753091218">
+    <state width="1877" height="159" key="GridCell.Tab.1.left" timestamp="1590756404645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590753091218" />
+    <state width="1877" height="159" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590756404645" />
     <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590737885603" />
-    <state width="1877" height="314" key="GridCell.Tab.1.right" timestamp="1590753091218">
+    <state width="1877" height="159" key="GridCell.Tab.1.right" timestamp="1590756404645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590753091218" />
+    <state width="1877" height="159" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590756404645" />
     <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590737885608" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -510,10 +508,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="393" y="184" key="Vcs.Push.Dialog.v2" timestamp="1590663268863">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590753398326">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590653787055" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590753398326" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1590663268863" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -564,15 +562,6 @@
     <state x="443" y="170" width="670" height="444" key="search.everywhere.popup/0.23.1366.681@0.23.1366.681" timestamp="1590655997508" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/battleSystem/OOBFrame.java</url>
-          <line>191</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="OOB.WHITE.getCrafts()" language="JAVA" />
