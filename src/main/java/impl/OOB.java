@@ -10,6 +10,7 @@ import ui.Gui;
 import utils.Vertex2D;
 import utils.WriterReader;
 
+import java.io.File;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
@@ -34,6 +35,7 @@ public class OOB {
         TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
         TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(Paths.get("countermeasures.txt")));
         TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
+        WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
     }
 
@@ -61,8 +63,8 @@ public class OOB {
         OOB.WHITE.addCraft(testCraft);
         OOB.WHITE.addCraft(test2Craft);
 
-        if (WriterReader.saveSituation("save.txt")) {
-            WriterReader.loadSituation("save.txt");
+        if (WriterReader.saveSetup("save.txt", false)) {
+            WriterReader.loadSetup("save.txt");
         }
 
         OOB.TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("Database.csv")));

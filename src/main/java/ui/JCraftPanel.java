@@ -2,18 +2,26 @@ package ui;
 
 import crafts.Craft;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
 /**
  * @author Toonu
  */
-public class JCraftLabel extends JPanel {
+public class JCraftPanel extends JPanel {
     private final JLabel craft = new JLabel();
     private final JLabel weapons = new JLabel();
     private final JLabel countermeasures = new JLabel();
+    private final boolean switched = false;
 
-    public JCraftLabel(String text) {
+    public JCraftPanel(String text) {
         super();
         setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2),
                 "Craft Details", SwingConstants.TOP, SwingConstants.CENTER, super.getFont(), Color.WHITE));

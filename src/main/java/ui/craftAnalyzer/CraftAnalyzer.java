@@ -34,10 +34,8 @@ public class CraftAnalyzer {
 
     /**
      * Main method.
-     *
-     * @param args args.
      */
-    public static void main(String[] args) {
+    public static void main() {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Craft Analyser");
 
@@ -50,7 +48,7 @@ public class CraftAnalyzer {
             jfc.setAcceptAllFileFilterUsed(false);
 
             if (path == null) {
-                jfc.setCurrentDirectory(new File(("")));
+                jfc.setCurrentDirectory(new File((".")));
             } else {
                 jfc.setCurrentDirectory(path);
             }

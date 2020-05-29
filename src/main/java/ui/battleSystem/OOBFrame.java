@@ -1,13 +1,26 @@
 package ui.battleSystem;
 
 import crafts.Craft;
+import enums.Side;
 import impl.OOB;
 import ui.Gui;
-import ui.JCraftLabel;
+import ui.JCraftEquip;
+import ui.JCraftList;
+import ui.JCraftPanel;
 import ui.JMenuExt;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -19,14 +32,16 @@ public class OOBFrame extends JFrame {
     private final Container c = getContentPane();
     private final DefaultListModel<Craft> textForWhite = new DefaultListModel<>();
     private final DefaultListModel<Craft> textForBlack = new DefaultListModel<>();
-    private final JList<Craft> whiteListedCrafts = new JList<>(textForWhite);
-    private final JList<Craft> blackListedCrafts = new JList<>(textForBlack);
+    private final JCraftList<Craft> whiteListedCrafts = new JCraftList<>(textForWhite);
+    private final JCraftList<Craft> blackListedCrafts = new JCraftList<>(textForBlack);
     private final JScrollPane scrollerWhite = new JScrollPane(whiteListedCrafts);
     private final JScrollPane scrollerBlack = new JScrollPane(blackListedCrafts);
     private final SortedMap<Craft, ArrayList<JButton>> templateButtons = new TreeMap<>();
     private final JButton nextScreen = new JButton("Finish");
     private final JButton editing = new JButton("Edit selected");
     private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
+    private JCraftPanel details;
+    private GridBagConstraints gcDetails;
 
     /**
      * Constructor.
@@ -43,13 +58,14 @@ public class OOBFrame extends JFrame {
 
         c.setBackground(Gui.BACKGROUND);
         c.setSize(Gui.WIDTH, Gui.HEIGHT);
+        setMinimumSize(Gui.SIZE);
 
         gc.gridx = 0;
         gc.gridy = 0;
         gc.fill = GridBagConstraints.HORIZONTAL;
         gc.anchor = GridBagConstraints.NORTH;
         gc.gridwidth = 6;
-        c.add(new JMenuExt(0), gc);
+        c.add(new JMenuExt(1), gc);
 
         whiteListedCrafts.setBackground(Gui.BACKGROUND);
         whiteListedCrafts.setForeground(Color.WHITE);
@@ -99,34 +115,33 @@ public class OOBFrame extends JFrame {
             gc.gridx -= 2;
 
             templateButtons.get(craft).get(0).addActionListener(e -> {
-                OOB.WHITE.addCraft(craft.copy());
-                textForWhite.addElement(craft.copy());
+                Craft newCraft = craft.copy(Side.WHITE);
+                OOB.WHITE.addCraft(newCraft);
+                textForWhite.addElement(newCraft);
                 whiteListedCrafts.updateUI();
             });
             templateButtons.get(craft).get(1).addActionListener(e -> {
-                OOB.BLACK.addCraft(craft.copy());
-                textForBlack.addElement(craft.copy());
+                Craft newCraft = craft.copy(Side.BLACK);
+                OOB.BLACK.addCraft(newCraft);
+                textForBlack.addElement(newCraft);
                 blackListedCrafts.updateUI();
             });
         }
 
         ++gc.gridy;
 
-
+        gc.weighty = 1;
         gc.gridx = 4;
         gc.gridwidth = 1;
-        gc.anchor = GridBagConstraints.SOUTH;
-        gc.fill = GridBagConstraints.VERTICAL;
+        gc.anchor = GridBagConstraints.NORTH;
+        gc.fill = GridBagConstraints.HORIZONTAL;
+        editing.setPreferredSize(new Dimension(200, 100));
         c.add(editing, gc);
 
-        gc.gridx = 5;
+        gc.anchor = GridBagConstraints.SOUTH;
+        ++gc.gridy;
+        nextScreen.setPreferredSize(new Dimension(200, 100));
         c.add(nextScreen, gc);
-
-        JCraftLabel details = new JCraftLabel(" ");
-        gc.gridx = 0;
-        gc.gridwidth = 4;
-        gc.fill = GridBagConstraints.BOTH;
-        add(details, gc);
 
         whiteListedCrafts.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
@@ -169,8 +184,22 @@ public class OOBFrame extends JFrame {
             ArrayList<Craft> selected = new ArrayList<>(whiteListedCrafts.getSelectedValuesList());
             selected.addAll(blackListedCrafts.getSelectedValuesList());
 
-            EquipmentFrame sf = new EquipmentFrame(Gui.TITLE, selected);
+            c.remove(details);
+            c.revalidate();
+            details = new JCraftEquip("", selected, details, this);
+            c.add(details, gcDetails);
+            //EquipmentFrame sf = new EquipmentFrame(Gui.TITLE, selected);
         });
+
+        details = new JCraftPanel(" ");
+        gcDetails = new GridBagConstraints();
+        gcDetails.gridx = 0;
+        gcDetails.gridy = gc.gridy - 1;
+        gcDetails.gridwidth = 4;
+        gcDetails.gridheight = 2;
+        gcDetails.weighty = 2;
+        gcDetails.fill = GridBagConstraints.BOTH;
+        add(details, gcDetails);
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(false);
@@ -208,15 +237,27 @@ public class OOBFrame extends JFrame {
         return textForWhite;
     }
 
-    public JList<Craft> getBlackListedCrafts() {
+    public JCraftList<Craft> getBlackListedCrafts() {
         return blackListedCrafts;
     }
 
-    public JList<Craft> getWhiteListedCrafts() {
+    public JCraftList<Craft> getWhiteListedCrafts() {
         return whiteListedCrafts;
     }
 
     public JButton getEditing() {
         return editing;
+    }
+
+    public JCraftPanel getDetails() {
+        return details;
+    }
+
+    public void setDetails(JCraftPanel details) {
+        this.details = details;
+    }
+
+    public GridBagConstraints getGcDetails() {
+        return gcDetails;
     }
 }

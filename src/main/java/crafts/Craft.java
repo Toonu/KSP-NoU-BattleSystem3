@@ -372,8 +372,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         this.angle = angle;
     }
 
-    public Craft copy() {
-        return new Craft(speed, name, type, craftProductionYear, side);
+    public Craft copy(Side newSide) {
+        return new Craft(speed, name, type, craftProductionYear, newSide);
     }
 
     /**

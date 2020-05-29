@@ -1,11 +1,19 @@
 package ui;
 
+import impl.OOB;
 import ui.craftAnalyzer.CraftAnalyzer;
 import utils.WriterReader;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.time.LocalTime;
@@ -23,11 +31,10 @@ public class JMenuExt extends JMenuBar {
     public JMenuExt(int level) {
         this.add(file);
         file.add(craftAnalyzer);
-        file.add(load);
         if (level == 1) {
             file.add(save);
         }
-
+        file.add(load);
 
         load.addActionListener(e -> {
             //Monitor size
@@ -44,32 +51,34 @@ public class JMenuExt extends JMenuBar {
             frameLoad.setSize(Gui.WIDTH, Gui.HEIGHT);
             jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
             jfc.setAcceptAllFileFilterUsed(false);
-            jfc.setCurrentDirectory(new File(""));
+            jfc.setCurrentDirectory(new File("."));
 
 
             jfc.addActionListener(e1 -> {
                 if (e1.getActionCommand().equals("CancelSelection")) {
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
-                    File file1 = jfc.getSelectedFile();
-                    if (!WriterReader.loadSituationFile(file1)) {
+                    File file = jfc.getSelectedFile();
+                    if (!WriterReader.loadSetupFile(file)) {
                         System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
                                 LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
                     }
+
+
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
-                    //TODO Add teleport here to battle directly.
-                    //TODO Add setup for save to catch if the saved file is from battle or setup.
+
+                    if (Gui.welcomeFrame.isVisible()) {
+                        Gui.welcomeFrame.dispatchEvent(new WindowEvent(Gui.welcomeFrame, WindowEvent.WINDOW_CLOSING));
+                        Gui.oob.setVisible(true);
+                    }
+                    Gui.oob.getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
+                    Gui.oob.getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
                 }
             });
 
-
-
-        craftAnalyzer.addActionListener(ex -> {
-            String[] str = new String[1];
-            str[0] = "";
-            CraftAnalyzer.main(str);
+            frameLoad.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frameLoad.setVisible(true);
         });
-    });
         save.addActionListener(e -> {
             //Monitor size
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -94,7 +103,7 @@ public class JMenuExt extends JMenuBar {
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file1 = jfc.getSelectedFile();
 
-                    if (!WriterReader.saveSituationFile(file1)) {
+                    if (!WriterReader.saveSetupFile(file1, true)) {
                         System.err.println(String.format(
                                 "[ERR %s] Error initializing stream and saving the crafts. " +
                                         "Exception: %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
@@ -106,6 +115,9 @@ public class JMenuExt extends JMenuBar {
             frameSave.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
             frameSave.setVisible(true);
+        });
+        craftAnalyzer.addActionListener(ex -> {
+            CraftAnalyzer.main();
         });
     }
     @Override

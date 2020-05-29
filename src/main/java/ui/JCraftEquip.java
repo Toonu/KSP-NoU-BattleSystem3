@@ -1,22 +1,19 @@
-package ui.battleSystem;
+package ui;
 
 import crafts.Craft;
 import impl.OOB;
 import systems.Countermeasure;
 import systems.Weapon;
-import ui.Gui;
-import ui.JCraftPanel;
+import ui.battleSystem.OOBFrame;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
@@ -24,10 +21,8 @@ import java.util.LinkedList;
 
 /**
  * @author Toonu
- * <p>
- * Class supporting addition of system to group of crafts.
  */
-public class EquipmentFrame extends JFrame {
+public class JCraftEquip extends JCraftPanel {
     private final LinkedList<JButton> systemButtons = new LinkedList<>();
     private final ArrayList<Weapon> templateWeapons = new ArrayList<>();
     private final ArrayList<Countermeasure> templateSystems = new ArrayList<>();
@@ -36,24 +31,22 @@ public class EquipmentFrame extends JFrame {
     private final DefaultListModel<Craft> craftsPresentJList = new DefaultListModel<>();
     private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
 
-    public EquipmentFrame(String title, ArrayList<Craft> selectedCrafts) {
-        super();
-        setLayout(new GridBagLayout());
-        Container c = getContentPane();
-        c.setBackground(Gui.BACKGROUND);
+    public JCraftEquip(String text, ArrayList<Craft> craftsPresent, JCraftPanel origin, OOBFrame originFrame) {
+        super(text);
+        this.craftsPresent = craftsPresent;
 
-        this.craftsPresent = selectedCrafts;
+        setLayout(new GridBagLayout());
+        setBackground(Gui.BACKGROUND);
 
         setBackground(Gui.BACKGROUND);
         setSize(Gui.WIDTH, Gui.HEIGHT);
 
-        for (Craft craft : selectedCrafts) {
+        for (Craft craft : craftsPresent) {
             craftsPresentJList.addElement(craft);
         }
 
         JPanel panel = new JPanel(new GridBagLayout());
         JScrollPane panelScroll = new JScrollPane(panel);
-        //panelScroll.setMinimumSize(new Dimension(200, 200));
         panelScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         panelScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         panel.setMinimumSize(panelScroll.getMinimumSize());
@@ -64,7 +57,7 @@ public class EquipmentFrame extends JFrame {
         gc.weightx = 1;
         gc.weighty = 1;
         gc.fill = GridBagConstraints.BOTH;
-        c.add(panelScroll, gc);
+        add(panelScroll, gc);
 
         JList<Craft> craftSelectionList = new JList<>(craftsPresentJList);
         craftSelectionList.setBackground(new Color(0x1829B6));
@@ -77,11 +70,10 @@ public class EquipmentFrame extends JFrame {
         gc.weighty = 1;
         gc.fill = GridBagConstraints.BOTH;
         details.setBackground(new Color(0x1829B6));
-        c.add(details, gc);
+        add(details, gc);
 
 
         JScrollPane craftScroll = new JScrollPane(craftSelectionList);
-        //craftScroll.setMinimumSize(new Dimension(200, 200));
         craftScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         craftScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         gc = new GridBagConstraints();
@@ -91,7 +83,7 @@ public class EquipmentFrame extends JFrame {
         gc.weighty = 1;
         gc.fill = GridBagConstraints.BOTH;
         gc.anchor = GridBagConstraints.NORTH;
-        c.add(craftScroll, gc);
+        add(craftScroll, gc);
 
         gc = new GridBagConstraints();
         gc.fill = GridBagConstraints.BOTH;
@@ -123,6 +115,8 @@ public class EquipmentFrame extends JFrame {
         JButton confirm = new JButton("Finish");
         confirm.addActionListener(e -> {
             this.setVisible(false);
+            originFrame.getC().remove(this);
+            originFrame.getC().add(origin, originFrame.getGcDetails());
         });
 
         gc = new GridBagConstraints();
@@ -140,8 +134,5 @@ public class EquipmentFrame extends JFrame {
                 selectedCraftsFromList.addAll(craftSelectionList.getSelectedValuesList());
             }
         });
-
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setVisible(true);
     }
 }
