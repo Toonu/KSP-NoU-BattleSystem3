@@ -23,8 +23,8 @@ public class Gui {
     public static final Color FOREGROUND = new Color(-14336);
     public static final JMenuExt MENU = new JMenuExt(0);
     public static final String PATH = System.getProperty("user.dir");
-    public static OOBFrame oob;
-    public static WelcomeFrame welcomeFrame;
+    private static OOBFrame oob;
+    private static WelcomeFrame welcomeFrame;
 
     /**
      * Main class for User Interface of the whole application.
@@ -49,15 +49,44 @@ public class Gui {
         return newLine + "</div></html>";
     }
 
+    /**
+     * Method returns center position on the monitor.
+     *
+     * @return Point.
+     */
     public static Point getCenterPosition() {
-        return new Point((getMonitorSize().width/2)-(WIDTH/2), (getMonitorSize().height/2)-(HEIGHT/2));
+        return new Point((getMonitorSize().width / 2) - (WIDTH / 2), (getMonitorSize().height / 2) - (HEIGHT / 2));
     }
 
+    /**
+     * Method returns center position on the monitor for sized window.
+     *
+     * @param width  size of window.
+     * @param height size of window.
+     * @return Point.
+     */
+    public static Point getCenterPosition(int width, int height) {
+        return new Point((getMonitorSize().width / 2) - (width / 2), (getMonitorSize().height / 2) - (height / 2));
+    }
+
+    /**
+     * Returns Dimension of monitor size.
+     *
+     * @return Dimension.
+     */
     public static Dimension getMonitorSize() {
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight();
         return new Dimension(width, height);
+    }
+
+    public static OOBFrame getOob() {
+        return oob;
+    }
+
+    public static WelcomeFrame getWelcomeFrame() {
+        return welcomeFrame;
     }
 }
 

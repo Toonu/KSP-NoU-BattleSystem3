@@ -16,6 +16,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Objects;
 
 /**
  * @author Toonu
@@ -372,6 +373,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         this.angle = angle;
     }
 
+    /**
+     * Method makes copy of template with new side of it.
+     *
+     * @param newSide side.
+     * @return new copy of craft.
+     */
     public Craft copy(Side newSide) {
         return new Craft(speed, name, type, craftProductionYear, newSide);
     }
@@ -418,25 +425,52 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Craft craft = (Craft) o;
 
-        if (Double.compare(craft.speed, speed) != 0) return false;
-        if (Double.compare(craft.angle, angle) != 0) return false;
-        if (Double.compare(craft.hp, hp) != 0) return false;
-        if (isWithdrawing != craft.isWithdrawing) return false;
-        if (time != craft.time) return false;
-        if (tick != craft.tick) return false;
-        if (name != null ? !name.equals(craft.name) : craft.name != null) return false;
-        if (weapons != null ? !weapons.equals(craft.weapons) : craft.weapons != null) return false;
-        if (countermeasures != null ? !countermeasures.equals(craft.countermeasures) : craft.countermeasures != null)
+        if (Double.compare(craft.speed, speed) != 0) {
             return false;
-        if (type != craft.type) return false;
-        if (craftProductionYear != craft.craftProductionYear) return false;
-        if (side != craft.side) return false;
-        return position != null ? position.equals(craft.position) : craft.position == null;
+        }
+        if (Double.compare(craft.angle, angle) != 0) {
+            return false;
+        }
+        if (Double.compare(craft.hp, hp) != 0) {
+            return false;
+        }
+        if (isWithdrawing != craft.isWithdrawing) {
+            return false;
+        }
+        if (time != craft.time) {
+            return false;
+        }
+        if (tick != craft.tick) {
+            return false;
+        }
+        if (!Objects.equals(name, craft.name)) {
+            return false;
+        }
+        if (!weapons.equals(craft.weapons)) {
+            return false;
+        }
+        if (!countermeasures.equals(craft.countermeasures)) {
+            return false;
+        }
+        if (type != craft.type) {
+            return false;
+        }
+        if (craftProductionYear != craft.craftProductionYear) {
+            return false;
+        }
+        if (side != craft.side) {
+            return false;
+        }
+        return Objects.equals(position, craft.position);
     }
 
     @Override
@@ -446,8 +480,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         temp = Double.doubleToLongBits(speed);
         result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (weapons != null ? weapons.hashCode() : 0);
-        result = 31 * result + (countermeasures != null ? countermeasures.hashCode() : 0);
+        result = 31 * result + weapons.hashCode();
+        result = 31 * result + countermeasures.hashCode();
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (craftProductionYear != null ? craftProductionYear.hashCode() : 0);
         result = 31 * result + (side != null ? side.hashCode() : 0);

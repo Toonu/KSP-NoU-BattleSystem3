@@ -5,9 +5,18 @@ import impl.App;
 import ui.Gui;
 import ui.JMenuExt;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.text.DocumentFilter;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -29,6 +38,7 @@ public class WelcomeFrame extends JFrame {
      * Main method to launch frame.
      *
      * @param title title of the frame.
+     * @param tf    Next window to open.
      */
     public WelcomeFrame(String title, OOBFrame tf) {
         super(title);

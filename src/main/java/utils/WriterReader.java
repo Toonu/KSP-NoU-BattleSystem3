@@ -45,6 +45,14 @@ public class WriterReader {
     //TODO Add reading from online sheet maybe if possible integration with
     // google sheets is viable and easy enough to implement it?
 
+    //TODO Add wrong save dialog warning
+
+    /**
+     * Method to save battle second and ongoing attacks or other in-battle situation.
+     *
+     * @param file file to save to.
+     * @return if save was successful.
+     */
     public static boolean saveSituationFile(File file) {
         return false;
         //TODO Add Battle Second Saving and Loading methods.
@@ -53,7 +61,8 @@ public class WriterReader {
     /**
      * Method saves crafts to file from pathname.
      *
-     * @param path path to save to.
+     * @param path     path to save to.
+     * @param template if templates should be saved into the file.
      * @return true if the save went successfully.
      */
     public static boolean saveSetup(String path, boolean template) {
@@ -63,7 +72,8 @@ public class WriterReader {
     /**
      * Method saves crafts to save file.
      *
-     * @param file file to load.
+     * @param file     file to load.
+     * @param template if templates should be saved into the file.
      * @return true if everything went correctly.
      */
     public static boolean saveSetupFile(File file, boolean template) {

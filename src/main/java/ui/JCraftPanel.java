@@ -18,8 +18,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -33,6 +31,13 @@ public class JCraftPanel extends JPanel {
     private final boolean switched = false;
     private ArrayList<Craft> selectedCrafts;
 
+    /**
+     * Constructor.
+     *
+     * @param text           label text.
+     * @param selectedCrafts list of selected crafts.
+     * @param simple         if weapon manager should be shown.
+     */
     public JCraftPanel(String text, ArrayList<Craft> selectedCrafts, boolean simple) {
         super();
         this.selectedCrafts = selectedCrafts;
@@ -83,25 +88,19 @@ public class JCraftPanel extends JPanel {
         for (Countermeasure sys : OOB.TEMPLATE_COUNTERMEASURES) {
             systemButtons.add(new JButton(sys.toShortString()));
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.RIGHT);
-            systemButtons.getLast().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    setSelectedCrafts(Gui.oob.getSelectedCraftsFromList());
-                    selectedCrafts.forEach(craft -> craft.addSystem(sys));
-                    Gui.oob.getDetails().updateUI(Gui.oob.getLastSelectedList());
-                }
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addSystem(sys));
+                Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
             });
         }
         for (Weapon sys : OOB.TEMPLATE_WEAPONS) {
             systemButtons.add(new JButton(sys.toShortString()));
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.RIGHT);
-            systemButtons.getLast().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    setSelectedCrafts(Gui.oob.getSelectedCraftsFromList());
-                    selectedCrafts.forEach(craft -> craft.addSystem(sys));
-                    Gui.oob.getDetails().updateUI(Gui.oob.getLastSelectedList());
-                }
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addSystem(sys));
+                Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
             });
         }
         for (JButton but : systemButtons) {
@@ -141,6 +140,11 @@ public class JCraftPanel extends JPanel {
 
     }
 
+    /**
+     * Updates UI with craft from the list.
+     *
+     * @param list crafts list.
+     */
     public void updateUI(JList<Craft> list) {
         selectedCrafts = (ArrayList<Craft>) list.getSelectedValuesList();
         craft.setText(list.getSelectedValue().toLongString());

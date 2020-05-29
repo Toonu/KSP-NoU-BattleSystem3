@@ -28,6 +28,11 @@ public class JMenuExt extends JMenuBar {
     private final JMenuItem craftAnalyzer = new JMenuItem("Craft Analyzer");
     private final JMenuItem save = new JMenuItem("Save File");
 
+    /**
+     * Constructor for main Menu.
+     *
+     * @param level sets which buttons are shown.
+     */
     public JMenuExt(int level) {
         this.add(file);
         file.add(craftAnalyzer);
@@ -67,12 +72,13 @@ public class JMenuExt extends JMenuBar {
 
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
 
-                    if (Gui.welcomeFrame.isVisible()) {
-                        Gui.welcomeFrame.dispatchEvent(new WindowEvent(Gui.welcomeFrame, WindowEvent.WINDOW_CLOSING));
-                        Gui.oob.setVisible(true);
+                    if (Gui.getWelcomeFrame().isVisible()) {
+                        Gui.getWelcomeFrame().dispatchEvent(new WindowEvent(
+                                Gui.getWelcomeFrame(), WindowEvent.WINDOW_CLOSING));
+                        Gui.getOob().setVisible(true);
                     }
-                    Gui.oob.getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
-                    Gui.oob.getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
+                    Gui.getOob().getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
+                    Gui.getOob().getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
                 }
             });
 

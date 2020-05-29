@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.5">
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\Comparators\CraftComparator.java">
+</file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\Aircraft.java">
 </file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\crafts\ArmoredVehicle.java">
@@ -50,15 +52,21 @@
 </file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\systems\Weapon.java">
 </file>
-<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\MainFrame.java">
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\OOBFrame.java">
 </file>
-<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\TemplateFrame.java">
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\battleSystem\WelcomeFrame.java">
 </file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\craftAnalyzer\AnalyzedCraft.java">
 </file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\craftAnalyzer\CraftAnalyzer.java">
 </file>
-<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\MainUI.java">
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\Gui.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\JCraftList.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\JCraftPanel.java">
+</file>
+<file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\ui\JMenuExt.java">
 </file>
 <file name="D:\GitProjects\KSP-NoU-Battle System 3\src\main\java\utils\Movable.java">
 </file>
