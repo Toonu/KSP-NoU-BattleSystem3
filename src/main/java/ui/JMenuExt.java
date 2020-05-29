@@ -28,6 +28,7 @@ public class JMenuExt extends JMenuBar {
             file.add(save);
         }
 
+
         load.addActionListener(e -> {
             //Monitor size
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();

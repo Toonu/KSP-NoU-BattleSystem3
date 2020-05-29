@@ -7,15 +7,8 @@ import systems.Weapon;
 import ui.Gui;
 import ui.JCraftLabel;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -24,7 +17,7 @@ import java.util.LinkedList;
  * <p>
  * Class supporting addition of system to group of crafts.
  */
-public class SystemsFrame extends JFrame {
+public class EquipmentFrame extends JFrame {
     private final LinkedList<JButton> systemButtons = new LinkedList<>();
     private final ArrayList<Weapon> templateWeapons = new ArrayList<>();
     private final ArrayList<Countermeasure> templateSystems = new ArrayList<>();
@@ -33,14 +26,12 @@ public class SystemsFrame extends JFrame {
     private final DefaultListModel<Craft> craftsPresentJList = new DefaultListModel<>();
     private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
 
-    public SystemsFrame(String title, ArrayList<Craft> selectedCrafts) {
+    public EquipmentFrame(String title, ArrayList<Craft> selectedCrafts) {
         super();
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-        Container c = new Container();
+        Container c = getContentPane();
         c.setBackground(Gui.BACKGROUND);
-
-        add(c);
 
         this.craftsPresent = selectedCrafts;
 
@@ -58,7 +49,6 @@ public class SystemsFrame extends JFrame {
         c.add(craftSelectionList, gc);
 
         details.setForeground(Color.WHITE);
-        details.setHorizontalAlignment(SwingConstants.CENTER);
         details.setBackground(new Color(0x1829B6));
         c.add(details, gc);
 
@@ -67,7 +57,7 @@ public class SystemsFrame extends JFrame {
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.RIGHT);
             systemButtons.getLast().addActionListener(e -> selectedCraftsFromList.forEach(craft -> craft.addSystem(sys)));
             try {
-                details.updateUI(craftSelectionList.getSelectedValue());
+                details.updateUI();
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
@@ -77,7 +67,7 @@ public class SystemsFrame extends JFrame {
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.RIGHT);
             systemButtons.getLast().addActionListener(e -> selectedCraftsFromList.forEach(craft -> craft.addSystem(sys)));
             try {
-                details.updateUI(craftSelectionList.getSelectedValue());
+                details.updateUI();
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
@@ -98,7 +88,6 @@ public class SystemsFrame extends JFrame {
         JButton confirm = new JButton("Finish");
         confirm.addActionListener(e -> {
             this.setVisible(false);
-            //TODO Add systems to the craftSelectionList
         });
         gc = new GridBagConstraints();
         gc.gridy = 1;
@@ -107,13 +96,13 @@ public class SystemsFrame extends JFrame {
         craftSelectionList.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
             if (craftSelectionList.getSelectedValuesList().size() == 1) {
-                details.setText(Gui.convertToMultiline(
-                        String.format("Details:\n%s\n%s\n%s", craftSelectionList.getSelectedValue().toLongString(),
-                                craftSelectionList.getSelectedValue().toWeaponsList(),
-                                craftSelectionList.getSelectedValue().toCountermeasuresList())));
+                details.updateUI(craftSelectionList);
             } else {
                 selectedCraftsFromList.addAll(craftSelectionList.getSelectedValuesList());
             }
         });
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 }

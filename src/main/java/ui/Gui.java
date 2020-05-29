@@ -1,16 +1,11 @@
 package ui;
 
 
-import ui.battleSystem.EquipingFrame;
-import ui.battleSystem.MainFrame;
-import ui.battleSystem.TemplateFrame;
+import ui.battleSystem.OOBFrame;
+import ui.battleSystem.WelcomeFrame;
 
-import javax.swing.SwingUtilities;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Toonu
@@ -31,9 +26,8 @@ public class Gui {
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            EquipingFrame equipingFrame = new EquipingFrame(TITLE);
-            TemplateFrame templates = new TemplateFrame(TITLE, equipingFrame);
-            MainFrame mainFrame = new MainFrame(TITLE, templates);
+            OOBFrame templates = new OOBFrame(TITLE);
+            WelcomeFrame welcomeFrame = new WelcomeFrame(TITLE, templates);
 
         });
     }
