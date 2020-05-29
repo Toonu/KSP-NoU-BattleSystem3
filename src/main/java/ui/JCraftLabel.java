@@ -9,11 +9,11 @@ import javax.swing.JLabel;
  */
 public class JCraftLabel extends JLabel {
     public JCraftLabel(String text) {
-        super(text);
+        super();
     }
 
     public void updateUI(Craft craft) {
-        setText(MainUI.convertToMultiline(String.format("Details:\n%s\n%s\n%s", craft.toLongString(),
+        setText(Gui.convertToMultiline(String.format("Details:\n%s\n%s\n%s", craft.toLongString(),
                 craft.toWeaponsList(),
                 craft.toCountermeasuresList())));
 

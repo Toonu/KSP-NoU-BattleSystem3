@@ -4,8 +4,8 @@ import crafts.Craft;
 import impl.OOB;
 import systems.Countermeasure;
 import systems.Weapon;
+import ui.Gui;
 import ui.JCraftLabel;
-import ui.MainUI;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -38,14 +38,14 @@ public class SystemsFrame extends JFrame {
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
         Container c = new Container();
-        c.setBackground(MainUI.BACKGROUND);
+        c.setBackground(Gui.BACKGROUND);
 
         add(c);
 
         this.craftsPresent = selectedCrafts;
 
-        setBackground(MainUI.BACKGROUND);
-        setSize(MainUI.WIDTH, MainUI.HEIGHT);
+        setBackground(Gui.BACKGROUND);
+        setSize(Gui.WIDTH, Gui.HEIGHT);
 
         for (Craft craft : selectedCrafts) {
             craftsPresentJList.addElement(craft);
@@ -107,7 +107,7 @@ public class SystemsFrame extends JFrame {
         craftSelectionList.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
             if (craftSelectionList.getSelectedValuesList().size() == 1) {
-                details.setText(MainUI.convertToMultiline(
+                details.setText(Gui.convertToMultiline(
                         String.format("Details:\n%s\n%s\n%s", craftSelectionList.getSelectedValue().toLongString(),
                                 craftSelectionList.getSelectedValue().toWeaponsList(),
                                 craftSelectionList.getSelectedValue().toCountermeasuresList())));

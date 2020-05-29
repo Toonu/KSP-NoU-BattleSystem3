@@ -1,8 +1,8 @@
 package ui.battleSystem;
 
 import crafts.Craft;
-import ui.BSSMenu;
-import ui.MainUI;
+import ui.Gui;
+import ui.JMenuExt;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -29,10 +29,16 @@ public class EquipingFrame extends JFrame {
         super(title);
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+
+        gc.anchor = GridBagConstraints.NORTH;
+        gc.fill = GridBagConstraints.HORIZONTAL;
+        gc.gridwidth = 5;
         Container c = getContentPane();
-        c.setBackground(MainUI.BACKGROUND);
-        c.setSize(MainUI.WIDTH, MainUI.HEIGHT);
+        c.add(new JMenuExt(0), gc);
+        c.setBackground(Gui.BACKGROUND);
+        c.setSize(Gui.WIDTH, Gui.HEIGHT);
 
         this.listWhite = new DefaultListModel<>();
         this.listBlack = new DefaultListModel<>();
@@ -40,15 +46,16 @@ public class EquipingFrame extends JFrame {
         JList<Craft> teamWhite = new JList<>(listWhite);
         JList<Craft> teamBlack = new JList<>(listBlack);
 
-        teamWhite.setBackground(MainUI.BACKGROUND);
-        teamWhite.setForeground(MainUI.FOREGROUND);
+        teamWhite.setBackground(Gui.BACKGROUND);
+        teamWhite.setForeground(Gui.FOREGROUND);
 
-        teamBlack.setBackground(MainUI.BACKGROUND);
-        teamBlack.setForeground(MainUI.FOREGROUND);
+        teamBlack.setBackground(Gui.BACKGROUND);
+        teamBlack.setForeground(Gui.FOREGROUND);
 
         JScrollPane spW = new JScrollPane(teamWhite);
         JScrollPane spB = new JScrollPane(teamBlack);
 
+        gc = new GridBagConstraints();
         gc.weightx = 5;
         gc.weighty = 9;
         gc.anchor = GridBagConstraints.WEST;
@@ -90,25 +97,22 @@ public class EquipingFrame extends JFrame {
                     return;
                 }
             }
-            SystemsFrame systemsFrame = new SystemsFrame(MainUI.TITLE, crafts);
+            SystemsFrame systemsFrame = new SystemsFrame(Gui.TITLE, crafts);
 
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
             int width = gd.getDisplayMode().getWidth();
             int height = gd.getDisplayMode().getHeight();
 
-            systemsFrame.setLocation((width / 2) - (MainUI.WIDTH / 2), (height / 2) - (MainUI.HEIGHT / 2));
-            systemsFrame.setSize(MainUI.WIDTH, MainUI.HEIGHT);
+            systemsFrame.setLocation((width / 2) - (Gui.WIDTH / 2), (height / 2) - (Gui.HEIGHT / 2));
+            systemsFrame.setSize(Gui.WIDTH, Gui.HEIGHT);
             systemsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            systemsFrame.setBackground(MainUI.BACKGROUND);
+            systemsFrame.setBackground(Gui.BACKGROUND);
             systemsFrame.setVisible(true);
             //TODO Systems editation frame, but first add weapons to it
         });
 
-        gc = new GridBagConstraints();
-        gc.anchor = GridBagConstraints.NORTH;
-        gc.fill = GridBagConstraints.HORIZONTAL;
-        gc.gridwidth = 5;
-        c.add(new BSSMenu(), gc);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(false);
     }
 
     public DefaultListModel<Craft> getListBlack() {

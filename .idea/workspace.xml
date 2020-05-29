@@ -20,26 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Fixed TemplateWindow small container bug.">
-      <change afterPath="$PROJECT_DIR$/save2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Comparators/CraftComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/SystemsFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/test.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Gun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/BSSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/BSSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/BSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/BSSMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Gui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/EquipingFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/EquipingFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/SystemsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/SystemsFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/TemplateFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/TemplateFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/test.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,8 +120,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainUI" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ui.MainUI" />
+    <configuration name="Gui" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.Gui" />
       <module name="CraftAnalyzer" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,7 +135,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.MainUI" />
+      <item itemvalue="Application.Gui" />
     </list>
   </component>
   <component name="StructureViewFactory">
@@ -405,20 +398,20 @@
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963245529" />
-    <state x="662" y="354" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590592055780">
+    <state x="662" y="354" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590699426757">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="354" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1590592055780" />
+    <state x="662" y="354" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1590699426757" />
     <state x="471" y="255" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1366.681@0.23.1366.681" timestamp="1590583700146" />
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590396216429">
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590699128831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590396216429" />
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590699128831" />
     <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1590054610850" />
-    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590160117724">
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590699290702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590160117724" />
+    <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590699290702" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1589885160193" />
     <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1590684815636">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -451,25 +444,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590667228676" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1590689970058">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1590701626210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590689970058" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590701626210" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590662758421" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1590689970058">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1590701626209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590689970058" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590701626209" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1590662758417" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1590689970058">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1590701626209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590689970058" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590701626209" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1590662758417" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1590689970058">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1590701626209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590689970058" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590701626209" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1590662758419" />
     <state width="1877" height="421" key="GridCell.Tab.1.bottom" timestamp="1590689753055">
       <screen x="0" y="0" width="1920" height="1040" />

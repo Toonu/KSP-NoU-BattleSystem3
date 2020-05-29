@@ -2,18 +2,24 @@ package ui.battleSystem;
 
 import crafts.Craft;
 import impl.OOB;
-import ui.BSMenu;
-import ui.MainUI;
+import ui.Gui;
+import ui.JCraftLabel;
+import ui.JMenuExt;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -23,13 +29,16 @@ import java.util.TreeMap;
  */
 public class TemplateFrame extends JFrame {
     private final Container c = getContentPane();
-    private final JTextArea textWhite = new JTextArea();
-    private final JTextArea textBlack = new JTextArea();
+    private final DefaultListModel<Craft> textWhiteList = new DefaultListModel<>();
+    private final DefaultListModel<Craft> textBlackList = new DefaultListModel<>();
+    private final JList<Craft> textWhite = new JList<>(textWhiteList);
+    private final JList<Craft> textBlack = new JList<>(textBlackList);
     private final JScrollPane scrollerWhite = new JScrollPane(textWhite);
     private final JScrollPane scrollerBlack = new JScrollPane(textBlack);
     private final SortedMap<Craft, ArrayList<JButton>> templateButtons = new TreeMap<>();
     private final JButton nextScreen = new JButton("Finish");
     private final JButton editing = new JButton("Edit selected");
+    private final ArrayList<Craft> selectedCraftsFromList = new ArrayList<>();
 
     /**
      * Constructor.
@@ -41,32 +50,31 @@ public class TemplateFrame extends JFrame {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setLocation(Gui.getCenterPosition());
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         Container c = getContentPane();
-        c.setBackground(MainUI.BACKGROUND);
-        c.setSize(MainUI.WIDTH, MainUI.HEIGHT);
+        c.setBackground(Gui.BACKGROUND);
+        c.setSize(Gui.WIDTH, Gui.HEIGHT);
 
+        gc.gridx = 0;
         gc.gridy = 0;
         gc.fill = GridBagConstraints.BOTH;
-        gc.gridwidth = 5;
-        c.add(new BSMenu(), gc);
+        gc.gridwidth = 8;
+        c.add(new JMenuExt(0), gc);
 
         gc = new GridBagConstraints();
-        gc.fill = GridBagConstraints.BOTH;
 
-        textWhite.setBackground(MainUI.BACKGROUND);
+        textWhite.setBackground(Gui.BACKGROUND);
         textWhite.setForeground(Color.WHITE);
-        textWhite.setLineWrap(true);
-        textWhite.setWrapStyleWord(true);
 
-        textBlack.setBackground(MainUI.BACKGROUND);
+        textBlack.setBackground(Gui.BACKGROUND);
         textBlack.setForeground(Color.WHITE);
-        textBlack.setLineWrap(true);
-        textBlack.setWrapStyleWord(true);
 
         gc.gridheight = OOB.TEMPLATE.getCrafts().size();
-        gc.weighty = 2;
-        gc.weightx = 2;
+        gc.fill = GridBagConstraints.BOTH;
+        gc.weighty = 1;
+        gc.weightx = 1;
         gc.gridx = 0;
         gc.gridy = 1;
         c.add(scrollerWhite, gc);
@@ -74,10 +82,12 @@ public class TemplateFrame extends JFrame {
         gc.gridx = 4;
         c.add(scrollerBlack, gc);
 
+
+        gc.fill = GridBagConstraints.HORIZONTAL;
         gc.gridheight = 1;
         gc.gridy = 0;
         gc.gridx = 1;
-        gc.weightx = 0.5;
+        gc.weightx = 0.1;
 
         for (Craft craft : OOB.TEMPLATE.getCrafts()) {
             ++gc.gridy;
@@ -90,37 +100,56 @@ public class TemplateFrame extends JFrame {
             gc.weightx = 8;
 
             JLabel newLabel = new JLabel(craft.getName());
-            newLabel.setForeground(MainUI.FOREGROUND);
+            newLabel.setForeground(Gui.FOREGROUND);
+            newLabel.setHorizontalAlignment(SwingConstants.CENTER);
             c.add(newLabel, gc);
 
             //TODO Functionality of removing template crafts from loaded file in the program.
 
-            gc.weightx = 0.5;
+            gc.weightx = 0.1;
             ++gc.gridx;
             c.add(templateButtons.get(craft).get(1), gc);
             gc.gridx -= 2;
             
             templateButtons.get(craft).get(0).addActionListener(e -> {
-                textWhite.setText(textWhite.getText() + String.format(" [%s]", craft.getName()));
                 OOB.WHITE.addCraft(craft.copy());
+                textWhiteList.addElement(craft.copy());
+                textWhite.updateUI();
             });
             templateButtons.get(craft).get(1).addActionListener(e -> {
-                textBlack.setText(textBlack.getText() + String.format(" [%s]", craft.getName()));
                 OOB.BLACK.addCraft(craft.copy());
+                textBlackList.addElement(craft.copy());
+                textBlack.updateUI();
             });
         }
 
         ++gc.gridy;
-        gc.gridx = 0;
-        gc.weightx = 5;
+        gc.gridx = 4;
+        gc.gridwidth = 1;
         gc.anchor = GridBagConstraints.SOUTH;
-        gc.fill = GridBagConstraints.BOTH;
+        gc.fill = GridBagConstraints.NONE;
         c.add(nextScreen, gc);
 
-        gc.gridx = 2;
+        gc.gridx = 5;
         c.add(editing, gc);
+        gc.gridy = 0;
+        gc.gridx = 6;
+        gc.weightx = 4;
+        JCraftLabel details = new JCraftLabel("");
+        c.add(details);
 
-
+        textWhite.addListSelectionListener(e -> {
+            selectedCraftsFromList.clear();
+            if (textWhite.getSelectedValuesList().size() == 1) {
+                details.updateUI();
+                /*details.setText(Gui.convertToMultiline(
+                        String.format("Details:\n%s\n%s\n%s", textWhite.getSelectedValue().toLongString(),
+                                textWhite.getSelectedValue().toWeaponsList(),
+                                textWhite.getSelectedValue().toCountermeasuresList())));*/
+            } else {
+                selectedCraftsFromList.addAll(textWhite.getSelectedValuesList());
+            }
+        });
         nextScreen.addActionListener(e -> {
             setVisible(false);
             dispose();
@@ -132,6 +161,23 @@ public class TemplateFrame extends JFrame {
             }
             eq.setVisible(true);
         });
+        editing.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<Craft> crafts = new ArrayList<>(textWhite.getSelectedValuesList());
+                for (Craft craft : crafts) {
+                    if (craft.getType() != crafts.get(0).getType()) {
+                        JOptionPane.showMessageDialog(this, "Select crafts of same type!", "Warning",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+                //TODO sysFrame
+            }
+        });
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setVisible(false);
     }
 
     public Container getC() {
@@ -144,14 +190,6 @@ public class TemplateFrame extends JFrame {
 
     public JScrollPane getScrollerWhite() {
         return scrollerWhite;
-    }
-
-    public JTextArea getTextBlack() {
-        return textBlack;
-    }
-
-    public JTextArea getTextWhite() {
-        return textWhite;
     }
 
     public SortedMap<Craft, ArrayList<JButton>> getTemplateButtons() {
