@@ -29,7 +29,6 @@ import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -186,10 +185,10 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Craft> loadCSVFile(String path) {
+    public static LinkedList<Craft> loadCSVFile(Path path) {
         LinkedList<Craft> crafts = new LinkedList<>();
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(path), StandardCharsets.UTF_8)) {
-            br.readLine(); //Skips first line with headline values.
+        try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+            br.readLine();
             String line = br.readLine();
             while (line != null) {
                 String[] lines = line.split(",");
@@ -273,7 +272,7 @@ public class WriterReader {
                 line = br.readLine();
             }
         } catch (IOException | IllegalArgumentException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return crafts;
     }
@@ -284,8 +283,8 @@ public class WriterReader {
      * @param path Path to file.
      * @return LinkedList<Weapon> containing all weapons.
      */
-    public static LinkedList<Weapon> readWeaponFile(String path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(Paths.get(path)));
+    public static LinkedList<Weapon> readWeaponFile(Path path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
         LinkedList<Weapon> weapons = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Weapon) {
@@ -301,8 +300,8 @@ public class WriterReader {
      * @param path Path to file.
      * @return LinkedList<Countermeasure> containing all countermeasures.
      */
-    public static LinkedList<Countermeasure> readCMFile(String path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(Paths.get(path)));
+    public static LinkedList<Countermeasure> readCMFile(Path path) {
+        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
         LinkedList<Countermeasure> cm = new LinkedList<>();
         for (AbstractSystem sys : list) {
             if (sys instanceof Countermeasure) {

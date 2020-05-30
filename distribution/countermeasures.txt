@@ -1,0 +1,22 @@
+Gun WrongAmmo 1 1 1 1950 ground a:b:c
+Gun WrongAmmo 1 1 1 1950 ground 0:0:0
+Gun WrongAmmo 1 1 1 1950 ground 0:1:0
+Missile WrongNum a b c Era1970 AERIAL RADAR
+Missile WrongNum1 1 0 0 Era1970 AERIAL RADAR
+Missile WrongNum2 1 1 0 Era1970 AERIAL RADAR
+Missile WrongEra 1 1 1 1970 AERIAL RADAR
+Missile WrongTarget 1 0 1 Era1970 aERIAL RADAR
+Missile WrongGuidance 1 1 1 Era1970 AERIAL rADAR
+Gun TestWeapon 25 0 10 Era1960 GROUND:NAVAL 1200:12:120
+Missile TestMissile 40 0 120 Era1970 AERIAL IR
+chaff Name 20 0 20 1990
+smoke smoke 20 0 0.5 1950
+ciws ciws 40 0 2 1990
+dew dew 100 0 10 2020
+dew laser 100 0 10 2020
+dew test 100 0 10 2020
+dew overflow 100 0 10 2020
+dew xa 100 0 10 2020
+dew xax 100 0 10 2020
+dew x 100 0 10 2020
+dew v 100 0 10 2020

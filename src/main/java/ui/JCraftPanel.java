@@ -75,7 +75,7 @@ public class JCraftPanel extends JPanel {
         JScrollPane systemsPanelScroll = new JScrollPane(systemsPanel);
         systemsPanelScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         systemsPanelScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        systemsPanelScroll.setPreferredSize(new Dimension(180, 300));
+        systemsPanelScroll.setPreferredSize(new Dimension(200, 300));
         systemsPanel.setBackground(Gui.BACKGROUND);
         GridBagConstraints gc = new GridBagConstraints();
         gc.fill = GridBagConstraints.BOTH;

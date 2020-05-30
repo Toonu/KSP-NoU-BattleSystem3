@@ -1,0 +1,9 @@
+Missile WrongEra 1 1 1 1970 AERIAL RADAR
+Missile WrongTarget 1 0 1 Era1970 aERIAL RADAR
+Missile WrongGuidance 1 1 1 Era1970 AERIAL rADAR
+Gun TestWeapon 25 0 10 Era1960 GROUND:NAVAL 1200:12:120
+Missile TestMissile 40 0 120 Era1970 AERIAL IR
+chaff Name 20 0 20 1990 
+smoke smoke 20 0 0.5 1950
+ciws ciws 40 0 2 1990
+dew dew 100 0 10 2020
