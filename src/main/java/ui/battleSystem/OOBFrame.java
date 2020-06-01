@@ -7,6 +7,7 @@ import ui.Gui;
 import ui.JCraftList;
 import ui.JCraftPanel;
 import ui.JMenuExt;
+import ui.PopupMenuRemove;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -15,11 +16,14 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -149,8 +153,16 @@ public class OOBFrame extends JFrame {
                 selectedCraftsFromList.addAll(whiteListedCrafts.getSelectedValuesList());
             }
             lastSelectedList = whiteListedCrafts;
-
         });
+        whiteListedCrafts.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    new PopupMenuRemove(whiteListedCrafts.getSelectedValuesList());
+                }
+            }
+        });
+
         blackListedCrafts.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
             if (blackListedCrafts.getSelectedValuesList().size() == 1) {
@@ -162,6 +174,14 @@ public class OOBFrame extends JFrame {
                 selectedCraftsFromList.addAll(blackListedCrafts.getSelectedValuesList());
             }
             lastSelectedList = blackListedCrafts;
+        });
+        blackListedCrafts.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    new PopupMenuRemove(blackListedCrafts.getSelectedValuesList());
+                }
+            }
         });
         nextScreen.addActionListener(e -> {
             setVisible(false);

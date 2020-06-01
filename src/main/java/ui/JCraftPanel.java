@@ -72,8 +72,7 @@ public class JCraftPanel extends JPanel {
         equip.setBackground(Gui.BACKGROUND);
 
         LinkedList<JButton> systemButtons = new LinkedList<>();
-        ArrayList<Weapon> templateWeapons = new ArrayList<>();
-        ArrayList<Countermeasure> templateSystems = new ArrayList<>();
+
 
         JPanel systemsPanel = new JPanel(new GridBagLayout());
         JScrollPane systemsPanelScroll = new JScrollPane(systemsPanel);

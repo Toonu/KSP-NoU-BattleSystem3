@@ -47,4 +47,10 @@ public enum Side {
     public LinkedList<Craft> getCrafts() {
         return crafts;
     }
+
+    public void removeCraft(Craft craft) {
+        if (crafts.contains(craft)) {
+            this.crafts.remove(craft);
+        }
+    }
 }

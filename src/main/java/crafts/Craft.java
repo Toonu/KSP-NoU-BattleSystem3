@@ -15,7 +15,6 @@ import utils.Vertex2D;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -421,11 +420,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     }
 
     public LinkedList<Countermeasure> getCountermeasures() {
-        return (LinkedList<Countermeasure>) Collections.unmodifiableList(countermeasures);
+        return new LinkedList<>(countermeasures);
     }
 
     public LinkedList<Weapon> getWeapons() {
-        return (LinkedList<Weapon>) Collections.unmodifiableList(weapons);
+        return new LinkedList<>(weapons);
     }
 
     public boolean isWithdrawing() {
