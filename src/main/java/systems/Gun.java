@@ -27,8 +27,8 @@ public class Gun extends Weapon implements Serializable {
      * @param ammunition Ammunition object representing projectiles of this weapon.
      */
     public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
-               Ammunition ammunition) {
-        super(damage, minRange, maxRange, targets, name, era);
+               Ammunition ammunition, boolean internal) {
+        super(damage, minRange, maxRange, targets, name, era, internal);
         this.ammunition = ammunition;
     }
 
@@ -45,8 +45,8 @@ public class Gun extends Weapon implements Serializable {
      * @param ammo       int of amount of ammunition of the system.
      */
     public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
-               Ammunition ammunition, int ammo) {
-        this(damage, minRange, maxRange, targets, name, era, ammunition);
+               Ammunition ammunition, boolean internal, int ammo) {
+        this(damage, minRange, maxRange, targets, name, era, ammunition, internal);
         ammoBox = ammo;
     }
 
@@ -72,6 +72,6 @@ public class Gun extends Weapon implements Serializable {
      * @return String.
      */
     public String toShortString() {
-        return String.format("%10s %s", "[Gun]", this.getName());
+        return String.format("%10s %s", "[Gun]", super.toShortString());
     }
 }

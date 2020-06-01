@@ -29,7 +29,8 @@ public class OOB {
      * @param args args.
      */
     public static void main(String[] args) {
-        LinkedList<AbstractSystem> systemsDatabase = new LinkedList<>(WriterReader.loadSystemsFile(Paths.get("systems.csv")));
+        LinkedList<AbstractSystem> systemsDatabase = new LinkedList<>(
+                WriterReader.loadSystemsFile(Paths.get("NoU Database - DatabaseForBS.csv")));
         TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
         WriterReader.filterSystems(systemsDatabase, TEMPLATE_WEAPONS, TEMPLATE_COUNTERMEASURES);
         WriterReader.saveSetupFile(new File("save.txt"), true);

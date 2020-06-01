@@ -14,6 +14,7 @@ import java.util.Set;
  */
 public class Weapon extends AbstractSystem implements Serializable, Comparable<Weapon> {
     private final Set<Theatre> targets;
+    private final boolean internal;
 
     /**
      * Constructor.
@@ -25,9 +26,11 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
      * @param era      Era enum of era of the system.
      * @param targets  Set of Theatre objects targetable by the system.
      */
-    protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era) {
+    protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets,
+                     String name, Era era, boolean internal) {
         super(damage, maxRange, minRange, name, era);
         this.targets = targets;
+        this.internal = internal;
     }
 
     public Set<Theatre> getTargets() {
@@ -40,14 +43,18 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
      * @return copy of the object.
      */
     public Weapon copyWeapon() {
-        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getEra());
+        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getEra(), internal);
     }
 
     @Override
     public String toString() {
-        return String.format("%s", super.toString());
+        return super.toString();
     }
 
+    @Override
+    public String toShortString() {
+        return super.toShortString();
+    }
 
     /**
      * Compares this object with the specified object for order.  Returns a
@@ -74,5 +81,9 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
     @Override
     public int hashCode() {
         return 0;
+    }
+
+    public boolean isInternal() {
+        return internal;
     }
 }

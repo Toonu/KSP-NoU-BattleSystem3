@@ -26,10 +26,11 @@ public class Missile extends Weapon implements Serializable {
      * @param era          Era enum of era of the system.
      * @param targets      Set of Theatre objects targetable by the system.
      * @param guidanceType GuidanceType enum representing missile's guidance type.
+     * @param speed        Double speed in m/s of the craft.
      */
     public Missile(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                    GuidanceType guidanceType, double speed) {
-        super(damage, minRange, maxRange, targets, name, era);
+        super(damage, minRange, maxRange, targets, name, era, false);
         this.guidanceType = guidanceType;
         this.speed = speed;
     }

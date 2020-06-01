@@ -63,9 +63,15 @@ public class Armor implements Serializable {
         return Collections.unmodifiableMap(armor);
     }
 
+    /**
+     * Method returns string representation of armor object.
+     *
+     * @return String of armor values per side and penetration.
+     */
     @Override
     public String toString() {
-        return String.format("\nArmor Layout [%6s;%3s] [%6s;%3s] [%6s;%3s]", armor.get(ArmorSide.FRONT), penetrated.get(ArmorSide.FRONT),
+        return String.format("\nArmor Layout [%6s;%3s] [%6s;%3s] [%6s;%3s]",
+                armor.get(ArmorSide.FRONT), penetrated.get(ArmorSide.FRONT),
                 armor.get(ArmorSide.SIDE), penetrated.get(ArmorSide.SIDE),
                 armor.get(ArmorSide.REAR), penetrated.get(ArmorSide.REAR));
     }

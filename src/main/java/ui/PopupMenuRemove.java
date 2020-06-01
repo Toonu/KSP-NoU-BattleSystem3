@@ -15,6 +15,11 @@ import java.util.List;
  * @author Toonu
  */
 public class PopupMenuRemove {
+    /**
+     * Constructor for popup menu.
+     *
+     * @param selected Which list should be updated with removal.
+     */
     public PopupMenuRemove(List<Craft> selected) {
         JFrame f = new JFrame("PopupMenu Example");
         JMenuItem remove = new JMenuItem("Remove");

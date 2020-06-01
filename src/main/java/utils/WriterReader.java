@@ -376,6 +376,9 @@ public class WriterReader {
             String line = br.readLine();
             while (line != null) {
                 try {
+                    if (line.equals(",,,,,,,,,FALSE")) {
+                        break;
+                    }
                     String[] word = line.split(",");
 
                     String name = word[1];
@@ -426,7 +429,7 @@ public class WriterReader {
                                 throw new IllegalArgumentException(String.format("Error reading %s ammunition " +
                                         "values. Expected 3: Present <%s>", name, ammo.length));
                             }
-                            newWeapon = new Gun(strength, minRange, maxRange, targets, name, era, ammunition);
+                            newWeapon = new Gun(strength, minRange, maxRange, targets, name, era, ammunition, Boolean.parseBoolean(word[9]));
 
                         } else {
                             GuidanceType guidanceType;
@@ -443,7 +446,8 @@ public class WriterReader {
                                 throw new IllegalArgumentException(
                                         String.format("Error reading %s guidance type. %s", name, ex.getMessage()));
                             }
-                            newWeapon = new Missile(strength, minRange, maxRange, targets, name, era, guidanceType, speed);
+                            newWeapon = new Missile(strength, minRange, maxRange, targets,
+                                    name, era, guidanceType, speed);
 
                         }
                         list.add(newWeapon);

@@ -26,7 +26,7 @@ import java.util.Objects;
 public class Craft implements Serializable, Movable, Comparable<Craft> {
     public static final int DELAY = 30;
     private final double speed;
-    private final int limitWeapons;
+    private final int limitInternal;
     private final LinkedList<Weapon> weapons = new LinkedList<>();
     private final LinkedList<Countermeasure> countermeasures = new LinkedList<>();
     private final Type type;
@@ -34,6 +34,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private final Side side;
     private final int limitSystems;
     private final int limitGuns;
+    private int amountOfGuns;
+    private int amountOfInternal;
     private String name;
 
     private double angle;
@@ -54,7 +56,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @param side                enums color of craft's side.
      */
     protected Craft(double speed, String name, Type type, Era craftProductionYear, Side side,
-                    int limitSystems, int limitWeapons, int limitGuns) {
+                    int limitSystems, int limitInternal, int limitGuns) {
         this.speed = speed;
         this.name = name;
 
@@ -105,7 +107,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         }
         this.hp = type.getHealth();
         this.limitSystems = limitSystems;
-        this.limitWeapons = limitWeapons;
+        this.limitInternal = limitInternal;
         this.limitGuns = limitGuns;
     }
 
@@ -128,13 +130,18 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         return String.format("%s %s %-12s: %4s Pos: %s", type.getTheatre(), type, name, hp, position);
     }
 
+    /**
+     * Extra logging info about every part of the craft.
+     *
+     * @return String of info.
+     */
     public String toExtraString() {
         return String.format("%s {%.2f", type, speed) +
                 ", name='" + name + '\'' +
                 ", weapons=" + weapons +
                 ", countermeasures=" + countermeasures +
                 ", craftProductionYear=" + craftProductionYear +
-                ", limitWeapons=" + limitWeapons +
+                ", limitWeapons=" + limitInternal +
                 ", limitSystems=" + limitSystems +
                 ", limitGuns=" + limitGuns +
                 ", angle=" + angle +
@@ -178,41 +185,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     }
 
     /**
-     * Method assign Sortedset to the craft.
-     *
-     * @param systems SortedSet to be implemented.
-     * @param <T>     System class, either weapon or countermeasure.
-     */
-    public <T extends AbstractSystem> void addSystemSet(LinkedList<T> systems) {
-        boolean test = true;
-        try {
-            Weapon testItem = (Weapon) systems.peekFirst();
-        } catch (ClassCastException e) {
-            Countermeasure testItem = (Countermeasure) systems.peekFirst();
-            test = false;
-        }
-        try {
-            for (T system : systems) {
-                if (system == null) {
-                    throw new NullPointerException("System is null.");
-                } else if (test) {
-                    weapons.add((Weapon) system);
-                } else {
-                    countermeasures.add((Countermeasure) system);
-                }
-                if (App.isDebug()) {
-                    System.out.println(String.format("[LOG %s] %-17s %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Added to Craft:", system));
-                }
-            }
-        } catch (NullPointerException e) {
-            System.err.println(String.format(
-                    "[ERR %s] %s Some values are null. Cannot add to database.",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
-        }
-    }
-
-    /**
      * Method adds system to craft.
      *
      * @param system Object to be added.
@@ -225,14 +197,18 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             }
             Double rng = system.getMaxRange();
             if (system.getMaxRange() > 0) {
-                try {
-                    weapons.add((Weapon) system);
-                } catch (ClassCastException e) {
-                    //noinspection ConstantConditions
+                if (system instanceof Weapon) {
+                    if (((Weapon) system).isInternal() && amountOfInternal + 1 <= limitInternal) {
+                        weapons.add((Weapon) system);
+                        ++amountOfInternal;
+                    } else if (amountOfGuns + 1 <= limitGuns) {
+                        weapons.add((Weapon) system);
+                        ++amountOfGuns;
+                    }
+                } else if (countermeasures.size() + 1 <= limitSystems) {
                     countermeasures.add((Countermeasure) system);
                 }
             }
-
             if (App.isDebug()) {
                 System.out.println(String.format("[LOG %s] %-17s %s",
                         LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Added to craft:", system));
@@ -401,7 +377,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @return new copy of craft.
      */
     public Craft copy(Side newSide) {
-        return new Craft(speed, name, type, craftProductionYear, newSide, limitSystems, limitWeapons, limitGuns);
+        return new Craft(speed, name, type, craftProductionYear, newSide, limitSystems, limitInternal, limitGuns);
     }
     //TODO Copy for each vehicle class differently.
 
@@ -596,6 +572,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             return this;
         }
 
+        /**
+         * Method sets new Armor to craft.
+         *
+         * @param armor Armor object.
+         * @return Builder.
+         */
         public Builder setArmor(Armor armor) {
             this.armor = armor;
             return this;
@@ -634,21 +616,45 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             return this;
         }
 
+        /**
+         * Method sets new limit to countermeasures on craft.
+         *
+         * @param limitSystems Int limit.
+         * @return Builder.
+         */
         public Builder setLimitSystems(int limitSystems) {
             this.limitSystems = limitSystems;
             return this;
         }
 
+        /**
+         * Method sets new limit to weapons on craft.
+         *
+         * @param limitWeapons Int limit.
+         * @return Builder.
+         */
         public Builder setLimitWeapons(int limitWeapons) {
             this.limitWeapons = limitWeapons;
             return this;
         }
 
+        /**
+         * Method sets new limit to guns on craft.
+         *
+         * @param limitGuns Int limit.
+         * @return Builder.
+         */
         public Builder setLimitGuns(int limitGuns) {
             this.limitGuns = limitGuns;
             return this;
         }
 
+        /**
+         * Method sets new limit to CIWS on craft.
+         *
+         * @param limitCIWS Int limit.
+         * @return Builder.
+         */
         public Builder setLimitCIWS(int limitCIWS) {
             this.limitCIWS = limitCIWS;
             return this;

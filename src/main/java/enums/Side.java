@@ -48,6 +48,11 @@ public enum Side {
         return crafts;
     }
 
+    /**
+     * Method removes craft from the side's list of crafts.
+     *
+     * @param craft Craft to remove.
+     */
     public void removeCraft(Craft craft) {
         if (crafts.contains(craft)) {
             this.crafts.remove(craft);
