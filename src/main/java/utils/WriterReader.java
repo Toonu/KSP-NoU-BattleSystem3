@@ -50,8 +50,6 @@ public class WriterReader {
     //TODO Add reading from online sheet maybe if possible integration with
     // google sheets is viable and easy enough to implement it?
 
-    //TODO Add wrong save dialog warning
-
     /**
      * Method to save battle second and ongoing attacks or other in-battle situation.
      *
@@ -188,7 +186,7 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    public static LinkedList<Craft> loadCSVFile(Path path) {
+    public static LinkedList<Craft> loadTemplatesFile(Path path) {
         LinkedList<Craft> crafts = new LinkedList<>();
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             br.readLine();
@@ -263,8 +261,6 @@ public class WriterReader {
                     //16 speed, 17 sys, 18 weap, 19 ciws, 20 missiles,
                     //21 software
 
-                    //TODO ERA with tanks
-
                     try {
                         if (type.getTheatre() == Theatre.AERIAL) {
                             speed = Math.sqrt(Double.parseDouble(lines[10]) / 120);
@@ -335,6 +331,9 @@ public class WriterReader {
             }
         } catch (IOException | IllegalArgumentException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(Gui.getCurrentWindow(),
+                    "Program couldn't have been loaded due to corrupted template crafts file.",
+                    "Loading failed", JOptionPane.ERROR_MESSAGE);
         }
         return crafts;
     }
@@ -429,7 +428,8 @@ public class WriterReader {
                                 throw new IllegalArgumentException(String.format("Error reading %s ammunition " +
                                         "values. Expected 3: Present <%s>", name, ammo.length));
                             }
-                            newWeapon = new Gun(strength, minRange, maxRange, targets, name, era, ammunition, Boolean.parseBoolean(word[9]));
+                            newWeapon = new Gun(strength, minRange, maxRange,
+                                    targets, name, era, ammunition, Boolean.parseBoolean(word[9]));
 
                         } else {
                             GuidanceType guidanceType;
@@ -466,6 +466,9 @@ public class WriterReader {
             }
         } catch (IOException e) {
             System.err.println(String.format("[ERR %s] %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
+            JOptionPane.showMessageDialog(Gui.getCurrentWindow(),
+                    "Program couldn't have been loaded due to wrong system database.",
+                    "Loading failed", JOptionPane.ERROR_MESSAGE);
         }
         return list;
     }

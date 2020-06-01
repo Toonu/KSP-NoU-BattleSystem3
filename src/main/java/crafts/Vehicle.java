@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Serializable {
     private Armor armor;
-    private Radar radar;
+    private Radar radar = null;
 
     /**
      * Constructor.
@@ -57,18 +57,13 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
         this.armor = armor;
     }
 
-    /**
-     * Method returns radar object of the vehicle.
-     *
-     * @return Radar object.
-     * @throws NullPointerException if there is no radar on the vehicle.
-     */
-    @Override
-    public Radar getRadar() throws NullPointerException {
-        if (radar != null) {
-            return radar;
+    public static Vehicle copy(Side newSide, Vehicle t) {
+        Vehicle newCraft = new Vehicle(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
+                t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns(), t.getArmor());
+        if (t.getRadar() != null) {
+            newCraft.addRadar(t.getRadar());
         }
-        throw new NullPointerException("No radar present.");
+        return newCraft;
     }
 
     /**
@@ -79,6 +74,17 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
     @Override
     public void addRadar(Radar radar) {
         this.radar = radar;
+    }
+
+    /**
+     * Method returns radar object of the vehicle.
+     *
+     * @return Radar object.
+     * @throws NullPointerException if there is no radar on the vehicle.
+     */
+    @Override
+    public Radar getRadar() {
+        return radar;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package ui;
 
 
+import ui.battleSystem.BattleFrame;
 import ui.battleSystem.OOBFrame;
 import ui.battleSystem.WelcomeFrame;
 
@@ -26,6 +27,7 @@ public class Gui {
     public static final String PATH = System.getProperty("user.dir");
     private static OOBFrame oob;
     private static WelcomeFrame welcomeFrame;
+    private static BattleFrame battleFrame;
     private static JFrame currentWindow;
 
     /**
@@ -35,7 +37,7 @@ public class Gui {
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            oob = new OOBFrame(TITLE);
+            oob = new OOBFrame(TITLE, battleFrame);
             welcomeFrame = new WelcomeFrame(TITLE, oob);
             setCurrentWindow(welcomeFrame);
         });

@@ -13,8 +13,8 @@ import java.util.TreeSet;
  * @author Toonu
  */
 public class App {
-    public static final Vertex2D SPAWN_A = new Vertex2D(-100, 0);
-    public static final Vertex2D SPAWN_B = new Vertex2D(100, 0);
+    public static final Vertex2D SPAWN_A = new Vertex2D(750, 700);
+    public static final Vertex2D SPAWN_B = new Vertex2D(950, 700);
     public static final Era DEFAULT_YEAR = Era.Era1950;
 
     private static boolean debug = true;

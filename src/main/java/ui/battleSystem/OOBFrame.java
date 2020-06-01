@@ -52,7 +52,7 @@ public class OOBFrame extends JFrame {
      *
      * @param title title of the frame.
      */
-    public OOBFrame(String title) {
+    public OOBFrame(String title, JFrame battle) {
         super(title);
 
         setLayout(new GridBagLayout());
@@ -101,6 +101,7 @@ public class OOBFrame extends JFrame {
 
         for (Craft craft : OOB.TEMPLATE.getCrafts()) {
             ++gc.gridy;
+            gc.fill = GridBagConstraints.VERTICAL;
             templateButtons.put(craft, new ArrayList<>());
             templateButtons.get(craft).add(new JButton("+"));
             templateButtons.get(craft).add(new JButton("+"));
@@ -186,7 +187,7 @@ public class OOBFrame extends JFrame {
         nextScreen.addActionListener(e -> {
             setVisible(false);
             dispose();
-            //TODO Battle Commence
+            Gui.setCurrentWindow(new BattleFrame(title));
         });
 
         details = new JCraftPanel(" ", selectedCraftsFromList, false);

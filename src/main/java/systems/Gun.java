@@ -25,6 +25,7 @@ public class Gun extends Weapon implements Serializable {
      * @param era        Era enum of era of the system.
      * @param targets    Set of Theatre objects targetable by the system.
      * @param ammunition Ammunition object representing projectiles of this weapon.
+     * @param internal   Weapon internal state. If yes, counts as internal weapon.
      */
     public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                Ammunition ammunition, boolean internal) {
@@ -43,6 +44,8 @@ public class Gun extends Weapon implements Serializable {
      * @param targets    Set of Theatre objects targetable by the system.
      * @param ammunition Ammunition object representing projectiles of this weapon.
      * @param ammo       int of amount of ammunition of the system.
+     * @param internal   Weapon internal state. If yes, counts as internal weapon.
+     *
      */
     public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                Ammunition ammunition, boolean internal, int ammo) {

@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Class to simulate Aircraft Craft on the battlefield.
  */
 public class Aircraft extends Craft implements Serializable, RadarVehicle {
-    private Radar radar;
+    private Radar radar = null;
 
     /**
      * Constructor.
@@ -29,18 +29,13 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
         super(speed * 343, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
     }
 
-    /**
-     * Method returns radar object of the vehicle.
-     *
-     * @return Radar object.
-     * @throws NullPointerException if there is no radar on the vehicle.
-     */
-    @Override
-    public Radar getRadar() throws NullPointerException {
-        if (radar != null) {
-            return radar;
+    public static Aircraft copy(Side newSide, Aircraft t) {
+        Aircraft newCraft = new Aircraft(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
+                t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns());
+        if (t.getRadar() != null) {
+            newCraft.addRadar(t.getRadar());
         }
-        throw new NullPointerException("No radar present.");
+        return newCraft;
     }
 
     /**
@@ -51,5 +46,16 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
     @Override
     public void addRadar(Radar radar) {
         this.radar = radar;
+    }
+
+    /**
+     * Method returns radar object of the vehicle.
+     *
+     * @return Radar object.
+     * @throws NullPointerException if there is no radar on the vehicle.
+     */
+    @Override
+    public Radar getRadar() {
+        return radar;
     }
 }

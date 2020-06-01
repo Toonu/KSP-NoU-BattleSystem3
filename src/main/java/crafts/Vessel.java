@@ -13,8 +13,8 @@ import java.io.Serializable;
  * Class to simulate Ship or Vessel Craft on the battlefield.
  */
 public class Vessel extends Craft implements Serializable, RadarVehicle {
-    private Radar radar;
-    private final int limitCIWS;
+    private Radar radar = null;
+    private int limitCIWS;
 
     /**
      * Constructor.
@@ -31,19 +31,13 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
         this.limitCIWS = limitCIWS;
     }
 
-
-    /**
-     * Method returns radar object of the vehicle.
-     *
-     * @return Radar object.
-     * @throws NullPointerException if there is no radar on the vehicle.
-     */
-    @Override
-    public Radar getRadar() throws NullPointerException {
-        if (radar != null) {
-            return radar;
+    public static Vessel copy(Side newSide, Vessel t) {
+        Vessel newCraft = new Vessel(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
+                t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns(), t.getLimitCIWS());
+        if (t.getRadar() != null) {
+            newCraft.addRadar(t.getRadar());
         }
-        throw new NullPointerException("No radar object on the vehicle.");
+        return newCraft;
     }
 
     /**
@@ -54,5 +48,24 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
     @Override
     public void addRadar(Radar radar) {
         this.radar = radar;
+    }
+
+    /**
+     * Method returns radar object of the vehicle.
+     *
+     * @return Radar object.
+     * @throws NullPointerException if there is no radar on the vehicle.
+     */
+    @Override
+    public Radar getRadar() throws NullPointerException {
+        return radar;
+    }
+
+    public int getLimitCIWS() {
+        return limitCIWS;
+    }
+
+    public void setLimitCIWS(int limitCIWS) {
+        this.limitCIWS = limitCIWS;
     }
 }

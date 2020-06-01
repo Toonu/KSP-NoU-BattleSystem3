@@ -17,6 +17,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * @author Toonu
@@ -68,10 +69,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             case GROUND:
                 switch (side) {
                     case WHITE:
-                        this.position = new Vertex2D(App.SPAWN_A.getX() + 90, App.SPAWN_A.getY());
+                        this.position = new Vertex2D(App.SPAWN_A.getX() + 90 + new Random().nextInt(5),
+                                App.SPAWN_A.getY() + new Random().nextInt(5));
                         break;
                     case BLACK:
-                        this.position = new Vertex2D(App.SPAWN_B.getX() - 90, App.SPAWN_B.getY());
+                        this.position = new Vertex2D(App.SPAWN_B.getX() - 90 + new Random().nextInt(5),
+                                App.SPAWN_B.getY() + new Random().nextInt(5));
                         break;
                     default:
                         this.position = side.getSpawn();
@@ -81,10 +84,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             case AERIAL:
                 switch (side) {
                     case WHITE:
-                        this.position = App.SPAWN_A;
+                        this.position = new Vertex2D(App.SPAWN_A.getX() + new Random().nextInt(5),
+                                App.SPAWN_A.getY() + new Random().nextInt(5));
                         break;
                     case BLACK:
-                        this.position = App.SPAWN_B;
+                        this.position = new Vertex2D(App.SPAWN_B.getX() + new Random().nextInt(5),
+                                App.SPAWN_B.getY() + new Random().nextInt(5));
                         break;
                     default:
                         this.position = side.getSpawn();
@@ -94,10 +99,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             default:
                 switch (side) {
                     case WHITE:
-                        this.position = new Vertex2D(App.SPAWN_A.getX() + 75, App.SPAWN_A.getY());
+                        this.position = new Vertex2D(App.SPAWN_A.getX() + 75 + new Random().nextInt(5),
+                                App.SPAWN_A.getY() - 300 + new Random().nextInt(5));
                         break;
                     case BLACK:
-                        this.position = new Vertex2D(App.SPAWN_B.getX() - 75, App.SPAWN_B.getY());
+                        this.position = new Vertex2D(App.SPAWN_B.getX() - 75 + new Random().nextInt(5),
+                                App.SPAWN_B.getY() - 300 + new Random().nextInt(5));
                         break;
                     default:
                         this.position = side.getSpawn();
@@ -377,9 +384,14 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @return new copy of craft.
      */
     public Craft copy(Side newSide) {
-        return new Craft(speed, name, type, craftProductionYear, newSide, limitSystems, limitInternal, limitGuns);
+        if (type.getTheatre() == Theatre.GROUND) {
+            return Vehicle.copy(newSide, (Vehicle) this);
+        } else if (type.getTheatre() == Theatre.AERIAL) {
+            return Aircraft.copy(newSide, (Aircraft) this);
+        } else {
+            return Vessel.copy(newSide, (Vessel) this);
+        }
     }
-    //TODO Copy for each vehicle class differently.
 
     /**
      * Method sets new position.
@@ -401,6 +413,18 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     public LinkedList<Weapon> getWeapons() {
         return new LinkedList<>(weapons);
+    }
+
+    public int getLimitSystems() {
+        return limitSystems;
+    }
+
+    public int getLimitInternal() {
+        return limitInternal;
+    }
+
+    public int getLimitGuns() {
+        return limitGuns;
     }
 
     public boolean isWithdrawing() {
