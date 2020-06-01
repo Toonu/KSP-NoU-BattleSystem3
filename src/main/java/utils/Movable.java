@@ -40,4 +40,11 @@ public interface Movable {
      * @param trg utils.Vertex2D as target.
      */
     void moveTowardVertex(Vertex2D trg);
+
+    /**
+     * Method returns speed of the object.
+     *
+     * @return speed double.
+     */
+    double getSpeed();
 }

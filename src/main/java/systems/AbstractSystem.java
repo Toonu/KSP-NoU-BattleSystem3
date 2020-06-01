@@ -68,7 +68,7 @@ public class AbstractSystem implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("System %s %-14s [S: %5s, Min: %5s, Max: %5s]", era, name, strength, minRange, maxRange);
+        return String.format("System %s %-14s [S: %5s, %5skm-%skm]", era, name, strength, minRange, maxRange);
     }
 
     /**

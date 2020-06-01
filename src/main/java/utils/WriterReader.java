@@ -1,6 +1,9 @@
 package utils;
 
 import crafts.Craft;
+import crafts.Vehicle;
+import crafts.parts.Armor;
+import enums.ArmorSide;
 import enums.CMType;
 import enums.Era;
 import enums.GuidanceType;
@@ -252,21 +255,80 @@ public class WriterReader {
                     }
 
                     double speed;
+                    String armor = lines[7];
+
+                    //2 name, 3 class
+                    //4 speed, 5 sys, 6 weap, 7 armor, 8 era, 9 missiles
+                    //10 engines, 11 avionics, 12 internal, 13 fuel, 14 consumption, 15 hardpoints
+                    //16 speed, 17 sys, 18 weap, 19 ciws, 20 missiles,
+                    //21 software
+
+                    //TODO ERA with tanks
 
                     try {
-                        speed = Double.parseDouble(lines[4] + lines[16]);
+                        if (type.getTheatre() == Theatre.AERIAL) {
+                            speed = Math.sqrt(Double.parseDouble(lines[10]) / 120);
+                        } else {
+                            speed = Double.parseDouble(lines[4] + lines[16]);
+                        }
                     } catch (NumberFormatException e) {
                         speed = Double.parseDouble(lines[10]);
                     }
 
-                    Craft newCraft = new Craft.Builder().setName(name).setSpeed(speed).
-                            setType(type).setCraftProductionYear(era).setSide(Side.TEMPLATE).build();
+                    Craft newCraft;
+                    if (type.getTheatre() == Theatre.GROUND && armor != null) {
+                        Armor newArmor = new Armor(armor);
+
+                        Vehicle newVehicle = (Vehicle) new Craft.Builder()
+                                .setName(name).setSpeed(speed)
+                                .setType(type)
+                                .setCraftProductionYear(era)
+                                .setSide(Side.TEMPLATE)
+                                .setArmor(newArmor)
+                                .setSpeed(speed)
+                                .setLimitSystems((int) Math.round(Double.parseDouble(lines[5])))
+                                .setLimitWeapons((int) Math.round(Double.parseDouble(lines[9])))
+                                .setLimitGuns((int) Math.round(Double.parseDouble(lines[6])))
+                                .build();
+                        String[] eraArmor = lines[8].split("/");
+                        newArmor.getPenetrated().put(ArmorSide.FRONT,
+                                newVehicle.getArmor().getPenetrated().get(ArmorSide.FRONT) - 1);
+                        newArmor.getPenetrated().put(ArmorSide.SIDE,
+                                newVehicle.getArmor().getPenetrated().get(ArmorSide.SIDE) - 1);
+                        newArmor.getPenetrated().put(ArmorSide.REAR,
+                                newVehicle.getArmor().getPenetrated().get(ArmorSide.REAR) - 1);
+
+                        newCraft = newVehicle;
+                    } else if (type.getTheatre() == Theatre.AERIAL) {
+                        newCraft = new Craft.Builder()
+                                .setName(name)
+                                .setSpeed(speed)
+                                .setType(type)
+                                .setCraftProductionYear(era)
+                                .setSide(Side.TEMPLATE)
+                                .setLimitSystems((int) Math.round(Double.parseDouble(lines[11] + lines[17])))
+                                .setLimitWeapons((int) Math.round(Double.parseDouble(lines[15] + lines[20])))
+                                .setLimitGuns((int) Math.round(Double.parseDouble(lines[12] + lines[18])))
+                                .build();
+                    } else {
+                        newCraft = new Craft.Builder()
+                                .setName(name)
+                                .setSpeed(speed)
+                                .setType(type)
+                                .setCraftProductionYear(era)
+                                .setSide(Side.TEMPLATE)
+                                .setLimitSystems((int) Math.round(Double.parseDouble(lines[11] + lines[17])))
+                                .setLimitWeapons((int) Math.round(Double.parseDouble(lines[15] + lines[18])))
+                                .setLimitGuns((int) Math.round(Double.parseDouble(lines[12] + lines[18])))
+                                .setLimitCIWS((int) Math.round(Double.parseDouble(lines[19])))
+                                .build();
+                    }
                     crafts.add(newCraft);
 
                     if (App.isDebug()) {
                         System.out.println(String.format("[LOG %s] %-18s %s",
                                 LocalTime.now().truncatedTo(ChronoUnit.SECONDS),
-                                "Crafts loaded:", newCraft.toLongString()));
+                                "Crafts loaded:", newCraft.toExtraString()));
                     }
                 }
                 line = br.readLine();
@@ -278,37 +340,21 @@ public class WriterReader {
     }
 
     /**
-     * Method returns new LinkedList of weapons from file.
+     * Method filter input list and arranges systems to their categories.
      *
-     * @param path Path to file.
-     * @return LinkedList<Weapon> containing all weapons.
+     * @param list    systems unsorted list.
+     * @param weapons weapons list.
+     * @param cm      countermeasure list.
      */
-    public static LinkedList<Weapon> readWeaponFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
-        LinkedList<Weapon> weapons = new LinkedList<>();
+    public static void filterSystems(LinkedList<AbstractSystem> list, LinkedList<Weapon> weapons,
+                                     LinkedList<Countermeasure> cm) {
         for (AbstractSystem sys : list) {
             if (sys instanceof Weapon) {
                 weapons.add((Weapon) sys);
-            }
-        }
-        return weapons;
-    }
-
-    /**
-     * Method returns new LinkedList of countermeasures from file.
-     *
-     * @param path Path to file.
-     * @return LinkedList<Countermeasure> containing all countermeasures.
-     */
-    public static LinkedList<Countermeasure> readCMFile(Path path) {
-        LinkedList<AbstractSystem> list = new LinkedList<>(loadCMWeaponFile(path));
-        LinkedList<Countermeasure> cm = new LinkedList<>();
-        for (AbstractSystem sys : list) {
-            if (sys instanceof Countermeasure) {
+            } else if (sys instanceof Countermeasure) {
                 cm.add((Countermeasure) sys);
             }
         }
-        return cm;
     }
 
     /**
@@ -322,14 +368,15 @@ public class WriterReader {
      * @param path path to the file to import.
      * @return set containing all weapon templates from the file.
      */
-    private static LinkedList<AbstractSystem> loadCMWeaponFile(Path path) {
+    public static LinkedList<AbstractSystem> loadSystemsFile(Path path) {
         LinkedList<AbstractSystem> list = new LinkedList<>();
 
         try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+            br.readLine(); //Skips first headline with no values.
             String line = br.readLine();
             while (line != null) {
                 try {
-                    String[] word = line.split(" ");
+                    String[] word = line.split(",");
 
                     String name = word[1];
                     double strength = Double.parseDouble(word[2]);
@@ -383,13 +430,20 @@ public class WriterReader {
 
                         } else {
                             GuidanceType guidanceType;
+                            double speed;
                             try {
                                 guidanceType = GuidanceType.valueOf(word[7].toUpperCase());
+                                try {
+                                    speed = Double.parseDouble(word[8]);
+                                } catch (NumberFormatException ex) {
+                                    throw new IllegalArgumentException(
+                                            String.format("Error reading %s speed. %s", name, ex.getMessage()));
+                                }
                             } catch (IllegalArgumentException ex) {
                                 throw new IllegalArgumentException(
                                         String.format("Error reading %s guidance type. %s", name, ex.getMessage()));
                             }
-                            newWeapon = new Missile(strength, minRange, maxRange, targets, name, era, guidanceType);
+                            newWeapon = new Missile(strength, minRange, maxRange, targets, name, era, guidanceType, speed);
 
                         }
                         list.add(newWeapon);

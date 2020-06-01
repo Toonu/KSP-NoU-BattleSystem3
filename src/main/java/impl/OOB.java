@@ -1,6 +1,7 @@
 package impl;
 
 import enums.Side;
+import systems.AbstractSystem;
 import systems.Countermeasure;
 import systems.Weapon;
 import ui.Gui;
@@ -28,11 +29,9 @@ public class OOB {
      * @param args args.
      */
     public static void main(String[] args) {
-
-
+        LinkedList<AbstractSystem> systemsDatabase = new LinkedList<>(WriterReader.loadSystemsFile(Paths.get("systems.csv")));
         TEMPLATE.setCrafts(WriterReader.loadCSVFile(Paths.get("database.csv")));
-        TEMPLATE_COUNTERMEASURES.addAll(WriterReader.readCMFile(Paths.get("countermeasures.txt")));
-        TEMPLATE_WEAPONS.addAll(WriterReader.readWeaponFile(Paths.get("weapons.txt")));
+        WriterReader.filterSystems(systemsDatabase, TEMPLATE_WEAPONS, TEMPLATE_COUNTERMEASURES);
         WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
     }

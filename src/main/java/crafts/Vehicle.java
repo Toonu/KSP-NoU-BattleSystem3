@@ -27,8 +27,10 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                enums color of craft's side.
      */
-    protected Vehicle(double speed, String name, Type type, Era craftProductionYear, Side side) {
-        super(speed, name, type, craftProductionYear, side);
+    protected Vehicle(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSytems,
+                      int limitWeapons, int limitGuns, Armor armor) {
+        super(speed, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
+        this.armor = armor;
     }
 
     /**
@@ -77,5 +79,20 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
     @Override
     public void addRadar(Radar radar) {
         this.radar = radar;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", super.toString());
+    }
+
+    @Override
+    public String toLongString() {
+        return String.format("%s %s", super.toLongString(), armor);
+    }
+
+    @Override
+    public String toExtraString() {
+        return super.toExtraString() + armor;
     }
 }

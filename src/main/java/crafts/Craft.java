@@ -1,5 +1,6 @@
 package crafts;
 
+import crafts.parts.Armor;
 import enums.Era;
 import enums.Side;
 import enums.Theatre;
@@ -26,12 +27,15 @@ import java.util.Objects;
 public class Craft implements Serializable, Movable, Comparable<Craft> {
     public static final int DELAY = 30;
     private final double speed;
-    private final String name;
+    private final int limitWeapons;
     private final LinkedList<Weapon> weapons = new LinkedList<>();
     private final LinkedList<Countermeasure> countermeasures = new LinkedList<>();
     private final Type type;
     private final Era craftProductionYear;
     private final Side side;
+    private final int limitSystems;
+    private final int limitGuns;
+    private String name;
 
     private double angle;
     private Vertex2D position;
@@ -50,7 +54,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                enums color of craft's side.
      */
-    protected Craft(double speed, String name, Type type, Era craftProductionYear, Side side) {
+    protected Craft(double speed, String name, Type type, Era craftProductionYear, Side side,
+                    int limitSystems, int limitWeapons, int limitGuns) {
         this.speed = speed;
         this.name = name;
 
@@ -100,6 +105,9 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                 break;
         }
         this.hp = type.getHealth();
+        this.limitSystems = limitSystems;
+        this.limitWeapons = limitWeapons;
+        this.limitGuns = limitGuns;
     }
 
     /**
@@ -109,7 +117,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      */
     @Override
     public String toString() {
-        return String.format("%s %s %-12s", type.getTheatre(), type, name);
+        return String.format("%s %s %-12s %s", type.getTheatre(), type, name, weapons.size() + countermeasures.size());
     }
 
     /**
@@ -118,8 +126,22 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @return String with type and name of the craft.
      */
     public String toLongString() {
-
         return String.format("%s %s %-12s: %4s Pos: %s", type.getTheatre(), type, name, hp, position);
+    }
+
+    public String toExtraString() {
+        return String.format("%s {%.2f", type, speed) +
+                ", name='" + name + '\'' +
+                ", weapons=" + weapons +
+                ", countermeasures=" + countermeasures +
+                ", craftProductionYear=" + craftProductionYear +
+                ", limitWeapons=" + limitWeapons +
+                ", limitSystems=" + limitSystems +
+                ", limitGuns=" + limitGuns +
+                ", angle=" + angle +
+                ", position=" + position +
+                ", hp=" + hp +
+                '}';
     }
 
     /**
@@ -380,8 +402,9 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
      * @return new copy of craft.
      */
     public Craft copy(Side newSide) {
-        return new Craft(speed, name, type, craftProductionYear, newSide);
+        return new Craft(speed, name, type, craftProductionYear, newSide, limitSystems, limitWeapons, limitGuns);
     }
+    //TODO Copy for each vehicle class differently.
 
     /**
      * Method sets new position.
@@ -391,6 +414,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     @Override
     public void setPosition(Vertex2D vertex2D) {
         position = vertex2D;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LinkedList<Countermeasure> getCountermeasures() {
@@ -512,6 +539,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         private Side side = Side.WHITE;
 
         private Vertex2D position;
+        private Armor armor;
+        private int limitSystems;
+        private int limitWeapons;
+        private int limitGuns;
+        private int limitCIWS;
 
         /**
          * Method returns String representation of the Builder object.
@@ -556,12 +588,17 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
          */
         public Builder setSpeed(double speed) {
             if (speed > 0) {
-                this.speed = speed / 1000;
+                this.speed = speed;
             } else {
                 System.err.println(String.format(
                         "[ERR %s] Speed must be positive. Applying default speed of 10m/s.",
                         LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
             }
+            return this;
+        }
+
+        public Builder setArmor(Armor armor) {
+            this.armor = armor;
             return this;
         }
 
@@ -598,6 +635,26 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             return this;
         }
 
+        public Builder setLimitSystems(int limitSystems) {
+            this.limitSystems = limitSystems;
+            return this;
+        }
+
+        public Builder setLimitWeapons(int limitWeapons) {
+            this.limitWeapons = limitWeapons;
+            return this;
+        }
+
+        public Builder setLimitGuns(int limitGuns) {
+            this.limitGuns = limitGuns;
+            return this;
+        }
+
+        public Builder setLimitCIWS(int limitCIWS) {
+            this.limitCIWS = limitCIWS;
+            return this;
+        }
+
         /**
          * Builds the final Craft object.
          *
@@ -607,11 +664,14 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             try {
                 switch (type.getTheatre()) {
                     case GROUND:
-                        return new Vehicle(speed, name, type, craftProductionYear, side);
+                        return new Vehicle(speed, name, type, craftProductionYear,
+                                side, limitSystems, limitWeapons, limitGuns, armor);
                     case AERIAL:
-                        return new Aircraft(speed, name, type, craftProductionYear, side);
+                        return new Aircraft(speed, name, type, craftProductionYear,
+                                side, limitSystems, limitWeapons, limitGuns);
                     case NAVAL:
-                        return new Vessel(speed, name, type, craftProductionYear, side);
+                        return new Vessel(speed, name, type, craftProductionYear,
+                                side, limitSystems, limitWeapons, limitGuns, limitCIWS);
                     default:
                         throw new IllegalArgumentException(
                                 String.format("[ERR %s] Wrong vehicle type.", LocalTime.now()));

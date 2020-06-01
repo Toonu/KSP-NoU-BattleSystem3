@@ -15,6 +15,7 @@ public class Attack implements Movable {
     private final Craft origin;
     private final Craft target;
     private Vertex2D weapPos;
+    private double speed;
 
     /**
      * Constructor.
@@ -28,6 +29,8 @@ public class Attack implements Movable {
         this.origin = origin;
         this.weapPos = origin.getPosition();
         this.target = target;
+        //TODO simulate speed increase and decrease after launch from craft including calculation from its own speed
+        //TODO because of moving from moving object.
     }
 
     /**
@@ -85,6 +88,16 @@ public class Attack implements Movable {
         weapPos = new Vertex2D(
                 getPosition().getX() + (Math.cos(angle) * speedX),
                 getPosition().getY() + (Math.sin(angle) * speedX));
+    }
+
+    /**
+     * Method returns speed of the object.
+     *
+     * @return speed double.
+     */
+    @Override
+    public double getSpeed() {
+        return 0;
     }
 
     public Craft getOrigin() {

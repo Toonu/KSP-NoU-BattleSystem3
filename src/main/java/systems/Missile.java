@@ -14,6 +14,7 @@ import java.util.Set;
  */
 public class Missile extends Weapon implements Serializable {
     private final GuidanceType guidanceType;
+    private final double speed;
 
     /**
      * Constructor.
@@ -27,9 +28,10 @@ public class Missile extends Weapon implements Serializable {
      * @param guidanceType GuidanceType enum representing missile's guidance type.
      */
     public Missile(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
-                   GuidanceType guidanceType) {
+                   GuidanceType guidanceType, double speed) {
         super(damage, minRange, maxRange, targets, name, era);
         this.guidanceType = guidanceType;
+        this.speed = speed;
     }
 
     public GuidanceType getGuidanceType() {
@@ -38,7 +40,8 @@ public class Missile extends Weapon implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%10s %s", "[Missile]", super.toString());
+
+        return String.format("%10s %s M%.2f", "[Missile]", super.toString(), speed / 343);
     }
 
     /**

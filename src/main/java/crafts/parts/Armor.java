@@ -21,11 +21,16 @@ public class Armor implements Serializable {
      *
      * @param health String in format of F/S/R/T of front, side, rear and top armor of the vehicle.
      */
-    protected Armor(String health) {
+    public Armor(String health) {
         String[] newArmor = health.split("/");
         armor.put(ArmorSide.FRONT, Double.parseDouble(newArmor[0]));
         armor.put(ArmorSide.SIDE, Double.parseDouble(newArmor[1]));
         armor.put(ArmorSide.REAR, Double.parseDouble(newArmor[2]));
+        armor.put(ArmorSide.TOP, 20d);
+        penetrated.put(ArmorSide.FRONT, 0);
+        penetrated.put(ArmorSide.SIDE, 0);
+        penetrated.put(ArmorSide.REAR, 0);
+        penetrated.put(ArmorSide.TOP, 0);
     }
 
     /**
@@ -50,7 +55,18 @@ public class Armor implements Serializable {
         return false;
     }
 
+    public EnumMap<ArmorSide, Integer> getPenetrated() {
+        return penetrated;
+    }
+
     public Map<ArmorSide, Double> getArmor() {
         return Collections.unmodifiableMap(armor);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\nArmor Layout [%6s;%3s] [%6s;%3s] [%6s;%3s]", armor.get(ArmorSide.FRONT), penetrated.get(ArmorSide.FRONT),
+                armor.get(ArmorSide.SIDE), penetrated.get(ArmorSide.SIDE),
+                armor.get(ArmorSide.REAR), penetrated.get(ArmorSide.REAR));
     }
 }

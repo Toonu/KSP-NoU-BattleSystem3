@@ -142,16 +142,21 @@ public class OOBFrame extends JFrame {
             selectedCraftsFromList.clear();
             if (whiteListedCrafts.getSelectedValuesList().size() == 1) {
                 selectedCraftsFromList.add(whiteListedCrafts.getSelectedValue());
+                Gui.getOob().getDetails().getNewName().
+                        setText(whiteListedCrafts.getSelectedValuesList().get(0).getName());
                 details.updateUI(whiteListedCrafts);
             } else {
                 selectedCraftsFromList.addAll(whiteListedCrafts.getSelectedValuesList());
             }
             lastSelectedList = whiteListedCrafts;
+
         });
         blackListedCrafts.addListSelectionListener(e -> {
             selectedCraftsFromList.clear();
             if (blackListedCrafts.getSelectedValuesList().size() == 1) {
                 selectedCraftsFromList.add(blackListedCrafts.getSelectedValue());
+                Gui.getOob().getDetails().getNewName().
+                        setText(blackListedCrafts.getSelectedValuesList().get(0).getName());
                 details.updateUI(blackListedCrafts);
             } else {
                 selectedCraftsFromList.addAll(blackListedCrafts.getSelectedValuesList());

@@ -24,8 +24,9 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                enums color of craft's side.
      */
-    protected Aircraft(double speed, String name, Type type, Era craftProductionYear, Side side) {
-        super(speed, name, type, craftProductionYear, side);
+    protected Aircraft(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSytems,
+                       int limitWeapons, int limitGuns) {
+        super(speed * 343, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
     }
 
     /**
