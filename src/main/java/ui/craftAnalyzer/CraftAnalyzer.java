@@ -31,13 +31,14 @@ public class CraftAnalyzer {
     public static final Color BACKGROUND = new Color(-16505734);
     public static final Color FOREGROUND = new Color(-14336);
     private static File path = null;
+    private static JFrame frame = new JFrame("Craft Analyser");
 
     /**
      * Main method.
      */
     public static void main() {
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Craft Analyser");
+
 
             JFileChooser jfc = new JFileChooser();
             jfc.setBackground(BACKGROUND);
@@ -113,6 +114,8 @@ public class CraftAnalyzer {
         int hardpoints = 0;
         String craftName = null;
         String lastPart = "";
+        boolean hasBDAModule = false;
+        boolean checkBDAModule = false;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
@@ -127,7 +130,21 @@ public class CraftAnalyzer {
                     if (Pattern.matches(".*bahaAdjustableRail.*", line)) {
                         hardpoints += 3;
                     }
+                    if (Pattern.matches(".*missileController.*", line)) {
+                        hasBDAModule = true;
+                        checkBDAModule = true;
+                    }
                     lastPart = line;
+                }
+                if (checkBDAModule && Pattern.matches(".*guardRange.*", line)) {
+                    String[] guardRange = line.split("=");
+                    if (Double.parseDouble(guardRange[1].trim()) <= 200000) {
+                        JOptionPane.showMessageDialog(frame,
+                                "Craft has not set AI visible distance properly (Under 200km) You should " +
+                                        "warn the player that the craft might not see enemies at long ranges.",
+                                "Wrong AI", JOptionPane.WARNING_MESSAGE);
+                    }
+                    checkBDAModule = false;
                 }
 
                 if (Pattern.matches(".*name = MissileLauncher.*", line)) {
@@ -159,7 +176,13 @@ public class CraftAnalyzer {
             parts.add(String.format("[ERR %s] Error initializing stream. Exception: %s",
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
         }
-        return new AnalyzedCraft(parts, missiles, weapons, systems, hardpoints, craftName);
+        if (!hasBDAModule) {
+            JOptionPane.showMessageDialog(frame,
+                    "Craft is missing BDA Manager module!",
+                    "Wrong AI", JOptionPane.WARNING_MESSAGE);
+        }
+
+        return new AnalyzedCraft(parts, missiles, weapons, systems, hardpoints, craftName, hasBDAModule);
     }
 
     public static File getPath() {

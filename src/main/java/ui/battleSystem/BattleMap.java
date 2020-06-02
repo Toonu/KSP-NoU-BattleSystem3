@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
@@ -17,6 +16,7 @@ import java.awt.image.BufferedImage;
  */
 public class BattleMap extends JPanel {
     private Image map;
+    private Graphics gr;
 
     public BattleMap() {
         super();
@@ -27,16 +27,18 @@ public class BattleMap extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        gr = g;
+
         map = new ImageIcon("map.png").getImage();
 
-        g.drawImage(map, 0, 0, null);
-        g.setColor(Color.WHITE);
-        g.drawString("Hello World", 100, 100);
+        gr.drawImage(map, 0, 0, null);
+        gr.setColor(Color.WHITE);
+        gr.drawString("Hello World", 100, 100);
         for (Craft craft : OOB.WHITE.getCrafts()) {
-            g.drawString("x", (int) Math.round(craft.getPosition().getX()), (int) Math.round(craft.getPosition().getY()));
+            gr.drawString("x", (int) Math.round(craft.getPosition().getX()), (int) Math.round(craft.getPosition().getY()));
         }
         for (Craft craft : OOB.BLACK.getCrafts()) {
-            g.drawString("y", (int) Math.round(craft.getPosition().getX()), (int) Math.round(craft.getPosition().getY()));
+            gr.drawString("y", (int) Math.round(craft.getPosition().getX()), (int) Math.round(craft.getPosition().getY()));
         }
     }
 
@@ -44,9 +46,9 @@ public class BattleMap extends JPanel {
         int newImageWidth = 1920 * 2;
         int newImageHeight = 1080 * 2;
         BufferedImage resizedImage = new BufferedImage(newImageWidth, newImageHeight, 1);
-        Graphics2D g = resizedImage.createGraphics();
-        g.drawImage(image, 0, 0, newImageWidth, newImageHeight, null);
-        g.dispose();
+        gr = resizedImage.createGraphics();
+        gr.drawImage(image, 0, 0, newImageWidth, newImageHeight, null);
+        gr.dispose();
         this.repaint();
     }
 

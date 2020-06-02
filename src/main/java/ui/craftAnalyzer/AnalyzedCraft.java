@@ -15,6 +15,7 @@ public class AnalyzedCraft {
     private final ArrayList<String> systems;
     private final int hardpoints;
     private final String craftName;
+    private final boolean hasAI;
 
     /**
      * Constructor.
@@ -27,13 +28,14 @@ public class AnalyzedCraft {
      * @param craftName  craftName.
      */
     public AnalyzedCraft(LinkedList<String> parts, ArrayList<String> missiles, ArrayList<String> weapons,
-                         ArrayList<String> systems, int hardpoints, String craftName) {
+                         ArrayList<String> systems, int hardpoints, String craftName, boolean hasAI) {
         this.parts = parts;
         this.missiles = missiles;
         this.weapons = weapons;
         this.systems = systems;
         this.hardpoints = hardpoints;
         this.craftName = craftName;
+        this.hasAI = hasAI;
     }
 
     /**
