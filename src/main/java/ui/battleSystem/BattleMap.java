@@ -3,8 +3,13 @@ package ui.battleSystem;
 import crafts.Craft;
 import impl.OOB;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
 /**
  * @author Toonu
@@ -60,5 +65,9 @@ public class BattleMap extends JPanel {
 
     public Image getMap() {
         return map;
+    }
+
+    public double getZoom() {
+        return zoom;
     }
 }

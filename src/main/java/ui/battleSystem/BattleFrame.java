@@ -5,8 +5,22 @@ import impl.OOB;
 import ui.Gui;
 import ui.JCraftList;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @author Toonu
@@ -28,7 +42,9 @@ public class BattleFrame extends JFrame {
         c.setLayout(new GridBagLayout());
         setPreferredSize(Gui.getMonitorSize());
         setMinimumSize(Gui.SIZE);
-        ScrollPane mapScroll = new ScrollPane();
+        JScrollPane mapScroll = new JScrollPane(map);
+        mapScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        mapScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         crafts.add(whiteListedCrafts, BorderLayout.NORTH);
         crafts.add(blackListedCrafts, BorderLayout.SOUTH);
@@ -38,6 +54,11 @@ public class BattleFrame extends JFrame {
         whiteListedCrafts.updateUI(OOB.WHITE.getCrafts());
         blackListedCrafts.updateUI(OOB.BLACK.getCrafts());
 
+        GridBagConstraints gbcc = new GridBagConstraints();
+        gbcc.anchor = GridBagConstraints.CENTER;
+        BattleMap battleMap = new BattleMap();
+        map.add(battleMap, gbcc);
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -45,14 +66,45 @@ public class BattleFrame extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weighty = 1;
         gbc.gridheight = 2;
-        mapScroll.add(map);
+
+        map.setAutoscrolls(true);
+
+        MouseAdapter dragging = new MouseAdapter() {
+
+            private Point origin;
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                origin = new Point(e.getPoint());
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if (origin != null) {
+                    JViewport viewPort = (JViewport) SwingUtilities.getAncestorOfClass(JViewport.class, map);
+                    if (viewPort != null) {
+                        int deltaX = origin.x - e.getX();
+                        int deltaY = origin.y - e.getY();
+
+                        Rectangle view = viewPort.getViewRect();
+                        view.x += deltaX;
+                        view.y += deltaY;
+
+                        map.scrollRectToVisible(view);
+                    }
+                }
+            }
+
+        };
+
+        map.addMouseListener(dragging);
+        map.addMouseMotionListener(dragging);
 
         c.add(mapScroll, gbc);
-        map.repaint();
-        GridBagConstraints gbcc = new GridBagConstraints();
-        gbcc.anchor = GridBagConstraints.CENTER;
-
-        map.add(new BattleMap(), gbcc);
 
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -71,7 +123,17 @@ public class BattleFrame extends JFrame {
         zoomIn.addActionListener(e -> {
             BattleMap bm = (BattleMap) map.getComponent(0);
             bm.zoomIn();
+            bm.invalidate();
             bm.updateUI();
+
+            double oldZoom = bm.getZoom();
+            int newZoom = (int) (oldZoom*2);
+            Rectangle oldView = mapScroll.getViewport().getViewRect();
+
+            Point newViewPos = new Point();
+            newViewPos.x = (int) Math.max(0, (oldView.x + oldView.width * 2) * newZoom / oldZoom - oldView.width * 2);
+            newViewPos.y = (int) Math.max(0, (oldView.y + oldView.height * 2) * newZoom / oldZoom - oldView.height * 2);
+            mapScroll.getViewport().setViewPosition(newViewPos);
         });
         c.add(zoomIn, gbc);
 
@@ -80,7 +142,17 @@ public class BattleFrame extends JFrame {
         zoomOut.addActionListener(e -> {
             BattleMap bm = (BattleMap) map.getComponent(0);
             bm.zoomOut();
+            bm.invalidate();
             bm.updateUI();
+
+            double oldZoom = bm.getZoom();
+            double newZoom = oldZoom/2;
+            Rectangle oldView = mapScroll.getViewport().getViewRect();
+
+            Point newViewPos = new Point();
+            newViewPos.x = (int) Math.max(0, (oldView.x + oldView.width / 2) * newZoom / oldZoom - oldView.width / 2);
+            newViewPos.y = (int) Math.max(0, (oldView.y + oldView.height / 2) * newZoom / oldZoom - oldView.height / 2);
+            mapScroll.getViewport().setViewPosition(newViewPos);
         });
         c.add(zoomOut, gbc);
 

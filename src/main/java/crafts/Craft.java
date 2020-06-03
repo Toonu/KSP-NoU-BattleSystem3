@@ -47,6 +47,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private int time;
     private int tick = -1;
 
+    //TODO Add craft attribute if it is selected on map or not to draw it differently
+
     /**
      * Constructor.
      *
