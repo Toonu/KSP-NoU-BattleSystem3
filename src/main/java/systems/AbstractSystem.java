@@ -16,21 +16,25 @@ public class AbstractSystem implements Serializable {
     private final double minRange;
     private final Era era;
     private final String name;
+    private final String internalKSPName;
 
     /**
      * Constructor.
      *
-     * @param strength double strength value of system for either defense or attack damage.
-     * @param maxRange double maximal range of system.
-     * @param minRange double minimal range of system.
-     * @param name     String name of the system.
-     * @param era      Era enum of era of the system.
+     * @param strength        double strength value of system for either defense or attack damage.
+     * @param maxRange        double maximal range of system.
+     * @param minRange        double minimal range of system.
+     * @param name            String name of the system.
+     * @param era             Era enum of era of the system.
+     * @param internalKSPName internal KSP name to search by analyzer.
      */
-    public AbstractSystem(double strength, double maxRange, double minRange, String name, Era era) {
+    public AbstractSystem(double strength, double maxRange, double minRange, String name,
+                          Era era, String internalKSPName) {
         if (strength > 0 && maxRange > 0 && minRange >= 0) {
             this.strength = strength;
             this.maxRange = maxRange;
             this.minRange = minRange;
+            this.internalKSPName = internalKSPName;
         } else {
             System.err.println(
                     String.format("[ERR %s] Error in creating the system. Values must be positive", LocalTime.now()));
@@ -66,6 +70,10 @@ public class AbstractSystem implements Serializable {
         return name;
     }
 
+    public String getInternalKSPName() {
+        return internalKSPName;
+    }
+
     @Override
     public String toString() {
         String nameString = name;
@@ -82,5 +90,14 @@ public class AbstractSystem implements Serializable {
      */
     public String toShortString() {
         return null;
+    }
+
+    /**
+     * Makes  copy of this AbstractSystem.
+     *
+     * @return copy.
+     */
+    public AbstractSystem copy() {
+        return new AbstractSystem(strength, maxRange, minRange, name, era, internalKSPName);
     }
 }

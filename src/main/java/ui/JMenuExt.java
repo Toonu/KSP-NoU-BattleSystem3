@@ -1,6 +1,6 @@
 package ui;
 
-import impl.OOB;
+import enums.Side;
 import ui.craftAnalyzer.CraftAnalyzer;
 import utils.WriterReader;
 
@@ -84,8 +84,8 @@ public class JMenuExt extends JMenuBar {
                                 Gui.getWelcomeFrame(), WindowEvent.WINDOW_CLOSING));
                         Gui.getOob().setVisible(true);
                     }
-                    Gui.getOob().getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
-                    Gui.getOob().getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
+                    Gui.getOob().getWhiteListedCrafts().updateUI(Side.WHITE.getCrafts());
+                    Gui.getOob().getBlackListedCrafts().updateUI(Side.BLACK.getCrafts());
                 }
             });
 

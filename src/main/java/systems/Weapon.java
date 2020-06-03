@@ -12,7 +12,7 @@ import java.util.Set;
  * <p>
  * Class simulating Weapon and its targetable types.
  */
-public class Weapon extends AbstractSystem implements Serializable, Comparable<Weapon> {
+public class Weapon extends AbstractSystem implements Serializable, Comparable<Weapon>, KSPPart {
     private final Set<Theatre> targets;
     private final boolean internal;
 
@@ -27,8 +27,8 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
      * @param targets  Set of Theatre objects targetable by the system.
      */
     protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets,
-                     String name, Era era, boolean internal) {
-        super(damage, maxRange, minRange, name, era);
+                     String name, Era era, boolean internal, String internalName) {
+        super(damage, maxRange, minRange, name, era, internalName);
         this.targets = targets;
         this.internal = internal;
     }
@@ -42,8 +42,9 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
      *
      * @return copy of the object.
      */
-    public Weapon copyWeapon() {
-        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets, getName(), getEra(), internal);
+    public Weapon copy() {
+        return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets,
+                getName(), getEra(), internal, getInternalKSPName());
     }
 
     @Override

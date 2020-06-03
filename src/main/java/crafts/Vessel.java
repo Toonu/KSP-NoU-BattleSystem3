@@ -31,6 +31,14 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
         this.limitCIWS = limitCIWS;
     }
 
+
+    /**
+     * Method makes copy of vessel.
+     *
+     * @param newSide Side of copy.
+     * @param t       What to copy.
+     * @return a copy.
+     */
     public static Vessel copy(Side newSide, Vessel t) {
         Vessel newCraft = new Vessel(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
                 t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns(), t.getLimitCIWS());

@@ -88,12 +88,12 @@ public class JCraftPanel extends JPanel {
         gc = new GridBagConstraints();
         gc.fill = GridBagConstraints.BOTH;
         gc.anchor = GridBagConstraints.EAST;
-        for (Countermeasure sys : OOB.TEMPLATE_COUNTERMEASURES) {
+        for (Countermeasure sys : OOB.getCountermeasures()) {
             systemButtons.add(new JButton(sys.toShortString()));
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
             systemButtons.getLast().addActionListener(e -> {
                 setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
-                selectedCrafts.forEach(craft -> craft.addSystem(sys));
+                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
                 if (!selectedCrafts.isEmpty()) {
                     Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
                     Gui.getOob().getWhiteListedCrafts().updateUI();
@@ -101,12 +101,12 @@ public class JCraftPanel extends JPanel {
                 }
             });
         }
-        for (Weapon sys : OOB.TEMPLATE_WEAPONS) {
+        for (Weapon sys : OOB.getWeapons()) {
             systemButtons.add(new JButton(sys.toShortString()));
             systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
             systemButtons.getLast().addActionListener(e -> {
                 setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
-                selectedCrafts.forEach(craft -> craft.addSystem(sys));
+                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
                 if (!selectedCrafts.isEmpty()) {
                     Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
                     Gui.getOob().getWhiteListedCrafts().updateUI();

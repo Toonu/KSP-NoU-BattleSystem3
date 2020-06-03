@@ -12,22 +12,24 @@ import java.util.EnumSet;
  * <p>
  * Class representing Countermeasure and its properities.
  */
-public class Countermeasure extends AbstractSystem implements Serializable, Comparable<Countermeasure> {
+public class Countermeasure extends AbstractSystem implements Serializable, Comparable<Countermeasure>, KSPPart {
     private final CMType type;
     private boolean oversaturated = false;
 
     /**
      * Constructor.
      *
-     * @param strength double strength value of system for defense strength.
-     * @param maxRange double maximal range of system.
-     * @param minRange double minimal range of system.
-     * @param name     String name of the system.
-     * @param era      Era enum of era of the system.
-     * @param type     CMType enum representing countermeasure type.
+     * @param strength        double strength value of system for defense strength.
+     * @param maxRange        double maximal range of system.
+     * @param minRange        double minimal range of system.
+     * @param name            String name of the system.
+     * @param era             Era enum of era of the system.
+     * @param type            CMType enum representing countermeasure type.
+     * @param internalKSPName internal KSP part name.
      */
-    public Countermeasure(double strength, double minRange, double maxRange, String name, Era era, CMType type) {
-        super(strength, maxRange, minRange, name, era);
+    public Countermeasure(double strength, double minRange, double maxRange, String name,
+                          Era era, CMType type, String internalKSPName) {
+        super(strength, maxRange, minRange, name, era, internalKSPName);
         this.type = type;
     }
 
@@ -50,14 +52,6 @@ public class Countermeasure extends AbstractSystem implements Serializable, Comp
         oversaturated = !oversaturated;
     }
 
-    /**
-     * Copy countermeasure.
-     *
-     * @return new cloned Object.
-     */
-    public Countermeasure copyCountermeasure() {
-        return new Countermeasure(getStrength(), getMinRange(), getMaxRange(), getName(), getEra(), type);
-    }
 
     /**
      * Compares this object with the specified object for order.  Returns a
@@ -88,5 +82,16 @@ public class Countermeasure extends AbstractSystem implements Serializable, Comp
      */
     public String toShortString() {
         return String.format("%10s %s", type, this.getName());
+    }
+
+    /**
+     * Copy countermeasure.
+     *
+     * @return new cloned Object.
+     */
+    @Override
+    public Countermeasure copy() {
+        return new Countermeasure(getStrength(), getMinRange(), getMaxRange(), getName(),
+                getEra(), type, getInternalKSPName());
     }
 }

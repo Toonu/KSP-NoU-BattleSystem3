@@ -442,7 +442,7 @@ public class WelcomeFrame extends JFrame {
         gc.weighty = 0.5;
         c.add(new JMenuExt(0), gc);
 
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 

@@ -1,7 +1,7 @@
 package ui.battleSystem;
 
 import crafts.Craft;
-import impl.OOB;
+import enums.Side;
 import ui.Gui;
 import ui.JCraftList;
 
@@ -34,6 +34,11 @@ public class BattleFrame extends JFrame {
     private final JPanel crafts = new JPanel(new BorderLayout(5, 0));
     private final JPanel map = new JPanel(new GridBagLayout());
 
+    /**
+     * Constructor.
+     *
+     * @param title title of the frame.
+     */
     public BattleFrame(String title) {
         super(title);
         setLayout(new GridBagLayout());
@@ -51,8 +56,8 @@ public class BattleFrame extends JFrame {
         crafts.setBackground(Gui.BACKGROUND);
         crafts.setForeground(Gui.FOREGROUND);
 
-        whiteListedCrafts.updateUI(OOB.WHITE.getCrafts());
-        blackListedCrafts.updateUI(OOB.BLACK.getCrafts());
+        whiteListedCrafts.updateUI(Side.WHITE.getCrafts());
+        blackListedCrafts.updateUI(Side.BLACK.getCrafts());
 
         GridBagConstraints gbcc = new GridBagConstraints();
         gbcc.anchor = GridBagConstraints.CENTER;

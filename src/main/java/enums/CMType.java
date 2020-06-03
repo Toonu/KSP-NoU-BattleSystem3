@@ -16,7 +16,9 @@ public enum CMType {
     JAMM(true, EnumSet.of(GuidanceType.GPS, GuidanceType.RADAR, GuidanceType.BEAM)),
     SKAPS(true, EnumSet.of(GuidanceType.GPS, GuidanceType.RADAR, GuidanceType.BEAM)),
     HKAPS(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS)),
-    DEW(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS));
+    DEW(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS)),
+    IRCM(false, EnumSet.of(GuidanceType.IR, GuidanceType.BEAM)),
+    EW(true, EnumSet.of(GuidanceType.RADAR));
 
     private final boolean isSaturable;
     private final EnumSet<GuidanceType> targets;

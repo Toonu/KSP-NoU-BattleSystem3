@@ -2,7 +2,6 @@ package ui.battleSystem;
 
 import crafts.Craft;
 import enums.Side;
-import impl.OOB;
 import ui.Gui;
 import ui.JCraftList;
 import ui.JCraftPanel;
@@ -50,7 +49,8 @@ public class OOBFrame extends JFrame {
     /**
      * Constructor.
      *
-     * @param title title of the frame.
+     * @param title  title of the frame.
+     * @param battle next frame after this one to launch.
      */
     public OOBFrame(String title, JFrame battle) {
         super(title);
@@ -78,7 +78,7 @@ public class OOBFrame extends JFrame {
         blackListedCrafts.setForeground(Color.WHITE);
 
         gc = new GridBagConstraints();
-        gc.gridheight = OOB.TEMPLATE.getCrafts().size();
+        gc.gridheight = Side.TEMPLATE.getCrafts().size();
         gc.weighty = 0.7;
         gc.fill = GridBagConstraints.BOTH;
         gc.weighty = 4;
@@ -99,7 +99,7 @@ public class OOBFrame extends JFrame {
         gc.gridx = 1;
         gc.weightx = 0.1;
 
-        for (Craft craft : OOB.TEMPLATE.getCrafts()) {
+        for (Craft craft : Side.TEMPLATE.getCrafts()) {
             ++gc.gridy;
             gc.fill = GridBagConstraints.VERTICAL;
             templateButtons.put(craft, new ArrayList<>());
@@ -123,13 +123,13 @@ public class OOBFrame extends JFrame {
 
             templateButtons.get(craft).get(0).addActionListener(e -> {
                 Craft newCraft = craft.copy(Side.WHITE);
-                OOB.WHITE.addCraft(newCraft);
+                Side.WHITE.addCraft(newCraft);
                 textForWhite.addElement(newCraft);
                 whiteListedCrafts.updateUI();
             });
             templateButtons.get(craft).get(1).addActionListener(e -> {
                 Craft newCraft = craft.copy(Side.BLACK);
-                OOB.BLACK.addCraft(newCraft);
+                Side.BLACK.addCraft(newCraft);
                 textForBlack.addElement(newCraft);
                 blackListedCrafts.updateUI();
             });

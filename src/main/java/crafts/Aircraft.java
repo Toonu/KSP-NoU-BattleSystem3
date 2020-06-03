@@ -4,8 +4,11 @@ import crafts.parts.Radar;
 import enums.Era;
 import enums.Side;
 import enums.Type;
+import impl.App;
 
 import java.io.Serializable;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author Toonu
@@ -29,6 +32,13 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
         super(speed * 343, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
     }
 
+    /**
+     * Method returns copy of the system with all of its attributes.
+     *
+     * @param newSide Side of the copied craft.
+     * @param t       Aircraft to copy.
+     * @return Aircraft.
+     */
     public static Aircraft copy(Side newSide, Aircraft t) {
         Aircraft newCraft = new Aircraft(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
                 t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns());
@@ -45,7 +55,15 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
      */
     @Override
     public void addRadar(Radar radar) {
-        this.radar = radar;
+        if (Integer.parseInt(radar.getEra().toString()) <= Integer.parseInt(getCraftProductionYear().toString())) {
+            this.radar = radar;
+            if (App.isDebug()) {
+                System.out.println(String.format("[LOG %s] %s added to the craft.",
+                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
+            }
+        }
+        System.err.println(String.format("[ERR %s] Could not add %s to the craft because " +
+                "it is newer than its software allows.", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
     }
 
     /**

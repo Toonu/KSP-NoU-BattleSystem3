@@ -6,8 +6,11 @@ import crafts.parts.Radar;
 import enums.Era;
 import enums.Side;
 import enums.Type;
+import impl.App;
 
 import java.io.Serializable;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author Toonu
@@ -57,6 +60,13 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
         this.armor = armor;
     }
 
+    /**
+     * Method makes copy of object.
+     *
+     * @param newSide Side of new vehicle.
+     * @param t       vehicle to copy.
+     * @return Vehicle copy.
+     */
     public static Vehicle copy(Side newSide, Vehicle t) {
         Vehicle newCraft = new Vehicle(t.getSpeed(), t.getName(), t.getType(), t.getCraftProductionYear(), newSide,
                 t.getLimitSystems(), t.getLimitInternal(), t.getLimitGuns(), t.getArmor());
@@ -73,7 +83,15 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
      */
     @Override
     public void addRadar(Radar radar) {
-        this.radar = radar;
+        if (Integer.parseInt(radar.getEra().toString()) <= Integer.parseInt(getCraftProductionYear().toString())) {
+            this.radar = radar;
+            if (App.isDebug()) {
+                System.out.println(String.format("[LOG %s] %s added to the craft.",
+                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
+            }
+        }
+        System.err.println(String.format("[ERR %s] Could not add %s to the craft because " +
+                "it is newer than its software allows.", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
     }
 
     /**

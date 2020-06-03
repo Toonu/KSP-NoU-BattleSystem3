@@ -2,7 +2,6 @@ package ui;
 
 import crafts.Craft;
 import enums.Side;
-import impl.OOB;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
@@ -27,11 +26,11 @@ public class PopupMenuRemove {
             public void mouseClicked(MouseEvent e) {
                 for (Craft craft : selected) {
                     if (craft.getSide() == Side.WHITE) {
-                        OOB.WHITE.removeCraft(craft);
-                        Gui.getOob().getWhiteListedCrafts().updateUI(OOB.WHITE.getCrafts());
+                        Side.WHITE.removeCraft(craft);
+                        Gui.getOob().getWhiteListedCrafts().updateUI(Side.WHITE.getCrafts());
                     } else {
-                        OOB.BLACK.removeCraft(craft);
-                        Gui.getOob().getBlackListedCrafts().updateUI(OOB.BLACK.getCrafts());
+                        Side.BLACK.removeCraft(craft);
+                        Gui.getOob().getBlackListedCrafts().updateUI(Side.BLACK.getCrafts());
                     }
                 }
                 f.setVisible(false);

@@ -16,7 +16,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.regex.Pattern;
 
@@ -31,7 +30,7 @@ public class CraftAnalyzer {
     public static final Color BACKGROUND = new Color(-16505734);
     public static final Color FOREGROUND = new Color(-14336);
     private static File path = null;
-    private static JFrame frame = new JFrame("Craft Analyser");
+    private static final JFrame frame = new JFrame("Craft Analyser");
 
     /**
      * Main method.
@@ -108,9 +107,6 @@ public class CraftAnalyzer {
      */
     private static AnalyzedCraft getParts(File file) {
         LinkedList<String> parts = new LinkedList<>();
-        ArrayList<String> missiles = new ArrayList<>();
-        ArrayList<String> weapons = new ArrayList<>();
-        ArrayList<String> systems = new ArrayList<>();
         int hardpoints = 0;
         String craftName = null;
         String lastPart = "";
@@ -134,37 +130,16 @@ public class CraftAnalyzer {
                         hasBDAModule = true;
                         checkBDAModule = true;
                     }
-                    lastPart = line;
                 }
                 if (checkBDAModule && Pattern.matches(".*guardRange.*", line)) {
                     String[] guardRange = line.split("=");
-                    if (Double.parseDouble(guardRange[1].trim()) <= 200000) {
+                    if (Double.parseDouble(guardRange[1].trim()) <= 199000) {
                         JOptionPane.showMessageDialog(frame,
                                 "Craft has not set AI visible distance properly (Under 200km) You should " +
                                         "warn the player that the craft might not see enemies at long ranges.",
                                 "Wrong AI", JOptionPane.WARNING_MESSAGE);
                     }
                     checkBDAModule = false;
-                }
-
-                if (Pattern.matches(".*name = MissileLauncher.*", line)) {
-                    missiles.add(lastPart);
-                    if (missiles.toString().length() - missiles.toString().lastIndexOf("\n") > 60) {
-                        parts.add("\n");
-                    }
-                } else if (Pattern.matches(".*name = ModuleWeapon.*", line)) {
-                    weapons.add(lastPart);
-                    if (weapons.toString().length() - weapons.toString().lastIndexOf("\n") > 60) {
-                        parts.add("\n");
-                    }
-                } else if (Pattern.matches(".*name = ModuleRadar.*", line) ||
-                        Pattern.matches("name = CM.....", line) ||
-                        Pattern.matches(".*ModuleECMJammer.*", line) ||
-                        Pattern.matches(".*ModuleTargetingCamera.*", line)) {
-                    systems.add(lastPart);
-                    if (systems.toString().length() - systems.toString().lastIndexOf("\n") > 60) {
-                        parts.add("\n");
-                    }
                 }
                 if (Pattern.matches(".*ship = .*", line)) {
                     line = line.trim();
@@ -182,7 +157,7 @@ public class CraftAnalyzer {
                     "Wrong AI", JOptionPane.WARNING_MESSAGE);
         }
 
-        return new AnalyzedCraft(parts, missiles, weapons, systems, hardpoints, craftName, hasBDAModule);
+        return new AnalyzedCraft(parts, hardpoints, craftName, hasBDAModule);
     }
 
     public static File getPath() {

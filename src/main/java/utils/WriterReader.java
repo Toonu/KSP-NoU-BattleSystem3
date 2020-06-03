@@ -3,6 +3,7 @@ package utils;
 import crafts.Craft;
 import crafts.Vehicle;
 import crafts.parts.Armor;
+import crafts.parts.Radar;
 import enums.ArmorSide;
 import enums.CMType;
 import enums.Era;
@@ -82,7 +83,7 @@ public class WriterReader {
     public static boolean saveSetupFile(File file, boolean template) {
         counter = 0;
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(file))) {
-            Stream.of(OOB.WHITE.getCrafts().stream(), OOB.BLACK.getCrafts().stream()).flatMap(s -> s).forEach(s1 -> {
+            Stream.of(Side.WHITE.getCrafts().stream(), Side.BLACK.getCrafts().stream()).flatMap(s -> s).forEach(s1 -> {
                 try {
                     o.writeObject(s1);
                 } catch (IOException e) {
@@ -96,7 +97,7 @@ public class WriterReader {
                 }
             });
             if (template) {
-                for (Craft craft : OOB.TEMPLATE.getCrafts()) {
+                for (Craft craft : Side.TEMPLATE.getCrafts()) {
                     o.writeObject(craft);
                     ++counter;
                     if (App.isDebug()) {
@@ -150,13 +151,13 @@ public class WriterReader {
                 }
             }
             if (counter > 0) {
-                OOB.WHITE.getCrafts().clear();
-                OOB.BLACK.getCrafts().clear();
-                OOB.TEMPLATE.getCrafts().clear();
+                Side.WHITE.getCrafts().clear();
+                Side.BLACK.getCrafts().clear();
+                Side.TEMPLATE.getCrafts().clear();
 
-                whites.forEach(OOB.WHITE::addCraft);
-                blacks.forEach(OOB.BLACK::addCraft);
-                templ.forEach(OOB.TEMPLATE::addCraft);
+                whites.forEach(Side.WHITE::addCraft);
+                blacks.forEach(Side.BLACK::addCraft);
+                templ.forEach(Side.TEMPLATE::addCraft);
                 return true;
             }
             throw new IOException("No craft has been loaded from file.");
@@ -375,7 +376,7 @@ public class WriterReader {
             String line = br.readLine();
             while (line != null) {
                 try {
-                    if (line.equals(",,,,,,,,,FALSE")) {
+                    if (line.equals(",,,,,,,,,FALSE,")) {
                         break;
                     }
                     String[] word = line.split(",");
@@ -386,7 +387,7 @@ public class WriterReader {
                     double maxRange = Double.parseDouble(word[4]);
 
                     if (strength < 1 || minRange < 0 || maxRange <= 0) {
-                        throw new IllegalArgumentException(String.format("Error reading the weapon's %s values. " +
+                        throw new IllegalArgumentException(String.format("Error reading the system %s values. " +
                                 "One of them is negative or null.", name));
                     }
 
@@ -399,11 +400,21 @@ public class WriterReader {
 
                     AbstractSystem system;
 
+                    if (word[0].equals("Radar")) {
+                        Radar newRadar = new Radar(name, strength, maxRange, era, word[10]);
+                        OOB.addRadar(newRadar);
+                        if (App.isDebug()) {
+                            System.out.println(String.format("[LOG %s] %-16s %s",
+                                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Loaded from file:", newRadar));
+                        }
+                        continue;
+                    }
+
                     try {
                         CMType type = CMType.valueOf(word[0].toUpperCase());
 
                         Countermeasure countermeasure =
-                                new Countermeasure(strength, minRange, maxRange, name, era, type);
+                                new Countermeasure(strength, minRange, maxRange, name, era, type, word[10]);
                         system = countermeasure;
                         list.add(countermeasure);
                     } catch (IllegalArgumentException e) {
@@ -429,7 +440,7 @@ public class WriterReader {
                                         "values. Expected 3: Present <%s>", name, ammo.length));
                             }
                             newWeapon = new Gun(strength, minRange, maxRange,
-                                    targets, name, era, ammunition, Boolean.parseBoolean(word[9]));
+                                    targets, name, era, ammunition, Boolean.parseBoolean(word[9]), word[10]);
 
                         } else {
                             GuidanceType guidanceType;
@@ -447,7 +458,7 @@ public class WriterReader {
                                         String.format("Error reading %s guidance type. %s", name, ex.getMessage()));
                             }
                             newWeapon = new Missile(strength, minRange, maxRange, targets,
-                                    name, era, guidanceType, speed);
+                                    name, era, guidanceType, speed, word[10]);
 
                         }
                         list.add(newWeapon);
