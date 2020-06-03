@@ -2,6 +2,7 @@ package ui.battleSystem;
 
 import crafts.Craft;
 import impl.OOB;
+import ui.Gui;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -22,8 +23,12 @@ public class BattleMap extends JPanel {
 
     public BattleMap() {
         super();
-        zoom = 2;
-        setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
+        Dimension monitor = Gui.getMonitorSize();
+        zoom = monitor.getWidth() / 1700;
+
+
+        setPreferredSize(new Dimension((int) Math.round(1700 * zoom),
+                (int) Math.round(900 * zoom)));
     }
 
     @Override

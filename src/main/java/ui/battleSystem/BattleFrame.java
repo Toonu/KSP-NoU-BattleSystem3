@@ -127,7 +127,7 @@ public class BattleFrame extends JFrame {
             bm.updateUI();
 
             double oldZoom = bm.getZoom();
-            int newZoom = (int) (oldZoom*2);
+            double newZoom = oldZoom * 2;
             Rectangle oldView = mapScroll.getViewport().getViewRect();
 
             Point newViewPos = new Point();
