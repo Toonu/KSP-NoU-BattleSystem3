@@ -135,9 +135,10 @@ public class BattleFrame extends JFrame {
             double newZoom = oldZoom * 2;
             Rectangle oldView = mapScroll.getViewport().getViewRect();
 
+
             Point newViewPos = new Point();
-            newViewPos.x = (int) Math.max(0, (oldView.x + oldView.width * 2) * newZoom / oldZoom - oldView.width * 2);
-            newViewPos.y = (int) Math.max(0, (oldView.y + oldView.height * 2) * newZoom / oldZoom - oldView.height * 2);
+            newViewPos.x = Math.max(0, (oldView.x + oldView.width / 2) * 2 - oldView.width / 2);
+            newViewPos.y = Math.max(0, (oldView.y + oldView.height / 2) * 2 - oldView.height / 2);
             mapScroll.getViewport().setViewPosition(newViewPos);
         });
         c.add(zoomIn, gbc);
@@ -146,17 +147,21 @@ public class BattleFrame extends JFrame {
         JButton zoomOut = new JButton("Zoom Out");
         zoomOut.addActionListener(e -> {
             BattleMap bm = (BattleMap) map.getComponent(0);
-            bm.zoomOut();
+            double factor = bm.zoomOut();
             bm.invalidate();
             bm.updateUI();
 
+            if (factor == -1) {
+                return;
+            }
+
             double oldZoom = bm.getZoom();
-            double newZoom = oldZoom/2;
+            double newZoom = oldZoom / 2;
             Rectangle oldView = mapScroll.getViewport().getViewRect();
 
             Point newViewPos = new Point();
-            newViewPos.x = (int) Math.max(0, (oldView.x + oldView.width / 2) * newZoom / oldZoom - oldView.width / 2);
-            newViewPos.y = (int) Math.max(0, (oldView.y + oldView.height / 2) * newZoom / oldZoom - oldView.height / 2);
+            newViewPos.x = (int) Math.max(0, (oldView.x + oldView.width / 2) * 0.5 - oldView.width / 2);
+            newViewPos.y = (int) Math.max(0, (oldView.y + oldView.height / 2) * 0.5 - oldView.height / 2);
             mapScroll.getViewport().setViewPosition(newViewPos);
         });
         c.add(zoomOut, gbc);

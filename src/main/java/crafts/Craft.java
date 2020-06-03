@@ -13,8 +13,6 @@ import utils.Movable;
 import utils.Vertex2D;
 
 import java.io.Serializable;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Random;
@@ -218,13 +216,9 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                     countermeasures.add((Countermeasure) system);
                 }
             }
-            if (App.isDebug()) {
-                System.out.println(String.format("[LOG %s] %-17s %s",
-                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Added to craft:", system));
-            }
+            App.err(String.format("%-17s %s", "Added to craft:", system), false, false);
         } catch (IllegalArgumentException e) {
-            System.err.println(String.format("[ERR %s] Weapon is null. Not added.",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
+            App.err("Weapon is null. Not added.", true, true);
         }
     }
 
@@ -250,8 +244,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     public boolean absorbDamage(double damage) {
         if (hp - damage > 0) {
             hp -= damage;
+            App.err(String.format("Received %s damage", damage), false, true);
             return true;
         }
+        App.err(String.format("%s DESTROYED after receiving %s damage", name, damage), false, false);
         return false;
     }
 
@@ -574,9 +570,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             if (name != null) {
                 this.name = name;
             } else {
-                System.err.println(
-                        String.format("[ERR %s] Name is null, replacing with default name value.",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
+                App.err("Name is null. Replacing with default name.", true, true);
             }
             return this;
         }
@@ -591,9 +585,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             if (speed > 0) {
                 this.speed = speed;
             } else {
-                System.err.println(String.format(
-                        "[ERR %s] Speed must be positive. Applying default speed of 10m/s.",
-                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
+                App.err("Speed must be positive. Applying default speed. (10m/s)", false, false);
             }
             return this;
         }
@@ -704,15 +696,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                         return new Vessel(speed, name, type, craftProductionYear,
                                 side, limitSystems, limitWeapons, limitGuns, limitCIWS);
                     default:
-                        throw new IllegalArgumentException(
-                                String.format("[ERR %s] Wrong vehicle type.", LocalTime.now()));
+                        throw new IllegalArgumentException("Wrong vehicle type.");
                 }
             } catch (IllegalArgumentException e) {
-                System.err.println(String.format("[ERR %s] Vehicle couldn't have been created." +
-                        "\n%s", LocalTime.now(), e));
-                if (App.isDebug()) {
-                    System.err.println(String.format("[LOG %s] Current state of Builder:\n%s", LocalTime.now(), this));
-                }
+                App.err("Vehicle couldn't have been created." + e, true, true);
+                App.err("Current state of builder when it failed.\n" + this, false, false);
                 return null;
             }
         }

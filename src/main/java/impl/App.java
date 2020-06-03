@@ -2,8 +2,12 @@ package impl;
 
 import crafts.Craft;
 import enums.Era;
+import ui.Gui;
 import utils.Vertex2D;
 
+import javax.swing.JOptionPane;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -47,5 +51,29 @@ public class App {
 
     public static void setDebug(boolean debug) {
         App.debug = debug;
+    }
+
+    /**
+     * Method generating and logging messages.
+     *
+     * @param text    message text.
+     * @param isError if error message.
+     * @param gui     if gui popus is shown.
+     */
+    public static void err(String text, boolean isError, boolean gui) {
+        if (isError) {
+            System.err.println(String.format("[ERR %s] %s.",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), text));
+            if (gui) {
+                JOptionPane.showMessageDialog(Gui.getCurrentWindow(), text, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            System.out.println(String.format("[LOG %s] %s",
+                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), text));
+            if (gui && debug) {
+                JOptionPane.showMessageDialog(Gui.getCurrentWindow(), text,
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 }

@@ -7,8 +7,6 @@ import enums.Type;
 import impl.App;
 
 import java.io.Serializable;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 
 /**
  * @author Toonu
@@ -57,13 +55,11 @@ public class Aircraft extends Craft implements Serializable, RadarVehicle {
     public void addRadar(Radar radar) {
         if (Integer.parseInt(radar.getEra().toString()) <= Integer.parseInt(getCraftProductionYear().toString())) {
             this.radar = radar;
-            if (App.isDebug()) {
-                System.out.println(String.format("[LOG %s] %s added to the craft.",
-                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
-            }
+            App.err(radar + "added to the vehicle.", false, false);
+        } else {
+            App.err("Could not add " + radar + "to the craft because its software is newer than " +
+                    "the software of the vehicle.", true, true);
         }
-        System.err.println(String.format("[ERR %s] Could not add %s to the craft because " +
-                "it is newer than its software allows.", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), radar));
     }
 
     /**

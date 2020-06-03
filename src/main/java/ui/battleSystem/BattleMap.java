@@ -20,6 +20,7 @@ public class BattleMap extends JPanel {
     private Graphics gr;
     private final JPanel centeringPanel = new JPanel(new BorderLayout());
     private double zoom = 1;
+    private final double zoomMax;
 
     /**
      * Constructor.
@@ -27,11 +28,11 @@ public class BattleMap extends JPanel {
     public BattleMap() {
         super();
         Dimension monitor = Gui.getMonitorSize();
-        zoom = monitor.getWidth() / 1700;
+        zoom = monitor.getHeight() / 960;
+        zoomMax = zoom;
 
 
-        setPreferredSize(new Dimension((int) Math.round(1700 * zoom),
-                (int) Math.round(900 * zoom)));
+        setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
     }
 
     @Override
@@ -69,17 +70,22 @@ public class BattleMap extends JPanel {
      */
     public void zoomIn() {
         zoom *= 2;
-        System.out.println(zoom);
         setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
     }
 
     /**
      * Method zooms out of the map.
+     *
+     * @return double -1 if the picture gets bigger than maximal allowed size.
      */
-    public void zoomOut() {
-        zoom /= 2;
-        System.out.println(zoom);
+    public double zoomOut() {
+        if (900 * (zoom / 2) < 900 * zoomMax) {
+            return -1;
+        } else {
+            zoom /= 2;
+        }
         setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
+        return zoom;
     }
 
     public Image getMap() {

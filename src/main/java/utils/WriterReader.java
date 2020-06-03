@@ -19,9 +19,7 @@ import systems.Countermeasure;
 import systems.Gun;
 import systems.Missile;
 import systems.Weapon;
-import ui.Gui;
 
-import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -33,8 +31,6 @@ import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -87,33 +83,22 @@ public class WriterReader {
                 try {
                     o.writeObject(s1);
                 } catch (IOException e) {
-                    System.err.println(String.format("[ERR %s] Error writing craft: %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), s1));
+                    App.err("Error saving craft:" + s1, true, true);
                 }
                 ++WriterReader.counter;
-                if (App.isDebug()) {
-                    System.out.println(String.format("[LOG %s] %-18s %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", s1.toLongString()));
-                }
+                App.err(String.format("%-18s %s", "Craft saved:", s1.toLongString()), false, false);
             });
             if (template) {
                 for (Craft craft : Side.TEMPLATE.getCrafts()) {
                     o.writeObject(craft);
                     ++counter;
-                    if (App.isDebug()) {
-                        System.out.println(String.format("[LOG %s] %-18s %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Craft saved:", craft.toLongString()));
-                    }
+                    App.err(String.format("%-18s %s", "Craft saved:", craft.toLongString()), false, false);
                 }
             }
-            System.out.println(String.format("[LOG %s] %-18s [%s]",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts saved:", counter));
+            App.err(String.format("%-18s [%s]", "Crafts saved:", counter), false, false);
             return true;
         } catch (IOException e) {
-            System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
-            JOptionPane.showMessageDialog(Gui.getCurrentWindow(), "Program couldn't have been saved.",
-                    "Save failed", JOptionPane.ERROR_MESSAGE);
+            App.err("Program could not have been saved:" + e, true, true);
             return false;
         }
     }
@@ -144,11 +129,8 @@ public class WriterReader {
                     ++counter;
                 }
             } catch (EOFException e) {
-                if (App.isDebug()) {
-                    System.out.println(String.format("[LOG %s] %-18s [W: %s B: %s T: %s]",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Crafts loaded:",
-                            whites.size(), blacks.size(), templ.size()));
-                }
+                App.err(String.format("%-18s [W: %s B: %s T: %s]",
+                        "Crafts loaded:", whites.size(), blacks.size(), templ.size()), false, false);
             }
             if (counter > 0) {
                 Side.WHITE.getCrafts().clear();
@@ -160,13 +142,9 @@ public class WriterReader {
                 templ.forEach(Side.TEMPLATE::addCraft);
                 return true;
             }
-            throw new IOException("No craft has been loaded from file.");
+            throw new IOException("No craft could have been loaded from file.");
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println(String.format("[ERR %s] Error initializing stream.",
-                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS)));
-            JOptionPane.showMessageDialog(Gui.getCurrentWindow(), "Program couldn't have been loaded.",
-                    "Loading failed", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
+            App.err(String.format("%s", e), true, true);
             return false;
         }
     }
@@ -321,20 +299,12 @@ public class WriterReader {
                                 .build();
                     }
                     crafts.add(newCraft);
-
-                    if (App.isDebug()) {
-                        System.out.println(String.format("[LOG %s] %-18s %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS),
-                                "Crafts loaded:", newCraft.toExtraString()));
-                    }
+                    App.err(String.format("%-18s %s", "Crafts loaded:", newCraft.toExtraString()), false, false);
                 }
                 line = br.readLine();
             }
         } catch (IOException | IllegalArgumentException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(Gui.getCurrentWindow(),
-                    "Program couldn't have been loaded due to corrupted template crafts file.",
-                    "Loading failed", JOptionPane.ERROR_MESSAGE);
+            App.err("Program couldn't have been loaded due to corrupted template crafts file." + e, true, true);
         }
         return crafts;
     }
@@ -403,10 +373,7 @@ public class WriterReader {
                     if (word[0].equals("Radar")) {
                         Radar newRadar = new Radar(name, strength, maxRange, era, word[10]);
                         OOB.addRadar(newRadar);
-                        if (App.isDebug()) {
-                            System.out.println(String.format("[LOG %s] %-16s %s",
-                                    LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Loaded from file:", newRadar));
-                        }
+                        App.err(String.format("%-16s %s", "Loaded from file:", newRadar), false, false);
                         continue;
                     }
 
@@ -464,22 +431,15 @@ public class WriterReader {
                         list.add(newWeapon);
                         system = newWeapon;
                     }
-                    if (App.isDebug()) {
-                        System.out.println(String.format("[LOG %s] %-16s %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Loaded from file:", system));
-                    }
+                    App.err(String.format("%-16s %s", "Loaded from file:", system), false, false);
                 } catch (IllegalArgumentException e) {
-                    System.err.println(String.format("[ERR %s] %s",
-                            LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
+                    App.err(e.getMessage(), true, true);
                 } finally {
                     line = br.readLine();
                 }
             }
         } catch (IOException e) {
-            System.err.println(String.format("[ERR %s] %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
-            JOptionPane.showMessageDialog(Gui.getCurrentWindow(),
-                    "Program couldn't have been loaded due to wrong system database.",
-                    "Loading failed", JOptionPane.ERROR_MESSAGE);
+            App.err("Program couldn't have been loaded due to wrong system database.", true, true);
         }
         return list;
     }

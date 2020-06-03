@@ -30,7 +30,7 @@ public class CraftAnalyzer {
     public static final Color BACKGROUND = new Color(-16505734);
     public static final Color FOREGROUND = new Color(-14336);
     private static File path = null;
-    private static final JFrame frame = new JFrame("Craft Analyser");
+    private static final JFrame FRAME = new JFrame("Craft Analyser");
 
     /**
      * Main method.
@@ -61,7 +61,7 @@ public class CraftAnalyzer {
 
             jfc.addActionListener(e1 -> {
                 if (e1.getActionCommand().equals("CancelSelection")) {
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    FRAME.dispatchEvent(new WindowEvent(FRAME, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file = jfc.getSelectedFile();
                     setPath(jfc.getSelectedFile());
@@ -77,9 +77,9 @@ public class CraftAnalyzer {
 
                     Object[] options = {"Show Details", "Close"};
 
-                    if (JOptionPane.showOptionDialog(frame, newCraft, "Analyzer",
+                    if (JOptionPane.showOptionDialog(FRAME, newCraft, "Analyzer",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]) == 0) {
-                        JOptionPane.showMessageDialog(frame, newCraft.toPartString());
+                        JOptionPane.showMessageDialog(FRAME, newCraft.toPartString());
                     }
                 }
             });
@@ -89,13 +89,13 @@ public class CraftAnalyzer {
             int width = gd.getDisplayMode().getWidth();
             int height = gd.getDisplayMode().getHeight();
 
-            frame.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
-            frame.setSize(WIDTH, HEIGHT);
+            FRAME.setLocation((width / 2) - (WIDTH / 2), (height / 2) - (HEIGHT / 2));
+            FRAME.setSize(WIDTH, HEIGHT);
 
-            frame.add(jfc);
+            FRAME.add(jfc);
 
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setVisible(true);
+            FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            FRAME.setVisible(true);
         });
     }
 
@@ -134,7 +134,7 @@ public class CraftAnalyzer {
                 if (checkBDAModule && Pattern.matches(".*guardRange.*", line)) {
                     String[] guardRange = line.split("=");
                     if (Double.parseDouble(guardRange[1].trim()) <= 199000) {
-                        JOptionPane.showMessageDialog(frame,
+                        JOptionPane.showMessageDialog(FRAME,
                                 "Craft has not set AI visible distance properly (Under 200km) You should " +
                                         "warn the player that the craft might not see enemies at long ranges.",
                                 "Wrong AI", JOptionPane.WARNING_MESSAGE);
@@ -152,7 +152,7 @@ public class CraftAnalyzer {
                     LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e));
         }
         if (!hasBDAModule) {
-            JOptionPane.showMessageDialog(frame,
+            JOptionPane.showMessageDialog(FRAME,
                     "Craft is missing BDA Manager module!",
                     "Wrong AI", JOptionPane.WARNING_MESSAGE);
         }

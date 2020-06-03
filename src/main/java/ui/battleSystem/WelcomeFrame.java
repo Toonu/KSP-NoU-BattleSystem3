@@ -21,8 +21,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 
@@ -408,8 +406,7 @@ public class WelcomeFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 App.setDebug(!App.isDebug());
-                System.out.println(String.format("[LOG %s] %s: %s",
-                        LocalTime.now().truncatedTo(ChronoUnit.SECONDS), "Debug set to", App.isDebug()));
+                App.err("Debug set to " + App.isDebug(), false, false);
             }
 
             @Override
@@ -442,7 +439,7 @@ public class WelcomeFrame extends JFrame {
         gc.weighty = 0.5;
         c.add(new JMenuExt(0), gc);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 

@@ -19,36 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="BattleMap resizing by monitor WIP.&#10;0.2.2">
-      <change afterPath="$PROJECT_DIR$/Aereo I Album Neo.craft" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Aereo I Album.craft" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/systems/KSPPart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/ErrorMessage.java" afterDir="false" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Analyzer 2.0&#10;0.2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/E42.craft" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoU Database - DatabaseForBS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/NoU Database - DatabaseForBS.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing jet Double.craft" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestingBig.craft" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vessel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/parts/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/CMType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/CMType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Gun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/PopupMenuRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/PopupMenuRemove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/OOBFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/OOBFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
     </list>
@@ -397,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591175468347</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Analyzer 2.0&#10;0.2.3">
+      <created>1591194596140</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1591194596140</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +406,6 @@
       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
       <path value="$PROJECT_DIR$/KSP-NoU-CraftAnalyzer" />
     </ignored-roots>
-    <MESSAGE value="Progress." />
     <MESSAGE value="Refractoring." />
     <MESSAGE value="Progress" />
     <MESSAGE value="Refactoring v2" />
@@ -444,7 +430,8 @@
     <MESSAGE value="Added internal weapons and limits to craft's systems and weapons.&#10;0.2.2" />
     <MESSAGE value="Started BattleWindow&#10;0.2.2" />
     <MESSAGE value="BattleMap resizing by monitor WIP.&#10;0.2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="BattleMap resizing by monitor WIP.&#10;0.2.2" />
+    <MESSAGE value="Analyzer 2.0&#10;0.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analyzer 2.0&#10;0.2.3" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -523,10 +510,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="711" y="345" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590760087656" />
-    <state x="816" y="446" width="938" height="594" key="#xdebugger.evaluate" timestamp="1591193349113">
+    <state x="816" y="446" width="938" height="594" key="#xdebugger.evaluate" timestamp="1591215122322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="816" y="446" width="938" height="594" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1591193349113" />
+    <state x="816" y="446" width="938" height="594" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1591215122322" />
     <state x="164" y="298" width="474" height="361" key="#xdebugger.evaluate/0.23.1366.681@0.23.1366.681" timestamp="1590736349674" />
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590226703252">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -541,45 +528,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590760142281" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591193932973">
+    <state width="1877" height="487" key="GridCell.Tab.0.bottom" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591193932973" />
+    <state width="1877" height="487" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591193932973">
+    <state width="1877" height="487" key="GridCell.Tab.0.center" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591193932973" />
+    <state width="1877" height="487" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591096981046" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591193932973">
+    <state width="1877" height="487" key="GridCell.Tab.0.left" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591193932973" />
+    <state width="1877" height="487" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591096981045" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591193932973">
+    <state width="1877" height="487" key="GridCell.Tab.0.right" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591193932973" />
+    <state width="1877" height="487" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="487" key="GridCell.Tab.1.bottom" timestamp="1591193492087">
+    <state width="1877" height="487" key="GridCell.Tab.1.bottom" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="487" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591193492087" />
+    <state width="1877" height="487" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="207" key="GridCell.Tab.1.bottom/0.23.1366.681@0.23.1366.681" timestamp="1590737885609" />
-    <state width="1877" height="487" key="GridCell.Tab.1.center" timestamp="1591193492087">
+    <state width="1877" height="487" key="GridCell.Tab.1.center" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="487" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591193492087" />
+    <state width="1877" height="487" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="207" key="GridCell.Tab.1.center/0.23.1366.681@0.23.1366.681" timestamp="1590737885605" />
-    <state width="1877" height="487" key="GridCell.Tab.1.left" timestamp="1591193492087">
+    <state width="1877" height="487" key="GridCell.Tab.1.left" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="487" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591193492087" />
+    <state width="1877" height="487" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="207" key="GridCell.Tab.1.left/0.23.1366.681@0.23.1366.681" timestamp="1590737885603" />
-    <state width="1877" height="487" key="GridCell.Tab.1.right" timestamp="1591193492087">
+    <state width="1877" height="487" key="GridCell.Tab.1.right" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="487" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591193492087" />
+    <state width="1877" height="487" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591218148081" />
     <state width="1324" height="207" key="GridCell.Tab.1.right/0.23.1366.681@0.23.1366.681" timestamp="1590737885608" />
     <state x="620" y="235" key="GuiDesigner.FormSource.Dialog" timestamp="1590265281925">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -602,10 +589,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591175474822">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591194597390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591175474822" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591194597390" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1590663268863" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -632,6 +619,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="73" y="122" width="1569" height="1027" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1591187616936" />
+    <state x="1196" y="146" width="585" height="801" key="find.popup" timestamp="1591207782802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1196" y="146" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591207782802" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1590410566629">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -662,11 +653,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java</url>
           <line>43</line>
