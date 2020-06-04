@@ -53,15 +53,27 @@ public class BattleMap extends JPanel {
 
         gr.drawImage(map, 0, 0, (int) Math.round(1700 * zoom), (int) Math.round(900 * zoom), null);
         gr.setColor(Color.WHITE);
-        gr.drawString("Hello World", 100, 100);
         for (Craft craft : Side.WHITE.getCrafts()) {
-            gr.drawString("x",
-                    (int) Math.round(craft.getPosition().getX() * zoom),
-                    (int) (Math.round(craft.getPosition().getY() * zoom)));
+            if (craft.isSelected()) {
+                gr.drawRect((int) Math.round(craft.getPosition().getX() * zoom - 2),
+                        (int) (Math.round(craft.getPosition().getY() * zoom - 2)), 5, 5);
+                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * 2 * zoom + 5),
+                        (int) Math.round(craft.getPosition().getY() * zoom) + 5);
+            } else {
+                gr.drawString("x", (int) Math.round(craft.getPosition().getX() * zoom),
+                        (int) Math.round(craft.getPosition().getY() * zoom));
+            }
         }
         for (Craft craft : Side.BLACK.getCrafts()) {
-            gr.drawString("y", (int) Math.round(craft.getPosition().getX() * zoom),
-                    (int) Math.round(craft.getPosition().getY() * zoom));
+            if (craft.isSelected()) {
+                gr.drawRect((int) Math.round(craft.getPosition().getX() * zoom - 2),
+                        (int) (Math.round(craft.getPosition().getY() * zoom - 2)), 5, 5);
+                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * 2 * zoom + 5),
+                        (int) Math.round(craft.getPosition().getY() * zoom) + 5);
+            } else {
+                gr.drawString("y", (int) Math.round(craft.getPosition().getX() * zoom + 5),
+                        (int) Math.round(craft.getPosition().getY() * zoom + 5));
+            }
         }
     }
 

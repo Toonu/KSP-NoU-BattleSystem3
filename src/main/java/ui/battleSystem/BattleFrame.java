@@ -57,7 +57,17 @@ public class BattleFrame extends JFrame {
         crafts.setForeground(Gui.FOREGROUND);
 
         whiteListedCrafts.updateUI(Side.WHITE.getCrafts());
+        whiteListedCrafts.addListSelectionListener(e -> {
+            Side.WHITE.getCrafts().get(Side.WHITE.getCrafts()
+                    .indexOf(whiteListedCrafts.getSelectedValue())).select();
+            map.updateUI();
+        });
         blackListedCrafts.updateUI(Side.BLACK.getCrafts());
+        blackListedCrafts.addListSelectionListener(e -> {
+            Side.BLACK.getCrafts().get(Side.BLACK.getCrafts()
+                    .indexOf(blackListedCrafts.getSelectedValue())).select();
+            map.updateUI();
+        });
 
         GridBagConstraints gbcc = new GridBagConstraints();
         gbcc.anchor = GridBagConstraints.CENTER;
@@ -67,7 +77,7 @@ public class BattleFrame extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 0.9;
+        gbc.weightx = 0.997;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weighty = 1;
         gbc.gridheight = 2;
@@ -113,9 +123,9 @@ public class BattleFrame extends JFrame {
 
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.weightx = 0.1;
+        gbc.weightx = 0.003;
         gbc.weighty = 0.95;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 3;
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
         c.add(crafts, gbc);
@@ -123,6 +133,8 @@ public class BattleFrame extends JFrame {
         gbc = new GridBagConstraints();
         gbc.gridwidth = 1;
         gbc.weighty = 0.05;
+        gbc.weightx = 0.001;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridy = 1;
         JButton zoomIn = new JButton("Zoom In ");
         zoomIn.addActionListener(e -> {
@@ -137,6 +149,7 @@ public class BattleFrame extends JFrame {
 
 
             Point newViewPos = new Point();
+
             newViewPos.x = Math.max(0, (oldView.x + oldView.width / 2) * 2 - oldView.width / 2);
             newViewPos.y = Math.max(0, (oldView.y + oldView.height / 2) * 2 - oldView.height / 2);
             mapScroll.getViewport().setViewPosition(newViewPos);
@@ -166,7 +179,11 @@ public class BattleFrame extends JFrame {
         });
         c.add(zoomOut, gbc);
 
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        gbc.gridx = 3;
+        JButton step = new JButton("Next step");
+        c.add(step, gbc);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();
         pack();
         setExtendedState(JFrame.MAXIMIZED_BOTH);

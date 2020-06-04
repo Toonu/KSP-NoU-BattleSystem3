@@ -42,6 +42,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private double hp;
 
     private boolean isWithdrawing = false;
+    private boolean isSelected = false;
     private int time;
     private int tick = -1;
 
@@ -325,6 +326,13 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
                 trg.getX() - position.getX()));
     }
 
+    /**
+     * Method select the craft on map and makes it more visible.
+     */
+    public void select() {
+        isSelected = !isSelected;
+    }
+
     //Getters
 
     public double getAngle() {
@@ -369,6 +377,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     public Vertex2D getPosition() {
         return position;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
     }
 
     public void setAngle(double angle) {
