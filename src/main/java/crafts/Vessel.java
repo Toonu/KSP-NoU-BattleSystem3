@@ -25,9 +25,9 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                enums color of craft's side.
      */
-    protected Vessel(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSytems,
+    protected Vessel(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSystems,
                      int limitWeapons, int limitGuns, int limitCIWS) {
-        super(speed, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
+        super(speed, name, type, craftProductionYear, side, limitSystems, limitWeapons, limitGuns);
         this.limitCIWS = limitCIWS;
     }
 

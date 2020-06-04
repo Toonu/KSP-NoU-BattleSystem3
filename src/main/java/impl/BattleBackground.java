@@ -1,10 +1,5 @@
 package impl;
 
-import crafts.Craft;
-import enums.Side;
-import ui.Gui;
-import ui.battleSystem.BattleFrame;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,42 +24,17 @@ public class BattleBackground implements Runnable {
     public void run() {
         Timer t = new Timer();
         TimerTask tt = new BattleSecond();
+        TimerTask tm = new MapBackground();
 
         t.schedule(tt, 0, 1000);
+        t.schedule(tm, 0, 1000);
 
-        //Deselecting crafts on the map.
         while (!App.isFinished()) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            for (Craft craft : Side.WHITE.getCrafts()) {
-                if (craft.getSelectedTime() > 0) {
-                    craft.setSelectedTime(craft.getSelectedTime() - 1);
-                }
-                if (craft.getSelectedTime() == 0) {
-                    craft.deselect();
-                }
-
-                craft.tick();
-            }
-            for (Craft craft : Side.BLACK.getCrafts()) {
-                if (craft.getSelectedTime() > 0) {
-                    craft.setSelectedTime(craft.getSelectedTime() - 1);
-                }
-                if (craft.getSelectedTime() == 0) {
-                    craft.deselect();
-                }
-
-                craft.tick();
-            }
-            if (Gui.getCurrentWindow() instanceof BattleFrame) {
-                ((BattleFrame) Gui.getCurrentWindow()).getMap().updateUI();
-            }
+            System.out.print("");
         }
-
         tt.cancel();
+        tm.cancel();
         t.cancel();
+
     }
 }

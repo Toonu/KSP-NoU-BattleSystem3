@@ -1,9 +1,14 @@
 package enums;
 
 import crafts.Craft;
+import systems.AbstractSystem;
+import systems.Countermeasure;
+import systems.Weapon;
 import utils.Vertex2D;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Toonu
@@ -15,6 +20,9 @@ public enum Side {
 
     private Vertex2D spawn;
     private LinkedList<Craft> crafts = new LinkedList<>();
+    private final List<Weapon> firedWeapons = new ArrayList<>();
+    private final List<Countermeasure> lostSystems = new ArrayList<>();
+    private final List<Craft> lostVehicles = new ArrayList<>();
 
     Side(Vertex2D spawn) {
         this.spawn = spawn;
@@ -28,6 +36,23 @@ public enum Side {
     public void addCraft(Craft craft) {
         crafts.add(craft);
         crafts.sort(Craft::compareTo);
+    }
+
+    /**
+     * Method removes craft from the side's list of crafts.
+     *
+     * @param craft Craft to remove.
+     */
+    public void removeCraft(Craft craft) {
+        if (crafts.contains(craft)) {
+            this.crafts.remove(craft);
+        }
+    }
+
+    public void lostSystem(AbstractSystem system) {
+        if (system instanceof Countermeasure) {
+            lostSystems.add(system);
+        }
     }
 
     // Setters & Getters.
@@ -48,14 +73,15 @@ public enum Side {
         return crafts;
     }
 
-    /**
-     * Method removes craft from the side's list of crafts.
-     *
-     * @param craft Craft to remove.
-     */
-    public void removeCraft(Craft craft) {
-        if (crafts.contains(craft)) {
-            this.crafts.remove(craft);
-        }
+    public List<Countermeasure> getLostSystems() {
+        return lostSystems;
+    }
+
+    public List<Weapon> getFiredWeapons() {
+        return firedWeapons;
+    }
+
+    public List<Craft> getLostVehicles() {
+        return lostVehicles;
     }
 }

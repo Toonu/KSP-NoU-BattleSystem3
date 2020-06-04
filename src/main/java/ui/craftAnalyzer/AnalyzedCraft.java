@@ -24,7 +24,6 @@ public class AnalyzedCraft {
     private final ArrayList<Radar> radars = new ArrayList<>();
     private final int hardpoints;
     private final String craftName;
-    private final boolean hasAI;
 
     /**
      * Constructor.
@@ -37,7 +36,6 @@ public class AnalyzedCraft {
     public AnalyzedCraft(LinkedList<String> parts, int hardpoints, String craftName, boolean hasAI) {
         this.hardpoints = hardpoints;
         this.craftName = craftName;
-        this.hasAI = hasAI;
 
         LinkedList<KSPPart> partsSearch = new LinkedList<>();
 
@@ -50,21 +48,21 @@ public class AnalyzedCraft {
             for (Weapon system : OOB.getWeapons()) {
                 if (sys.equals(system.getInternalKSPName())) {
                     partsSearch.add(system.copy());
-                    added = !added;
+                    added = true;
                     break;
                 }
             }
             for (Countermeasure system : OOB.getCountermeasures()) {
                 if (sys.equals(system.getInternalKSPName())) {
                     partsSearch.add(system.copy());
-                    added = !added;
+                    added = true;
                     break;
                 }
             }
             for (Radar system : OOB.getRadars()) {
                 if (sys.equals(system.getInternalKSPName())) {
                     partsSearch.add(system.copy());
-                    added = !added;
+                    added = true;
                     break;
                 }
             }
@@ -81,8 +79,11 @@ public class AnalyzedCraft {
             } else if (sys instanceof Missile) {
                 missiles.add((Missile) sys);
             } else {
-                radars.add((Radar) sys);
+                if (sys instanceof Radar) {
+                    radars.add((Radar) sys);
+                }
             }
+            //noinspection SuspiciousMethodCalls
             parts.remove(sys);
         }
 

@@ -4,13 +4,8 @@ import crafts.Craft;
 import enums.Side;
 import ui.Gui;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Toonu
@@ -19,7 +14,7 @@ public class BattleMap extends JPanel {
     private Image map;
     private Graphics gr;
     private final JPanel centeringPanel = new JPanel(new BorderLayout());
-    private double zoom = 1;
+    private double zoom;
     private final double zoomMax;
 
     /**
@@ -106,5 +101,9 @@ public class BattleMap extends JPanel {
 
     public double getZoom() {
         return zoom;
+    }
+
+    public Graphics getGr() {
+        return gr;
     }
 }
