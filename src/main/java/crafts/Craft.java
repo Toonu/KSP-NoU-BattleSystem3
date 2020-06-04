@@ -43,8 +43,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     private boolean isWithdrawing = false;
     private boolean isSelected = false;
+    private int selectedTime = 0;
     private int time;
     private int tick = -1;
+    private int lastFired = 0;
 
     //TODO Add craft attribute if it is selected on map or not to draw it differently
 
@@ -329,8 +331,33 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     /**
      * Method select the craft on map and makes it more visible.
      */
+    public void deselect() {
+        isSelected = false;
+        selectedTime = 0;
+    }
+
+    /**
+     * Method select the craft on map and makes it more visible.
+     */
     public void select() {
-        isSelected = !isSelected;
+        isSelected = true;
+        selectedTime = 3;
+    }
+
+    /**
+     * Method makes copy of template with new side of it.
+     *
+     * @param newSide side.
+     * @return new copy of craft.
+     */
+    public Craft copy(Side newSide) {
+        if (type.getTheatre() == Theatre.GROUND) {
+            return Vehicle.copy(newSide, (Vehicle) this);
+        } else if (type.getTheatre() == Theatre.AERIAL) {
+            return Aircraft.copy(newSide, (Aircraft) this);
+        } else {
+            return Vessel.copy(newSide, (Vessel) this);
+        }
     }
 
     //Getters
@@ -387,20 +414,28 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         this.angle = angle;
     }
 
-    /**
-     * Method makes copy of template with new side of it.
-     *
-     * @param newSide side.
-     * @return new copy of craft.
-     */
-    public Craft copy(Side newSide) {
-        if (type.getTheatre() == Theatre.GROUND) {
-            return Vehicle.copy(newSide, (Vehicle) this);
-        } else if (type.getTheatre() == Theatre.AERIAL) {
-            return Aircraft.copy(newSide, (Aircraft) this);
-        } else {
-            return Vessel.copy(newSide, (Vessel) this);
-        }
+    public int getSelectedTime() {
+        return selectedTime;
+    }
+
+    public void setSelectedTime(int selectedTime) {
+        this.selectedTime = selectedTime;
+    }
+
+    public int getAmountOfGuns() {
+        return amountOfGuns;
+    }
+
+    public int getAmountOfInternal() {
+        return amountOfInternal;
+    }
+
+    public int getLastFired() {
+        return lastFired;
+    }
+
+    public void setLastFired(int lastFired) {
+        this.lastFired = lastFired;
     }
 
     /**

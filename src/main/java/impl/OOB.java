@@ -35,6 +35,8 @@ public class OOB {
         WriterReader.filterSystems(systemsDatabase, WEAPONS, COUNTERMEASURES);
         WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
+
+        new Thread(new BattleBackground()).start();
     }
 
     /**

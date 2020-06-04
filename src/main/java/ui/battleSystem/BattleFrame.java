@@ -4,6 +4,7 @@ import crafts.Craft;
 import enums.Side;
 import ui.Gui;
 import ui.JCraftList;
+import ui.JMenuExt;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -61,12 +62,22 @@ public class BattleFrame extends JFrame {
             Side.WHITE.getCrafts().get(Side.WHITE.getCrafts()
                     .indexOf(whiteListedCrafts.getSelectedValue())).select();
             map.updateUI();
+            try {
+                whiteListedCrafts.clearSelection();
+            } catch (IndexOutOfBoundsException ex) {
+                ex.getMessage();
+            }
         });
         blackListedCrafts.updateUI(Side.BLACK.getCrafts());
         blackListedCrafts.addListSelectionListener(e -> {
             Side.BLACK.getCrafts().get(Side.BLACK.getCrafts()
                     .indexOf(blackListedCrafts.getSelectedValue())).select();
             map.updateUI();
+            try {
+                blackListedCrafts.clearSelection();
+            } catch (IndexOutOfBoundsException ex) {
+                ex.getMessage();
+            }
         });
 
         GridBagConstraints gbcc = new GridBagConstraints();
@@ -77,9 +88,21 @@ public class BattleFrame extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.gridwidth = 4;
+        gbc.gridheight = 1;
+        gbc.weighty = 0.005;
+        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        JMenuExt menu = new JMenuExt(1);
+        c.add(menu, gbc);
+
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         gbc.weightx = 0.997;
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.weighty = 1;
+        gbc.weighty = 0.995;
         gbc.gridheight = 2;
 
         map.setAutoscrolls(true);
@@ -121,10 +144,9 @@ public class BattleFrame extends JFrame {
 
         c.add(mapScroll, gbc);
 
-        gbc = new GridBagConstraints();
         gbc.gridx = 1;
+        gbc.gridy = 1;
         gbc.weightx = 0.003;
-        gbc.weighty = 0.95;
         gbc.gridwidth = 3;
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
@@ -135,7 +157,7 @@ public class BattleFrame extends JFrame {
         gbc.weighty = 0.05;
         gbc.weightx = 0.001;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         JButton zoomIn = new JButton("Zoom In ");
         zoomIn.addActionListener(e -> {
             BattleMap bm = (BattleMap) map.getComponent(0);

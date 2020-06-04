@@ -28,11 +28,11 @@ public class BattleMap extends JPanel {
     public BattleMap() {
         super();
         Dimension monitor = Gui.getMonitorSize();
-        zoom = monitor.getHeight() / 960;
+        zoom = monitor.getHeight() / 1180;
         zoomMax = zoom;
 
 
-        setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
+        setPreferredSize(new Dimension((int) Math.round(1920 * zoom), (int) Math.round(1080 * zoom)));
     }
 
     @Override
@@ -50,14 +50,14 @@ public class BattleMap extends JPanel {
         gr = g;
 
         map = new ImageIcon("map.png").getImage();
+        gr.drawImage(map, 0, 0, (int) Math.round(1920 * zoom), (int) Math.round(1080 * zoom), null);
 
-        gr.drawImage(map, 0, 0, (int) Math.round(1700 * zoom), (int) Math.round(900 * zoom), null);
         gr.setColor(Color.WHITE);
         for (Craft craft : Side.WHITE.getCrafts()) {
             if (craft.isSelected()) {
                 gr.drawRect((int) Math.round(craft.getPosition().getX() * zoom - 2),
                         (int) (Math.round(craft.getPosition().getY() * zoom - 2)), 5, 5);
-                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * 2 * zoom + 5),
+                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * zoom + 5),
                         (int) Math.round(craft.getPosition().getY() * zoom) + 5);
             } else {
                 gr.drawString("x", (int) Math.round(craft.getPosition().getX() * zoom),
@@ -68,7 +68,7 @@ public class BattleMap extends JPanel {
             if (craft.isSelected()) {
                 gr.drawRect((int) Math.round(craft.getPosition().getX() * zoom - 2),
                         (int) (Math.round(craft.getPosition().getY() * zoom - 2)), 5, 5);
-                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * 2 * zoom + 5),
+                gr.drawString(craft.toLongString(), (int) Math.round(craft.getPosition().getX() * zoom + 5),
                         (int) Math.round(craft.getPosition().getY() * zoom) + 5);
             } else {
                 gr.drawString("y", (int) Math.round(craft.getPosition().getX() * zoom + 5),
@@ -82,7 +82,7 @@ public class BattleMap extends JPanel {
      */
     public void zoomIn() {
         zoom *= 2;
-        setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
+        setPreferredSize(new Dimension((int) Math.round(1920 * zoom), (int) Math.round(1080 * zoom)));
     }
 
     /**
@@ -91,12 +91,12 @@ public class BattleMap extends JPanel {
      * @return double -1 if the picture gets bigger than maximal allowed size.
      */
     public double zoomOut() {
-        if (900 * (zoom / 2) < 900 * zoomMax) {
+        if (1080 * (zoom / 2) < 1080 * zoomMax) {
             return -1;
         } else {
             zoom /= 2;
         }
-        setPreferredSize(new Dimension((int) Math.round(1700 * zoom), (int) Math.round(900 * zoom)));
+        setPreferredSize(new Dimension((int) Math.round(1920 * zoom), (int) Math.round(1080 * zoom)));
         return zoom;
     }
 

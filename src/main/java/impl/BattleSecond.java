@@ -10,13 +10,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.TimerTask;
 
 /**
  * @author Toonu
  * <p>
  * Class representing second of battle time.
  */
-public class BattleSecond {
+public class BattleSecond extends TimerTask {
     private final Set<Attack> attacks = new HashSet<>();
 
     //Previous - impl.OOB or loading from save file the setup
@@ -27,10 +28,18 @@ public class BattleSecond {
 
     /**
      * Constructor.
-     *
-     * @param time time int in seconds.
      */
-    public BattleSecond(int time) {
+    public BattleSecond() {
+        run();
+    }
+
+    /**
+     * The action to be performed by this timer task.
+     */
+    @Override
+    public void run() {
+        System.out.println(App.returnRealTime());
+        App.setGlobalTime(App.getGlobalTime() + 1);
     }
 
     /**

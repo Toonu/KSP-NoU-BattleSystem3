@@ -22,6 +22,7 @@ public class App {
     public static final Era DEFAULT_YEAR = Era.Era1950;
 
     private static boolean debug = true;
+    private static boolean finished = false;
     private static int globalTime = 0;
 
     /**
@@ -35,22 +36,6 @@ public class App {
         debug = true;
 
         OOB.main(args);
-    }
-
-    public static int getGlobalTime() {
-        return globalTime;
-    }
-
-    public static void setGlobalTime(int globalTime) {
-        App.globalTime = globalTime;
-    }
-
-    public static boolean isDebug() {
-        return debug;
-    }
-
-    public static void setDebug(boolean debug) {
-        App.debug = debug;
     }
 
     /**
@@ -76,4 +61,42 @@ public class App {
             }
         }
     }
+
+    /**
+     * Method returns real time value from seconds int.
+     *
+     * @return String of H:M:S
+     */
+    public static String returnRealTime() {
+        int hours = globalTime / 3600;
+        int minutes = globalTime / 60 % 60;
+        int seconds = globalTime % 60;
+        return String.format("%s:%s:%s", hours, minutes, seconds);
+    }
+
+    public static int getGlobalTime() {
+        return globalTime;
+    }
+
+    public static void setGlobalTime(int globalTime) {
+        App.globalTime = globalTime;
+    }
+
+    public static boolean isDebug() {
+        return debug;
+    }
+
+    public static void setDebug(boolean debug) {
+        App.debug = debug;
+    }
+
+    public static boolean isFinished() {
+        return finished;
+    }
+
+    public static void setFinished(boolean finished) {
+        App.finished = finished;
+    }
+
+
 }
