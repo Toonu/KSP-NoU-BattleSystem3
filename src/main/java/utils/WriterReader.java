@@ -113,7 +113,7 @@ public class WriterReader {
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
             ArrayList<Craft> whites = new ArrayList<>();
             ArrayList<Craft> blacks = new ArrayList<>();
-            ArrayList<Craft> templ = new ArrayList<>();
+            ArrayList<Craft> templates = new ArrayList<>();
             int counter = 0;
             try {
                 //noinspection InfiniteLoopStatement
@@ -124,13 +124,13 @@ public class WriterReader {
                     } else if (newCraft.getSide() == Side.BLACK) {
                         blacks.add(newCraft);
                     } else {
-                        templ.add(newCraft);
+                        templates.add(newCraft);
                     }
                     ++counter;
                 }
             } catch (EOFException e) {
                 App.err(String.format("%-18s [W: %s B: %s T: %s]",
-                        "Crafts loaded:", whites.size(), blacks.size(), templ.size()), false, false);
+                        "Crafts loaded:", whites.size(), blacks.size(), templates.size()), false, false);
             }
             if (counter > 0) {
                 Side.WHITE.getCrafts().clear();
@@ -139,7 +139,7 @@ public class WriterReader {
 
                 whites.forEach(Side.WHITE::addCraft);
                 blacks.forEach(Side.BLACK::addCraft);
-                templ.forEach(Side.TEMPLATE::addCraft);
+                templates.forEach(Side.TEMPLATE::addCraft);
                 return true;
             }
             throw new IOException("No craft could have been loaded from file.");
@@ -235,9 +235,9 @@ public class WriterReader {
                     String armor = lines[7];
 
                     //2 name, 3 class
-                    //4 speed, 5 sys, 6 weap, 7 armor, 8 era, 9 missiles
+                    //4 speed, 5 sys, 6 weapon, 7 armor, 8 era, 9 missiles
                     //10 engines, 11 avionics, 12 internal, 13 fuel, 14 consumption, 15 hardpoints
-                    //16 speed, 17 sys, 18 weap, 19 ciws, 20 missiles,
+                    //16 speed, 17 sys, 18 weapon, 19 CIWS, 20 missiles,
                     //21 software
 
                     try {

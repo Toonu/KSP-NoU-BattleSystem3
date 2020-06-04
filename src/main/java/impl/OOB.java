@@ -23,6 +23,7 @@ public class OOB {
     private static final LinkedList<Countermeasure> COUNTERMEASURES = new LinkedList<>();
     private static final LinkedList<Radar> RADARS = new LinkedList<>();
 
+
     /**
      * Main method.
      *
@@ -35,7 +36,8 @@ public class OOB {
         WriterReader.filterSystems(systemsDatabase, WEAPONS, COUNTERMEASURES);
         WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
-
+        //TODO Add select module option after clicking continue on welcoming window allowing you to choose modules
+        // to load to the database instead of loading everything
         new Thread(new BattleBackground()).start();
     }
 
@@ -91,10 +93,10 @@ public class OOB {
     /**
      * Method sets public weapons.
      *
-     * @param newWEAP linked list to replace them.
+     * @param weapon linked list to replace them.
      */
-    public static void setWeapons(LinkedList<Weapon> newWEAP) {
+    public static void setWeapons(LinkedList<Weapon> weapon) {
         WEAPONS.clear();
-        WEAPONS.addAll(newWEAP);
+        WEAPONS.addAll(weapon);
     }
 }

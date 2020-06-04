@@ -5,18 +5,9 @@ import impl.App;
 import ui.Gui;
 import ui.JMenuExt;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.text.DocumentFilter;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -108,21 +99,21 @@ public class WelcomeFrame extends JFrame {
         DocumentFilter nfs = new DocumentFilter();
 
         //Second column
-        JTextField coordXI = new JTextField("-100");
-        JTextField coordYI = new JTextField("0");
+        JTextField coorsXI = new JTextField("-100");
+        JTextField coorsYI = new JTextField("0");
         gc.weightx = 3;
         gc.gridy = 4;
-        c.add(coordXI, gc);
+        c.add(coorsXI, gc);
         gc.gridx = 2;
-        c.add(coordYI, gc);
+        c.add(coorsYI, gc);
 
-        JTextField coordXII = new JTextField("100");
-        JTextField coordYII = new JTextField("0");
+        JTextField coorsXII = new JTextField("100");
+        JTextField coorsYII = new JTextField("0");
         gc.gridy = 5;
         gc.gridx = 1;
-        c.add(coordXII, gc);
+        c.add(coorsXII, gc);
         gc.gridx = 2;
-        c.add(coordYII, gc);
+        c.add(coorsYII, gc);
 
         c.setBackground(Gui.BACKGROUND);
         welcomeText.setForeground(Gui.FOREGROUND);
@@ -137,15 +128,15 @@ public class WelcomeFrame extends JFrame {
             tf.pack();
             tf.setVisible(true);
         });
-        coordXI.addMouseListener(new MouseListener() {
+        coorsXI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                coordXI.selectAll();
+                coorsXI.selectAll();
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                coordXI.selectAll();
+                coorsXI.selectAll();
             }
 
             /**
@@ -178,7 +169,7 @@ public class WelcomeFrame extends JFrame {
 
             }
         });
-        coordXI.addKeyListener(new KeyListener() {
+        coorsXI.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -190,28 +181,28 @@ public class WelcomeFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 try {
-                    Double.parseDouble(coordXI.getText());
-                    coordXI.setBackground(Color.WHITE);
-                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
-                            coordYI.getBackground().equals(Color.WHITE) &&
-                            coordYII.getBackground().equals(Color.WHITE)) {
+                    Double.parseDouble(coorsXI.getText());
+                    coorsXI.setBackground(Color.WHITE);
+                    if (coorsXI.getBackground().equals(Color.WHITE) && coorsXII.getBackground().equals(Color.WHITE) &&
+                            coorsYI.getBackground().equals(Color.WHITE) &&
+                            coorsYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
-                    coordXI.setBackground(Color.RED);
+                    coorsXI.setBackground(Color.RED);
                     nextWindow.setEnabled(false);
                 }
             }
         });
-        coordYI.addMouseListener(new MouseListener() {
+        coorsYI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                coordYI.selectAll();
+                coorsYI.selectAll();
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                coordYI.selectAll();
+                coorsYI.selectAll();
             }
 
             /**
@@ -244,7 +235,7 @@ public class WelcomeFrame extends JFrame {
 
             }
         });
-        coordYI.addKeyListener(new KeyListener() {
+        coorsYI.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -256,28 +247,28 @@ public class WelcomeFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 try {
-                    Double.parseDouble(coordYI.getText());
-                    coordYI.setBackground(Color.WHITE);
-                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
-                            coordYI.getBackground().equals(Color.WHITE) &&
-                            coordYII.getBackground().equals(Color.WHITE)) {
+                    Double.parseDouble(coorsYI.getText());
+                    coorsYI.setBackground(Color.WHITE);
+                    if (coorsXI.getBackground().equals(Color.WHITE) && coorsXII.getBackground().equals(Color.WHITE) &&
+                            coorsYI.getBackground().equals(Color.WHITE) &&
+                            coorsYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
-                    coordYI.setBackground(Color.RED);
+                    coorsYI.setBackground(Color.RED);
                     nextWindow.setEnabled(false);
                 }
             }
         });
-        coordXII.addMouseListener(new MouseListener() {
+        coorsXII.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                coordXII.selectAll();
+                coorsXII.selectAll();
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                coordXII.selectAll();
+                coorsXII.selectAll();
             }
 
             /**
@@ -310,7 +301,7 @@ public class WelcomeFrame extends JFrame {
 
             }
         });
-        coordXII.addKeyListener(new KeyListener() {
+        coorsXII.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -322,28 +313,28 @@ public class WelcomeFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 try {
-                    Double.parseDouble(coordXII.getText());
-                    coordXII.setBackground(Color.WHITE);
-                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
-                            coordYI.getBackground().equals(Color.WHITE) &&
-                            coordYII.getBackground().equals(Color.WHITE)) {
+                    Double.parseDouble(coorsXII.getText());
+                    coorsXII.setBackground(Color.WHITE);
+                    if (coorsXI.getBackground().equals(Color.WHITE) && coorsXII.getBackground().equals(Color.WHITE) &&
+                            coorsYI.getBackground().equals(Color.WHITE) &&
+                            coorsYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
-                    coordXII.setBackground(Color.RED);
+                    coorsXII.setBackground(Color.RED);
                     nextWindow.setEnabled(false);
                 }
             }
         });
-        coordYII.addMouseListener(new MouseListener() {
+        coorsYII.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                coordYII.selectAll();
+                coorsYII.selectAll();
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                coordYII.selectAll();
+                coorsYII.selectAll();
             }
 
             /**
@@ -376,7 +367,7 @@ public class WelcomeFrame extends JFrame {
 
             }
         });
-        coordYII.addKeyListener(new KeyListener() {
+        coorsYII.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -388,15 +379,15 @@ public class WelcomeFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 try {
-                    Double.parseDouble(coordYII.getText());
-                    coordYII.setBackground(Color.WHITE);
-                    if (coordXI.getBackground().equals(Color.WHITE) && coordXII.getBackground().equals(Color.WHITE) &&
-                            coordYI.getBackground().equals(Color.WHITE) &&
-                            coordYII.getBackground().equals(Color.WHITE)) {
+                    Double.parseDouble(coorsYII.getText());
+                    coorsYII.setBackground(Color.WHITE);
+                    if (coorsXI.getBackground().equals(Color.WHITE) && coorsXII.getBackground().equals(Color.WHITE) &&
+                            coorsYI.getBackground().equals(Color.WHITE) &&
+                            coorsYII.getBackground().equals(Color.WHITE)) {
                         nextWindow.setEnabled(true);
                     }
                 } catch (NumberFormatException ex) {
-                    coordYII.setBackground(Color.RED);
+                    coorsYII.setBackground(Color.RED);
                     nextWindow.setEnabled(false);
                 }
             }
@@ -445,11 +436,6 @@ public class WelcomeFrame extends JFrame {
 
     public Container getC() {
         return c;
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
     }
 
     public JLabel getWelcomeText() {

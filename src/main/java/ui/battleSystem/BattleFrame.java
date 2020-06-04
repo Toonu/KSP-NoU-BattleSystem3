@@ -6,20 +6,8 @@ import ui.Gui;
 import ui.JCraftList;
 import ui.JMenuExt;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JViewport;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingUtilities;
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Point;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -59,31 +47,31 @@ public class BattleFrame extends JFrame {
 
         whiteListedCrafts.updateUI(Side.WHITE.getCrafts());
         whiteListedCrafts.addListSelectionListener(e -> {
-            Side.WHITE.getCrafts().get(Side.WHITE.getCrafts()
-                    .indexOf(whiteListedCrafts.getSelectedValue())).select();
-            map.updateUI();
             try {
-                whiteListedCrafts.clearSelection();
+                Side.WHITE.getCrafts().get(Side.WHITE.getCrafts()
+                        .indexOf(whiteListedCrafts.getSelectedValue())).select();
+                map.updateUI();
             } catch (IndexOutOfBoundsException ex) {
                 ex.getMessage();
             }
+            whiteListedCrafts.clearSelection();
         });
         blackListedCrafts.updateUI(Side.BLACK.getCrafts());
         blackListedCrafts.addListSelectionListener(e -> {
-            Side.BLACK.getCrafts().get(Side.BLACK.getCrafts()
-                    .indexOf(blackListedCrafts.getSelectedValue())).select();
-            map.updateUI();
             try {
-                blackListedCrafts.clearSelection();
+                Side.BLACK.getCrafts().get(Side.BLACK.getCrafts()
+                        .indexOf(blackListedCrafts.getSelectedValue())).select();
+                map.updateUI();
             } catch (IndexOutOfBoundsException ex) {
                 ex.getMessage();
             }
+            blackListedCrafts.clearSelection();
         });
 
-        GridBagConstraints gbcc = new GridBagConstraints();
-        gbcc.anchor = GridBagConstraints.CENTER;
+        GridBagConstraints gbcInternal = new GridBagConstraints();
+        gbcInternal.anchor = GridBagConstraints.CENTER;
         BattleMap battleMap = new BattleMap();
-        map.add(battleMap, gbcc);
+        map.add(battleMap, gbcInternal);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -227,5 +215,9 @@ public class BattleFrame extends JFrame {
 
     public JPanel getMap() {
         return map;
+    }
+
+    public Container getC() {
+        return c;
     }
 }

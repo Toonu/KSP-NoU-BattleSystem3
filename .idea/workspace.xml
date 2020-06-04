@@ -20,16 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Map features WIP.&#10;0.2.3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/impl/MapBackground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Toonu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save2WP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save2WP.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comparators/CraftComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comparators/CraftComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Aircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vessel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Side.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Gun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Missile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -454,6 +466,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="843" y="425" key="#Custom_Plugin_Repositories/0.0.1920.1040@0.0.1920.1040" timestamp="1590761892484" />
+    <state x="317" y="49" key="#Inspections" timestamp="1591265125048">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state x="317" y="49" key="#Inspections/0.23.1366.681@0.23.1366.681" timestamp="1591265125048" />
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1590171611694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -472,11 +488,11 @@
     </state>
     <state x="207" y="3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590759601274" />
     <state x="147" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1366.681@0.23.1366.681" timestamp="1590579638130" />
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1591257369230">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser" timestamp="1591265663239">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591257369230" />
-    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590572791666" />
+    <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1591265663239" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590154524951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -528,10 +544,11 @@
     </state>
     <state x="816" y="446" width="938" height="594" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1591215122322" />
     <state x="164" y="298" width="474" height="361" key="#xdebugger.evaluate/0.23.1366.681@0.23.1366.681" timestamp="1590736349674" />
-    <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590226703252">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="511" y="278" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591260310522">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590226703252" />
+    <state x="511" y="278" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1366.681@0.23.1366.681" timestamp="1591260310522" />
     <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590663266030">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
@@ -541,26 +558,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590760142281" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591259060843">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom" timestamp="1591269379075">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
-    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591259060843">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591269379075" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center" timestamp="1591269379074">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
-    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591096981046" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591259060842">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591269379074" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left" timestamp="1591269379073">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060842" />
-    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591096981045" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591259060843">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591269379073" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right" timestamp="1591269379075">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
-    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
+    <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591269379075" />
     <state width="1877" height="487" key="GridCell.Tab.1.bottom" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -668,7 +685,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java</url>
-          <line>43</line>
+          <line>95</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
@@ -681,14 +698,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$WelcomeWindow.ic" NAME="WelcomeWindow Coverage Results" MODIFIED="1590262320406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.UI.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$App.ic" NAME="App Coverage Results" MODIFIED="1590170387428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

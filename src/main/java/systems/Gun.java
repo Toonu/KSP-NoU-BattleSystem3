@@ -23,7 +23,7 @@ public class Gun extends Weapon implements Serializable, KSPPart {
      * @param minRange        double minimal range of system.
      * @param name            String name of the system.
      * @param era             Era enum of era of the system.
-     * @param targets         Set of Theatre objects targetable by the system.
+     * @param targets         Set of Theatre objects can be targeted by the system.
      * @param ammunition      Ammunition object representing projectiles of this weapon.
      * @param internal        Weapon internal state. If yes, counts as internal weapon.
      * @param internalKSPName internal KSP name to search by analyzer.
@@ -37,17 +37,16 @@ public class Gun extends Weapon implements Serializable, KSPPart {
     /**
      * Constructor including ammo count.
      *
-     * @param damage     double strength value of system for attack damage.
-     * @param maxRange   double maximal range of system.
-     * @param minRange   double minimal range of system.
-     * @param name       String name of the system.
-     * @param era        Era enum of era of the system.
-     * @param targets    Set of Theatre objects targetable by the system.
-     * @param ammunition Ammunition object representing projectiles of this weapon.
-     * @param ammo       int of amount of ammunition of the system.
-     * @param internal   Weapon internal state. If yes, counts as internal weapon.
+     * @param damage          double strength value of system for attack damage.
+     * @param maxRange        double maximal range of system.
+     * @param minRange        double minimal range of system.
+     * @param name            String name of the system.
+     * @param era             Era enum of era of the system.
+     * @param targets         Set of Theatre objects can be targeted by the system.
+     * @param ammunition      Ammunition object representing projectiles of this weapon.
+     * @param ammo            int of amount of ammunition of the system.
+     * @param internal        Weapon internal state. If yes, counts as internal weapon.
      * @param internalKSPName internal KSP part name.
-     *
      */
     public Gun(double damage, double minRange, double maxRange, Set<Theatre> targets, String name, Era era,
                Ammunition ammunition, boolean internal, String internalKSPName, int ammo) {

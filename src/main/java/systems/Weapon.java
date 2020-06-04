@@ -24,7 +24,7 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
      * @param minRange double minimal range of system.
      * @param name     String name of the system.
      * @param era      Era enum of era of the system.
-     * @param targets  Set of Theatre objects targetable by the system.
+     * @param targets  Set of Theatre objects can be targeted by the system.
      */
     protected Weapon(double damage, double minRange, double maxRange, Set<Theatre> targets,
                      String name, Era era, boolean internal, String internalName) {
@@ -45,16 +45,6 @@ public class Weapon extends AbstractSystem implements Serializable, Comparable<W
     public Weapon copy() {
         return new Weapon(getStrength(), getMinRange(), getMaxRange(), targets,
                 getName(), getEra(), internal, getInternalKSPName());
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
-    @Override
-    public String toShortString() {
-        return super.toShortString();
     }
 
     /**

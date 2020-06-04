@@ -5,7 +5,7 @@ import enums.Era;
 import ui.Gui;
 import utils.Vertex2D;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.SortedSet;
@@ -43,7 +43,7 @@ public class App {
      *
      * @param text    message text.
      * @param isError if error message.
-     * @param gui     if gui popus is shown.
+     * @param gui     if gui popup is shown.
      */
     public static void err(String text, boolean isError, boolean gui) {
         if (isError) {

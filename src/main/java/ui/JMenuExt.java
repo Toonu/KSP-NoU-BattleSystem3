@@ -4,18 +4,9 @@ import enums.Side;
 import ui.craftAnalyzer.CraftAnalyzer;
 import utils.WriterReader;
 
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.time.LocalTime;
@@ -92,6 +83,9 @@ public class JMenuExt extends JMenuBar {
             frameLoad.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frameLoad.setVisible(true);
         });
+
+        //TODO Add level 2 of menu allowing saving battle itself in progress from map view.
+
         save.addActionListener(e -> {
             //Monitor size
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -129,13 +123,7 @@ public class JMenuExt extends JMenuBar {
 
             frameSave.setVisible(true);
         });
-        craftAnalyzer.addActionListener(ex -> {
-            CraftAnalyzer.main();
-        });
-    }
-    @Override
-    public String getName() {
-        return super.getName();
+        craftAnalyzer.addActionListener(ex -> CraftAnalyzer.main());
     }
 
     public JMenu getFile() {
@@ -148,5 +136,9 @@ public class JMenuExt extends JMenuBar {
 
     public JMenuItem getLoad() {
         return load;
+    }
+
+    public JMenuItem getSave() {
+        return save;
     }
 }

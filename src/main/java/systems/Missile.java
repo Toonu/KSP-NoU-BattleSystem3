@@ -24,7 +24,7 @@ public class Missile extends Weapon implements Serializable, KSPPart {
      * @param minRange        double minimal range of system.
      * @param name            String name of the system.
      * @param era             Era enum of era of the system.
-     * @param targets         Set of Theatre objects targetable by the system.
+     * @param targets         Set of Theatre objects can be targeted by the system.
      * @param guidanceType    GuidanceType enum representing missile's guidance type.
      * @param speed           Double speed in m/s of the craft.
      * @param internalKSPName internal KSP name to search by analyzer.

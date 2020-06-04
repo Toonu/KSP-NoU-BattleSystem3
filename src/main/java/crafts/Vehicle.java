@@ -28,9 +28,9 @@ public class Vehicle extends Craft implements RadarVehicle, ArmoredVehicle, Seri
      * @param craftProductionYear Era enum of the Eras of crafts.
      * @param side                enums color of craft's side.
      */
-    protected Vehicle(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSytems,
+    protected Vehicle(double speed, String name, Type type, Era craftProductionYear, Side side, int limitSystems,
                       int limitWeapons, int limitGuns, Armor armor) {
-        super(speed, name, type, craftProductionYear, side, limitSytems, limitWeapons, limitGuns);
+        super(speed, name, type, craftProductionYear, side, limitSystems, limitWeapons, limitGuns);
         this.armor = armor;
     }
 

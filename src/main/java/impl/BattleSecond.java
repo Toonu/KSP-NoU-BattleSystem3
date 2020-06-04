@@ -20,7 +20,6 @@ import java.util.TimerTask;
 public class BattleSecond extends TimerTask {
     private final Set<Attack> attacks = new HashSet<>();
 
-    //Previous - impl.OOB or loading from save file the setup
     //Check every X seconds if crafts can fire or undergoing attacks, then perform those attacks and go to next second
     //Following Final results, fired weapons, lost weapons, lost vehicles, retreated vehicles.
 
@@ -74,13 +73,13 @@ public class BattleSecond extends TimerTask {
     /**
      * Method calculates impact angle between the targets.
      *
-     * @param agrressor vehicle that fired.
+     * @param aggressor vehicle that fired.
      * @param target    vehicle that are hit and calculated.
      * @return angle of hit.
      */
-    public double hitAngle(Craft agrressor, Craft target) {
-        double angle = (Math.toDegrees(Math.atan2(agrressor.getPosition().getY() - target.getPosition().getY(),
-                agrressor.getPosition().getX() - target.getPosition().getX())));
+    public double hitAngle(Craft aggressor, Craft target) {
+        double angle = (Math.toDegrees(Math.atan2(aggressor.getPosition().getY() - target.getPosition().getY(),
+                aggressor.getPosition().getX() - target.getPosition().getX())));
         angle -= target.getAngle();
         if (angle < 0) {
             angle += 360;
@@ -93,7 +92,7 @@ public class BattleSecond extends TimerTask {
      *
      * @param weaponSystem Weapon object to fire. If movable, it creates new impl.Attack object.
      * @param aggressor    Craft object to fire from.
-     * @param target       Craft object targetted.
+     * @param target       Craft object targeted.
      * @return true if the weapon fired.
      */
     public boolean fire(Weapon weaponSystem, Craft aggressor, Craft target) {
