@@ -1,6 +1,5 @@
 package crafts;
 
-import crafts.parts.Radar;
 import enums.Era;
 import enums.Side;
 import enums.Type;
@@ -12,8 +11,7 @@ import java.io.Serializable;
  * <p>
  * Class to simulate Ship or Vessel Craft on the battlefield.
  */
-public class Vessel extends Craft implements Serializable, RadarVehicle {
-    private Radar radar = null;
+public class Vessel extends Craft implements Serializable {
     private int limitCIWS;
 
     /**
@@ -31,7 +29,6 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
         this.limitCIWS = limitCIWS;
     }
 
-
     /**
      * Method makes copy of vessel.
      *
@@ -46,27 +43,6 @@ public class Vessel extends Craft implements Serializable, RadarVehicle {
             newCraft.addRadar(t.getRadar());
         }
         return newCraft;
-    }
-
-    /**
-     * Method assigns radar to the vehicle.
-     *
-     * @param radar Radar to add.
-     */
-    @Override
-    public void addRadar(Radar radar) {
-        this.radar = radar;
-    }
-
-    /**
-     * Method returns radar object of the vehicle.
-     *
-     * @return Radar object.
-     * @throws NullPointerException if there is no radar on the vehicle.
-     */
-    @Override
-    public Radar getRadar() throws NullPointerException {
-        return radar;
     }
 
     public int getLimitCIWS() {

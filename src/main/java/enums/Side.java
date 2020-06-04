@@ -3,6 +3,7 @@ package enums;
 import crafts.Craft;
 import systems.AbstractSystem;
 import systems.Countermeasure;
+import systems.KSPPart;
 import systems.Weapon;
 import utils.Vertex2D;
 
@@ -20,8 +21,9 @@ public enum Side {
 
     private Vertex2D spawn;
     private LinkedList<Craft> crafts = new LinkedList<>();
-    private final List<Weapon> firedWeapons = new ArrayList<>();
-    private final List<Countermeasure> lostSystems = new ArrayList<>();
+    private final List<Weapon> lostWeapons = new ArrayList<>();
+    private final List<Countermeasure> lostCountermeasures = new ArrayList<>();
+    private final List<KSPPart> lostSystems = new ArrayList<>();
     private final List<Craft> lostVehicles = new ArrayList<>();
 
     Side(Vertex2D spawn) {
@@ -49,10 +51,28 @@ public enum Side {
         }
     }
 
+    /**
+     * Method adds lost system to its side of losses.
+     *
+     * @param system lost system.
+     */
     public void lostSystem(AbstractSystem system) {
         if (system instanceof Countermeasure) {
-            lostSystems.add(system);
+            lostCountermeasures.add((Countermeasure) system);
+        } else if (system instanceof Weapon) {
+            lostWeapons.add((Weapon) system);
+        } else if (system instanceof KSPPart) {
+            lostSystems.add((KSPPart) system);
         }
+    }
+
+    /**
+     * Method adds destroyed vehicle to his side of losses.
+     *
+     * @param craft lost vehicle.
+     */
+    public void lostVehicle(Craft craft) {
+        lostVehicles.add(craft);
     }
 
     // Setters & Getters.
@@ -73,15 +93,19 @@ public enum Side {
         return crafts;
     }
 
-    public List<Countermeasure> getLostSystems() {
-        return lostSystems;
+    public List<Countermeasure> getLostCountermeasures() {
+        return lostCountermeasures;
     }
 
-    public List<Weapon> getFiredWeapons() {
-        return firedWeapons;
+    public List<Weapon> getLostWeapons() {
+        return lostWeapons;
     }
 
     public List<Craft> getLostVehicles() {
         return lostVehicles;
+    }
+
+    public List<KSPPart> getLostSystems() {
+        return lostSystems;
     }
 }

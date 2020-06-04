@@ -1,9 +1,12 @@
 package impl;
 
+import crafts.parts.FuelTank;
 import crafts.parts.Radar;
+import crafts.parts.ReconSuite;
 import enums.Side;
 import systems.AbstractSystem;
 import systems.Countermeasure;
+import systems.KSPPart;
 import systems.Weapon;
 import ui.Gui;
 import utils.WriterReader;
@@ -22,7 +25,7 @@ public class OOB {
     private static final LinkedList<Weapon> WEAPONS = new LinkedList<>();
     private static final LinkedList<Countermeasure> COUNTERMEASURES = new LinkedList<>();
     private static final LinkedList<Radar> RADARS = new LinkedList<>();
-
+    private static final LinkedList<KSPPart> OTHERS = new LinkedList<>();
 
     /**
      * Main method.
@@ -34,6 +37,8 @@ public class OOB {
                 WriterReader.loadSystemsFile(Paths.get("NoU Database - DatabaseForBS.csv")));
         TEMPLATE.setCrafts(WriterReader.loadTemplatesFile(Paths.get("database.csv")));
         WriterReader.filterSystems(systemsDatabase, WEAPONS, COUNTERMEASURES);
+        OTHERS.add(new ReconSuite());
+        OTHERS.add(new FuelTank());
         WriterReader.saveSetupFile(new File("save.txt"), true);
         Gui.main(args);
         //TODO Add select module option after clicking continue on welcoming window allowing you to choose modules
@@ -98,5 +103,9 @@ public class OOB {
     public static void setWeapons(LinkedList<Weapon> weapon) {
         WEAPONS.clear();
         WEAPONS.addAll(weapon);
+    }
+
+    public static LinkedList<KSPPart> getOTHERS() {
+        return OTHERS;
     }
 }

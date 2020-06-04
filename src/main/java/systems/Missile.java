@@ -42,7 +42,9 @@ public class Missile extends Weapon implements Serializable, KSPPart {
 
     @Override
     public String toString() {
-
+        if (getGuidanceType() == GuidanceType.FALL) {
+            return String.format("%10s %s", "[Bomb]", super.toString());
+        }
         return String.format("%10s %s M%.2f", "[Missile]", super.toString(), speed / 343);
     }
 
@@ -52,6 +54,9 @@ public class Missile extends Weapon implements Serializable, KSPPart {
      * @return String.
      */
     public String toShortString() {
+        if (getGuidanceType() == GuidanceType.FALL) {
+            return String.format("%10s %s", "[Bomb]", this.getName());
+        }
         return String.format("%10s %s", "[Missile]", this.getName());
     }
 

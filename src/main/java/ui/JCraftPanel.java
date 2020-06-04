@@ -3,6 +3,7 @@ package ui;
 import crafts.Craft;
 import impl.OOB;
 import systems.Countermeasure;
+import systems.KSPPart;
 import systems.Weapon;
 
 import javax.swing.BorderFactory;
@@ -114,6 +115,20 @@ public class JCraftPanel extends JPanel {
                 }
             });
         }
+        for (KSPPart sys : OOB.getOTHERS()) {
+            systemButtons.add(new JButton(sys.toString()));
+            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addPart(sys.copy()));
+                if (!selectedCrafts.isEmpty()) {
+                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
+                    Gui.getOob().getWhiteListedCrafts().updateUI();
+                    Gui.getOob().getBlackListedCrafts().updateUI();
+                }
+            });
+        }
+
         for (JButton but : systemButtons) {
             ++gc.gridy;
             systemsPanel.add(but, gc);
@@ -199,7 +214,9 @@ public class JCraftPanel extends JPanel {
     public void updateUI(JList<Craft> list) {
         selectedCrafts = (ArrayList<Craft>) list.getSelectedValuesList();
         craftName.setText(list.getSelectedValue().toLongString());
-        countermeasures.setText(Gui.convertToMultiline(list.getSelectedValue().toCountermeasuresList()));
+        countermeasures.setText(Gui.convertToMultiline(
+                list.getSelectedValue().toCountermeasuresList()
+                        + Gui.convertToMultiline(list.getSelectedValue().toPartsList())));
         weapons.setText(Gui.convertToMultiline(list.getSelectedValue().toWeaponsList()));
     }
 

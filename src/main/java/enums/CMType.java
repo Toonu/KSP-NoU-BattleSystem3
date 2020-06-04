@@ -15,8 +15,10 @@ public enum CMType {
     CIWS(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS)),
     JAMM(true, EnumSet.of(GuidanceType.GPS, GuidanceType.RADAR, GuidanceType.BEAM)),
     SKAPS(true, EnumSet.of(GuidanceType.GPS, GuidanceType.RADAR, GuidanceType.BEAM)),
-    HKAPS(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS)),
-    DEW(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM, GuidanceType.GPS)),
+    HKAPS(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM,
+            GuidanceType.GPS, GuidanceType.FALL)),
+    DEW(true, EnumSet.of(GuidanceType.IR, GuidanceType.RADAR, GuidanceType.BEAM,
+            GuidanceType.GPS, GuidanceType.FALL)),
     IRCM(false, EnumSet.of(GuidanceType.IR, GuidanceType.BEAM)),
     EW(true, EnumSet.of(GuidanceType.RADAR));
 

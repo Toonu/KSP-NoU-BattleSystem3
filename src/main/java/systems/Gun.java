@@ -76,7 +76,7 @@ public class Gun extends Weapon implements Serializable, KSPPart {
      * @return String.
      */
     public String toShortString() {
-        return String.format("%10s %s", "[Gun]", super.toShortString());
+        return String.format("%10s %s", "[Gun]", this.getName());
     }
 
     @Override

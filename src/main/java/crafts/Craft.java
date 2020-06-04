@@ -1,6 +1,7 @@
 package crafts;
 
 import crafts.parts.Armor;
+import crafts.parts.Radar;
 import enums.Era;
 import enums.Side;
 import enums.Theatre;
@@ -8,6 +9,7 @@ import enums.Type;
 import impl.App;
 import systems.AbstractSystem;
 import systems.Countermeasure;
+import systems.KSPPart;
 import systems.Weapon;
 import utils.Movable;
 import utils.Vertex2D;
@@ -22,12 +24,13 @@ import java.util.Random;
  * <p>
  * Craft class to simulate craft on battlefield.
  */
-public class Craft implements Serializable, Movable, Comparable<Craft> {
+public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVehicle {
     public static final int DELAY = 30;
     private final double speed;
     private final int limitInternal;
     private final LinkedList<Weapon> weapons = new LinkedList<>();
     private final LinkedList<Countermeasure> countermeasures = new LinkedList<>();
+    private final LinkedList<KSPPart> parts = new LinkedList<>();
     private final Type type;
     private final Era craftProductionYear;
     private final Side side;
@@ -36,6 +39,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private int amountOfGuns;
     private int amountOfInternal;
     private String name;
+    private Radar radar;
 
     private double angle;
     private Vertex2D position;
@@ -47,8 +51,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     private int time;
     private int tick = -1;
     private int lastFired = 0;
-
-    //TODO Add craft attribute if it is selected on map or not to draw it differently
 
     /**
      * Constructor.
@@ -195,18 +197,28 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
     }
 
     /**
+     * Method returns parts list.
+     *
+     * @return parts list.
+     */
+    public String toPartsList() {
+        return printList(parts);
+    }
+
+    /**
      * Method adds system to craft.
      *
-     * @param system Object to be added.
      * @param <T>    system tag. Either Weapon or Countermeasure.
+     * @param system Object to be added.
      */
-    public <T extends AbstractSystem> void addSystem(T system) {
+    public <T extends AbstractSystem> void addSystem(AbstractSystem system) {
         try {
             if (system == null) {
                 throw new IllegalArgumentException("Cannot add null system.");
             }
-            Double rng = system.getMaxRange();
-            if (system.getMaxRange() > 0) {
+            Double rng = (system).getMaxRange();
+            if ((system).getMaxRange() > 0 &&
+                    Integer.parseInt((system).getEra().toString()) <= Integer.parseInt(craftProductionYear.toString())) {
                 if (system instanceof Weapon) {
                     if (((Weapon) system).isInternal() && amountOfInternal + 1 <= limitInternal) {
                         weapons.add((Weapon) system);
@@ -221,7 +233,13 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
             }
             App.err(String.format("%-17s %s", "Added to craft:", system), false, false);
         } catch (IllegalArgumentException e) {
-            App.err("Weapon is null. Not added.", true, true);
+            App.err("Weapon is null or newer than craft's software. Rejected and not added.", true, true);
+        }
+    }
+
+    public void addPart(KSPPart system) {
+        if (system != null) {
+            parts.add(system);
         }
     }
 
@@ -360,6 +378,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         }
     }
 
+
     //Getters
 
     public double getAngle() {
@@ -458,6 +477,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
 
     public LinkedList<Weapon> getWeapons() {
         return new LinkedList<>(weapons);
+    }
+
+    public LinkedList<KSPPart> getParts() {
+        return new LinkedList<>(parts);
     }
 
     public int getLimitSystems() {
@@ -565,6 +588,32 @@ public class Craft implements Serializable, Movable, Comparable<Craft> {
         result = 31 * result + time;
         result = 31 * result + tick;
         return result;
+    }
+
+    /**
+     * Method returns radar object of the vehicle.
+     *
+     * @return Radar object.
+     * @throws NullPointerException if there is no radar on the vehicle.
+     */
+    @Override
+    public Radar getRadar() throws NullPointerException {
+        return radar;
+    }
+
+    /**
+     * Method assigns radar to the vehicle.
+     *
+     * @param radar Radar to add.
+     */
+    @Override
+    public void addRadar(Radar radar) {
+        if (radar != null ||
+                Integer.parseInt(radar.getEra().toString()) <= Integer.parseInt(craftProductionYear.toString())) {
+            this.radar = radar;
+            App.err(radar + "added to the vehicle.", false, false);
+        }
+        App.err("Radar is null or newer than the software allows.", true, true);
     }
 
     //Builder
