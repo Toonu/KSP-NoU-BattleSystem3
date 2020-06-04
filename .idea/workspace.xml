@@ -19,18 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Map features WIP.&#10;0.2.3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save2WP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save2WP.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Map finished. Added new threads and timers for background map checks and battle seconds.&#10;0.2.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -397,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591251990900</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Map finished. Added new threads and timers for background map checks and battle seconds.&#10;0.2.3">
+      <created>1591259172845</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1591259172845</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +415,6 @@
       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
       <path value="$PROJECT_DIR$/KSP-NoU-CraftAnalyzer" />
     </ignored-roots>
-    <MESSAGE value="Refactoring v2" />
     <MESSAGE value="Utility Files" />
     <MESSAGE value="IO Work" />
     <MESSAGE value="IO Work Finished" />
@@ -444,7 +439,8 @@
     <MESSAGE value="Analyzer 2.0&#10;0.2.3" />
     <MESSAGE value="Version 0.2.3. Zooming finished." />
     <MESSAGE value="Map features WIP.&#10;0.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map features WIP.&#10;0.2.3" />
+    <MESSAGE value="Map finished. Added new threads and timers for background map checks and battle seconds.&#10;0.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map finished. Added new threads and timers for background map checks and battle seconds.&#10;0.2.3" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -541,25 +537,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590760142281" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591259060843">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591259181589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591259181589" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591259060843">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591259181589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591259181589" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591096981046" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591259060842">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591259181589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060842" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591259181589" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591096981045" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591259060843">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591259181589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591259060843" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591259181589" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
     <state width="1877" height="487" key="GridCell.Tab.1.bottom" timestamp="1591218148081">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -602,10 +598,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591251992114">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591259174277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591251992114" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591259174277" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1590663268863" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
