@@ -19,6 +19,8 @@ import systems.Countermeasure;
 import systems.Gun;
 import systems.Missile;
 import systems.Weapon;
+import ui.Gui;
+import ui.battleSystem.BattleFrame;
 
 import java.io.BufferedReader;
 import java.io.EOFException;
@@ -48,17 +50,6 @@ public class WriterReader {
     // google sheets is viable and easy enough to implement it?
 
     /**
-     * Method to save battle second and ongoing attacks or other in-battle situation.
-     *
-     * @param file file to save to.
-     * @return if save was successful.
-     */
-    public static boolean saveSituationFile(File file) {
-        return false;
-        //TODO Add Battle Second Saving and Loading methods.
-    }
-
-    /**
      * Method saves crafts to file from pathname.
      *
      * @param path     path to save to.
@@ -79,6 +70,10 @@ public class WriterReader {
     public static boolean saveSetupFile(File file, boolean template) {
         counter = 0;
         try (ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(file))) {
+            if (Gui.getCurrentWindow() instanceof BattleFrame) {
+                o.writeObject(OOB.getBattleBackground());
+            }
+
             Stream.of(Side.WHITE.getCrafts().stream(), Side.BLACK.getCrafts().stream()).flatMap(s -> s).forEach(s1 -> {
                 try {
                     o.writeObject(s1);
@@ -110,12 +105,28 @@ public class WriterReader {
      * @return crafts loaded.
      */
     public static boolean loadSetupFile(File file) {
+        Runnable r = null;
         try (ObjectInputStream oi = new ObjectInputStream(new FileInputStream(file))) {
             ArrayList<Craft> whites = new ArrayList<>();
             ArrayList<Craft> blacks = new ArrayList<>();
             ArrayList<Craft> templates = new ArrayList<>();
             int counter = 0;
             try {
+                try {
+                    r = (Runnable) oi.readObject();
+                    App.setRunnable(true);
+                } catch (ClassCastException e) {
+                    Craft newCraft = (Craft) oi.readObject();
+                    if (newCraft.getSide() == Side.WHITE) {
+                        whites.add(newCraft);
+                    } else if (newCraft.getSide() == Side.BLACK) {
+                        blacks.add(newCraft);
+                    } else {
+                        templates.add(newCraft);
+                    }
+                    ++counter;
+                }
+
                 //noinspection InfiniteLoopStatement
                 while (true) {
                     Craft newCraft = (Craft) oi.readObject();
@@ -140,6 +151,9 @@ public class WriterReader {
                 whites.forEach(Side.WHITE::addCraft);
                 blacks.forEach(Side.BLACK::addCraft);
                 templates.forEach(Side.TEMPLATE::addCraft);
+                if (App.isRunnable() && r != null) {
+                    r.run();
+                }
                 return true;
             }
             throw new IOException("No craft could have been loaded from file.");
@@ -234,11 +248,9 @@ public class WriterReader {
                     double speed;
                     String armor = lines[7];
 
-                    //2 name, 3 class
-                    //4 speed, 5 sys, 6 weapon, 7 armor, 8 era, 9 missiles
-                    //10 engines, 11 avionics, 12 internal, 13 fuel, 14 consumption, 15 hardpoints
-                    //16 speed, 17 sys, 18 weapon, 19 CIWS, 20 missiles,
-                    //21 software
+                    /*   2 name, 3 class, 4 speed, 5 sys, 6 weapon, 7 armor, 8 era, 9 missiles
+                    10 engines, 11 avionics, 12 internal, 13 fuel, 14 consumption, 15 hard points
+                    16 speed, 17 sys, 18 weapon, 19 CIWS, 20 missiles, 21 software                   */
 
                     try {
                         if (type.getTheatre() == Theatre.AERIAL) {

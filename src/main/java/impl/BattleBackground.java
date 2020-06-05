@@ -1,5 +1,6 @@
 package impl;
 
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -8,7 +9,16 @@ import java.util.TimerTask;
  * <p>
  * Class simulating the battle itself in the background of GUI.
  */
-public class BattleBackground implements Runnable {
+public class BattleBackground implements Runnable, Serializable {
+    private BattleSecond currentSituation;
+
+    public BattleBackground() {
+    }
+
+    public BattleBackground(BattleSecond currentSituation) {
+        this.currentSituation = currentSituation;
+    }
+
     /**
      * When an object implementing interface <code>Runnable</code> is used
      * to create a thread, starting the thread causes the object's
@@ -22,6 +32,7 @@ public class BattleBackground implements Runnable {
      */
     @Override
     public void run() {
+        BattleBackground battle = new BattleBackground();
         Timer t = new Timer();
         TimerTask tt = new BattleSecond();
         TimerTask tm = new MapBackground();
@@ -35,6 +46,9 @@ public class BattleBackground implements Runnable {
         tt.cancel();
         tm.cancel();
         t.cancel();
+    }
 
+    public BattleSecond getCurrentSituation() {
+        return currentSituation;
     }
 }

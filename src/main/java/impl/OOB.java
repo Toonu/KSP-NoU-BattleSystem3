@@ -11,7 +11,6 @@ import systems.Weapon;
 import ui.Gui;
 import utils.WriterReader;
 
-import java.io.File;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
@@ -26,6 +25,7 @@ public class OOB {
     private static final LinkedList<Countermeasure> COUNTERMEASURES = new LinkedList<>();
     private static final LinkedList<Radar> RADARS = new LinkedList<>();
     private static final LinkedList<KSPPart> OTHERS = new LinkedList<>();
+    private static BattleBackground battleBackground;
 
     /**
      * Main method.
@@ -39,11 +39,10 @@ public class OOB {
         WriterReader.filterSystems(systemsDatabase, WEAPONS, COUNTERMEASURES);
         OTHERS.add(new ReconSuite());
         OTHERS.add(new FuelTank());
-        WriterReader.saveSetupFile(new File("save.txt"), true);
+
         Gui.main(args);
-        //TODO Add select module option after clicking continue on welcoming window allowing you to choose modules
-        // to load to the database instead of loading everything
-        new Thread(new BattleBackground()).start();
+        BattleBackground battle = new BattleBackground();
+        new Thread(battle).start();
     }
 
     /**
@@ -107,5 +106,9 @@ public class OOB {
 
     public static LinkedList<KSPPart> getOTHERS() {
         return OTHERS;
+    }
+
+    public static BattleBackground getBattleBackground() {
+        return battleBackground;
     }
 }

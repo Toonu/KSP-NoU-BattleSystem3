@@ -24,6 +24,7 @@ public class App {
     private static boolean debug = true;
     private static boolean finished = false;
     private static int globalTime = 0;
+    private static boolean runnable = false;
 
     /**
      * Main method for the whole project and application.
@@ -34,7 +35,6 @@ public class App {
         SortedSet<Craft> leftSide = new TreeSet<>();
         SortedSet<Craft> rightSide = new TreeSet<>();
         debug = true;
-
         OOB.main(args);
     }
 
@@ -98,5 +98,11 @@ public class App {
         App.finished = finished;
     }
 
+    public static void setRunnable(boolean runnable) {
+        App.runnable = runnable;
+    }
 
+    public static boolean isRunnable() {
+        return runnable;
+    }
 }

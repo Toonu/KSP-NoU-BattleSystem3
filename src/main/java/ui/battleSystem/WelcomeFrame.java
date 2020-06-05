@@ -2,12 +2,23 @@ package ui.battleSystem;
 
 import enums.Era;
 import impl.App;
+import impl.OOB;
 import ui.Gui;
 import ui.JMenuExt;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.text.DocumentFilter;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -122,11 +133,30 @@ public class WelcomeFrame extends JFrame {
         infoTeamII.setForeground(Gui.FOREGROUND);
         
         nextWindow.addActionListener(e -> {
+            Object[] possibilities = {1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020};
+            int result;
+            result = (int) JOptionPane.showInputDialog(this,"Choose maximal era of simulation",
+                    "Choose era", JOptionPane.QUESTION_MESSAGE, new ImageIcon(Objects.requireNonNull(
+                            getClass().getClassLoader().getResource("Imperial_Seal_x4.png"))), possibilities,
+                    1950);
+            while (true) {
+                if (result != 0) {
+                    OOB.getRadars().removeIf(system -> Integer.parseInt(system.getEra().toString()) > result);
+                    OOB.getCountermeasures().removeIf(system -> Integer.parseInt(system.getEra().toString()) > result);
+                    OOB.getWeapons().removeIf(system -> Integer.parseInt(system.getEra().toString()) > result);
+                    break;
+                }
+            }
+
             setVisible(false);
             dispose();
             Gui.setCurrentWindow(tf);
+
+            tf.getDetails().updateSystems();
+
             tf.pack();
             tf.setVisible(true);
+
         });
         coorsXI.addMouseListener(new MouseListener() {
             @Override

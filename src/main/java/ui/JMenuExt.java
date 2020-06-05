@@ -1,16 +1,25 @@
 package ui;
 
 import enums.Side;
+import impl.App;
+import ui.battleSystem.BattleFrame;
 import ui.craftAnalyzer.CraftAnalyzer;
 import utils.WriterReader;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 
 /**
  * @author Tomas Novotny
@@ -52,22 +61,19 @@ public class JMenuExt extends JMenuBar {
             frameLoad.setLocation((width / 2) - (Gui.WIDTH / 2), (height / 2) - (Gui.HEIGHT / 2));
             frameLoad.add(jfc);
             frameLoad.setSize(Gui.WIDTH, Gui.HEIGHT);
-            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
+            jfc.addChoosableFileFilter(new FileNameExtensionFilter("XML Files", "xml"));
             jfc.setAcceptAllFileFilterUsed(false);
             jfc.setCurrentDirectory(new File("."));
-
 
             jfc.addActionListener(e1 -> {
                 if (e1.getActionCommand().equals("CancelSelection")) {
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file = jfc.getSelectedFile();
+
                     if (!WriterReader.loadSetupFile(file)) {
-                        System.err.println(String.format("[ERR %s] Error initializing stream. Exception: %s",
-                                LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
+                        App.err("Error loading the file.", true, true);
                     }
-
-
                     frameLoad.dispatchEvent(new WindowEvent(frameLoad, WindowEvent.WINDOW_CLOSING));
 
                     if (Gui.getWelcomeFrame().isVisible()) {
@@ -77,15 +83,17 @@ public class JMenuExt extends JMenuBar {
                     }
                     Gui.getOob().getWhiteListedCrafts().updateUI(Side.WHITE.getCrafts());
                     Gui.getOob().getBlackListedCrafts().updateUI(Side.BLACK.getCrafts());
+
                 }
             });
 
+            UIManager.getLookAndFeelDefaults();
             frameLoad.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frameLoad.setVisible(true);
+            if (App.isRunnable()) {
+                Gui.setCurrentWindow(new BattleFrame(Gui.TITLE));
+            }
         });
-
-        //TODO Add level 2 of menu allowing saving battle itself in progress from map view.
-
         save.addActionListener(e -> {
             //Monitor size
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -99,7 +107,7 @@ public class JMenuExt extends JMenuBar {
             frameSave.setLocation((width / 2) - (Gui.WIDTH / 2), (height / 2) - (Gui.HEIGHT / 2));
             frameSave.add(jfc);
             frameSave.setSize(Gui.WIDTH, Gui.HEIGHT);
-            jfc.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
+            jfc.addChoosableFileFilter(new FileNameExtensionFilter("XML Files", "xml"));
             jfc.setAcceptAllFileFilterUsed(false);
             jfc.setCurrentDirectory(new File("."));
             jfc.setApproveButtonText("Save");
@@ -109,18 +117,16 @@ public class JMenuExt extends JMenuBar {
                     frameSave.dispatchEvent(new WindowEvent(frameSave, WindowEvent.WINDOW_CLOSING));
                 } else if (e1.getActionCommand().equals("ApproveSelection")) {
                     File file1 = jfc.getSelectedFile();
-
                     if (!WriterReader.saveSetupFile(file1, true)) {
-                        System.err.println(String.format(
-                                "[ERR %s] Error initializing stream and saving the crafts. " +
-                                        "Exception: %s", LocalTime.now().truncatedTo(ChronoUnit.SECONDS), e1));
+                        App.err("Error saving the file.", true, true);
                     }
+
                     frameSave.dispatchEvent(new WindowEvent(frameSave, WindowEvent.WINDOW_CLOSING));
                 }
             });
 
             frameSave.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+            UIManager.getLookAndFeelDefaults();
             frameSave.setVisible(true);
         });
         craftAnalyzer.addActionListener(ex -> CraftAnalyzer.main());

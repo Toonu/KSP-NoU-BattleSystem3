@@ -36,6 +36,8 @@ public class JCraftPanel extends JPanel {
     private final boolean switched = false;
     private ArrayList<Craft> selectedCrafts;
     private final JTextField newName = new JTextField();
+    private final JPanel systemsPanel = new JPanel(new GridBagLayout());
+    private final LinkedList<JButton> systemButtons = new LinkedList<>();
 
     /**
      * Constructor.
@@ -72,10 +74,6 @@ public class JCraftPanel extends JPanel {
         equip.setLayout(new GridBagLayout());
         equip.setBackground(Gui.BACKGROUND);
 
-        LinkedList<JButton> systemButtons = new LinkedList<>();
-
-
-        JPanel systemsPanel = new JPanel(new GridBagLayout());
         JScrollPane systemsPanelScroll = new JScrollPane(systemsPanel);
         systemsPanelScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         systemsPanelScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -86,53 +84,7 @@ public class JCraftPanel extends JPanel {
         gc.anchor = GridBagConstraints.EAST;
         equip.add(systemsPanelScroll, gc);
 
-        gc = new GridBagConstraints();
-        gc.fill = GridBagConstraints.BOTH;
-        gc.anchor = GridBagConstraints.EAST;
-        for (Countermeasure sys : OOB.getCountermeasures()) {
-            systemButtons.add(new JButton(sys.toShortString()));
-            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
-            systemButtons.getLast().addActionListener(e -> {
-                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
-                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
-                if (!selectedCrafts.isEmpty()) {
-                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
-                    Gui.getOob().getWhiteListedCrafts().updateUI();
-                    Gui.getOob().getBlackListedCrafts().updateUI();
-                }
-            });
-        }
-        for (Weapon sys : OOB.getWeapons()) {
-            systemButtons.add(new JButton(sys.toShortString()));
-            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
-            systemButtons.getLast().addActionListener(e -> {
-                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
-                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
-                if (!selectedCrafts.isEmpty()) {
-                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
-                    Gui.getOob().getWhiteListedCrafts().updateUI();
-                    Gui.getOob().getBlackListedCrafts().updateUI();
-                }
-            });
-        }
-        for (KSPPart sys : OOB.getOTHERS()) {
-            systemButtons.add(new JButton(sys.toString()));
-            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
-            systemButtons.getLast().addActionListener(e -> {
-                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
-                selectedCrafts.forEach(craft -> craft.addPart(sys.copy()));
-                if (!selectedCrafts.isEmpty()) {
-                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
-                    Gui.getOob().getWhiteListedCrafts().updateUI();
-                    Gui.getOob().getBlackListedCrafts().updateUI();
-                }
-            });
-        }
-
-        for (JButton but : systemButtons) {
-            ++gc.gridy;
-            systemsPanel.add(but, gc);
-        }
+        updateSystems();
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
@@ -232,5 +184,57 @@ public class JCraftPanel extends JPanel {
         return newName;
     }
 
+    /**
+     * Updates systems with new values.
+     */
+    public void updateSystems() {
+        systemsPanel.removeAll();
+        systemButtons.clear();
+        for (Countermeasure sys : OOB.getCountermeasures()) {
+            systemButtons.add(new JButton(sys.toShortString()));
+            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
+                if (!selectedCrafts.isEmpty()) {
+                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
+                    Gui.getOob().getWhiteListedCrafts().updateUI();
+                    Gui.getOob().getBlackListedCrafts().updateUI();
+                }
+            });
+        }
+        for (Weapon sys : OOB.getWeapons()) {
+            systemButtons.add(new JButton(sys.toShortString()));
+            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addSystem(sys.copy()));
+                if (!selectedCrafts.isEmpty()) {
+                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
+                    Gui.getOob().getWhiteListedCrafts().updateUI();
+                    Gui.getOob().getBlackListedCrafts().updateUI();
+                }
+            });
+        }
+        for (KSPPart sys : OOB.getOTHERS()) {
+            systemButtons.add(new JButton(sys.toString()));
+            systemButtons.getLast().setHorizontalAlignment(SwingConstants.LEFT);
+            systemButtons.getLast().addActionListener(e -> {
+                setSelectedCrafts(Gui.getOob().getSelectedCraftsFromList());
+                selectedCrafts.forEach(craft -> craft.addPart(sys.copy()));
+                if (!selectedCrafts.isEmpty()) {
+                    Gui.getOob().getDetails().updateUI(Gui.getOob().getLastSelectedList());
+                    Gui.getOob().getWhiteListedCrafts().updateUI();
+                    Gui.getOob().getBlackListedCrafts().updateUI();
+                }
+            });
+        }
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.fill = GridBagConstraints.HORIZONTAL;
+        for (JButton but : systemButtons) {
+            ++gc.gridy;
+            systemsPanel.add(but, gc);
+        }
 
+    }
 }
