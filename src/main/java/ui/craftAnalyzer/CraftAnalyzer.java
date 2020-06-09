@@ -154,6 +154,8 @@ public class CraftAnalyzer {
                 if (Pattern.matches(".*BDModulePilotAI.*", line)) {
                     hasAIPilot = true;
                     checkAIPilot = true;
+                } else if (Pattern.matches(".*BDModuleSurfaceAI.*", line)) {
+                    hasAIPilot = true;
                 } else if (checkAIPilot && Pattern.matches(".*standbyMode.*", line)) {
                     String[] pilotLine = line.split("=");
                     if (pilotLine[1].trim().equals("False")) {

@@ -13,8 +13,10 @@ import utils.WriterReader;
 
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * @author Toonu
@@ -29,6 +31,7 @@ public class OOB {
     private static final LinkedList<KSPPart> OTHERS = new LinkedList<>();
     private static final Queue<BattleSecond> STAGES = new ArrayDeque<>();
     private static BattleBackground battleBackground;
+    private static final Set<Attack> ATTACKS = new HashSet<>();
 
     /**
      * Main method.
@@ -114,4 +117,19 @@ public class OOB {
     public static BattleBackground getBattleBackground() {
         return battleBackground;
     }
+
+    public static Set<Attack> getAttacks() {
+        return ATTACKS;
+    }
+
+    /**
+     * Method adds attack to the attacks.
+     *
+     * @param attack to add.
+     */
+    public static void addAttack(Attack attack) {
+        ATTACKS.add(attack);
+    }
+
+
 }

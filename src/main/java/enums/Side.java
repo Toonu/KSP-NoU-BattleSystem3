@@ -108,4 +108,5 @@ public enum Side {
     public List<KSPPart> getLostSystems() {
         return lostSystems;
     }
+
 }

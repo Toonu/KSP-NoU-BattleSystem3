@@ -1,15 +1,23 @@
 package crafts;
 
+import comparators.WeaponComparator;
 import crafts.parts.Armor;
 import crafts.parts.Radar;
+import enums.ArmorSide;
 import enums.Era;
+import enums.GuidanceType;
 import enums.Side;
 import enums.Theatre;
 import enums.Type;
 import impl.App;
+import impl.Attack;
+import impl.BattleSecond;
+import impl.OOB;
 import systems.AbstractSystem;
 import systems.Countermeasure;
+import systems.Gun;
 import systems.KSPPart;
+import systems.Missile;
 import systems.Weapon;
 import utils.Movable;
 import utils.Vertex2D;
@@ -18,6 +26,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Random;
+import java.util.TreeMap;
 
 /**
  * @author Toonu
@@ -381,6 +390,155 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         } else {
             return Vessel.copy(newSide, (Vessel) this);
         }
+    }
+
+
+    /**
+     * Method representing firing weapon against aggressor from target.
+     * Simulates failure to launch a missile and relaunch of another missile against the target.
+     * Simulates adding fired weapons to lost systems.
+     *
+     * @param target Craft object targeted and weapon with range to it.
+     * @return true if the weapon fired.
+     */
+    public boolean fire(TreeMap<Craft, LinkedList<Weapon>> target) {
+        for (Weapon weaponSystem : target.firstEntry().getValue()) {
+            int counter = 0;
+
+            if (weaponSystem instanceof Missile) {
+                if (new Random().nextInt(1) != 1) {
+                    App.err("Failure to launch the" + weaponSystem, false, false);
+                    ++counter;
+                } else {
+                    OOB.addAttack(new Attack((Missile) weaponSystem, this, target.firstKey()));
+                    removeSystem(weaponSystem);
+                    side.getLostWeapons().add(weaponSystem);
+                    return true;
+                }
+                if (counter > 3) {
+                    return false;
+                }
+            } else if (weaponSystem instanceof Gun) {
+                double angle = BattleSecond.hitAngle(this, target.firstKey());
+                target.firstKey().projectileIncoming((Gun) weaponSystem, angle);
+                ((Gun) weaponSystem).fireGun();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Method representing gun projectile incoming against the target armor.
+     * If there is no armor, it randomly decide if it is hit or not and do direct damage.
+     * If there is armor, calculates angle and penetration values and then determine damage in other method.
+     *
+     * @param weaponSystem gun attacking.
+     */
+    private void projectileIncoming(Gun weaponSystem, double angle) {
+        boolean armor = false;
+        boolean penetrated = false;
+        for (KSPPart part : parts) {
+            if (part instanceof Armor) {
+                for (ArmorSide side : ArmorSide.values()) {
+                    if (angle < side.getMaxAngle() && angle > side.getMinAngle()) {
+                        if (((Armor) part).isPenetrated(side, weaponSystem.getAmmunition().getPenetration(), angle)) {
+                            absorbDamage(weaponSystem.getStrength());
+                        }
+                    }
+                }
+                armor = true;
+                break;
+            }
+        }
+        if (!armor && new Random().nextInt(1) != 1) {
+            absorbDamage(weaponSystem.getStrength());
+        }
+    }
+
+    /**
+     * Method checks all incoming attacks and apply countermeasures on them if they are in range.
+     * If successful, removes the attack, otherwise it continues.
+     */
+    public void checkIncoming() {
+        for (Attack attack : OOB.getAttacks()) {
+            if (attack.getTarget() == this) {
+                for (Countermeasure cm : countermeasures) {
+                    if (cm.getMaxRange() > attack.getPosition().distance(position)
+                            && cm.getTargets().contains(attack.getWeapon().getGuidanceType())) {
+                        if (attack.getWeapon().getEra().getModifier() > cm.getEra().getModifier()
+                                + new Random().nextInt(1)) {
+                            OOB.getAttacks().remove(attack);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Method finds closest craft and weapons to engage it.
+     *
+     * @return Target and weapons that can engage it.
+     */
+    public TreeMap<Craft, LinkedList<Weapon>> findClosest() {
+        double shortestDistance = 11000;
+        Side targetSide = Side.BLACK;
+        if (side == Side.WHITE) {
+            targetSide = Side.WHITE;
+        }
+
+        //All enemies sorted by range.
+        LinkedList<Craft> targetsByDistance = new LinkedList<>();
+        targetsByDistance.add(targetSide.getCrafts().getFirst());
+        Craft target = null;
+
+        //All weapons sorted by range and damage.
+        LinkedList<Weapon> possibleWeapons = new LinkedList<>();
+
+        for (Craft potentialTarget : targetSide.getCrafts()) {
+            double potentialDistance = position.distance(potentialTarget.getPosition());
+            if (potentialDistance < shortestDistance) {
+                targetsByDistance.addFirst(potentialTarget);
+                shortestDistance = potentialDistance;
+            }
+        }
+
+        while (possibleWeapons.isEmpty()) {
+            target = targetsByDistance.pollFirst();
+            possibleWeapons = getPossibleWeapons(target, shortestDistance);
+        }
+
+
+        TreeMap<Craft, LinkedList<Weapon>> result = new TreeMap<>();
+        result.put(target, possibleWeapons);
+
+        return result;
+    }
+
+    /**
+     * Method returns all weapons with range against the target.
+     *
+     * @param target   target.
+     * @param distance to the target.
+     * @return weapons in range by damage.
+     */
+    private LinkedList<Weapon> getPossibleWeapons(Craft target, double distance) {
+        LinkedList<Weapon> possibleWeapons = new LinkedList<>();
+
+        for (Weapon wp : weapons) {
+            try {
+                if (((Missile) wp).getGuidanceType() == GuidanceType.ANTIRAD && target.getRadar() != null) {
+                    possibleWeapons.add(wp);
+                }
+            } catch (ClassCastException e) {
+                if (wp.getMaxRange() > distance && wp.getTargets().contains(target.getCraftClassification())) {
+                    possibleWeapons.add(wp);
+                }
+            }
+        }
+        possibleWeapons.sort(new WeaponComparator());
+        return possibleWeapons;
     }
 
 

@@ -101,8 +101,12 @@ public class Attack implements Movable {
         Vertex2D delta = new Vertex2D(trg.getX() - getPosition().getX(), trg.getY() - getPosition().getY());
         double angle = Math.atan2(delta.getY(), delta.getX());
         int speedX = 1;
-        position = new Vertex2D(
-                getPosition().getX() + (Math.cos(angle) * speedX),
-                getPosition().getY() + (Math.sin(angle) * speedX));
+        if (position.distance(target.getPosition()) < speed) {
+            position = target.getPosition();
+        } else {
+            position = new Vertex2D(
+                    getPosition().getX() + (Math.cos(angle) * speedX),
+                    getPosition().getY() + (Math.sin(angle) * speedX));
+        }
     }
 }

@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Craft Analyzer tweaks and updated database.&#10;-version 0.2.3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/FinalFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comparators/CraftComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comparators/WeaponComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/GuidanceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distribution/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/distribution/config.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/ArmorSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/ArmorSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/Side.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -501,10 +503,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="717" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591283075003" />
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1591274399696">
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1591709321460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591274399696" />
+    <state x="621" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591709321460" />
     <state x="442" y="71" key="#com.intellij.ide.util.MemberChooser/0.23.1366.681@0.23.1366.681" timestamp="1590572791666" />
     <state x="690" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590154524951">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -574,25 +576,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590760142281" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1591693787583">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591709973286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591693787583" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591709973286" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1591693787583">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591709973286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591693787583" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591709973286" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591096981046" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1591693787583">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591709973286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591693787583" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591709973286" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591096981045" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1591693787583">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591709973286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591693787583" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591709973286" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
     <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1591693787583">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -665,10 +667,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="73" y="122" width="1569" height="1027" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1591187616936" />
-    <state x="670" y="124" width="556" height="525" key="find.popup" timestamp="1591701800394">
-      <screen x="0" y="23" width="1366" height="681" />
+    <state x="1196" y="146" width="585" height="801" key="find.popup" timestamp="1591709189852">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1196" y="146" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591207782802" />
+    <state x="1196" y="146" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591709189852" />
     <state x="670" y="124" width="556" height="525" key="find.popup/0.23.1366.681@0.23.1366.681" timestamp="1591701800394" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1590410566629">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -720,14 +722,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$WelcomeWindow.ic" NAME="WelcomeWindow Coverage Results" MODIFIED="1590262320406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.UI.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$App.ic" NAME="App Coverage Results" MODIFIED="1590170387428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
