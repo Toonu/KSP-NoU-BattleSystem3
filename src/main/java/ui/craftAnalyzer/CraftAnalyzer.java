@@ -77,7 +77,9 @@ public class CraftAnalyzer {
 
                     Object[] options = {"Show Details", "Close"};
 
-                    if (JOptionPane.showOptionDialog(FRAME, newCraft, "Analyzer",
+                    if (JOptionPane.showOptionDialog(FRAME, newCraft +
+                                    "\nNote that some parts may not be analyzed correctly. " +
+                                    "Check details for further information.", "Analyzer",
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]) == 0) {
                         JOptionPane.showMessageDialog(FRAME, newCraft.toPartString());
                     }

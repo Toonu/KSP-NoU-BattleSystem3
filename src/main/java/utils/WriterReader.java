@@ -400,7 +400,7 @@ public class WriterReader {
                         Set<Theatre> targets = new HashSet<>();
                         for (String target : word[6].split(":")) {
                             try {
-                                targets.add(Theatre.valueOf(target.toUpperCase()));
+                                targets.add(Theatre.valueOf(target.toUpperCase().trim()));
                             } catch (IllegalArgumentException ex) {
                                 throw new IllegalArgumentException(String.format("Error reading %s targets. %s",
                                         name, ex.getMessage()));
