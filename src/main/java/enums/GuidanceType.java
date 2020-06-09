@@ -6,7 +6,7 @@ package enums;
  * GuidanceType enums represents missile guidance type.
  */
 public enum GuidanceType {
-    IR, RADAR, GPS, BEAM, FALL;
+    IR, RADAR, GPS, BEAM, FALL, ANTIRAD;
 
     @Override
     public String toString() {

@@ -105,6 +105,4 @@ public class Attack implements Movable {
                 getPosition().getX() + (Math.cos(angle) * speedX),
                 getPosition().getY() + (Math.sin(angle) * speedX));
     }
-
-
 }

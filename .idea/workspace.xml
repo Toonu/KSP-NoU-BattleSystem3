@@ -19,7 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Craft Analyzer tweaks and updated database.&#10;-version 0.2.3" />
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Craft Analyzer tweaks and updated database.&#10;-version 0.2.3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/FinalFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comparators/CraftComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comparators/WeaponComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enums/GuidanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enums/GuidanceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -516,26 +524,30 @@
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="535" y="259" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963245529" />
+    <state x="371" y="106" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591693917656">
+      <screen x="0" y="23" width="1366" height="681" />
+    </state>
+    <state x="371" y="106" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1366.681@0.23.1366.681" timestamp="1591693917655" />
     <state x="662" y="354" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590699426757">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="662" y="354" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1590699426757" />
     <state x="471" y="255" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1366.681@0.23.1366.681" timestamp="1590583700146" />
-    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591032395492">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591698635459">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591032395492" />
-    <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1590740707842" />
+    <state x="170" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1366.681@0.23.1366.681" timestamp="1591698635459" />
     <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590753789058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="592" y="144" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590753789058" />
     <state x="421" y="117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.681@0.23.1366.681" timestamp="1590740577185" />
-    <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1590684815636">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1591700592500">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="592" y="144" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590684815636" />
-    <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1589963912091" />
+    <state x="421" y="117" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1366.681@0.23.1366.681" timestamp="1591700592500" />
     <state x="834" y="404" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1590395334634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -653,10 +665,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="73" y="122" width="1569" height="1027" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1591187616936" />
-    <state x="1196" y="146" width="585" height="801" key="find.popup" timestamp="1591207782802">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="670" y="124" width="556" height="525" key="find.popup" timestamp="1591701800394">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="1196" y="146" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1591207782802" />
+    <state x="670" y="124" width="556" height="525" key="find.popup/0.23.1366.681@0.23.1366.681" timestamp="1591701800394" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1590410566629">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -678,11 +691,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590223248592" />
-    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup" timestamp="1590655997508">
+    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup" timestamp="1591699381680">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590609745668" />
-    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup/0.23.1366.681@0.23.1366.681" timestamp="1590655997508" />
+    <state x="443" y="170" width="670" height="444" key="search.everywhere.popup/0.23.1366.681@0.23.1366.681" timestamp="1591699381680" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,14 +720,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$WelcomeWindow.ic" NAME="WelcomeWindow Coverage Results" MODIFIED="1590262320406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.UI.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KSP_NoU_Battle_System_3$App.ic" NAME="App Coverage Results" MODIFIED="1591030763014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KSP_NoU_BattleSystem3$App.ic" NAME="App Coverage Results" MODIFIED="1590170387428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.NoU.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Battle_Simulator_3$App.ic" NAME="App Coverage Results" MODIFIED="1590736019455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

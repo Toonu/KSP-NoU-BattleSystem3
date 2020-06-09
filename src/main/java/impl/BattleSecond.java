@@ -1,14 +1,19 @@
 package impl;
 
+import comparators.WeaponComparator;
 import crafts.Craft;
 import enums.GuidanceType;
+import enums.Side;
 import systems.Countermeasure;
+import systems.Gun;
 import systems.Missile;
 import systems.Weapon;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Set;
 import java.util.TimerTask;
 
@@ -20,10 +25,7 @@ import java.util.TimerTask;
 public class BattleSecond extends TimerTask {
     private final Set<Attack> attacks = new HashSet<>();
 
-    //Check every X seconds if crafts can fire or undergoing attacks, then perform those attacks and go to next second
     //Following Final results, fired weapons, lost weapons, lost vehicles, retreated vehicles.
-
-    //Maybe return each second the results of the second ?
 
     /**
      * Constructor.
@@ -33,12 +35,87 @@ public class BattleSecond extends TimerTask {
     }
 
     /**
+     * Method returns all weapons with range against the target.
+     *
+     * @param craft    aggressor.
+     * @param target   target.
+     * @param distance to the target.
+     * @return weapons in range by damage.
+     */
+    public static LinkedList<Weapon> getPossibleWeapons(Craft craft, Craft target, double distance) {
+        LinkedList<Weapon> possibleWeapons = new LinkedList<>();
+
+        for (Weapon wp : craft.getWeapons()) {
+            if (wp instanceof Missile) {
+                if (((Missile) wp).getGuidanceType() == GuidanceType.ANTIRAD && target.getRadar() != null) {
+                    possibleWeapons.add(wp);
+                } else if (wp.getMaxRange() > distance
+                        && wp.getTargets().contains(target.getCraftClassification())) {
+                    possibleWeapons.add(wp);
+                }
+            } else if (wp instanceof Gun) {
+                if (wp.getMaxRange() > distance && wp.getTargets().contains(target.getCraftClassification())) {
+                    possibleWeapons.add(wp);
+                }
+            }
+        }
+        possibleWeapons.sort(new WeaponComparator());
+        return possibleWeapons;
+    }
+
+    /**
      * The action to be performed by this timer task.
      */
     @Override
     public void run() {
         System.out.println(App.returnRealTime());
         App.setGlobalTime(App.getGlobalTime() + 1);
+        for (Craft craft : Side.WHITE.getCrafts()) {
+            HashMap<Craft, LinkedList<Weapon>> target = findClosest(craft);
+            for (Map.Entry<Craft, LinkedList<Weapon>> entry : target.entrySet()) {
+                fire(entry.getValue().pollFirst(), craft, entry.getKey());
+            }
+        }
+    }
+
+    /**
+     * Method finds closest craft and weapons to engage it.
+     *
+     * @param craft aggressor craft.
+     * @return Target and weapons that can engage it.
+     */
+    private HashMap<Craft, LinkedList<Weapon>> findClosest(Craft craft) {
+        double shortestDistance = 10000;
+        Side targetSide = Side.BLACK;
+        LinkedList<Craft> targetsByDistance = new LinkedList<>();
+
+        Craft target = null;
+
+        if (craft.getSide() == Side.WHITE) {
+            targetSide = Side.WHITE;
+        }
+
+        targetsByDistance.add(targetSide.getCrafts().getFirst());
+
+        for (Craft potentialTarget : targetSide.getCrafts()) {
+            if (craft.getPosition().distance(potentialTarget.getPosition()) < shortestDistance) {
+                targetsByDistance.addFirst(potentialTarget);
+                shortestDistance = craft.getPosition().distance(potentialTarget.getPosition());
+            }
+        }
+
+        LinkedList<Weapon> possibleWeapons = new LinkedList<>();
+
+        while (possibleWeapons.isEmpty()) {
+            target = targetsByDistance.pollFirst();
+            possibleWeapons = getPossibleWeapons(craft, target, shortestDistance);
+
+        }
+
+        HashMap<Craft, LinkedList<Weapon>> result = new HashMap<>();
+        result.put(target, possibleWeapons);
+
+        return result;
     }
 
     /**
@@ -97,26 +174,20 @@ public class BattleSecond extends TimerTask {
      */
     public boolean fire(Weapon weaponSystem, Craft aggressor, Craft target) {
         //TODO Add failure to launch missile here.
-
+        //Already chosen weapons and target, now just do attack either immidiately or via Attack object.
+        //Add method of  countermeasure and defence
+        //Maybe add attack per class due to armor on tanks
         if (weaponSystem instanceof Missile) {
             attacks.add(new Attack((Missile) weaponSystem, aggressor, target));
             aggressor.removeSystem(weaponSystem);
+            aggressor.getSide().getLostWeapons().add(weaponSystem);
             return true;
-        } else if (weaponSystem != null) {
-            aggressor.removeSystem(weaponSystem);
+        } else if (weaponSystem instanceof Gun) {
+            aggressor.getWeapons().contains()
+            aggressor
             return true;
         }
         return false;
-    }
-
-    /**
-     * Choose a weapon.
-     *
-     * @return Weapon.
-     */
-    public Weapon chooseWeapon() {
-        //TODO Add choosing weapon to fire here? Probably...
-        return null;
     }
 
     public Set<Attack> getAttacks() {

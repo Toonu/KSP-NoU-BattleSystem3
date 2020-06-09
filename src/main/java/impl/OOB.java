@@ -12,7 +12,9 @@ import ui.Gui;
 import utils.WriterReader;
 
 import java.nio.file.Paths;
+import java.util.ArrayDeque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author Toonu
@@ -25,6 +27,7 @@ public class OOB {
     private static final LinkedList<Countermeasure> COUNTERMEASURES = new LinkedList<>();
     private static final LinkedList<Radar> RADARS = new LinkedList<>();
     private static final LinkedList<KSPPart> OTHERS = new LinkedList<>();
+    private static final Queue<BattleSecond> STAGES = new ArrayDeque<>();
     private static BattleBackground battleBackground;
 
     /**
