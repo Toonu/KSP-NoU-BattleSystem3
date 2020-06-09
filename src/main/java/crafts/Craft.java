@@ -217,8 +217,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
                 throw new IllegalArgumentException("Cannot add null system.");
             }
             Double rng = (system).getMaxRange();
-            if ((system).getMaxRange() > 0 &&
-                    Integer.parseInt((system).getEra().toString()) <= Integer.parseInt(craftProductionYear.toString())) {
+            if ((system).getMaxRange() > 0 && Integer.parseInt((system).getEra().toString())
+                    <= Integer.parseInt(craftProductionYear.toString())) {
                 if (system instanceof Weapon) {
                     if (((Weapon) system).isInternal() && amountOfInternal + 1 <= limitInternal) {
                         weapons.add((Weapon) system);
@@ -237,6 +237,11 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         }
     }
 
+    /**
+     * Method adds part to the craft systems.
+     *
+     * @param system to add.
+     */
     public void addPart(KSPPart system) {
         if (system != null) {
             parts.add(system);

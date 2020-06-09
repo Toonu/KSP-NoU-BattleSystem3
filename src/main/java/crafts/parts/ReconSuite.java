@@ -12,6 +12,9 @@ import java.io.Serializable;
 public class ReconSuite implements KSPPart, Serializable {
     private final String internalKSPPart;
 
+    /**
+     * Constructor.
+     */
     public ReconSuite() {
         internalKSPPart = "Recon suite";
     }

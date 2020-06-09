@@ -111,11 +111,18 @@ public class CraftAnalyzer {
         String craftName = null;
         String lastPart = "";
         boolean hasBDAModule = false;
+        boolean hasAIPilot = false;
         boolean checkBDAModule = false;
+        boolean checkAIPilot = false;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             while (line != null) {
+                if (craftName == null && Pattern.matches(".*ship = .*", line)) {
+                    line = line.trim();
+                    craftName = line.substring(7);
+                }
+
                 if (Pattern.matches(".*part = .*", line)) {
                     line = line.trim();
                     line = line.substring(7, line.length() - 11);
@@ -126,12 +133,12 @@ public class CraftAnalyzer {
                     if (Pattern.matches(".*bahaAdjustableRail.*", line)) {
                         hardpoints += 3;
                     }
-                    if (Pattern.matches(".*missileController.*", line)) {
-                        hasBDAModule = true;
-                        checkBDAModule = true;
-                    }
                 }
-                if (checkBDAModule && Pattern.matches(".*guardRange.*", line)) {
+
+                if (Pattern.matches(".*MissileFire.*", line)) {
+                    hasBDAModule = true;
+                    checkBDAModule = true;
+                } else if (checkBDAModule && Pattern.matches(".*guardRange.*", line)) {
                     String[] guardRange = line.split("=");
                     if (Double.parseDouble(guardRange[1].trim()) <= 199000) {
                         JOptionPane.showMessageDialog(FRAME,
@@ -141,10 +148,21 @@ public class CraftAnalyzer {
                     }
                     checkBDAModule = false;
                 }
-                if (Pattern.matches(".*ship = .*", line)) {
-                    line = line.trim();
-                    craftName = line.substring(7);
+
+                if (Pattern.matches(".*BDModulePilotAI.*", line)) {
+                    hasAIPilot = true;
+                    checkAIPilot = true;
+                } else if (checkAIPilot && Pattern.matches(".*standbyMode.*", line)) {
+                    String[] pilotLine = line.split("=");
+                    if (pilotLine[1].trim().equals("False")) {
+                        JOptionPane.showMessageDialog(FRAME,
+                                "Craft has not set AI Pilot to standby mode! You should " +
+                                        "warn the player that the craft might start unexpectedly in battles.",
+                                "Wrong AI Pilot", JOptionPane.WARNING_MESSAGE);
+                    }
+                    checkAIPilot = false;
                 }
+
                 line = br.readLine();
             }
         } catch (IOException e) {
@@ -155,6 +173,11 @@ public class CraftAnalyzer {
             JOptionPane.showMessageDialog(FRAME,
                     "Craft is missing BDA Manager module!",
                     "Wrong AI", JOptionPane.WARNING_MESSAGE);
+        }
+        if (!hasAIPilot) {
+            JOptionPane.showMessageDialog(FRAME,
+                    "Craft is missing BDA AI Pilot module!",
+                    "Wrong AI Pilot", JOptionPane.WARNING_MESSAGE);
         }
 
         return new AnalyzedCraft(parts, hardpoints, craftName, hasBDAModule);

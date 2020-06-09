@@ -4,8 +4,13 @@ import crafts.Craft;
 import enums.Side;
 import ui.Gui;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
 /**
  * @author Toonu

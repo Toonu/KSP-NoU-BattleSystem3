@@ -20,16 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Added bombs, FuelTank and ReconSuite.&#10;0.2.3">
-      <change afterPath="$PROJECT_DIR$/Savegame.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoU Database - DatabaseForBS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/NoU Database - DatabaseForBS.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distribution/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/distribution/config.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/parts/FuelTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/FuelTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/parts/ReconSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/ReconSuite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/OOB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/OOB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JCraftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/JMenuExt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/WelcomeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/battleSystem/BattleMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -559,25 +560,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="181" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590760142281" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1591287867886">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1591691633165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591287867886" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591691633165" />
     <state width="1324" height="166" key="GridCell.Tab.0.bottom/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1591287867886">
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1591691633165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591287867886" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591691633165" />
     <state width="1324" height="166" key="GridCell.Tab.0.center/0.23.1366.681@0.23.1366.681" timestamp="1591096981046" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1591287867886">
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1591691633165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591287867886" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591691633165" />
     <state width="1324" height="166" key="GridCell.Tab.0.left/0.23.1366.681@0.23.1366.681" timestamp="1591096981045" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1591287867886">
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1591691633165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591287867886" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591691633165" />
     <state width="1324" height="166" key="GridCell.Tab.0.right/0.23.1366.681@0.23.1366.681" timestamp="1591096981047" />
     <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1591287867886">
       <screen x="0" y="0" width="1920" height="1040" />

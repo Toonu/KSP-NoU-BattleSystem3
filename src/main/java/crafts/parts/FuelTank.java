@@ -12,6 +12,9 @@ import java.io.Serializable;
 public class FuelTank implements KSPPart, Serializable {
     private final String internalKSPName;
 
+    /**
+     * Constructor.
+     */
     public FuelTank() {
         internalKSPName = "FuelTank tank";
     }

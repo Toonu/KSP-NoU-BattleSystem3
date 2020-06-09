@@ -12,9 +12,16 @@ import java.util.TimerTask;
 public class BattleBackground implements Runnable, Serializable {
     private BattleSecond currentSituation;
 
+    /**
+     * Constructor.
+     */
     public BattleBackground() {
     }
 
+    /**
+     * Constructor when loading battle.
+     * @param currentSituation to resume battle from the situation.
+     */
     public BattleBackground(BattleSecond currentSituation) {
         this.currentSituation = currentSituation;
     }

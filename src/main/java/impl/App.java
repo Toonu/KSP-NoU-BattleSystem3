@@ -5,7 +5,7 @@ import enums.Era;
 import ui.Gui;
 import utils.Vertex2D;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.SortedSet;
