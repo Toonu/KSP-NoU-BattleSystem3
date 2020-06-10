@@ -19,26 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Craft Analyzer tweaks and updated database. Added few iterations of Battle background math.&#10;-version 0.2.3">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/toonu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/ArmoredVehicle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/crafts/parts/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/crafts/parts/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/impl/BattleSecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/AbstractSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Countermeasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Gun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Gun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/systems/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/systems/Missile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/CraftAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Vertex2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Vertex2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/WriterReader.java" afterDir="false" />
-    </list>
+    <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Added few iterations of Battle background math.&#10;-version 0.2.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -441,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591710103388</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added few iterations of Battle background math.&#10;-version 0.2.3">
+      <created>1591788151917</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1591788151917</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -463,7 +451,6 @@
       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
       <path value="$PROJECT_DIR$/KSP-NoU-CraftAnalyzer" />
     </ignored-roots>
-    <MESSAGE value="IO Tweaks" />
     <MESSAGE value="Tweaks to IO and Positioning system." />
     <MESSAGE value="Started OOB" />
     <MESSAGE value="Maven refractor to basic folder layout." />
@@ -488,7 +475,8 @@
     <MESSAGE value="Added 1940s Enum." />
     <MESSAGE value="Craft Analyzer tweaks and updated database.&#10;-version 0.2.3" />
     <MESSAGE value="Craft Analyzer tweaks and updated database. Added few iterations of Battle background math.&#10;-version 0.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Craft Analyzer tweaks and updated database. Added few iterations of Battle background math.&#10;-version 0.2.3" />
+    <MESSAGE value="Added few iterations of Battle background math.&#10;-version 0.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added few iterations of Battle background math.&#10;-version 0.2.3" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -585,11 +573,11 @@
     </state>
     <state x="718" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1590226703252" />
     <state x="511" y="278" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1366.681@0.23.1366.681" timestamp="1591784529902" />
-    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1590663266030">
+    <state x="275" y="23" key="CommitChangelistDialog2" timestamp="1591788123826">
       <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="587" y="89" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589897815035" />
-    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1590663266030" />
+    <state x="275" y="23" key="CommitChangelistDialog2/0.23.1366.681@0.23.1366.681" timestamp="1591788123826" />
     <state x="181" y="249" key="FileChooserDialogImpl" timestamp="1590760142281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -655,11 +643,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591710104753">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="393" y="184" key="Vcs.Push.Dialog.v2" timestamp="1591788165358">
+      <screen x="0" y="23" width="1366" height="681" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591710104753" />
-    <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1590663268863" />
+    <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1591788165358" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -722,7 +710,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/craftAnalyzer/AnalyzedCraft.java</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
