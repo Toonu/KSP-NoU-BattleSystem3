@@ -47,8 +47,8 @@ public class OOB {
         OTHERS.add(new FuelTank());
 
         Gui.main(args);
-        BattleBackground battle = new BattleBackground();
-        new Thread(battle).start();
+        //BattleBackground battle = new BattleBackground();
+        //new Thread(battle).start();
     }
 
     /**

@@ -134,6 +134,8 @@ public class CraftAnalyzer {
                     }
                     if (Pattern.matches(".*bahaAdjustableRail.*", line)) {
                         hardpoints += 3;
+                    } else if (Pattern.matches(".*StructBomb.*", line) || Pattern.matches(".*HeavyMount.*", line)) {
+                        hardpoints += 1;
                     }
                 }
 
