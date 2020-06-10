@@ -12,10 +12,10 @@ import utils.Vertex2D;
  */
 public class Attack implements Movable {
     private final Missile weapon;
-    private final Craft origin;
     private final Craft target;
     private Vertex2D position;
     private double speed;
+    private final double maximalSpeed;
 
     /**
      * Constructor.
@@ -26,20 +26,27 @@ public class Attack implements Movable {
      */
     public Attack(Missile weapon, Craft origin, Craft target) {
         this.weapon = weapon;
-        this.origin = origin;
         this.position = origin.getPosition();
         this.target = target;
-        //TODO simulate speed increase and decrease after launch from craft including calculation from its own speed
-        //TODO because of moving from moving object.
+        this.speed = origin.getSpeed();
+        this.maximalSpeed = weapon.getSpeed();
     }
 
     /**
-     * Method calculates distance between weapon position and its target.
+     * Method moves towards trg point.
      *
-     * @return double distance.
+     * @param trg utils.Vertex2D as target.
      */
-    public double distanceOfWeapon() {
-        return target.getPosition().distance(position);
+    @Override
+    public void moveTowardVertex(Vertex2D trg) {
+        Vertex2D delta = new Vertex2D(trg.getX() - getPosition().getX(), trg.getY() - getPosition().getY());
+        double angle = Math.atan2(delta.getY(), delta.getX());
+        if (position.distance(target.getPosition()) < speed) {
+            position = target.getPosition();
+        } else {
+            position = new Vertex2D(getPosition().getX() + (Math.cos(angle) * speed),
+                    getPosition().getY() + (Math.sin(angle) * speed));
+        }
     }
 
     /**
@@ -52,22 +59,18 @@ public class Attack implements Movable {
         position = new Vertex2D(position.getX() + vertex2D.getX(), position.getY() + vertex2D.getY());
     }
 
-    @Override
-    public Vertex2D getPosition() {
-        return position;
-    }
-
     /**
-     * Method moves towards center point.
+     * Method simulates missile startup and increase in speed in first seconds.
      */
-    @Override
-    public void moveTowardCenter() {
-        moveTowardVertex(new Vertex2D(0, 0));
+    public void increaseSpeed() {
+        if (speed < maximalSpeed && speed + weapon.getSpeed() / 3 > maximalSpeed) {
+            speed = maximalSpeed;
+        } else if (speed < maximalSpeed) {
+            speed += weapon.getSpeed() / 3;
+        }
     }
 
-    public void setPosition(Vertex2D position) {
-        this.position = position;
-    }
+    //Getters & Setters
 
     /**
      * Method returns speed of the object.
@@ -79,10 +82,6 @@ public class Attack implements Movable {
         return 0;
     }
 
-    public Craft getOrigin() {
-        return origin;
-    }
-
     public Craft getTarget() {
         return target;
     }
@@ -91,22 +90,18 @@ public class Attack implements Movable {
         return weapon;
     }
 
+    @Override
+    public Vertex2D getPosition() {
+        return position;
+    }
+
     /**
-     * Method moves towards trg point.
+     * Method sets new position.
      *
-     * @param trg utils.Vertex2D as target.
+     * @param vertex2D utils.Vertex2D position.
      */
     @Override
-    public void moveTowardVertex(Vertex2D trg) {
-        Vertex2D delta = new Vertex2D(trg.getX() - getPosition().getX(), trg.getY() - getPosition().getY());
-        double angle = Math.atan2(delta.getY(), delta.getX());
-        int speedX = 1;
-        if (position.distance(target.getPosition()) < speed) {
-            position = target.getPosition();
-        } else {
-            position = new Vertex2D(
-                    getPosition().getX() + (Math.cos(angle) * speedX),
-                    getPosition().getY() + (Math.sin(angle) * speedX));
-        }
+    public void setPosition(Vertex2D vertex2D) {
+        position = vertex2D;
     }
 }

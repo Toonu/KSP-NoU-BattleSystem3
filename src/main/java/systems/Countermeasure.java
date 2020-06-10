@@ -14,7 +14,8 @@ import java.util.EnumSet;
  */
 public class Countermeasure extends AbstractSystem implements Serializable, Comparable<Countermeasure>, KSPPart {
     private final CMType type;
-    private boolean oversaturated = false;
+    private boolean saturated = false;
+    private int usages = 0;
 
     /**
      * Constructor.
@@ -41,17 +42,9 @@ public class Countermeasure extends AbstractSystem implements Serializable, Comp
         return type.getTargets();
     }
 
-    public boolean isOversaturated() {
-        return oversaturated;
+    public boolean isSaturated() {
+        return saturated;
     }
-
-    /**
-     * Saturates the object.
-     */
-    public void saturate() {
-        oversaturated = !oversaturated;
-    }
-
 
     /**
      * Compares this object with the specified object for order.  Returns a
@@ -89,9 +82,26 @@ public class Countermeasure extends AbstractSystem implements Serializable, Comp
      *
      * @return new cloned Object.
      */
-    @Override
     public Countermeasure copy() {
         return new Countermeasure(getStrength(), getMinRange(), getMaxRange(), getName(),
                 getEra(), type, getInternalKSPName());
+    }
+
+    /**
+     * Method increases usage after countermeasure was used against attack and saturate it if it is over limits.
+     */
+    public void use() {
+        ++usages;
+        if (usages > Double.parseDouble(getEra().toString())) {
+            saturated = true;
+            usages = 3;
+        }
+    }
+
+    /**
+     * Method cools down the delay after usage of the countermeasure.
+     */
+    public void cooldown() {
+        --usages;
     }
 }

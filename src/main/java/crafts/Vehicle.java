@@ -13,7 +13,7 @@ import java.io.Serializable;
  * <p>
  * Class to simulate Ground Vehicle Craft on the battlefield.
  */
-public class Vehicle extends Craft implements ArmoredVehicle, Serializable {
+public class Vehicle extends Craft implements Serializable {
     private Armor armor;
 
     /**
@@ -37,7 +37,6 @@ public class Vehicle extends Craft implements ArmoredVehicle, Serializable {
      * @return Armor object.
      * @throws NullPointerException if there is no armor present.
      */
-    @Override
     public Armor getArmor() throws NullPointerException {
         if (armor != null) {
             return armor;

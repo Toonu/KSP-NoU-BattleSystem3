@@ -22,19 +22,18 @@ public class AnalyzedCraft {
     private final ArrayList<Weapon> weapons = new ArrayList<>();
     private final ArrayList<Countermeasure> cm = new ArrayList<>();
     private final ArrayList<Radar> radars = new ArrayList<>();
-    private final int hardpoints;
+    private final int hardPoints;
     private final String craftName;
 
     /**
      * Constructor.
      *
      * @param parts      parts.
-     * @param hardpoints hardpoints.
+     * @param hardPoints hard points.
      * @param craftName  craftName.
-     * @param hasAI      if the craft has BDA AI manager present.
      */
-    public AnalyzedCraft(LinkedList<String> parts, int hardpoints, String craftName, boolean hasAI) {
-        this.hardpoints = hardpoints;
+    public AnalyzedCraft(LinkedList<String> parts, int hardPoints, String craftName) {
+        this.hardPoints = hardPoints;
         this.craftName = craftName;
 
         LinkedList<KSPPart> partsSearch = new LinkedList<>();
@@ -98,8 +97,8 @@ public class AnalyzedCraft {
     @Override
     public String toString() {
         StringBuilder message = new StringBuilder();
-        message.append(String.format("%s: Hardpoints: [%s] [Missile: %s Gun: %s Avionics: %s] parts: [%s]",
-                craftName, hardpoints, missiles.size(), weapons.size(), cm.size(), partsUnnamed.size()));
+        message.append(String.format("%s: Hard points: [%s] [Missile: %s Gun: %s Avionics: %s] parts: [%s]",
+                craftName, hardPoints, missiles.size(), weapons.size(), cm.size(), partsUnnamed.size()));
         if (missiles.size() > 0) {
             message.append("\n[Missiles]");
             for (Missile sys : missiles) {

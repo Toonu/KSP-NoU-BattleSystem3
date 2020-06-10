@@ -109,9 +109,8 @@ public class CraftAnalyzer {
      */
     private static AnalyzedCraft getParts(File file) {
         LinkedList<String> parts = new LinkedList<>();
-        int hardpoints = 0;
+        int hardPoints = 0;
         String craftName = null;
-        String lastPart = "";
         boolean hasBDAModule = false;
         boolean hasAIPilot = false;
         boolean checkBDAModule = false;
@@ -133,9 +132,9 @@ public class CraftAnalyzer {
                         parts.add("\n");
                     }
                     if (Pattern.matches(".*bahaAdjustableRail.*", line)) {
-                        hardpoints += 3;
+                        hardPoints += 3;
                     } else if (Pattern.matches(".*StructBomb.*", line) || Pattern.matches(".*HeavyMount.*", line)) {
-                        hardpoints += 1;
+                        hardPoints += 1;
                     }
                 }
 
@@ -186,11 +185,7 @@ public class CraftAnalyzer {
                     "Wrong AI Pilot", JOptionPane.WARNING_MESSAGE);
         }
 
-        return new AnalyzedCraft(parts, hardpoints, craftName, hasBDAModule);
-    }
-
-    public static File getPath() {
-        return path;
+        return new AnalyzedCraft(parts, hardPoints, craftName);
     }
 
     public static void setPath(File path) {

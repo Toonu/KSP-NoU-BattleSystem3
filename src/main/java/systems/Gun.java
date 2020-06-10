@@ -79,7 +79,11 @@ public class Gun extends Weapon implements Serializable, KSPPart {
         return String.format("%10s %s", "[Gun]", this.getName());
     }
 
-    @Override
+    /**
+     * Method copies gun to duplicate it.
+     *
+     * @return new duplicated Gun
+     */
     public Gun copy() {
         return new Gun(getStrength(), getMinRange(), getMaxRange(), getTargets(), getName(), getEra(),
                 ammunition, isInternal(), getInternalKSPName(), ammoBox);

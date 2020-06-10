@@ -46,19 +46,7 @@ import java.util.stream.Stream;
 public class WriterReader {
     private static int counter = 0;
 
-    //TODO Add reading from online sheet maybe if possible integration with
-    // google sheets is viable and easy enough to implement it?
-
-    /**
-     * Method saves crafts to file from pathname.
-     *
-     * @param path     path to save to.
-     * @param template if templates should be saved into the file.
-     * @return true if the save went successfully.
-     */
-    public static boolean saveSetup(String path, boolean template) {
-        return saveSetupFile(new File(path), template);
-    }
+    //TODO Add reading from online sheet maybe if possible integration with google sheets is viable
 
     /**
      * Method saves crafts to save file.
@@ -164,16 +152,6 @@ public class WriterReader {
     }
 
     /**
-     * Method loads saved objects from save file.
-     *
-     * @param pathname path to target file.
-     * @return true if file was loaded successfully.
-     */
-    public static boolean loadSetup(String pathname) {
-        return loadSetupFile(new File(pathname));
-    }
-
-    /**
      * Method reads formatted craft csv file.
      *
      * @param path path to the file to import.
@@ -189,7 +167,6 @@ public class WriterReader {
 
                 if (!lines[1].equals("")) {
                     String name = lines[2];
-                    String classification = lines[3];
                     Era era = Era.valueOf(
                             new StringBuilder().append("Era19").append(lines[21]).deleteCharAt(7).toString());
 
@@ -277,7 +254,6 @@ public class WriterReader {
                                 .setLimitWeapons((int) Math.round(Double.parseDouble(lines[9])))
                                 .setLimitGuns((int) Math.round(Double.parseDouble(lines[6])))
                                 .build();
-                        String[] eraArmor = lines[8].split("/");
                         newArmor.getPenetrated().put(ArmorSide.FRONT,
                                 newVehicle.getArmor().getPenetrated().get(ArmorSide.FRONT) - 1);
                         newArmor.getPenetrated().put(ArmorSide.SIDE,

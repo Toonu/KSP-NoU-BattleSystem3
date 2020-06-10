@@ -3,9 +3,7 @@ package crafts.parts;
 import enums.ArmorSide;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.EnumMap;
-import java.util.Map;
 
 /**
  * @author Toonu
@@ -57,10 +55,6 @@ public class Armor implements Serializable {
 
     public EnumMap<ArmorSide, Integer> getPenetrated() {
         return penetrated;
-    }
-
-    public Map<ArmorSide, Double> getArmor() {
-        return Collections.unmodifiableMap(armor);
     }
 
     /**

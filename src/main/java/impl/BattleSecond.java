@@ -2,11 +2,8 @@ package impl;
 
 import crafts.Craft;
 import enums.Side;
-import systems.Weapon;
 
-import java.util.LinkedList;
 import java.util.TimerTask;
-import java.util.TreeMap;
 
 /**
  * @author Toonu
@@ -50,14 +47,21 @@ public class BattleSecond extends TimerTask {
         System.out.println(App.returnRealTime());
         App.setGlobalTime(App.getGlobalTime() + 1);
         for (Craft craft : Side.WHITE.getCrafts()) {
-            TreeMap<Craft, LinkedList<Weapon>> enemies = craft.findClosest();
-            craft.checkIncoming();
+            craft.findClosest();
+            craft.checkIncomingAttacks();
+            craft.tick();
+        }
+        for (Craft craft : Side.BLACK.getCrafts()) {
+            craft.findClosest();
+            craft.checkIncomingAttacks();
+            craft.tick();
         }
 
         for (Attack attack : OOB.getAttacks()) {
             if (attack.getTarget().getPosition().distance(attack.getPosition()) == 0) {
                 attack.getTarget().absorbDamage(attack.getWeapon().getStrength());
             } else {
+                attack.increaseSpeed();
                 attack.moveTowardVertex(attack.getTarget().getPosition());
             }
         }

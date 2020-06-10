@@ -1,6 +1,5 @@
 package impl;
 
-import crafts.Craft;
 import enums.Era;
 import ui.Gui;
 import utils.Vertex2D;
@@ -8,8 +7,6 @@ import utils.Vertex2D;
 import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /**
  * Gui Application Class.
@@ -32,8 +29,6 @@ public class App {
      * @param args args.
      */
     public static void main(String[] args) {
-        SortedSet<Craft> leftSide = new TreeSet<>();
-        SortedSet<Craft> rightSide = new TreeSet<>();
         debug = true;
         OOB.main(args);
     }

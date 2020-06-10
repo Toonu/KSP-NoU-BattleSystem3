@@ -90,12 +90,4 @@ public class AbstractSystem implements Serializable {
         return null;
     }
 
-    /**
-     * Makes  copy of this AbstractSystem.
-     *
-     * @return copy.
-     */
-    public AbstractSystem copy() {
-        return new AbstractSystem(strength, maxRange, minRange, name, era, internalKSPName);
-    }
 }

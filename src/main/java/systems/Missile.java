@@ -40,6 +40,10 @@ public class Missile extends Weapon implements Serializable, KSPPart {
         return guidanceType;
     }
 
+    public double getSpeed() {
+        return speed;
+    }
+
     @Override
     public String toString() {
         if (getGuidanceType() == GuidanceType.FALL) {
@@ -60,7 +64,11 @@ public class Missile extends Weapon implements Serializable, KSPPart {
         return String.format("%10s %s", "[Missile]", this.getName());
     }
 
-    @Override
+    /**
+     * Method copy missile to duplicate it.
+     *
+     * @return duplicated Missile object copy.
+     */
     public Missile copy() {
         return new Missile(getStrength(), getMinRange(), getMaxRange(), getTargets(),
                 getName(), getEra(), guidanceType, speed, getInternalKSPName());

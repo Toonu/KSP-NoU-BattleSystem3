@@ -57,8 +57,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
     private boolean isWithdrawing = false;
     private boolean isSelected = false;
     private int selectedTime = 0;
-    private int time;
-    private int tick = -1;
     private int lastFired = 0;
 
     /**
@@ -287,44 +285,10 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
     }
 
     /**
-     * Method travels distance.
-     *
-     * @param distance double distance to be traveled.
-     */
-    public void travelDistance(double distance) {
-        position.setX(position.getX() + distance);
-    }
-
-    /**
      * Method change status of withdrawal.
      */
     public void withdraw() {
         isWithdrawing = !isWithdrawing;
-    }
-
-    /**
-     * Method removes tick from cool down counter.
-     */
-    public void tick() {
-        --tick;
-    }
-
-    /**
-     * Method sets ticks to specified value. Done to renew countdown for launching weapons.
-     *
-     * @param tick maximal int value of countdown.
-     */
-    public void setTick(int tick) {
-        this.tick = tick;
-    }
-
-    /**
-     * Method to return new Builder to start building new craft.
-     *
-     * @return new empty Builder.
-     */
-    public Builder newBuilder() {
-        return new Builder();
     }
 
     /**
@@ -413,6 +377,9 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
                     OOB.addAttack(new Attack((Missile) weaponSystem, this, target.firstKey()));
                     removeSystem(weaponSystem);
                     side.getLostWeapons().add(weaponSystem);
+                    lastFired = DELAY;
+
+                    //TODO add check if craft can fire due to delay at the start of firing procedure
                     return true;
                 }
                 if (counter > 3) {
@@ -460,7 +427,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
      * Method checks all incoming attacks and apply countermeasures on them if they are in range.
      * If successful, removes the attack, otherwise it continues.
      */
-    public void checkIncoming() {
+    public void checkIncomingAttacks() {
         for (Attack attack : OOB.getAttacks()) {
             if (attack.getTarget() == this) {
                 for (Countermeasure cm : countermeasures) {
@@ -469,6 +436,7 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
                         if (attack.getWeapon().getEra().getModifier() > cm.getEra().getModifier()
                                 + new Random().nextInt(1)) {
                             OOB.getAttacks().remove(attack);
+                            cm.use();
                         }
                     }
                 }
@@ -541,6 +509,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         return possibleWeapons;
     }
 
+    //TODO add radar off Anti radiation missiles check and also check for saturation of countermeasures
+    // and saturate them automatically
 
     //Getters
 
@@ -564,20 +534,8 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         return type;
     }
 
-    public double getHp() {
-        return hp;
-    }
-
     public Era getCraftProductionYear() {
         return craftProductionYear;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public int getTick() {
-        return tick;
     }
 
     public double getSpeed() {
@@ -592,32 +550,12 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         return isSelected;
     }
 
-    public void setAngle(double angle) {
-        this.angle = angle;
-    }
-
     public int getSelectedTime() {
         return selectedTime;
     }
 
     public void setSelectedTime(int selectedTime) {
         this.selectedTime = selectedTime;
-    }
-
-    public int getAmountOfGuns() {
-        return amountOfGuns;
-    }
-
-    public int getAmountOfInternal() {
-        return amountOfInternal;
-    }
-
-    public int getLastFired() {
-        return lastFired;
-    }
-
-    public void setLastFired(int lastFired) {
-        this.lastFired = lastFired;
     }
 
     /**
@@ -703,12 +641,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         if (isWithdrawing != craft.isWithdrawing) {
             return false;
         }
-        if (time != craft.time) {
-            return false;
-        }
-        if (tick != craft.tick) {
-            return false;
-        }
         if (!Objects.equals(name, craft.name)) {
             return false;
         }
@@ -748,8 +680,6 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
         temp = Double.doubleToLongBits(hp);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (isWithdrawing ? 1 : 0);
-        result = 31 * result + time;
-        result = 31 * result + tick;
         return result;
     }
 
@@ -767,16 +697,28 @@ public class Craft implements Serializable, Movable, Comparable<Craft>, RadarVeh
     /**
      * Method assigns radar to the vehicle.
      *
-     * @param radar Radar to add.
+     * @param newRadar Radar to add.
      */
     @Override
-    public void addRadar(Radar radar) {
-        if (radar != null ||
-                Integer.parseInt(radar.getEra().toString()) <= Integer.parseInt(craftProductionYear.toString())) {
-            this.radar = radar;
-            App.err(radar + "added to the vehicle.", false, false);
+    public void addRadar(Radar newRadar) {
+        if (newRadar == null) {
+            App.err("Radar is null.", true, true);
+        } else if (Integer.parseInt(newRadar.getEra().toString()) <= Integer.parseInt(craftProductionYear.toString())) {
+            App.err("Radar is newer than the software allows.", true, true);
+        } else {
+            radar = newRadar;
+            App.err(newRadar + "added to the vehicle.", false, false);
         }
-        App.err("Radar is null or newer than the software allows.", true, true);
+    }
+
+    /**
+     * Method cools down delays on firing and its CMs.
+     */
+    public void tick() {
+        --lastFired;
+        for (Countermeasure cm : countermeasures) {
+            cm.cooldown();
+        }
     }
 
     //Builder
