@@ -1,9 +1,9 @@
 package impl;
 
-import crafts.Craft;
-import enums.Side;
+import simulation.crafts.Craft;
+import simulation.enums.Side;
 import ui.Gui;
-import ui.battleSystem.BattleFrame;
+import ui.battleGui.BattleFrame;
 
 import java.util.TimerTask;
 
@@ -18,7 +18,7 @@ public class MapBackground extends TimerTask {
      */
     @Override
     public void run() {
-        //Deselecting crafts on the map.
+        //Deselecting battleGui.crafts on the map.
         for (Craft craft : Side.WHITE.getCrafts()) {
             if (craft.getSelectedTime() > 0) {
                 craft.setSelectedTime(craft.getSelectedTime() - 1);

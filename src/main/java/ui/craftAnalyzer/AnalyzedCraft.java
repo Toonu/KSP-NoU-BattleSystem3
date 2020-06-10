@@ -1,12 +1,12 @@
 package ui.craftAnalyzer;
 
-import crafts.parts.Radar;
 import impl.OOB;
-import systems.Countermeasure;
-import systems.Gun;
-import systems.KSPPart;
-import systems.Missile;
-import systems.Weapon;
+import simulation.crafts.parts.Radar;
+import simulation.crafts.systems.Countermeasure;
+import simulation.crafts.systems.Gun;
+import simulation.crafts.systems.KSPPart;
+import simulation.crafts.systems.Missile;
+import simulation.crafts.systems.Weapon;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

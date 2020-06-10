@@ -1,10 +1,10 @@
 package ui;
 
-import crafts.Craft;
 import impl.OOB;
-import systems.Countermeasure;
-import systems.KSPPart;
-import systems.Weapon;
+import simulation.crafts.Craft;
+import simulation.crafts.systems.Countermeasure;
+import simulation.crafts.systems.KSPPart;
+import simulation.crafts.systems.Weapon;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -43,7 +43,7 @@ public class JCraftPanel extends JPanel {
      * Constructor.
      *
      * @param text           label text.
-     * @param selectedCrafts list of selected crafts.
+     * @param selectedCrafts list of selected battleGui.crafts.
      * @param simple         if weapon manager should be shown.
      */
     public JCraftPanel(String text, ArrayList<Craft> selectedCrafts, boolean simple) {
@@ -161,7 +161,7 @@ public class JCraftPanel extends JPanel {
     /**
      * Updates UI with craft from the list.
      *
-     * @param list crafts list.
+     * @param list battleGui.crafts list.
      */
     public void updateUI(JList<Craft> list) {
         selectedCrafts = (ArrayList<Craft>) list.getSelectedValuesList();
@@ -185,7 +185,7 @@ public class JCraftPanel extends JPanel {
     }
 
     /**
-     * Updates systems with new values.
+     * Updates battleGui.crafts.systems with new values.
      */
     public void updateSystems() {
         systemsPanel.removeAll();

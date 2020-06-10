@@ -1,8 +1,8 @@
 package impl;
 
+import simulation.crafts.Craft;
+
 import java.io.Serializable;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * @author Toonu
@@ -20,10 +20,28 @@ public class BattleBackground implements Runnable, Serializable {
 
     /**
      * Constructor when loading battle.
+     *
      * @param currentSituation to resume battle from the situation.
      */
     public BattleBackground(BattleSecond currentSituation) {
         this.currentSituation = currentSituation;
+    }
+
+    /**
+     * Method calculates impact angle between the targets.
+     *
+     * @param aggressor vehicle that fired.
+     * @param target    vehicle that are hit and calculated.
+     * @return angle of hit.
+     */
+    public static double hitAngle(Craft aggressor, Craft target) {
+        double angle = (Math.toDegrees(Math.atan2(aggressor.getPosition().getY() - target.getPosition().getY(),
+                aggressor.getPosition().getX() - target.getPosition().getX())));
+        angle -= target.getAngle();
+        if (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
 
     /**
@@ -39,20 +57,10 @@ public class BattleBackground implements Runnable, Serializable {
      */
     @Override
     public void run() {
-        BattleBackground battle = new BattleBackground();
-        Timer t = new Timer();
-        TimerTask tt = new BattleSecond();
-        TimerTask tm = new MapBackground();
-
-        t.schedule(tt, 0, 1000);
-        t.schedule(tm, 0, 1000);
-
         while (!App.isFinished()) {
-            System.out.print("");
+            OOB.addStage(new BattleSecond());
         }
-        tt.cancel();
-        tm.cancel();
-        t.cancel();
+        OOB.getT().cancel();
     }
 
     public BattleSecond getCurrentSituation() {

@@ -1,16 +1,19 @@
 package impl;
 
-import crafts.Craft;
-import enums.Side;
+import simulation.crafts.Craft;
+import simulation.crafts.systems.Weapon;
+import simulation.enums.Side;
 
-import java.util.TimerTask;
+import java.util.LinkedList;
+import java.util.TreeMap;
+import java.util.stream.Stream;
 
 /**
  * @author Toonu
  * <p>
  * Class representing second of battle time.
  */
-public class BattleSecond extends TimerTask {
+public class BattleSecond {
 
     //Following Final results, fired weapons, lost weapons, lost vehicles, retreated vehicles.
 
@@ -18,44 +21,15 @@ public class BattleSecond extends TimerTask {
      * Constructor.
      */
     public BattleSecond() {
-        run();
-    }
-
-
-    /**
-     * Method calculates impact angle between the targets.
-     *
-     * @param aggressor vehicle that fired.
-     * @param target    vehicle that are hit and calculated.
-     * @return angle of hit.
-     */
-    public static double hitAngle(Craft aggressor, Craft target) {
-        double angle = (Math.toDegrees(Math.atan2(aggressor.getPosition().getY() - target.getPosition().getY(),
-                aggressor.getPosition().getX() - target.getPosition().getX())));
-        angle -= target.getAngle();
-        if (angle < 0) {
-            angle += 360;
-        }
-        return angle;
-    }
-
-    /**
-     * The action to be performed by this timer task.
-     */
-    @Override
-    public void run() {
         System.out.println(App.returnRealTime());
         App.setGlobalTime(App.getGlobalTime() + 1);
-        for (Craft craft : Side.WHITE.getCrafts()) {
-            craft.findClosest();
-            craft.checkIncomingAttacks();
-            craft.tick();
-        }
-        for (Craft craft : Side.BLACK.getCrafts()) {
-            craft.findClosest();
-            craft.checkIncomingAttacks();
-            craft.tick();
-        }
+
+        Stream.of(Side.WHITE.getCrafts().stream(), Side.BLACK.getCrafts().stream()).flatMap(s -> s).forEach(s1 -> {
+            TreeMap<Craft, LinkedList<Weapon>> selection = s1.findAndEngage();
+            s1.fire(selection);
+            s1.checkIncomingAttacks();
+            s1.tick();
+        });
 
         for (Attack attack : OOB.getAttacks()) {
             if (attack.getTarget().getPosition().distance(attack.getPosition()) == 0) {

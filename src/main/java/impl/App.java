@@ -1,8 +1,8 @@
 package impl;
 
-import enums.Era;
+import simulation.enums.Era;
+import simulation.utils.Vertex2D;
 import ui.Gui;
-import utils.Vertex2D;
 
 import javax.swing.JOptionPane;
 import java.time.LocalTime;

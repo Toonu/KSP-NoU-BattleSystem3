@@ -1,15 +1,15 @@
 package impl;
 
-import crafts.parts.FuelTank;
-import crafts.parts.Radar;
-import crafts.parts.ReconSuite;
-import enums.Side;
-import systems.AbstractSystem;
-import systems.Countermeasure;
-import systems.KSPPart;
-import systems.Weapon;
+import simulation.crafts.parts.FuelTank;
+import simulation.crafts.parts.Radar;
+import simulation.crafts.parts.ReconSuite;
+import simulation.crafts.systems.AbstractSystem;
+import simulation.crafts.systems.Countermeasure;
+import simulation.crafts.systems.KSPPart;
+import simulation.crafts.systems.Weapon;
+import simulation.enums.Side;
+import simulation.utils.WriterReader;
 import ui.Gui;
-import utils.WriterReader;
 
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
@@ -17,11 +17,12 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Timer;
 
 /**
  * @author Toonu
  * <p>
- * Class representing setting up battle from new weapons, systems and crafts.
+ * Class representing setting up battle from new weapons, battleGui.crafts.systems and battleGui.crafts.
  */
 public class OOB {
     private static final Side TEMPLATE = Side.TEMPLATE;
@@ -30,8 +31,9 @@ public class OOB {
     private static final LinkedList<Radar> RADARS = new LinkedList<>();
     private static final LinkedList<KSPPart> OTHERS = new LinkedList<>();
     private static final Queue<BattleSecond> STAGES = new ArrayDeque<>();
-    private static BattleBackground battleBackground;
+    private static final BattleBackground battle = new BattleBackground();
     private static final Set<Attack> ATTACKS = new HashSet<>();
+    private static final Timer t = new Timer();
 
     /**
      * Main method.
@@ -47,8 +49,8 @@ public class OOB {
         OTHERS.add(new FuelTank());
 
         Gui.main(args);
-        //BattleBackground battle = new BattleBackground();
         //new Thread(battle).start();
+        //TODO Implement battle mechanics
     }
 
     /**
@@ -115,7 +117,7 @@ public class OOB {
     }
 
     public static BattleBackground getBattleBackground() {
-        return battleBackground;
+        return battle;
     }
 
     public static Set<Attack> getAttacks() {
@@ -131,5 +133,20 @@ public class OOB {
         ATTACKS.add(attack);
     }
 
+    public static Queue<BattleSecond> getSTAGES() {
+        return STAGES;
+    }
 
+    /**
+     * Method adds bs BattleSecond to database.
+     *
+     * @param bs BattleSecond to add.
+     */
+    public static void addStage(BattleSecond bs) {
+        STAGES.add(bs);
+    }
+
+    public static Timer getT() {
+        return t;
+    }
 }

@@ -1,7 +1,7 @@
 package ui;
 
-import crafts.Craft;
-import enums.Side;
+import simulation.crafts.Craft;
+import simulation.enums.Side;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;

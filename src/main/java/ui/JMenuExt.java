@@ -1,10 +1,10 @@
 package ui;
 
-import enums.Side;
 import impl.App;
-import ui.battleSystem.BattleFrame;
+import simulation.enums.Side;
+import simulation.utils.WriterReader;
+import ui.battleGui.BattleFrame;
 import ui.craftAnalyzer.CraftAnalyzer;
-import utils.WriterReader;
 
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;

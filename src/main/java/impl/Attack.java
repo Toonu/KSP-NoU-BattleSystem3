@@ -1,9 +1,9 @@
 package impl;
 
-import crafts.Craft;
-import systems.Missile;
-import utils.Movable;
-import utils.Vertex2D;
+import simulation.crafts.Craft;
+import simulation.crafts.systems.Missile;
+import simulation.utils.Movable;
+import simulation.utils.Vertex2D;
 
 /**
  * @author Toonu
@@ -35,7 +35,7 @@ public class Attack implements Movable {
     /**
      * Method moves towards trg point.
      *
-     * @param trg utils.Vertex2D as target.
+     * @param trg battleGui.utils.Vertex2D as target.
      */
     @Override
     public void moveTowardVertex(Vertex2D trg) {
@@ -98,7 +98,7 @@ public class Attack implements Movable {
     /**
      * Method sets new position.
      *
-     * @param vertex2D utils.Vertex2D position.
+     * @param vertex2D battleGui.utils.Vertex2D position.
      */
     @Override
     public void setPosition(Vertex2D vertex2D) {

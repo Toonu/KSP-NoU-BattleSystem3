@@ -1,9 +1,9 @@
 package ui;
 
 
-import ui.battleSystem.BattleFrame;
-import ui.battleSystem.OOBFrame;
-import ui.battleSystem.WelcomeFrame;
+import ui.battleGui.BattleFrame;
+import ui.battleGui.OOBFrame;
+import ui.battleGui.WelcomeFrame;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
