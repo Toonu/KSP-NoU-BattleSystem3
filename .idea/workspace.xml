@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0912af-8e85-4dfa-bd6f-d66bfd1eefb0" name="Default Changelist" comment="Added few iterations of Battle background math.&#10;-version 0.2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distribution/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/distribution/config.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591799544875</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Update">
+      <created>1593077058446</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1593077058446</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +467,6 @@
       <path value="$PROJECT_DIR$/KSP-NoU-BattleSystem3" />
       <path value="$PROJECT_DIR$/KSP-NoU-CraftAnalyzer" />
     </ignored-roots>
-    <MESSAGE value="Tweaks to IO and Positioning system." />
     <MESSAGE value="Started OOB" />
     <MESSAGE value="Maven refractor to basic folder layout." />
     <MESSAGE value="Started Template window." />
@@ -486,7 +491,8 @@
     <MESSAGE value="Craft Analyzer tweaks and updated database.&#10;-version 0.2.3" />
     <MESSAGE value="Craft Analyzer tweaks and updated database. Added few iterations of Battle background math.&#10;-version 0.2.3" />
     <MESSAGE value="Added few iterations of Battle background math.&#10;-version 0.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added few iterations of Battle background math.&#10;-version 0.2.3" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -653,10 +659,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="839" y="314" key="UIDesigner.ListEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590395396586" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591799551004">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1593077061208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591799551004" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593077061208" />
     <state x="393" y="184" key="Vcs.Push.Dialog.v2/0.23.1366.681@0.23.1366.681" timestamp="1591788165358" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1590592455831">
       <screen x="0" y="0" width="1920" height="1040" />
